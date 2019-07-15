@@ -1,0 +1,44 @@
+{
+    "template_fm" : {
+        "template" : "matcher_*",
+		"settings" : {
+			"index" : {
+				"number_of_shards" : 5,
+				"analysis" : {
+					"analyzer" : {
+						"default" : {
+							"type" : "custom",
+							"tokenizer" : "matcher_tokenizer",
+							"filter" : "matcher_filter"
+						}
+					},
+					"tokenizer" : {
+						"matcher_tokenizer" : {
+							"type" : "keyword"
+						}
+					},
+					"filter" : {
+						"matcher_filter" : {
+							"type" : "lowercase"
+						}
+					}
+				}
+			}
+		},
+		"mappings" : {
+			"_default_" : {
+				"_all" : {
+					"enabled" : false
+				},
+				"dynamic_templates": [
+					{ "matcher_default": {
+						  "match": "*", 
+						  "mapping": {
+							  "type": "string"
+						  }
+					}}
+				]
+			}
+		}
+	}
+}

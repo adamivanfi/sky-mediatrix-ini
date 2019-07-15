@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
+  <endpoint name="ContexWs"
+    implementation="com.nttdata.de.sky.webservice.service.ContexWsImpl"
+    url-pattern="/ContexWs" />
+  <endpoint name="clientEvent"
+            implementation="com.nttdata.de.sky.webservice.service.PushServerImpl"
+            url-pattern="/clientEvent" />
+    <endpoint name="scmConnector"
+              implementation="com.nttdata.de.sky.webservice.service.ScmPushServerImpl"
+              url-pattern="/scmConnector" />
+</endpoints>

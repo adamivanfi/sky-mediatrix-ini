@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="SiebelService_v6.0" resourceRoot="" soapui-version="5.0.0" abortOnError="false" runType="SEQUENTIAL" activeEnvironment="Default" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="SiebelServiceEndpointBinding" type="wsdl" bindingName="{http://www.sky.de/integration/web/SiebelService/1.0}SiebelServiceEndpointBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/ADMHUBE58/Documents/SiebelService_v6.0.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\ADMHUBE58\Documents\SiebelService_v6.0.wsdl"><con:part><con:url>file:\C:\Users\ADMHUBE58\Documents\SiebelService_v6.0.wsdl</con:url><con:content><![CDATA[<!--Created by TIBCO WSDL-->
+<wsdl:definitions name="Untitled" targetNamespace="http://www.sky.de/integration/web/SiebelService/1.0" xmlns:tns="http://www.sky.de/integration/web/SiebelService/1.0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.sky.de/integration/web/SiebelService/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:ns1="http://www.sky.de/integration/web/SiebelService/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="Fault_Type">
+        <xs:sequence>
+          <xs:element name="ErrorCode" type="xs:string"/>
+          <xs:element name="ErrorDesc" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="Status_Type">
+        <xs:restriction base="xs:string">
+          <xs:length value="2"/>
+          <xs:enumeration value="OK"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="adjustSRRequest_Type">
+        <xs:sequence>
+          <xs:element name="DocumentId" type="xs:string"/>
+          <xs:element name="ContactId" type="xs:string"/>
+          <xs:element name="CustomerIdNew" type="xs:string"/>
+          <xs:element name="ContractIdNew" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="adjustSRResponse_Type">
+        <xs:sequence>
+          <xs:element name="Status" type="ns1:Status_Type"/>
+          <xs:element name="DocumentId" type="xs:string"/>
+          <xs:element name="ContactIdNew" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="associateDocumentIdRequest_Type">
+        <xs:sequence>
+          <xs:element name="CorrelationId" type="xs:string"/>
+          <xs:element name="DocumentId" type="xs:string"/>
+          <xs:element name="UseCaseId" type="xs:string"/>
+          <xs:element name="ActivityId" type="xs:string"/>
+          <xs:element name="Channel" type="xs:string"/>
+          <xs:element name="Direction" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="associateDocumentIdResponse_Type">
+        <xs:sequence>
+          <xs:element name="Status" type="ns1:Status_Type"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createContactRequest_Type">
+        <xs:sequence>
+          <xs:element name="CorrelationId" type="xs:string"/>
+          <xs:element name="DocumentId" type="xs:string"/>
+          <xs:element name="UseCaseId" type="xs:string"/>
+          <xs:element name="Channel" type="xs:string"/>
+          <xs:element name="Direction" type="xs:string" minOccurs="0"/>
+          <xs:element name="CustomerId" type="xs:string"/>
+          <xs:element name="ContractId" type="xs:string" minOccurs="0"/>
+          <xs:element name="DocumentType" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createContactResponse_Type">
+        <xs:sequence>
+          <xs:element name="Status" type="ns1:Status_Type"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createTrackingSRRequest_Type">
+        <xs:sequence>
+          <xs:element name="CorrelationId" type="xs:string"/>
+          <xs:element name="DocumentId" type="xs:string"/>
+          <xs:element name="UseCaseId" type="xs:string"/>
+          <xs:element name="CustomerId" type="xs:string"/>
+          <xs:element name="ContactId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="createTrackingSRResponse_Type">
+        <xs:sequence>
+          <xs:element name="Status" type="ns1:Status_Type"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Fault" type="ns1:Fault_Type"/>
+      <xs:element name="adjustSRRequest" type="ns1:adjustSRRequest_Type"/>
+      <xs:element name="adjustSRResponse" type="ns1:adjustSRResponse_Type"/>
+      <xs:element name="associateDocumentIdRequest" type="ns1:associateDocumentIdRequest_Type"/>
+      <xs:element name="associateDocumentIdResponse" type="ns1:associateDocumentIdResponse_Type"/>
+      <xs:element name="createContactRequest" type="ns1:createContactRequest_Type"/>
+      <xs:element name="createContactResponse" type="ns1:createContactResponse_Type"/>
+      <xs:element name="createTrackingSRRequest" type="ns1:createTrackingSRRequest_Type"/>
+      <xs:element name="createTrackingSRResponse" type="ns1:createTrackingSRResponse_Type"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:service name="SiebelService">
+    <wsdl:port name="SiebelServiceEndpoint" binding="tns:SiebelServiceEndpointBinding">
+      <soap:address location="http://localhost:13200/BusinessService/SiebelService"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsdl:portType name="PortType">
+    <wsdl:operation name="createTrackingSR">
+      <wsdl:input message="tns:MsgCreateTrackingSRRequest"/>
+      <wsdl:output message="tns:MsgCreateTrackingSRResponse"/>
+      <wsdl:fault name="fault1" message="tns:MsgFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="adjustSR">
+      <wsdl:input message="tns:MsgAdjustSRRequest"/>
+      <wsdl:output message="tns:MsgAdjustSRResponse"/>
+      <wsdl:fault name="fault1" message="tns:MsgFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="createContact">
+      <wsdl:input message="tns:MsgCreateContactRequest"/>
+      <wsdl:output message="tns:MsgCreateContactResponse"/>
+      <wsdl:fault name="fault1" message="tns:MsgFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="associateDocumentId">
+      <wsdl:input message="tns:MsgAssociateDocumentIdRequest"/>
+      <wsdl:output message="tns:MsgAssociateDocumentIdResponse"/>
+      <wsdl:fault name="fault1" message="tns:MsgFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SiebelServiceEndpointBinding" type="tns:PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createTrackingSR">
+      <soap:operation style="document" soapAction="createTrackingSR"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="createTrackingSRRequest"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="createTrackingSRResponse"/>
+      </wsdl:output>
+      <wsdl:fault name="fault1">
+        <soap:fault use="literal" name="fault1"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="adjustSR">
+      <soap:operation style="document" soapAction="adjustSR"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="adjustSRRequest"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="adjustSRResponse"/>
+      </wsdl:output>
+      <wsdl:fault name="fault1">
+        <soap:fault use="literal" name="fault1"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createContact">
+      <soap:operation style="document" soapAction="createContact"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="createContactRequest"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="createContactResponse"/>
+      </wsdl:output>
+      <wsdl:fault name="fault1">
+        <soap:fault use="literal" name="fault1"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="associateDocumentId">
+      <soap:operation style="document" soapAction="associateDocumentId"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="associateDocumentIdRequest"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="associateDocumentIdResponse"/>
+      </wsdl:output>
+      <wsdl:fault name="fault1">
+        <soap:fault use="literal" name="fault1"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:message name="MsgCreateTrackingSRRequest">
+    <wsdl:part name="createTrackingSRRequest" element="tns:createTrackingSRRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MsgCreateTrackingSRResponse">
+    <wsdl:part name="createTrackingSRResponse" element="tns:createTrackingSRResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MsgFault">
+    <wsdl:part name="Fault" element="tns:Fault"/>
+  </wsdl:message>
+  <wsdl:message name="MsgAdjustSRRequest">
+    <wsdl:part name="adjustSRRequest" element="tns:adjustSRRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MsgAdjustSRResponse">
+    <wsdl:part name="adjustSRResponse" element="tns:adjustSRResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MsgCreateContactRequest">
+    <wsdl:part name="createContactRequest" element="tns:createContactRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MsgCreateContactResponse">
+    <wsdl:part name="createContactResponse" element="tns:createContactResponse"/>
+  </wsdl:message>
+  <wsdl:message name="MsgAssociateDocumentIdRequest">
+    <wsdl:part name="associateDocumentIdRequest" element="tns:associateDocumentIdRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MsgAssociateDocumentIdResponse">
+    <wsdl:part name="associateDocumentIdResponse" element="tns:associateDocumentIdResponse"/>
+  </wsdl:message>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://10.96.111.12:13200/BusinessService/SiebelService</con:endpoint><con:endpoint>http://10.96.53.10:13200/BusinessService/SiebelService</con:endpoint><con:endpoint>http://localhost:13200/BusinessService/SiebelService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="adjustSR" name="adjustSR" bindingOperationName="adjustSR" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.96.53.10:13200/BusinessService/SiebelService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.sky.de/integration/web/SiebelService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:adjustSRRequest>
+         <ns:DocumentId>1327563236856-3607</ns:DocumentId>
+         <ns:ContactId>1-18IaaaaaaaaQK5X</ns:ContactId>
+        <ns:CustomerIdNew>414xxxxxxxx0000078</ns:CustomerIdNew>
+      </ns:adjustSRRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="adjustSR"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="associateDocumentId" name="associateDocumentId" bindingOperationName="associateDocumentId" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.96.53.10:13200/BusinessService/SiebelService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.sky.de/integration/web/SiebelService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:associateDocumentIdRequest>
+         <ns:CorrelationId>13453335434</ns:CorrelationId>
+         <ns:DocumentId>13453335434</ns:DocumentId>
+         <ns:UseCaseId>IF 4.4</ns:UseCaseId>
+         <ns:ActivityId>1234567890</ns:ActivityId>
+         <ns:Channel>MAIL</ns:Channel>
+         <ns:Direction>OUTBOUND</ns:Direction>
+      </ns:associateDocumentIdRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="associateDocumentId"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="createContact" name="createContact" bindingOperationName="createContact" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.96.111.12:13200/BusinessService/SiebelService </con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.sky.de/integration/web/SiebelService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:createContactRequest>
+         <ns:CorrelationId>ITYX20130411092551609-32294140</ns:CorrelationId>
+         <ns:DocumentId>ITYX20130411092551609-32294140</ns:DocumentId>
+         <ns:UseCaseId>IF4.1</ns:UseCaseId>
+         <ns:Channel>EMAIL</ns:Channel>
+         <ns:CustomerId>7040019930</ns:CustomerId>
+      </ns:createContactRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+<!-- 
+CustomerID	7040019930
+SiebelCustomerID	1-1DZQ3ZC
+DocumentID	ITYX20130411092551609-32294140
+
+-->]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="createContact"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="createTrackingSR" name="createTrackingSR" bindingOperationName="createTrackingSR" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.96.53.10:13200/BusinessService/SiebelService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.sky.de/integration/web/SiebelService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:createTrackingSRRequest>
+         <ns:CorrelationId>1234567890</ns:CorrelationId>
+         <ns:DocumentId>1234567890</ns:DocumentId>
+         <ns:UseCaseId>IF4.5</ns:UseCaseId>
+         <ns:CustomerId>1111h22222h2222</ns:CustomerId>
+         <ns:ContactId>xxxxxxxxxx</ns:ContactId>
+      </ns:createTrackingSRRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="createTrackingSR"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

@@ -1,0 +1,4 @@
+
+exec MAINTAIN.KPI_DOCPOOL_NEW();
+
+exit

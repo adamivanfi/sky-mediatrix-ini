@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StateGraph version="1.0" start="4">
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="8" type="Document Write" x="440.0" y="20.0">
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="inputKey" value="session.pdf" />
+      <param type="String" name="copyFolderPath" value="##outputPDF##" />
+      <param type="String" name="documentRootFolder" value="" />
+      <param type="String" name="fileName" value="##DocumentID##.pdf" />
+      <param type="String" name="charset" value="Default" />
+      <param type="IntervalSelectionData" name="docSelectionData" selectionType="ALL" intervalText="" pageByPage="false" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="7" type="Create PDF" x="220.0" y="20.0">
+    <Next id="8" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="inputKey" value="session.tif" />
+      <param type="String" name="outputKey" value="session.pdf" />
+      <param type="boolean" name="noMerge" value="false" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="4" type="OpenFile" x="40.0" y="20.0">
+    <Next id="7" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="fileName" value="##outputTIFF##" />
+      <param type="String" name="fileNameInputKey" value="" />
+      <param type="String" name="outputKey" value="session.tif" />
+      <param type="String" name="charset" value="Default" />
+    </values>
+  </State>
+  <edge source="7" target="8" text="">
+    <point x="220" y="20" />
+    <point x="440" y="20" />
+  </edge>
+  <edge source="4" target="7" text="">
+    <point x="40" y="20" />
+    <point x="220" y="20" />
+  </edge>
+  <InputMaps>
+    <Key Name="modelMap">
+      <ParameterMap class="de.ityx.contex.impl.designer.exflow.maps.ParameterMap" />
+    </Key>
+  </InputMaps>
+  <OutputMaps>
+    <Key Name="outputMap">
+      <ParameterMap class="de.ityx.contex.impl.designer.exflow.maps.ParameterMap" />
+    </Key>
+  </OutputMaps>
+</StateGraph>
+

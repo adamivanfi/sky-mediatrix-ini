@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:amq="http://activemq.apache.org/schema/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-3.1.xsd
+         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+         http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-3.0.xsd
+         http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd
+         http://www.springframework.org/schema/tx 
+         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+         ">
+
+	
+	<!-- Bean that handles resources that could not be imported for some reason -->	
+	<bean id="errorHandler" class="de.ityx.scheduler.error.DefaultErrorHandler" />
+
+	<!-- Callback for scheduler jobs that create a CDocument and notify the process order service -->
+	<bean id="resourceHandler"	class="de.ityx.scheduler.jobs.resource.DocPoolProcessResourceHandler">
+		<property name="processOrderService">
+			<bean id="orderService" class="de.ityx.scheduler.processorder.api.ProcessOrderServiceClient"></bean>
+		</property>
+		<property name="documentPoolService">
+			<bean id="documentPoolService" class="de.ityx.contex.impl.document.service.DocumentPoolServiceClient" />
+		</property>
+	</bean>
+
+	<!-- Bean that builds the absolute Path of a resource -->
+	<bean id="pathBuilder" class="de.ityx.scheduler.jobs.base.DefaultPathBuilder" />
+
+</beans>

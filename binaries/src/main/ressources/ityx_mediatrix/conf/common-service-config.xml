@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	">
+
+	<context:property-placeholder />
+
+	<!-- SocketFactory used by RMI-Registry on service host -->
+	<bean id="socketFactory" class="de.ityx.contex.service.util.PortRangeRMISocketFactory">
+		<constructor-arg index="0" name="rangeStart" value="1100" />
+		<constructor-arg index="1" name="rangeEnd" value="2099" />
+	</bean>
+
+    <!-- Register global SocketFactory -->
+    <bean class="de.ityx.contex.service.util.RMISocketFactoryConfiguration">
+        <property name="factory" ref="socketFactory" />
+    </bean>
+
+	<!-- EndpointProvider Configuration	used by RMI-based service clients to discover service endpoints -->
+	
+<!-- 	<bean id="hostProvider" class="de.ityx.contex.service.InfinispanEndpointProvider" /> -->
+
+	<bean id="hostProvider" class="de.ityx.contex.service.endpoint.PreconfiguredEndpointProvider">
+		<constructor-arg>
+			<list>
+				<bean class="de.ityx.contex.service.endpoint.PreconfiguredEndpoint">
+					<property name="host" value="${de.ityx.service.endpoint.host:127.0.0.1}" />
+					<property name="port" value="${de.ityx.service.endpoint.port:1099}"></property>
+					<property name="serviceName" value="ALL" />
+				</bean>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<!-- InvocationFactory used to propagate Security/Execution Context -->
+	<bean id="remoteInvocationFactory" class="de.ityx.contex.service.transport.propagation.ConfigurablePropagationRemoteInvocationFactory">
+		<property name="propagations">
+			<array>
+				<value>de.ityx.contex.service.transport.propagation.SecurityContextPropagation</value>
+				<value>de.ityx.contex.service.transport.propagation.ExecutionContextPropagation</value>
+			</array>
+		</property>
+	</bean>
+
+</beans>

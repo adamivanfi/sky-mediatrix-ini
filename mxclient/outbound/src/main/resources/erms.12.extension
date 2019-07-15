@@ -1,0 +1,7 @@
+#Build Number for ANT. Do not edit!
+#Fri Dec 10 17:19:21 CET 2010
+ityx.erms.ClientExtensionClass=com.nttdata.de.sky.pdf.ClientTemplateExtension
+build.minor=0
+build.number=61
+build.major=1
+ityx.erms.ExtensionClass=de.ityx.sky.outbound.extensions.template.ServerTemplateExtension

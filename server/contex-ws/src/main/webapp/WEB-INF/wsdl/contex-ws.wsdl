@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions targetNamespace="http://webservice.contex.ityx.de/service"
+             name="ContexWs" xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://webservice.contex.ityx.de/service" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:schema="http://webservice.contex.ityx.de/schema">
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://webservice.contex.ityx.de/schema"
+                        schemaLocation="contex-ws.xsd" />
+        </xsd:schema>
+    </types>
+    <message name="ContexRequestMessage">
+        <part name="request" element="schema:ContexRequest" />
+    </message>
+    <message name="ContexResponseMessage">
+        <part name="response" element="schema:ContexResponse" />
+    </message>
+    <message name="ContexErrorMessage">
+        <part name="fault" element="schema:ContexError" />
+    </message>
+    <portType name="ContexWs">
+        <operation name="runProcess">
+            <input message="tns:ContexRequestMessage" />
+            <output message="tns:ContexResponseMessage" />
+            <fault message="tns:ContexErrorMessage" name="ContexError" />
+        </operation>
+    </portType>
+    <binding name="ContexWsBinding" type="tns:ContexWs">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+                      style="document" />
+        <operation name="runProcess">
+            <soap:operation soapAction="urn:runProcess" style="document"/>
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+            <fault name="ContexError">
+                <soap:fault name="ContexError" use="literal" />
+            </fault>
+        </operation>
+    </binding>
+    <service name="ContexWsService">
+        <port name="ContexWsPort" binding="tns:ContexWsBinding">
+            <soap:address location="REPLACE_WITH_ACTUAL_URL" />
+        </port>
+    </service>
+</definitions>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StateGraph version="1.0" start="7">
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="7" type="Bean" x="20.0" y="20.0">
+    <Next id="1" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="Config" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="beanClasse" value="com.nttdata.de.ityx.cx.workflow.Wfl_000_Configuration" />
+      <param type="Map" name="beanProperties" value="&lt;tree-map&gt;&#xA;  &lt;no-comparator/&gt;&#xA;&lt;/tree-map&gt;" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="6" type="Bean" x="770.0" y="20.0">
+    <Next id="4" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="ReportingEnd" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="beanClasse" value="com.nttdata.de.ityx.cx.sky.reporting.WorkflowEndReportingBean" />
+      <param type="Map" name="beanProperties" value="&lt;tree-map&gt;&#xA;  &lt;no-comparator/&gt;&#xA;&lt;/tree-map&gt;" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="5" type="Bean" x="320.0" y="20.0">
+    <Next id="2" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="ReportingStart" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="beanClasse" value="com.nttdata.de.ityx.cx.sky.reporting.WorkflowReportingBean" />
+      <param type="Map" name="beanProperties" value="&lt;tree-map&gt;&#xA;  &lt;no-comparator/&gt;&#xA;&lt;/tree-map&gt;" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="4" type="End" x="920.0" y="20.0">
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="3" type="Document Pool" x="620.0" y="20.0">
+    <Next id="6" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="imageInKey" value="session.doc" />
+      <param type="String" name="imageOutKey" value="" />
+      <param type="String" name="parameterKey" value="" />
+      <param type="String" name="master" value="sky" />
+      <param type="String" name="parameter" value="##FHV_docStateEnrichment##" />
+      <param type="int" name="prio" value="4" />
+      <param type="int" name="type" value="8" />
+      <param type="boolean" name="insert" value="true" />
+      <param type="boolean" name="read" value="false" />
+      <param type="String" name="bean" value="" />
+      <param type="boolean" name="delete" value="true" />
+      <param type="long" name="poolServiceLevel" value="0" />
+      <param type="boolean" name="waitUntil" value="false" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="delayTimeUnit" value="MS" />
+      <param type="boolean" name="realIdle" value="false" />
+      <param type="String" name="timeUnit" value="MS" />
+      <param type="long" name="idleTime" value="0" />
+      <param type="boolean" name="saveDocAttributes" value="false" />
+      <param type="int" name="unlockCond" value="0" />
+      <param type="boolean" name="usePrioFromFlow" value="false" />
+      <param type="array" name="whiteList" value="&lt;object-array/&gt;" />
+      <param type="array" name="blackList" value="&lt;object-array/&gt;" />
+      <param type="long" name="maxCollectionWaitTime" value="0" />
+      <param type="String" name="externalId" value="" />
+      <param type="String" name="collectionSize" value="" />
+      <param type="int" name="errorCount" value="3" />
+      <param type="boolean" name="sendErrorEmail" value="false" />
+      <param type="EmailData" name="emailData" value="&lt;de.ityx.contex.impl.common.EmailData&gt;&#xA;  &lt;auth&gt;true&lt;/auth&gt;&#xA;  &lt;host&gt;&lt;/host&gt;&#xA;  &lt;user&gt;&lt;/user&gt;&#xA;  &lt;password&gt;&lt;/password&gt;&#xA;  &lt;from&gt;&lt;/from&gt;&#xA;  &lt;realname&gt;&lt;/realname&gt;&#xA;  &lt;to&gt;&lt;/to&gt;&#xA;  &lt;cc&gt;&lt;/cc&gt;&#xA;  &lt;bcc&gt;&lt;/bcc&gt;&#xA;  &lt;subject&gt;&lt;/subject&gt;&#xA;  &lt;message&gt;&lt;/message&gt;&#xA;&lt;/de.ityx.contex.impl.common.EmailData&gt;" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="2" type="Bean" x="470.0" y="20.0">
+    <Next id="3" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="RecoverMIBean" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="beanClasse" value="com.nttdata.de.ityx.cx.workflow.incoming.i6_index.RecoverMi" />
+      <param type="Map" name="beanProperties" value="&lt;tree-map&gt;&#xA;  &lt;no-comparator/&gt;&#xA;&lt;/tree-map&gt;" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="1" type="Document Pool" x="170.0" y="20.0">
+    <Next id="5" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="imageInKey" value="" />
+      <param type="String" name="imageOutKey" value="session.doc" />
+      <param type="String" name="parameterKey" value="" />
+      <param type="String" name="master" value="sky" />
+      <param type="String" name="parameter" value="FHV_691_Recovery_ManuelleIndizierung" />
+      <param type="int" name="prio" value="1" />
+      <param type="int" name="type" value="8" />
+      <param type="boolean" name="insert" value="false" />
+      <param type="boolean" name="read" value="true" />
+      <param type="String" name="bean" value="" />
+      <param type="boolean" name="delete" value="false" />
+      <param type="long" name="poolServiceLevel" value="0" />
+      <param type="boolean" name="waitUntil" value="true" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="delayTimeUnit" value="MS" />
+      <param type="boolean" name="realIdle" value="false" />
+      <param type="String" name="timeUnit" value="MS" />
+      <param type="long" name="idleTime" value="0" />
+      <param type="boolean" name="saveDocAttributes" value="false" />
+      <param type="int" name="unlockCond" value="0" />
+      <param type="boolean" name="usePrioFromFlow" value="false" />
+      <param type="array" name="whiteList" value="&lt;object-array/&gt;" />
+      <param type="array" name="blackList" value="&lt;object-array/&gt;" />
+      <param type="long" name="maxCollectionWaitTime" value="0" />
+      <param type="String" name="externalId" value="" />
+      <param type="String" name="collectionSize" value="" />
+      <param type="int" name="errorCount" value="3" />
+      <param type="boolean" name="sendErrorEmail" value="false" />
+      <param type="EmailData" name="emailData" value="&lt;de.ityx.contex.impl.common.EmailData&gt;&#xA;  &lt;auth&gt;true&lt;/auth&gt;&#xA;  &lt;host&gt;&lt;/host&gt;&#xA;  &lt;user&gt;&lt;/user&gt;&#xA;  &lt;password&gt;&lt;/password&gt;&#xA;  &lt;from&gt;&lt;/from&gt;&#xA;  &lt;realname&gt;&lt;/realname&gt;&#xA;  &lt;to&gt;&lt;/to&gt;&#xA;  &lt;cc&gt;&lt;/cc&gt;&#xA;  &lt;bcc&gt;&lt;/bcc&gt;&#xA;  &lt;subject&gt;&lt;/subject&gt;&#xA;  &lt;message&gt;&lt;/message&gt;&#xA;&lt;/de.ityx.contex.impl.common.EmailData&gt;" />
+    </values>
+  </State>
+  <edge source="6" target="4" text="">
+    <point x="770" y="20" />
+    <point x="920" y="20" />
+  </edge>
+  <edge source="3" target="6" text="">
+    <point x="620" y="20" />
+    <point x="770" y="20" />
+  </edge>
+  <edge source="2" target="3" text="">
+    <point x="470" y="20" />
+    <point x="620" y="20" />
+  </edge>
+  <edge source="5" target="2" text="">
+    <point x="320" y="20" />
+    <point x="470" y="20" />
+  </edge>
+  <edge source="1" target="5" text="">
+    <point x="170" y="20" />
+    <point x="320" y="20" />
+  </edge>
+  <edge source="7" target="1" text="">
+    <point x="20" y="20" />
+    <point x="170" y="20" />
+  </edge>
+  <InputMaps>
+    <Key Name="modelMap">
+      <ParameterMap class="de.ityx.contex.impl.designer.exflow.maps.ParameterMap" />
+    </Key>
+  </InputMaps>
+  <OutputMaps>
+    <Key Name="outputMap">
+      <ParameterMap class="de.ityx.contex.impl.designer.exflow.maps.ParameterMap" />
+    </Key>
+  </OutputMaps>
+</StateGraph>
+

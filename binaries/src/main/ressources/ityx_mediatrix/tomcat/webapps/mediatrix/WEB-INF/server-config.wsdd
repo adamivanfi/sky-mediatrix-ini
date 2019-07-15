@@ -1,0 +1,169 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="webservice/WEB-INF/attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:service name="ServerContexWebservice" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="store" qname="ns1:store" returnQName="ns1:storeReturn" returnType="xsd:boolean" soapAction="" xmlns:ns1="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:mxunit" type="xsd:string"/>
+   <ns2:parameter qname="ns1:user" type="xsd:string"/>
+   <ns2:parameter qname="ns1:password" type="xsd:string"/>
+   <ns2:parameter qname="ns1:cxunit" type="xsd:string"/>
+   <ns2:parameter qname="ns1:projectname" type="xsd:string"/>
+   <ns2:parameter qname="ns1:subprojectname" type="xsd:string"/>
+   <ns2:parameter qname="ns1:title" type="xsd:string"/>
+   <ns2:parameter qname="ns1:body" type="xsd:string"/>
+   <ns2:parameter qname="ns1:tagMatchBuffer" type="xsd:base64Binary"/>
+   <ns2:parameter qname="ns1:docType" type="xsd:string"/>
+   <ns2:parameter qname="ns1:customerId" type="xsd:string"/>
+   <ns2:parameter qname="ns1:param" type="xsd:int"/>
+   <ns2:parameter qname="ns1:xml" type="xsd:base64Binary"/>
+   <ns2:parameter qname="ns1:keywordBuffer" type="xsd:base64Binary"/>
+   <ns2:parameter qname="ns1:bracket" type="xsd:string"/>
+   <ns2:parameter qname="ns1:tempHeader" type="xsd:string"/>
+   <ns2:parameter qname="ns1:docContainerBuffer" type="xsd:base64Binary"/>
+  </ns2:operation>
+  <ns1:operation name="deleteByProcessId" qname="ns2:deleteByProcessId" returnQName="ns2:deleteByProcessIdReturn" returnType="xsd:boolean" soapAction="" xmlns:ns2="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:mxunit" type="xsd:string"/>
+   <ns1:parameter qname="ns2:user" type="xsd:string"/>
+   <ns1:parameter qname="ns2:password" type="xsd:string"/>
+   <ns1:parameter qname="ns2:cxunit" type="xsd:string"/>
+   <ns1:parameter qname="ns2:processId" type="xsd:long"/>
+  </ns1:operation>
+  <ns1:operation name="getEmailIdByProcessId" qname="ns3:getEmailIdByProcessId" returnQName="ns3:getEmailIdByProcessIdReturn" returnType="xsd:int" soapAction="" xmlns:ns3="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:mxunit" type="xsd:string"/>
+   <ns1:parameter qname="ns3:user" type="xsd:string"/>
+   <ns1:parameter qname="ns3:password" type="xsd:string"/>
+   <ns1:parameter qname="ns3:cxunit" type="xsd:string"/>
+   <ns1:parameter qname="ns3:processId" type="xsd:long"/>
+  </ns1:operation>
+  <ns1:operation name="holdByProcessId" qname="ns4:holdByProcessId" returnQName="ns4:holdByProcessIdReturn" returnType="xsd:boolean" soapAction="" xmlns:ns4="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:mxunit" type="xsd:string"/>
+   <ns1:parameter qname="ns4:user" type="xsd:string"/>
+   <ns1:parameter qname="ns4:password" type="xsd:string"/>
+   <ns1:parameter qname="ns4:cxunit" type="xsd:string"/>
+   <ns1:parameter qname="ns4:processId" type="xsd:long"/>
+  </ns1:operation>
+  <ns1:operation name="unholdByProcessId" qname="ns5:unholdByProcessId" returnQName="ns5:unholdByProcessIdReturn" returnType="xsd:boolean" soapAction="" xmlns:ns5="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns5:mxunit" type="xsd:string"/>
+   <ns1:parameter qname="ns5:user" type="xsd:string"/>
+   <ns1:parameter qname="ns5:password" type="xsd:string"/>
+   <ns1:parameter qname="ns5:cxunit" type="xsd:string"/>
+   <ns1:parameter qname="ns5:processId" type="xsd:long"/>
+  </ns1:operation>
+  <ns1:operation name="storeForException" qname="ns6:storeForException" returnQName="ns6:storeForExceptionReturn" returnType="xsd:int" soapAction="" xmlns:ns6="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns6:mxunit" type="xsd:string"/>
+   <ns1:parameter qname="ns6:user" type="xsd:string"/>
+   <ns1:parameter qname="ns6:password" type="xsd:string"/>
+   <ns1:parameter qname="ns6:cxunit" type="xsd:string"/>
+   <ns1:parameter qname="ns6:projectname" type="xsd:string"/>
+   <ns1:parameter qname="ns6:subprojectname" type="xsd:string"/>
+   <ns1:parameter qname="ns6:title" type="xsd:string"/>
+   <ns1:parameter qname="ns6:body" type="xsd:string"/>
+   <ns1:parameter qname="ns6:tagMatchBuffer" type="xsd:base64Binary"/>
+   <ns1:parameter qname="ns6:customerId" type="xsd:string"/>
+   <ns1:parameter qname="ns6:stateId" type="xsd:int"/>
+   <ns1:parameter qname="ns6:xml" type="xsd:base64Binary"/>
+   <ns1:parameter qname="ns6:keywordBuffer" type="xsd:base64Binary"/>
+   <ns1:parameter qname="ns6:bracket" type="xsd:string"/>
+   <ns1:parameter qname="ns6:tempHeader" type="xsd:string"/>
+   <ns1:parameter qname="ns6:docContainerBuffer" type="xsd:base64Binary"/>
+   <ns1:parameter qname="ns6:clusterHandler" type="xsd:string"/>
+   <ns1:parameter qname="ns6:profileId" type="xsd:string"/>
+   <ns1:parameter qname="ns6:processOrderId" type="xsd:long"/>
+   <ns1:parameter qname="ns6:initParameter" type="xsd:string"/>
+   <ns1:parameter qname="ns6:exceptionType" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="storeInValidation" qname="ns6:storeInValidation" returnQName="ns6:storeInValidationReturn" returnType="xsd:int" soapAction="" xmlns:ns6="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns6:mxunit" type="xsd:string"/>
+   <ns1:parameter qname="ns6:user" type="xsd:string"/>
+   <ns1:parameter qname="ns6:password" type="xsd:string"/>
+   <ns1:parameter qname="ns6:cxunit" type="xsd:string"/>
+   <ns1:parameter qname="ns6:projectame" type="xsd:string"/>
+   <ns1:parameter qname="ns6:subprojectname" type="xsd:string"/>
+   <ns1:parameter qname="ns6:title" type="xsd:string"/>
+   <ns1:parameter qname="ns6:documentPoolId" type="xsd:long"/>
+   <ns1:parameter qname="ns6:orderId" type="xsd:long"/>
+   <ns1:parameter qname="ns6:initParameter" type="xsd:string"/>
+   <ns1:parameter qname="ns6:exceptionType" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="storeMail" qname="ns7:storeMail" returnQName="ns7:storeMailReturn" returnType="xsd:boolean" soapAction="" xmlns:ns7="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns7:mxunit" type="xsd:string"/>
+   <ns1:parameter qname="ns7:user" type="xsd:string"/>
+   <ns1:parameter qname="ns7:password" type="xsd:string"/>
+   <ns1:parameter qname="ns7:cxunit" type="xsd:string"/>
+   <ns1:parameter qname="ns7:projectname" type="xsd:string"/>
+   <ns1:parameter qname="ns7:subprojectname" type="xsd:string"/>
+   <ns1:parameter qname="ns7:bodytext" type="xsd:string"/>
+   <ns1:parameter qname="ns7:customerId" type="xsd:string"/>
+   <ns1:parameter qname="ns7:ref" type="xsd:int"/>
+   <ns1:parameter qname="ns7:title" type="xsd:string"/>
+   <ns1:parameter qname="ns7:keywordBuffer" type="xsd:base64Binary"/>
+   <ns1:parameter qname="ns7:imagename" type="xsd:string"/>
+   <ns1:parameter qname="ns7:imagebytes" type="xsd:base64Binary"/>
+   <ns1:parameter qname="ns7:type" type="xsd:int"/>
+   <ns1:parameter qname="ns7:tagMatchBuffer" type="xsd:base64Binary"/>
+  </ns1:operation>
+  <ns1:operation name="loadFromException" qname="ns8:loadFromException" returnQName="ns8:loadFromExceptionReturn" returnType="xsd:base64Binary" soapAction="" xmlns:ns8="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns8:mxunit" type="xsd:string"/>
+   <ns1:parameter qname="ns8:user" type="xsd:string"/>
+   <ns1:parameter qname="ns8:cxunit" type="xsd:string"/>
+   <ns1:parameter qname="ns8:password" type="xsd:string"/>
+   <ns1:parameter qname="ns8:questionId" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="deleteByProcessId store storeMail getEmailIdByProcessId holdByProcessId loadFromException storeForException unholdByProcessId storeInValidation"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="ServerContexWebservice"/>
+  <ns1:parameter name="className" value="de.ityx.mediatrix.modules.contexwebservice.ServerContexWebservice"/>
+  <ns1:parameter name="wsdlServicePort" value="ServerContexWebservice"/>
+  <ns1:parameter name="schemaQualified" value="http://contexwebservice.modules.mediatrix.ityx.de"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://contexwebservice.modules.mediatrix.ityx.de"/>
+  <ns1:parameter name="wsdlServiceElement" value="ServerContexWebserviceService"/>
+ </ns1:service>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

@@ -1,0 +1,5 @@
+Bei Problemen mit den Maintenancescripten die sich nicht von der Powershell-Console starten lassen.
+Die Powershell-Console mittels rechten Mausklick als Administrator starten und folgenden Befehl ausführen:
+"Set-ExecutionPolicy RemoteSigned"
+
+Danach lassen sich wie gewohnt die Scripte starten

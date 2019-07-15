@@ -1,0 +1,175 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.nttdata.de.dmsityx.server</groupId>
+        <artifactId>server</artifactId>
+        <version>2.0.3-SNAPSHOT</version>
+    </parent>
+    <artifactId>contex-ws</artifactId>
+    <packaging>war</packaging>
+
+    <build>
+        <finalName>ntt-skydms-${project.parent.artifactId}-${project.artifactId}-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <id>make-a-jar</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>generate-reports-ws-code</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+
+                            <wsdlDirectory>${basedir}/src/main/webapp/WEB-INF/wsdl</wsdlDirectory>
+                            <wsdlFiles>
+                                <wsdlFile>contex-ws.wsdl</wsdlFile>
+                                <wsdlFile>pushClient.wsdl</wsdlFile>
+                                <wsdlFile>scmConnector.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <verbose>true</verbose>
+                            <sourceDestDir>${basedir}/target/generated-sources/jaxws</sourceDestDir>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+<!--
+             <plugin>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-codegen-plugin</artifactId>
+                <version>${cxf.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>xerces</groupId>
+                        <artifactId>xercesImpl</artifactId>
+                        <version>2.8.1</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>generate-sources</id>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <defaultOptions>
+                                <frontEnd>jaxws21</frontEnd>
+                            </defaultOptions>
+                            <wsdlOptions>
+                                <wsdlOption>
+                                    <wsdl>${basedir}/src/main/webapp/WEB-INF/wsdl/contex-ws.wsdl</wsdl>
+                                    <wsdlLocation>classpath:WEB-INF/wsdl/contex-ws.wsdl</wsdlLocation>
+                                    <extraargs>
+                                        <extraarg>-verbose</extraarg>
+                                    </extraargs>
+                                </wsdlOption>
+                            </wsdlOptions>
+                        </configuration>
+                        <goals>
+                            <goal>wsdl2java</goal>
+                        </goals>
+                    </execution>
+
+                </executions>
+            </plugin>
+-->
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.nttdata.de.dmsityx.mxclient</groupId>
+            <artifactId>common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.nttdata.de.dmsityx.server</groupId>
+            <artifactId>sharedservices</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>contexplain</artifactId>
+            <version>${MX_CORE_CX_VER}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>contex-service</artifactId>
+            <version>${MX_CORE_CX_SERVICE_VER}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>contex-base</artifactId>
+            <version>${MX_CORE_CX_SERVICE_VER}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>contex-security-core</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>license-api</artifactId>
+            <version>${MX_EXTLIB_LICAPI_VER}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>3.2.5.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>2.2.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>jaxws-maven-plugin</artifactId>
+            <version>1.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>exceptionhandler</artifactId>
+            <version>${MX_EXTLIB_EXCEPTIONS_VER}</version>
+        </dependency>
+        <dependency>
+        	<groupId>com.nttdata.de.dmsityx.server</groupId>
+        	<artifactId>cxworkflow</artifactId>
+        	<version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+
+</project>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowTypeSystem version="1.0">
+   <StateType>
+      <Key Name="Print ExTag">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Print ExTag" representation="de.ityx.contexdesigner.states.PrintExTagState" icon="de.ityx.contex.impl.designer.cells.PrintExTagCell" />
+      </Key>
+      <Key Name="Remove Empty Pages">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Remove Empty Pages" representation="de.ityx.contexdesigner.states.RemoveEmptyPagesState" icon="de.ityx.contex.impl.designer.cells.RemoveEmptyPagesCell" />
+      </Key>
+      <Key Name="Report">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Report" representation="de.ityx.contexdesigner.states.ReportState" icon="de.ityx.contex.impl.designer.cells.ReportCell" />
+      </Key>
+      <Key Name="Synchronize">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Synchronize" representation="de.ityx.contexdesigner.states.SynchronizeState" icon="de.ityx.contex.impl.designer.cells.SynchronizeCell" />
+      </Key>
+      <Key Name="Extraction">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Extraction" representation="de.ityx.contexdesigner.states.ExtagState" icon="de.ityx.contex.impl.designer.cells.ExtagCell" />
+      </Key>
+      <Key Name="RegEx">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="RegEx" representation="de.ityx.contexdesigner.states.RegExState" icon="de.ityx.contex.impl.designer.cells.RegExCell" />
+      </Key>
+      <Key Name="Awino">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Awino" representation="de.ityx.contexdesigner.states.AwinoState" icon="de.ityx.contex.impl.designer.cells.AwinoCell" />
+      </Key>
+      <Key Name="Fuzzy Matcher">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Fuzzy Matcher" representation="de.ityx.contexdesigner.states.MatchMakerState" icon="de.ityx.contex.impl.designer.cells.MatchMakerCell" />
+      </Key>
+      <Key Name="Child Tag">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Child Tag" representation="de.ityx.contexdesigner.states.ExTagtoExTagState" />
+      </Key>
+      <Key Name="Email Load">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Email Load" representation="de.ityx.contexdesigner.states.EmailLoadState" icon="de.ityx.contex.impl.designer.cells.EmailLoadCell" />
+      </Key>
+      <Key Name="NewExTag">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="NewExTag" representation="de.ityx.contexdesigner.states.NewExTagState" />
+      </Key>
+      <Key Name="New Vector">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="New Vector" representation="de.ityx.contexdesigner.states.NewVectorState" icon="de.ityx.contex.impl.designer.cells.NewVectorCell" />
+      </Key>
+      <Key Name="Visual Categorizer">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Visual Categorizer" representation="de.ityx.contexdesigner.states.VisualCategorizerState" icon="de.ityx.contex.impl.designer.cells.VisualCategoryzerCell" />
+      </Key>
+      <Key Name="HTTP">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="HTTP" representation="de.ityx.contexdesigner.states.HTTPState" icon="de.ityx.contex.impl.designer.cells.HTTPCell" />
+      </Key>
+      <Key Name="Rename ExTag">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Rename ExTag" representation="de.ityx.contexdesigner.states.RenameExTagState" />
+      </Key>
+      <Key Name="Image Split">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Image Split" representation="de.ityx.contexdesigner.states.ImageSplitState" icon="de.ityx.contex.impl.designer.cells.ImageSplitCell" />
+      </Key>
+      <Key Name="ExTagtoVariable">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="ExTagtoVariable" representation="de.ityx.contexdesigner.states.ExTagtoVariableState" />
+      </Key>
+      <Key Name="Java">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Java" representation="de.ityx.contexdesigner.states.JavaState" icon="de.ityx.contex.impl.designer.cells.JavaStateCell"/>
+      </Key>
+      <Key Name="Barcode">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Barcode" representation="de.ityx.contexdesigner.states.BarcodeState" icon="de.ityx.contex.impl.designer.cells.BarcodeCell" />
+      </Key>
+      <Key Name="Export XML">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Export XML" representation="de.ityx.contexdesigner.states.ExportXMLState" icon="de.ityx.contex.impl.designer.cells.ExportXMLCell" />
+      </Key>
+      <Key Name="Bean">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Bean" representation="de.ityx.contexdesigner.states.BeanState" icon="de.ityx.contex.impl.designer.cells.BeanCell" />
+      </Key>
+      <Key Name="Archive">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Archive" representation="de.ityx.contexdesigner.states.ArchiveState" icon="de.ityx.contex.impl.designer.cells.ArchiveCell" />
+      </Key>
+      <Key Name="Document Pool">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Document Pool" representation="de.ityx.contexdesigner.states.DocumentPoolState" icon="de.ityx.contex.impl.designer.cells.DocumentPoolCell" />
+      </Key>
+      <Key Name="DB Commit">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="DB Commit" representation="de.ityx.contexdesigner.states.DBCommitState" icon="de.ityx.contex.impl.designer.cells.DBCommitCell" />
+      </Key>
+      <Key Name="Import XML">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Import XML" representation="de.ityx.contexdesigner.states.EFlowState" icon="de.ityx.contex.impl.designer.cells.EFlowCell" />
+      </Key>
+      <Key Name="FOR Start">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="FOR Start" representation="de.ityx.contexdesigner.states.FORStartState" icon="de.ityx.contex.impl.designer.cells.FORStartCell" />
+      </Key>
+      <Key Name="List Remove">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="List Remove" representation="de.ityx.contexdesigner.states.RemoveListState" icon="de.ityx.contex.impl.designer.cells.RemoveListCell" />
+      </Key>
+      <Key Name="Converter">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Converter" representation="de.ityx.contexdesigner.states.ConverterState" icon="de.ityx.contex.impl.designer.cells.ConverterCell" />
+      </Key>
+      <Key Name="Document Write">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Document Write" representation="de.ityx.contexdesigner.states.DocumentWriteState" icon="de.ityx.contex.impl.designer.cells.DocumentWriteCell" />
+      </Key>
+      <Key Name="ImageFilter">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="ImageFilter" representation="de.ityx.contexdesigner.states.ImageFilterState" icon="de.ityx.contex.impl.designer.cells.ImageFilterCell" />
+      </Key>
+      <Key Name="Clone">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Clone" representation="de.ityx.contexdesigner.states.CloneState" icon="de.ityx.contex.impl.designer.cells.CloneCell" />
+      </Key>
+      <Key Name="Date">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Date" representation="de.ityx.contexdesigner.states.DateState" icon="de.ityx.contex.impl.designer.cells.DateCell" />
+      </Key>
+      <Key Name="Fuzzy Dictionary">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Fuzzy Dictionary" representation="de.ityx.contexdesigner.states.FuzzyDictionaryState" icon="de.ityx.contex.impl.designer.cells.FuzzyDictionaryCell" />
+      </Key>
+      <Key Name="OpenFile">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="OpenFile" representation="de.ityx.contexdesigner.states.OpenFileState" icon="de.ityx.contex.impl.designer.cells.OpenFileCell" />
+      </Key>
+      <Key Name="ExTag to ExTagSet">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="ExTag to ExTagSet" representation="de.ityx.contexdesigner.states.ExTagtoExTagSetState" />
+      </Key>
+      <Key Name="End">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="End" representation="de.ityx.contexdesigner.states.EndState" icon="de.ityx.contex.impl.designer.cells.EndCell" />
+      </Key>
+      <Key Name="Email Senden">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Email Senden" representation="de.ityx.contexdesigner.states.EmailSendState" icon="de.ityx.contex.impl.designer.cells.EmailSendCell" />
+      </Key>
+      <Key Name="Virtual Mouse">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Virtual Mouse" representation="de.ityx.contexdesigner.states.VirtualMouseState" icon="de.ityx.contex.impl.designer.cells.VirtualMouseCell" />
+      </Key>
+      <Key Name="Virtual Screen">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Virtual Screen" representation="de.ityx.contexdesigner.states.VirtualScreenState" icon="de.ityx.contex.impl.designer.cells.VirtualScreenCell" />
+      </Key>
+      <Key Name="Math. Funktion">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Math. Funktion" representation="de.ityx.contexdesigner.states.MathFunctionState" icon="de.ityx.contex.impl.designer.cells.MathFunctionCell" />
+      </Key>
+      <Key Name="IForm">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="IForm" representation="de.ityx.contexdesigner.states.FormularClassificationState" icon="de.ityx.contex.impl.designer.cells.FormularClassificationCell" />
+      </Key>
+      <Key Name="Virtual Component">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Virtual Component" representation="de.ityx.contexdesigner.states.VirtualComponentState" icon="de.ityx.contex.impl.designer.cells.VirtualComponentCell" />
+      </Key>
+      <Key Name="OpenFolder">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="OpenFolder" representation="de.ityx.contexdesigner.states.OpenFolderState" icon="de.ityx.contex.impl.designer.cells.OpenFolderCell" />
+      </Key>
+      <Key Name="Condition">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Condition" representation="de.ityx.contexdesigner.states.ConditionState" icon="de.ityx.contex.impl.designer.cells.ConditionStateCell" />
+      </Key>
+      <Key Name="Virtual Client">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Virtual Client" representation="de.ityx.contexdesigner.states.VirtualClientState" icon="de.ityx.contex.impl.designer.cells.VirtualClientCell" />
+      </Key>
+      <Key Name="Wait">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Wait" representation="de.ityx.contexdesigner.states.WaitState" icon="de.ityx.contex.impl.designer.cells.WaitCell" />
+      </Key>
+      <Key Name="ID Generator">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="ID Generator" representation="de.ityx.contexdesigner.states.IDGeneratorState" icon="de.ityx.contex.impl.designer.cells.IDGeneratorCell" />
+      </Key>
+      <Key Name="FOR End">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="FOR End" representation="de.ityx.contexdesigner.states.FOREndState" icon="de.ityx.contex.impl.designer.cells.FOREndCell" />
+      </Key>
+      <Key Name="Classification">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Classification" representation="de.ityx.contexdesigner.states.ClassificationState" icon="de.ityx.contex.impl.designer.cells.ContexCell" />
+      </Key>
+      <Key Name="Virtual Capture">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Virtual Capture" representation="de.ityx.contexdesigner.states.VirtualCaptureState" icon="de.ityx.contex.impl.designer.cells.VirtualCaptureCell" />
+      </Key>
+      <Key Name="List Size">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="List Size" representation="de.ityx.contexdesigner.states.ListSizeState" icon="de.ityx.contex.impl.designer.cells.ListSizeCell" />
+      </Key>
+      <Key Name="New Variable">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="New Variable" representation="de.ityx.contexdesigner.states.NewVariableState" icon="de.ityx.contex.impl.designer.cells.NewVariableCell"  />
+      </Key>
+      <Key Name="VariabletoExTag">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="VariabletoExTag" representation="de.ityx.contexdesigner.states.VariabletoExTagState" />
+      </Key>
+      <Key Name="FTP">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="FTP" representation="de.ityx.contexdesigner.states.FTPState" icon="de.ityx.contex.impl.designer.cells.FTPCell" />
+      </Key>
+      <Key Name="ImageDeskewer">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="ImageDeskewer" representation="de.ityx.contexdesigner.states.ImageDeskewerState" />
+      </Key>
+      <Key Name="Virtual Text">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Virtual Text" representation="de.ityx.contexdesigner.states.VirtualTextState" icon="de.ityx.contex.impl.designer.cells.VirtualTextCell" />
+      </Key>
+      <Key Name="Virtual Keyboard">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Virtual Keyboard" representation="de.ityx.contexdesigner.states.VirtualKeyboardState" icon="de.ityx.contex.impl.designer.cells.VirtualKeyboardCell" />
+      </Key>
+      <Key Name="FileClose">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="FileClose" representation="de.ityx.contexdesigner.states.FileCloseState" icon="de.ityx.contex.impl.designer.cells.FileCloseCell" />
+      </Key>
+      <Key Name="SubFlow">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="SubFlow" representation="de.ityx.contexdesigner.states.SubFlowState" icon="de.ityx.contex.impl.designer.cells.SubFlowCell" />
+      </Key>
+      <Key Name="List From">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="List From" representation="de.ityx.contexdesigner.states.FromListState" icon="de.ityx.contex.impl.designer.cells.FromListCell" />
+      </Key>
+      <Key Name="FileOutput">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="FileOutput" representation="de.ityx.contexdesigner.states.FileOutputState" icon="de.ityx.contex.impl.designer.cells.FileOutputCell" />
+      </Key>
+      <Key Name="Ocr">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Ocr" representation="de.ityx.contexdesigner.states.OcrState" icon="de.ityx.contex.impl.designer.cells.OcrCell" />
+      </Key>
+      <Key Name="Exflow">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Exflow" representation="de.ityx.contexdesigner.states.ExflowState" icon="de.ityx.contex.impl.designer.cells.ExflowCell" />
+      </Key>
+      <Key Name="List Index of">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="List Index of" representation="de.ityx.contexdesigner.states.ListIndexOfState" icon="de.ityx.contex.impl.designer.cells.ListIndexOfCell" />
+      </Key>
+      <Key Name="Edit ExTag">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Edit ExTag" representation="de.ityx.contexdesigner.states.EditExTagState" />
+      </Key>
+      <Key Name="List Add">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="List Add" representation="de.ityx.contexdesigner.states.AddListState" icon="de.ityx.contex.impl.designer.cells.AddListCell" />
+      </Key>
+      <Key Name="Store">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Store" representation="de.ityx.contexdesigner.states.StoreState" icon="de.ityx.contex.impl.designer.cells.StoreCell" />
+      </Key>
+      <Key Name="XSLT">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="XSLT" representation="de.ityx.contexdesigner.states.XSLTState" icon="de.ityx.contex.impl.designer.cells.XSLTCell" />
+      </Key>
+      <Key Name="MarkExTag">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="MarkExTag" representation="de.ityx.contexdesigner.states.MarkExTagState" />
+      </Key>
+      <Key Name="Barcode Reader">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Barcode Reader" representation="de.ityx.contexdesigner.states.BarcodeReadState" icon="de.ityx.contex.impl.designer.cells.BarcodeReadCell" />
+      </Key>
+      <Key Name="Document Collection">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Document Collection" representation="de.ityx.contexdesigner.states.DocumentCollectionState" icon="de.ityx.contex.impl.designer.cells.DocumentCollectionCell" />
+      </Key>
+      <Key Name="DB Connection">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="DB Connection" representation="de.ityx.contexdesigner.states.DBState" icon="de.ityx.contex.impl.designer.cells.DBCell" />
+      </Key>
+      <Key Name="Virtual OCR">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Virtual OCR" representation="de.ityx.contexdesigner.states.VirtualOcrState" icon="de.ityx.contex.impl.designer.cells.VirtualOcrCell" />
+      </Key>
+      <Key Name="Performance Matrix">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Performance Matrix" representation="de.ityx.contexdesigner.states.PerformanceMatrixState" icon="de.ityx.contex.impl.designer.cells.PerformanceMatrixCell" />
+      </Key>
+	<Key Name="ExTagtoVariable">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="ExTagtoVariable" representation="de.ityx.contexdesigner.states.ExTagtoVariableState" icon="de.ityx.contex.impl.designer.cells.ExTagtoVariableCell" />
+      </Key>
+	<Key Name="VariabletoExTag">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="VariabletoExTag" representation="de.ityx.contexdesigner.states.VariabletoExTagState" icon="de.ityx.contex.impl.designer.cells.VariabletoExTagCell" />
+      </Key>
+	<Key Name="MarkExTag">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="MarkExTag" representation="de.ityx.contexdesigner.states.MarkExTagState" icon="de.ityx.contex.impl.designer.cells.MarkExTagCell" />
+      </Key>
+	<Key Name="NewExTag">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="NewExTag" representation="de.ityx.contexdesigner.states.NewExTagState" icon="de.ityx.contex.impl.designer.cells.NewExTagCell" />
+      </Key>
+	<Key Name="Child Tag">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Child Tag" representation="de.ityx.contexdesigner.states.ExTagtoExTagState" icon="de.ityx.contex.impl.designer.cells.ExTagtoExTagCell" />
+      </Key>
+	<Key Name="Rename ExTag">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Rename ExTag" representation="de.ityx.contexdesigner.states.RenameExTagState" icon="de.ityx.contex.impl.designer.cells.RenameExTagCell" />
+      </Key>
+	<Key Name="ExTag to ExTagSet">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="ExTag to ExTagSet" representation="de.ityx.contexdesigner.states.ExTagtoExTagSetState" icon="de.ityx.contex.impl.designer.cells.ExTagtoExTagSetCell" />
+      </Key>
+	<Key Name="Edit ExTag">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Edit ExTag" representation="de.ityx.contexdesigner.states.EditExTagState" icon="de.ityx.contex.impl.designer.cells.EditExTagCell" />
+      </Key>
+	<Key Name="ImageDeskewer">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="ImageDeskewer" representation="de.ityx.contexdesigner.states.ImageDeskewerState" icon="de.ityx.contex.impl.designer.cells.ImageDeskewerCell" />
+      </Key>
+	<Key Name="ImageScale">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="ImageScale" representation="de.ityx.contexdesigner.states.ImageScaleState" icon="de.ityx.contex.impl.designer.cells.ImageScaleCell" />
+      </Key>
+      <Key Name="Mediatrix">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Mediatrix" representation="de.ityx.contexdesigner.states.MediatrixState" icon="de.ityx.contex.impl.designer.cells.MediatrixCell" />
+      </Key>
+    <Key Name="Validierungsstation">
+         <State class="de.ityx.contexdesigner.exflow.states.State" type="Validierungsstation" representation="de.ityx.contexdesigner.states.ValidationState" icon="de.ityx.contex.impl.designer.cells.ValidationCell" />
+    </Key>
+   </StateType>
+</FlowTypeSystem>
+

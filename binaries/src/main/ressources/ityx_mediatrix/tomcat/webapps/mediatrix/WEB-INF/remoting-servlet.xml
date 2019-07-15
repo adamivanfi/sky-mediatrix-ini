@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+<import resource="classpath:licensemanager-ui.xml"/>
+
+  <bean name="/LicenseService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+    <property name="service" ref="manager"/>
+    <property name="serviceInterface" value="de.ityx.licensing.api.CustomerLicenseManagerService"/>
+  </bean>
+
+  <bean id="documentFactory" class="de.ityx.mediatrix.modules.documentfactory.DocumentFactoryImpl"/>
+  
+  <bean name="/DocumentFactoryService"  class="de.ityx.mediatrix.modules.documentfactory.UnitHttpInvokerServiceExporter">
+    <property name="service" ref="documentFactory"/>
+    <property name="serviceInterface" value="de.ityx.mediatrix.modules.documentfactory.DocumentFactoryService"/>
+  </bean>
+</beans>

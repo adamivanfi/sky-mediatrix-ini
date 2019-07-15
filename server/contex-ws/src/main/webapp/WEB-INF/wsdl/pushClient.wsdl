@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.sky.ityx.de"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  name="clientEvent" targetNamespace="http://ws.sky.ityx.de">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.sky.ityx.de" elementFormDefault="unqualified" targetNamespace="http://ws.sky.ityx.de" version="1.0">
+
+            <xs:element name="pushClient" type="tns:pushClient"/>
+
+            <xs:element name="pushClientResponse" type="tns:pushClientResponse"/>
+
+            <xs:complexType name="pushClient">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="tns:mediatrixRequest"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="mediatrixRequest">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="master" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user" type="xs:string"/>
+                    <xs:element name="entries">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" name="key" type="xs:string"/>
+                                            <xs:element minOccurs="0" name="value" type="xs:string"/>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="pushClientResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="tns:mediatrixResponse"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="mediatrixResponse">
+                <xs:sequence>
+                    <xs:element name="entries">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" name="key" type="xs:string"/>
+                                            <xs:element minOccurs="0" name="value" type="xs:string"/>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="pushClientResponse">
+        <wsdl:part element="tns:pushClientResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="pushClient">
+        <wsdl:part element="tns:pushClient" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="ClientEventService">
+        <wsdl:operation name="pushClient">
+            <wsdl:input message="tns:pushClient" name="pushClient">
+            </wsdl:input>
+            <wsdl:output message="tns:pushClientResponse" name="pushClientResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="clientEventSoapBinding" type="tns:ClientEventService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="pushClient">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="pushClient">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="pushClientResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="clientEvent">
+        <wsdl:port binding="tns:clientEventSoapBinding" name="ClientEventServiceImplPort">
+            <soap:address location="http://mediatrix.sky.de:8080/mediatrix/webservices/clientEvent"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

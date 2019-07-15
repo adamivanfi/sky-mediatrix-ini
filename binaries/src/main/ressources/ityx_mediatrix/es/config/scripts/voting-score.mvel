@@ -1,0 +1,1 @@
+_score * doc['adminvote'].value * doc['uservote'].value * doc['openvote'].value

@@ -1,0 +1,1 @@
+In dieses Verzeichniss werden von ITyX signierte NTT-Client erweiterungen mit dem Script win4 reinkopiert

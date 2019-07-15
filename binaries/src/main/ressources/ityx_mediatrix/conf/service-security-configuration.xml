@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:security="http://www.springframework.org/schema/security"
+	   xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+	<context:property-placeholder/>
+	
+	<context:annotation-config />
+	<bean class="de.ityx.contex.service.ContexCommonConfiguration" />
+	
+	<security:authentication-manager id="authManager" erase-credentials="false">
+		<security:authentication-provider ref="authenticationProvider" />
+	</security:authentication-manager>
+	
+	<bean id="authenticationProvider" class="de.ityx.contex.security.AuthenticationProviderAdapter">
+		<property name="delegate" ref="loginService" />
+	</bean>
+	
+	<bean id="loginService" class="de.ityx.contex.service.CXRmiServiceResolver">
+		<property name="hostProvider" ref="hostProvider" />
+		<property name="lookupStubOnStartup" value="false" />
+		<property name="refreshStubOnConnectFailure" value="true" />
+		<property name="serviceInterface" value="de.ityx.contex.security.login.LoginService" />
+	</bean>
+	
+</beans>

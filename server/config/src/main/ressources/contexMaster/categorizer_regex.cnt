@@ -1,0 +1,745 @@
+<list>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7303</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bSonderkündigung des Vertrages\b</regex>
+    <path>/ao kuendigung</path>
+    <points>0</points>
+    <additional>Form_001</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>0</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7304</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 0854\b</regex>
+    <path>/blue movie aktivierung</path>
+    <points>0</points>
+    <additional>Form_002</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>1</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7305</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 1202\b</regex>
+    <path>/freundschaftswerbung</path>
+    <points>0</points>
+    <additional>Form_003</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>2</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7306</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7415\b</regex>
+    <path>/geraeteabwicklung</path>
+    <points>0</points>
+    <additional>Form_004</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>3</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7307</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7470\b</regex>
+    <path>/geraeteklaerkarte</path>
+    <points>0</points>
+    <additional>Form_005</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>4</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7308</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 6004\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_006</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>5</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7309</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 6018\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_007</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>6</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7310</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7301\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_008</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>7</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7311</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7302\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_009</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>8</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7312</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7303\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_010</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>9</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7313</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7305\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_011</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>10</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7314</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7306\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_012</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>11</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7315</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7311\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_013</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>12</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7316</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7310\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_014</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>13</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7317</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7351\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_015</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>14</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7318</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7352\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_016</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>15</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7319</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7353\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_017</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>16</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7320</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7354\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_018</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>17</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7321</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7355\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_019</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>18</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7322</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7350\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_020</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>19</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7323</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 447210\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_021</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>20</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7324</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 447203\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_022</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>21</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7325</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bJa, bitte senden Sie mir das Sky Paket erneut zu\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_023</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>22</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7326</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7430\b</regex>
+    <path>/geraeteversand</path>
+    <points>0</points>
+    <additional>Form_023</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>23</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7327</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 3209\b</regex>
+    <path>/mahnung</path>
+    <points>0</points>
+    <additional>Form_024</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>24</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7328</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bRechtsverbindliche Erklärung\b
+für Nachforschung/-</regex>
+    <path>/rechtverbindliche erklaerung</path>
+    <points>0</points>
+    <additional>Form_025</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>25</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7329</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7503\b</regex>
+    <path>/rueckruftermin technik</path>
+    <points>0</points>
+    <additional>Form_026</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>26</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7330</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bUnser Zeichen: 7504\b</regex>
+    <path>/rueckruftermin technik</path>
+    <points>0</points>
+    <additional>Form_027</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>27</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7331</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bCoupon zur Vertragsübernahme\b</regex>
+    <path>/vertragsuebernahme</path>
+    <points>0</points>
+    <additional>Form_028_029</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>28</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7332</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bEinzugsermächtigung/3601\b</regex>
+    <path>/zahlungsmodalitaeten</path>
+    <points>0</points>
+    <additional>Form_030</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>29</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7333</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>\bEinzugsermächtigung/3202\b</regex>
+    <path>/zahlungsmodalitaeten</path>
+    <points>0</points>
+    <additional>Form_031</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>30</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7334</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:Sehr geehrte Damen und Herren der Geschäftsleitung)</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_16</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>31</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7335</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:Sehr geehrte Damen und Herren des Vorstandes)</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_17</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>32</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7336</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:An die Geschäftsleitung ihres Hauses)</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_18</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>33</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7337</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:z\.H\. der (Geschäftsleitung|Geschäftsführung))</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_19_36</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>34</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7338</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:Sehr geehrter (Herr|Hr\.|Hr) Brian Sullivan)</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_20</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>35</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7339</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:Sehr geehrter (Herr|Hr\.|Hr) Schmidt)</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_21</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>36</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7340</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:z\.Hd\. Herrn Sullivan)</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_22</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>37</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7341</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:Sehr geehrter (Herr|Hr\.|Hr) Schmidt\, Sehr geehrte (Frau|Fr\.|Fr) Kröplin)</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_23</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>38</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7342</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:Bitte an den Vorstand weiterleiten)</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_24</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>39</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7343</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:bitte reichen Sie das Schreiben an Ihre Geschäftsleitung)</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_25</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>40</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7344</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:Zur Weiterleitung an die (Geschäftsleitung|Geschäftsführung))</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_26</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>41</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7345</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:Sehr geehrter (Frau|Fr\.|Fr) Wagner)</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_27</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>42</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7346</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:Zu Händen der (Geschäftsleitung|Geschäftsführung))</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_34_35</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>43</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7347</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:An die Geschäftsleitung)</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_37</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>44</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7348</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:Hallo (Herr|Hr\.|Hr) Sullivan)</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_38</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>45</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7349</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:Sehr geehrter Vorstand)</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_39</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>46</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7350</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:Sehr geehrte (Frau|Fr\.|Fr) Uzelac)</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_40</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>47</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7351</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:Beschwerde (an die Geschäftsleitung|an den Vorstand|an die Geschäftsführung))</regex>
+    <path>/gf korr</path>
+    <points>0</points>
+    <additional>039_41_42_43</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>48</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7352</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:Kunde möchte Blue Movie DE)</regex>
+    <path>/blue movie</path>
+    <points>0</points>
+    <additional>Form_034</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>49</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7353</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:Ja, ich bestelle BLUE MOVIE Kennenlern-Angebot)</regex>
+    <path>/blue movie</path>
+    <points>0</points>
+    <additional>Form_035</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>50</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7354</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:Rechtsanwälte)</regex>
+    <path>/ra korr</path>
+    <points>0</points>
+    <additional>038_1</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>51</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+  <de.ityx.contex.dbo.icat.ICat_regexcat>
+    <id>7355</id>
+    <master>1</master>
+    <subcat>1</subcat>
+    <type>1</type>
+    <regex>(?i:Rechtsanwalt)</regex>
+    <path>/ra korr</path>
+    <points>0</points>
+    <additional>038_2</additional>
+    <comments>0</comments>
+    <regexcase>1</regexcase>
+    <grouping>0</grouping>
+    <uniqueid>52</uniqueid>
+  </de.ityx.contex.dbo.icat.ICat_regexcat>
+</list>

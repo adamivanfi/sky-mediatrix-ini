@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd">
+	
+	
+	<!-- Here you can define the 'Contex' roles/authorities which will be granted 				-->
+	<!-- for the membership in a LDAP / Windows group. 											-->
+
+	<!-- These roles are used only by Windows and Kerberos authentication. 						-->
+
+	<!-- Available roles: 	ADMINISTRATION, MONITORING, DOCUMENT, SCHEDULER, DESIGNER, ICAT, 	-->
+	<!-- 					MCAT, VCAT, IFORM, EXTAG, ITAG, FUZZY, OCR, VOCR, CLUSTERING, 		-->
+	<!-- 					IDIG, NORMALIZER 													-->
+	<util:map id="roleMap" value-type="java.lang.String[]">
+		<entry key="ITYX\Contex" value="ADMIN" />
+		<!-- 
+		<entry key="ITYX\Mediatrix" value="ICAT, VCAT" /> 
+		-->
+	</util:map>
+	
+</beans>

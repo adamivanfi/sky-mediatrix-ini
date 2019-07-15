@@ -1,0 +1,2 @@
+"xml-apis.jar" 
+is licensed by the W3C

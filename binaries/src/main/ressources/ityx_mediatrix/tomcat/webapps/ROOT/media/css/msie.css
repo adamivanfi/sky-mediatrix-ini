@@ -1,0 +1,28 @@
+@media screen {
+    * html #content {
+        height: 653px;
+    }
+
+    * html #content .start {
+        height: 245px;
+    }
+
+
+    * html #content .login {
+        height: 245px;
+    }
+
+
+    * html #documentation li a {
+        background-image: url("../img/bullet/documentation-2.gif");
+    }
+
+    * html #documentation li.first-child a {
+        background-image: url("../img/bullet/documentation-1.gif");
+    }
+
+
+    * html #modules-help li.first-child {
+        width: 231px;
+    }
+}

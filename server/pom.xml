@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <parent>
+        <groupId>com.nttdata.de.dmsityx</groupId>
+        <artifactId>ntt-sky</artifactId>
+        <version>2.0.3-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+
+    <groupId>com.nttdata.de.dmsityx.server</groupId>
+    <artifactId>server</artifactId>
+    <version>2.0.3-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <cxf.version>2.7.16</cxf.version>
+        <MX_EXTLIB_ASPOSEITEX_VER>0.0.10</MX_EXTLIB_ASPOSEITEX_VER>
+        <MX_EXTLIB_ITEXTPDF_VER>5.5.4</MX_EXTLIB_ITEXTPDF_VER>
+        <MX_EXTLIB_ITEXTXMLW_VER>5.5.4</MX_EXTLIB_ITEXTXMLW_VER>
+		<MX_EXTLIB_LICCLIENT_VER>2.0.2</MX_EXTLIB_LICCLIENT_VER>
+        <MX_EXTLIB_ASPOSECELLS>7.7.2</MX_EXTLIB_ASPOSECELLS>
+        <MX_EXTLIB_ASPOSWORDS>14.1</MX_EXTLIB_ASPOSWORDS>
+        <MX_EXTLIB_ASPOSEIMG>2.0</MX_EXTLIB_ASPOSEIMG>
+        <MX_EXTLIB_ASPOSEPDF>4.5.0</MX_EXTLIB_ASPOSEPDF>
+        <EXTLIB_JCHARDET_VER>1.1</EXTLIB_JCHARDET_VER>
+        <EXTLIB_JUNICHARDET_VER>1.0.3</EXTLIB_JUNICHARDET_VER>
+        <EXTLIB_COMMONSIMG_VER>1.0-SNAPSHOT</EXTLIB_COMMONSIMG_VER>
+        <MX_EXTLIB_ESSENTIALS_VER>2.4.14</MX_EXTLIB_ESSENTIALS_VER>
+        <MX_EXTLIB_EXCEPTIONS_VER>1.2.6</MX_EXTLIB_EXCEPTIONS_VER>
+        <EXTLIB_SLF4J>1.7.10</EXTLIB_SLF4J>
+        <MX_EXTLIB_NTLANGDETECT_VER>2.4.10</MX_EXTLIB_NTLANGDETECT_VER>
+        <MX_CORE_CX_VER>2.4.22</MX_CORE_CX_VER>
+        <MX_CORE_MX_VER>2.4.29</MX_CORE_MX_VER>
+        <MX_CORE_CX_SERVICE_VER>2.4.7</MX_CORE_CX_SERVICE_VER>
+        <MX_EXTLIB_LINGUA_VER>2.4.10</MX_EXTLIB_LINGUA_VER>
+        <MX_EXTLIB_LICAPI_VER>2.0.1</MX_EXTLIB_LICAPI_VER>
+        <EXTLIB_ELASTICSEARCH_VER>1.2.1</EXTLIB_ELASTICSEARCH_VER>
+        <java.version>1.7</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <modules>
+        <!--<module>ntt-sky-server-config</module>-->
+        <module>connector</module>
+        <module>mxbusinessrules</module>
+        <module>cxworkflow</module>
+        <module>contex-ws</module>
+        <module>sharedservices</module>
+        <!-- <module>ntt-sky-server-integrationtest</module> -->
+    </modules>
+
+    <build>
+        <finalName>ntt-skydms-${project.parent.artifactId}-${project.artifactId}-${project.version}</finalName>
+    </build>
+</project>

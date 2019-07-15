@@ -1,0 +1,1 @@
+& "C:\Program Files\Java\jdk1.6.0_29\bin\javaws.exe" "http://127.0.0.1:8080/mediatrix/jnlp/mediatrix.jnlp"

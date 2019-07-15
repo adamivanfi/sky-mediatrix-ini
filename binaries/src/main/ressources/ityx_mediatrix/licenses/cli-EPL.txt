@@ -1,0 +1,27 @@
+About This Content
+
+June 8, 2007
+
+License
+
+The Eclipse Foundation makes available all content in this plug-in ("Content"). Unless otherwise indicated below, the Content is provided to you under the terms and conditions of the Eclipse Public License Version 1.0 ("EPL"). A copy of the EPL is available at http://www.eclipse.org/legal/epl-v10.html. For purposes of the EPL, "Program" will mean the Content.
+
+If you did not receive this Content directly from the Eclipse Foundation, the Content is being redistributed by another party ("Redistributor") and different terms and conditions may apply to your use of any object code in the Content. Check the Redistributor's license that was provided with the Content. If no such license exists, contact the Redistributor. Unless otherwise indicated below, the terms and conditions of the EPL still apply to any source code in the Content and such source code may be obtained at http://www.eclipse.org.
+
+Third Party Content
+
+The Content includes items that have been sourced from third parties as set out below. If you did not receive this Content directly from the Eclipse Foundation, the following is provided for informational purposes only, and you should look to the Redistributor’s license for terms and conditions of use.
+
+Commons CLI 1.0
+
+The plug-in includes Commons CLI 1.0 ("Commons CLI") developed by the Apache Software Foundation as part of the Apache Commons project. Therefore:
+
+This product includes software developed by the Apache Software Foundation (http://www.apache.org/).
+The Commons CLI binary code is included with no modifications except postprocessing (pack200 conditioning and signing). The corresponding Commons CLI source code is located in src.zip.
+
+Commons CLI is:
+
+Copyright (c) 1997-2005 The Apache Software Foundation. All rights reserved.
+Your use of the Commons CLI code is subject to the terms and conditions of the Apache Software License 1.0. A copy of the license is contained in the file LICENSE.txt and is also available at http://www.apache.org/licenses/LICENSE-1.0.
+
+Examples and documentation as well as updated source code for Commons CLI is available at http://jakarta.apache.org/commons/cli/.

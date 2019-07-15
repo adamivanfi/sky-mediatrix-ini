@@ -1,0 +1,14 @@
+<c3p0-config>
+	<default-config>
+		<property name="maxIdleTime">14400</property>
+		<property name="acquireRetryAttempts">10</property>
+		<property name="idleConnectionTestPeriod">60</property>
+		<property name="debugUnreturnedConnectionStackTraces">false</property>
+	</default-config>
+<!-- 	<named-config name="LicenseTracker"> -->
+<!-- 		<property name="maxIdleTime">14400</property>		 -->
+<!-- 		<property name="acquireRetryAttempts">10</property> -->
+<!-- 		<property name="idleConnectionTestPeriod">60</property> -->
+<!-- 		<property name="debugUnreturnedConnectionStackTraces">false</property> -->
+<!-- 	</named-config> -->
+</c3p0-config>

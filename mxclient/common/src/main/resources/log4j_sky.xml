@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration debug="true" xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="ItyxAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${ityx.home}/logs/dms_ityx.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <param name="MaxBackupIndex" value="10"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%6.6t] %15.15F:%4.4L(%30M)  %-5p %-15.15c - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="WflAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${ityx.home}/logs/dms_wfl.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <param name="MaxBackupIndex" value="10"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%6.6t] %15.15F:%4.4L(%30M)  %-5p %-15.15c - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="CXIEAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${ityx.home}/logs/dms_cx_ie.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <param name="MaxBackupIndex" value="10"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%6.6t] %15.15F:%4.4L(%30M)  %-5p %-15.15c - %m%n"/>
+        </layout>
+    </appender>
+
+
+    <appender name="CommonAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${ityx.home}/logs/dms_common.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <param name="MaxBackupIndex" value="10"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%6.6t] %15.15F:%4.4L(%30M)  %-5p %-15.15c - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="BRSAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${ityx.home}/logs/dms_businessRulesServer.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <param name="MaxBackupIndex" value="10"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%6.6t] %15.15F:%4.4L(%30M)  %-5p %-15.15c - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="ConnectorAppender" class="org.apache.log4j.RollingFileAppender">
+
+        <param name="File" value="${ityx.home}/logs/dms_connector.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <param name="MaxBackupIndex" value="10"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%6.6t] %15.15F:%4.4L(%30M)  %-5p %-15.15c - %m%n"/>
+        </layout>
+    </appender>
+
+
+    <appender name="OutboundAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${ityx.home}/logs/dms_ioutbound.log"/>
+        <param name="MaxFileSize" value="25000KB"/>
+        <param name="MaxBackupIndex" value="10"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%6.6t] %15.15F:%4.4L(%30M)  %-5p %-15.15c - %m%n"/>
+        </layout>
+    </appender>
+    <appender name="MediatrixAppender" class="org.apache.log4j.RollingFileAppender">
+
+        <param name="File" value="${ityx.home}/logs/dms_mediatrix.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <param name="MaxBackupIndex" value="10"/>
+
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%6.6t] %15.15F:%4.4L(%30M)  %-5p %-15.15c - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="ClientAppender" class="org.apache.log4j.RollingFileAppender">
+
+        <param name="File" value="${ityx.home}/logs/dms_client.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <param name="MaxBackupIndex" value="10"/>
+
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%6.6t] %15.15F:%4.4L(%30M)  %-5p %-15.15c - %m%n"/>
+        </layout>
+    </appender>
+
+
+    <appender name="MtrixAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${ityx.home}/logs/dms_mtrix.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <param name="MaxBackupIndex" value="10"/>
+        <param name="Append" value="true"/>
+        <param name="Encoding" value="UTF-8"/>
+        <param name="Threshold" value="WARN"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%6.6t] %15.15F:%4.4L(%30M)  %-5p %-15.15c - %m%n"/>
+            <!-- <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSSZ} %-5r %-5p [%c{1}] (%t:%x) %m%n" /> -->
+        </layout>
+    </appender>
+
+    <appender name="ClientEventsAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${ityx.home}/logs/dms_clevents.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <param name="MaxBackupIndex" value="3"/>
+        <param name="Append" value="true"/>
+        <param name="Encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%6.6t] %15.15F:%4.4L(%30M)  %-5p %-15.15c - %m%n"/>
+            <!-- <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSSZ} %-5r %-5p [%c{1}] (%t:%x) %m%n" /> -->
+        </layout>
+    </appender>
+
+
+    <appender name="CtxAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${ityx.home}/logs/dms_ctx.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <param name="MaxBackupIndex" value="10"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%6.6t] %15.15F:%4.4L(%30M)  %-5p %-15.15c - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="CtxIeAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${ityx.home}/logs/dms_ctxie.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <param name="MaxBackupIndex" value="10"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%6.6t] %15.15F:%4.4L(%30M)  %-5p %-15.15c - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="ItyxConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d [%6.6t] %15.15F:%4.4L(%30M)  %-5p %-15.15c - %m%n"/>
+        </layout>
+    </appender>
+
+
+    <appender name="MediatrixConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d [%6.6t] %15.15F:%4.4L(%30M)  %-5p %-15.15c - %m%n"/>
+        </layout>
+    </appender>
+
+    <!--
+      public final static String NTT_ITYX_LOGGER = "NTTItyxLogger";
+      public final static String NTT_WFL_LOGGER = "NTTWflLogger";
+      public final static String NTT_COMMON_LOGGER = "NTTCommonLogger";
+      public final static String NTT_BRS_LOGGER = "NTTBRSLogger";
+      public final static String NTT_MEDIATRIX_LOGGER = "NTTMediatrixLogger";
+      public final static String NTT_CONNECTOR_LOGGER = "NTTConnectorLogger";
+      public final static String NTT_CLIENT_LOGGER = "MediatrixClientLogger";
+      public final static String NTT_TEST_LOGGER = "TestLogger";
+
+    -->
+
+    <!--
+              The ALL has the lowest possible rank and is intended to turn on all logging.
+              The TRACE Level designates finer-grained informational events than the DEBUG
+              The DEBUG Level designates fine-grained informational events that are most useful to debug an application.
+              The INFO level designates informational messages that highlight the progress of the application at coarse-grained level.
+              The WARN level designates potentially harmful situations.
+              The ERROR level designates error events that might still allow the application to continue running.
+              The FATAL level designates very severe error events that will presumably lead the application to abort.
+              The OFF has the highest possible rank and is intended to turn off logging.
+    -->
+
+    <logger name="NTTItyxLogger">
+        <level value="INFO"/>
+        <appender-ref ref="ItyxAppender"/>
+    </logger>
+
+    <logger name="NTTWflLogger">
+        <level value="INFO"/>
+        <appender-ref ref="WflAppender"/>
+    </logger>
+    <logger name="NTTCxIeLogger">
+        <level value="INFO"/>
+        <appender-ref ref="CtxIeAppender"/>
+    </logger>
+
+    <logger name="NTTCommonLogger">
+        <level value="INFO"/>
+        <appender-ref ref="CommonAppender"/>
+    </logger>
+
+    <logger name="NTTBRSLogger">
+        <level value="INFO"/>
+        <appender-ref ref="BRSAppender"/>
+    </logger>
+
+    <logger name="NTTMediatrixLogger">
+        <level value="INFO"/>
+        <appender-ref ref="MediatrixAppender"/>
+    </logger>
+
+    <logger name="NTTConnectorLogger">
+        <level value="INFO"/>
+        <appender-ref ref="ConnectorAppender"/>
+    </logger>
+
+    <logger name="MediatrixClientLogger">
+        <level value="INFO"/>
+        <appender-ref ref="ClientAppender"/>
+    </logger>
+
+    <logger name="de.ityx.sky">
+        <level value="INFO"/>
+        <appender-ref ref="OutboundAppender"/>
+    </logger>
+
+    <logger name="de.ityx.mediatrix">
+        <level value="WARN"/>
+        <appender-ref ref="MtrixAppender"/>
+    </logger>
+
+    <logger name="de.ityx.contex">
+        <level value="WARN"/>
+        <appender-ref ref="CtxAppender"/>
+    </logger>
+
+    <logger name="de.ityx.sky.mx.clientevents">
+        <level value="WARN"/>
+        <appender-ref ref="ClientEventsAppender"/>
+    </logger>
+
+    <logger name="de.ityx.clientevents.mx">
+        <level value="WARN"/>
+        <appender-ref ref="ClientEventsAppender"/>
+    </logger>
+
+    <root>
+        <level value="OFF"/>
+    </root>
+
+</log4j:configuration>
+

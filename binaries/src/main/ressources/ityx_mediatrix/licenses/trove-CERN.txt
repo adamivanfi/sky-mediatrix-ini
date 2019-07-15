@@ -1,0 +1,15 @@
+CERN licenses software for CERN staff and visitors for use at CERN. Most of CERN licences can be used by CERN staff on portables.
+ For other products the CERN's Software Licence Office is available to assist in purchasing software for users at CERN.
+
+As defined in Operational Circular Nr. 5, "Rules for Using CERN Computing Facilities" (see related link), users shall respect 
+the proprietary rights related to CERN computing facilities, including software copyrights. Infringement of this obligation 
+may constitute a breach of contracts concluded by CERN with outside suppliers of computers, networks, software and services.
+ The user concerned shall be liable for damage resulting from any infringement of the circular.
+
+We do not in any case license software for visitors for use on their portables at their home institute. 
+If they add licensed software while at CERN, they are morally bound and legally obliged to remove it when they leave CERN.
+
+This general rule needs to be checked against the specific licences in question (e.g., 
+whether additional use on portables is permitted, "geographic conditions" -- running on a CERN machine while physically at CERN, etc.).
+
+Rules for professional use of Microsoft Software on home PCs are explained at: https://winservices.web.cern.ch/winservices/Help/?kbid=100190

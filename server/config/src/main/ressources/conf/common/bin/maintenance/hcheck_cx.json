@@ -1,0 +1,952 @@
+{ "checks": [ {
+     "id":"CX_001_TibcoCallback",
+    "name": "WflProc:TibcoSiebelCallbacs", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Anzahl der mehr als 15m wartenden Tibco/Siebel Callbacks 550-Prozess-Dokumente (Contex-Backlog-Check)",
+	"thresholddimension":  "Anzahl Dokumente",
+    "threshold_info":50,
+    "threshold_warn":100,
+    "threshold_error":700,
+    "threshold_escal":1200,
+    "sql":"  select sysdate timestamp, 
+    count(*) || ' Waiting '|| DECODE(docpooltype,1,'Letter(s)', 3, 'Fax(es)', 2,'Email(s)', 0, 'Document(s)',docpooltype) || ' in 550 Siebel/TibcoCallback-Process' ||', delay:' || round(time_since(ityxtimetodate(min(createtime)))/60,0)||'m' msg,      
+    count(*) threshold 
+   from cxdsg_cdocpool 
+ where status=0 
+ and parameter like '550_%'
+ and createtime < datetoityxtime (sysdate - interval '30' MINUTE) 
+ group by docpooltype", 
+    "solutions": [{"problem":"Siebel/Tibco Callbacks werden nicht schnell genug verarbeitet", 
+                      "desc":"Vorerst probieren die Dokumente durch zur�cksetzen auf 500-Prozess erneut an Tibco schicken und auf Callback warten <br/>    update cxdsg_cdocpool set parameter='500_CRM_Activity_DOCUMENT',status=0, processid=0  where status in (16,0) and parameter like '550%' and createtime &#60; datetoityxtime(sysdate -interval '15' minute) "},
+		   {"problem":"Workaround hat nicht gegriffen, nach 15 Minuten w�chst der Backlog", 
+                      "desc":"Ticket bei Tibco-Gruppe aufmachen lassen: Please open new Incident with Prio2 for Tibco-Team, Problem: The Siebel-Tibco-DMS Interface IF 4.1 didn't perform callback since more than &#62; 30 min. Impact in DMS: inbound documents can not be processed"}
+		 ] 
+
+	    } , { 
+
+
+    "id":"CX_002_LetterContainer",
+    "name": "WflProc:Import:Letters", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Anzahl der nicht vollst�ndig verarbeiteter Import-Container",
+	"thresholddimension":  "Anzahl Container",
+    "threshold_info":1,
+    "threshold_warn":1,
+    "threshold_error":1,
+    "threshold_escal":1,
+    "sql":" select sysdate timestamp, 
+   '110_ImportLetter failed' msg, 
+   nvl(max(count_wait),0) threshold 
+ from ityx_cx.ntt_kpi_docpool 
+ where (sysdate - interval '16' MINUTE) < TIME 
+ and parameter ='110_ImportError_' ", 
+    "solutions":[{"problem":"Fehler w�hrend Verarbeitung des 110-Prozesses", 
+                      "desc":"wfl-logs auf Fehler pr�fen"},
+		 {"problem":"Aufr�umen", 
+                      "desc":"Content des ZIP-Containers mit cxdb.ntt_cx_report abgleichen, 
+                             �berpr�fen ob/welche Dokumente neu eingespielt werden m�ssen, 
+                             ggf. diese Dokumente ins neue Zip-Datei verpacken, csv und trigger-Datei erstellen"}]  
+     }, { 
+  
+
+   "id":"CX_003_BL_Mail",
+    "name": "WflProc:DocFlowEmails", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Anzahl der wartenden Emails in ContexProzessen (Contex-Backlog-Check)",
+	"thresholddimension":  "Anzahl Emails",
+    "threshold_info":30,
+    "threshold_warn":50,
+    "threshold_error":120,
+    "threshold_escal":200,
+    "sql":" select sysdate timestamp, 
+    count(*) || ' waiting Mails in Process:'||parameter  ||', delay:' || round(time_since(ityxtimetodate(min(greatest(createtime, lastdoctime))))/60,0)||'m' msg,      
+    count(*) threshold 
+   from cxdsg_cdocpool 
+ where docpooltype=2
+ and status=0 
+ and parameter not like '550%'
+ and greatest(createtime, lastdoctime) < datetoityxtime (sysdate - interval '5' MINUTE) 
+ group by parameter", 
+    "solutions": [{"problem":"Emails werden nicht abgearbeitet: Blockade der Datenbank oder CTX-Servers", 
+                      "desc":"Bei DB-Blockade 1 Stunde abwarten, wenn die Verarbeitung nicht startet - Neustart von CTX-Server notwendig."},
+		   {"problem":"Emails werden zu langsam abgearbeitet: Performance Probleme von CTX-Server oder der Datenbank", 
+                      "desc":"Verarbeitung von White-Paper-Dokumenten drosseln oder bis zur L�sung abschalten"}
+		 ] 
+    },{
+
+
+    "id":"CX_004_BL_Letter",
+    "name": "WflProc:DocFlowLetter", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Anzahl der wartenden Briefe in ContexProzessen (Contex-Backlog-Check)",
+	"thresholddimension":  "Anzahl Briefe",
+    "threshold_info":1000,
+    "threshold_warn":1500,
+    "threshold_error":2000,
+    "threshold_escal":3000,
+    "sql":" select sysdate timestamp, 
+    count(*) || ' waiting Letters in Process:'||parameter    ||', delay:' || round(time_since(ityxtimetodate(min(greatest(createtime, lastdoctime))))/60,0)||'m' msg,      
+    count(*) threshold 
+   from cxdsg_cdocpool 
+ where docpooltype=1
+ and status=0 
+ and parameter not like '550%'
+ and parameter not like 'SL3K%'
+ and parameter not like 'FHV%'
+ and greatest(createtime, lastdoctime) < datetoityxtime (sysdate - interval '5' MINUTE) 
+ group by parameter", 
+    "solutions": [{"problem":"Briefe werden nicht abgearbeitet: Blockade der Datenbank oder CTX-Servers", 
+                      "desc":"Bei DB-Blockade 1 Stunde abwarten, wenn die Verarbeitung nicht startet - Neustart von CTX-Server notwendig."}
+		 ] 
+    } ,{
+
+
+    "id":"CX_005_BL_Fax",
+    "name": "WflProc:DocFlowFAX", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Anzahl der wartenden Faxe in ContexProzessen (Contex-Backlog-Check)",
+	"thresholddimension":  "Anzahl FAX",
+    "threshold_info":100,
+    "threshold_warn":500,
+    "threshold_error":1000,
+    "threshold_escal":1500,
+    "sql":" select sysdate timestamp, 
+   count(*) || ' waiting Fax(es) in Process:'||parameter  ||', delay:' || round(time_since(ityxtimetodate(min(greatest(createtime, lastdoctime))))/60,0)||'m' msg,      
+    count(*) threshold 
+   from cxdsg_cdocpool 
+ where docpooltype=3
+ and status=0 
+ and parameter not like '550%'
+ and greatest(createtime, lastdoctime) < datetoityxtime (sysdate - interval '5' MINUTE) 
+ group by parameter", 
+    "solutions": [{"problem":"Faxe werden nicht abgearbeitet: Blockade der Datenbank oder CTX-Servers", 
+                      "desc":"Bei DB-Blockade 1 Stunde abwarten, wenn die Verarbeitung nicht startet - Neustart von CTX-Server notwendig."}
+		 ] 
+
+ } ,{
+
+
+    "id":"CX_006_BL_Doc",
+    "name": "WflProc:DocFlowDocuments", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Anzahl der wartenden Dokumente in ContexProzessen (Contex-Backlog-Check)",
+	"thresholddimension":  "Anzahl Dokumente",
+    "threshold_info":300,
+    "threshold_warn":1000,
+    "threshold_error":1500,
+    "threshold_escal":2500,
+    "sql":" select sysdate timestamp, 
+     count(*) || ' waiting Documents in Process:'||parameter  ||', delay:' || round(time_since(ityxtimetodate(min(greatest(createtime, lastdoctime))))/60,0)||'m' msg,      
+    count(*) threshold 
+   from cxdsg_cdocpool 
+ where docpooltype=0
+ and status=0 
+ and parameter not like '550%'
+ and parameter not like '8%'
+ and parameter not like 'SL3K%'
+ and parameter not like 'FHV%'
+ and parameter not in ('Archiv','MoveFileToArchive','Associate', '811_Archiv')
+ and greatest(createtime, lastdoctime) < datetoityxtime (sysdate - interval '5' MINUTE) 
+ group by parameter", 
+    "solutions": [{"problem":"Dokumente werden nicht abgearbeitet: Blockade der Datenbank oder CTX-Servers", 
+                      "desc":"Bei DB-Blockade 1 Stunde abwarten, wenn die Verarbeitung nicht startet - Neustart von CTX-Server notwendig."}
+		 ] 
+
+		 
+} ,{
+    "id":"CX_006archiv_BL_Doc",
+    "name": "WflProc:ArchiveDocFlowDocuments", 
+    "type": "DB",
+    "res": "DmsCxDB",
+	"active": "false",
+    "description": "Anzahl der wartenden Dokumente in ContexProzessen (Contex-Backlog-Check)",
+	"thresholddimension":  "Anzahl Dokumente",
+    "threshold_info":1000,
+    "threshold_warn":2000,
+    "threshold_error":5000,
+    "threshold_escal":10000,
+    "sql":" select sysdate timestamp, 
+     count(*) || ' waiting Documents in Process:'||parameter  ||', delay:' || round(time_since(ityxtimetodate(min(greatest(createtime, lastdoctime))))/60,0)||'m' msg,      
+    count(*) threshold 
+   from cxdsg_cdocpool 
+ where docpooltype=0
+ and status=0  
+ and parameter in ('811_Archiv','810_Archiv','812_MoveFileToArchive')
+ and greatest(createtime, lastdoctime) < datetoityxtime (sysdate - interval '5' MINUTE) 
+ group by parameter", 
+    "solutions": [{"problem":"Dokumente werden nicht abgearbeitet: Blockade der Datenbank oder CTX-Servers", 
+                      "desc":"Bei DB-Blockade 1 Stunde abwarten, wenn die Verarbeitung nicht startet - Neustart von CTX-Server notwendig."}
+		 ] 
+		 
+
+    } ,{
+"id":"CX_007_MIDiff",
+    "type": "DB",
+    "res": "DmsCxDB",
+    "name": "WflProc:MI:MXCXDiff", 
+    "description": "Anzahl der offenen Fragen der Manueller indizierung differiert zwischen Mediatrix und Contex",
+    "thresholddimension":  "Anzahl Fragen/Dokumente",
+    "threshold_info":60,
+    "threshold_warn":200,   
+    "threshold_error":500,
+    "threshold_escal":1000,
+    "sql":"select sysdate timestamp, 'CXMX MI' msg, abs(ctx_manuelle_indizierung.counter - mx_manuelle_indizierung.counter) threshold 
+           from (select count(*) counter from ityx_cx.cxdsg_cdocpool where (parameter like '46%' or parameter like 'FHV_410%' ) and status=3 ) ctx_manuelle_indizierung, 
+           (select count(*) counter from frage@MEXPROD.SKY.DE where teilprojektid=1125 and status <> 'erledigt' and geloeschtam=0 ) mx_manuelle_indizierung ", 
+    "solutions":[ {"msgcontains":"CXMX MI", "desc":"1. Blokade auf der DB, 2.AfterDeployment-Probleme"}] 
+
+
+  } ,{
+
+    "id":"CX_008_CXMX_IF",
+    "name": "WflProc:CXMXIF", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Anzahl der mehr als 15min wartenden Dokumente die an Mediatrix �bergeben werden k�nnen (Contex-Backlog-Check)",
+	"thresholddimension":  "Anzahl Dokumente",
+    "threshold_info":5,
+    "threshold_warn":100,
+    "threshold_error":500,
+    "threshold_escal":700,
+    "sql":"  select sysdate timestamp, 
+   count(*) || ' waiting '|| DECODE(docpooltype,1,'Letter(s)', 3, 'Fax(es)', 2,'Email(s)', 0, 'Document(s)',docpooltype) || ' in 600 Process, delay:' || round(time_since(ityxtimetodate(min(greatest(createtime, lastdoctime))))/60,0)||'m' msg,      
+    count(*) threshold 
+   from cxdsg_cdocpool 
+ where status=0 
+ and (parameter like '60%' or parameter like 'MXMailReturn')
+ and greatest(createtime, lastdoctime) < datetoityxtime (sysdate - interval '15' MINUTE) 
+ group by docpooltype", 
+    "solutions": [{"problem":"Dokumente werden nicht schnell genug an Mediatrix �bergeben verarbeitet", 
+                       "desc":"Bei DB-Blockade 1 Stunde abwarten, wenn die Verarbeitung nicht startet - Neustart von CTX-Server notwendig."}
+		 ] 
+
+ } ,{
+
+    "id":"CX_009_CX_Err",
+    "name": "WflProc:Errors", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Anzahl der Dokumente im Status Error (Contex-Backlog-Check)",
+	"thresholddimension":  "Anzahl Dokumente",
+    "threshold_info":1,
+    "threshold_warn":25,
+    "threshold_error":75,
+    "threshold_escal":100,
+    "sql":"  select sysdate timestamp, 
+    count(*) || ' Error Documents '|| DECODE(docpooltype,1,'Letter(s)', 3, 'Fax(es)', 2,'Email(s)', 0, 'Document(s)',docpooltype) || ' in Process:'|| parameter ||', delay:' || round(time_since(ityxtimetodate(min(greatest(createtime, lastdoctime))))/60,0)||'m' msg,      
+    count(*) threshold 
+   from cxdsg_cdocpool 
+ where status not in (0,1,32,3)
+  and greatest(createtime, lastdoctime) < datetoityxtime (sysdate - interval '15' MINUTE) 
+  and parameter not like 'SL3K%'
+  and parameter not like 'FHV%'
+  and parameter not like '600_MX_Injection_DOCUMENT'
+  and parameter not like '811_Archiv'
+ group by docpooltype, parameter", 
+    "solutions": [{"problem":"Dokumente k�nnen nicht verarbeitet werden", 
+                       "desc":"Abh�ngig vom Prozess kann es an WFL/Java-Fehler, externen Schnittstelle, FuzzyDB oder der Datenbank liegen. Als erstes bitte Wfl-Logs �berpr�fen."},
+		  {"problem":"01.08.2014- Gregor", 
+                       "desc":"600 Prozess wegen Lager3K rausgenommen"}
+		 		 
+                   ] 
+} ,{
+
+    "id":"CX_009_CX_Err600",
+    "name": "WflProc:Errors", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Anzahl der Dokumente im Status Error (Contex-Backlog-Check)",
+	"thresholddimension":  "Anzahl Dokumente",
+    "threshold_info":1,
+    "threshold_warn":30,
+    "threshold_error":200,
+    "threshold_escal":1000,
+    "sql":"  select sysdate timestamp, 
+    count(*) || ' Error Documents '|| DECODE(docpooltype,1,'Letter(s)', 3, 'Fax(es)', 2,'Email(s)', 0, 'Document(s)',docpooltype) || ' in Process:'|| parameter ||', delay:' || round(time_since(ityxtimetodate(min(greatest(createtime, lastdoctime))))/60,0)||'m' msg,      
+    count(*) threshold 
+   from cxdsg_cdocpool 
+ where status not in (0,1,32,3)
+  and greatest(createtime, lastdoctime) < datetoityxtime (sysdate - interval '61' MINUTE) 
+  and parameter like '60%'
+ group by docpooltype, parameter", 
+    "solutions": [{"problem":"Dokumente k�nnen nicht verarbeitet werden", 
+                       "desc":"Abh�ngig vom Prozess kann es an WFL/Java-Fehler, externen Schnittstelle, FuzzyDB oder der Datenbank liegen. Als erstes bitte Wfl-Logs �berpr�fen."},
+		  {"problem":"01.08.2014- Gregor", 
+                       "desc":"600 Prozess wegen Lager3K rausgenommen"}
+		 		 
+                   ] 
+
+ } ,{
+
+    "id":"CX_010_CX_ProcPerf",
+    "name": "WflProc:ProcPerf", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Schwache Processperformance ",
+	"thresholddimension":  "Relation Verarbeitet/Wartend %",
+    "threshold_info":50,
+    "threshold_warn":75,
+    "threshold_error":90,
+    "threshold_escal":100,
+    "sql":"  select sysdate timestamp, 
+   'Processperformance: ' 
+   ||parameter 
+   || ' processed:' 
+   || max( count_interval) 
+   || ' wait:' 
+   ||max(count_wait) msg,      
+   round(nvl(100-(round(sum(count_interval)*100/sum(count_wait))),'1'),0) threshold 
+ from ntt_kpi_docpool 
+ where (sysdate - interval '16' MINUTE) < TIME 
+ and count_wait >75
+ and parameter not like '550%' 
+  and parameter not like '810%'
+ and parameter not like 'SL3K_%' 
+ and parameter not like 'FHV_%' 
+ and parameter not like 'Move%' 
+ and parameter <> 'Archiv' 
+ and parameter <> 'MXMailReturn' 
+ group by parameter", 
+    "solutions": [{"problem":"Contex-Prozesse laufen zu langsam", 
+                       "desc":"Abh�ngig vom Prozess kann es an WFL/Java-Problemen, externen Schnittstelle, FuzzyDB oder der Datenbank liegen. Als erstes bitte Wfl-Logs �berpr�fen."},
+		  {"problem":"Analysedaten sichern", 
+                       "desc":"Wenn m�glich, bitte Threaddump des Wfl-Servers erzeugen"},
+		  {"problem":"Bei Problem mit Prozess 812", 
+                       "desc":"Mtrix3-b: Workflow-Log, Connector-Log pr�fen, wenn IF6.1 Saperion FTP nicht erreichbar, oder Platte voll - Ticket f�r Saperion/TDS/Fujitsu-Team aufmachen lassen."},
+		  {"problem":"Bei Problem mit Prozess 500", 
+                       "desc":"Mtrix3-b: Workflow-Log, Connector-Log pr�fen, wenn IF4.1 (CreateSiebelContact) nicht erreichbar Ticket f�r Tibco/CGI-Team aufmachen lassen. "},
+		  {"problem":"Bei Problem mit Prozess 400, 670", 
+                       "desc":"Mtrix3-b: Workflow-Log, Connector-Log pr�fen, wenn IF3.2 (NewDB) oder IF3.3(FAA) nicht erreichbar - Ticket f�r Tibco/CGI-Team aufmachen lassen."},
+		  {"problem":"Bei Problem mit Prozess 830", 
+                       "desc":"Mtrix3-b: Workflow-Log, Connector-Log pr�fen, wenn IF4.4 (Associate) nicht erreichbar - Ticket f�r Tibco/CGI-Team aufmachen lassen."},
+		  {"problem":"Bei Problem mit Prozess 820", 
+                       "desc":"Mtrix3-b: Workflow-Log, Connector-Log pr�fen, wenn IF8.1 (LettershopShare) nicht erreichbar - Ticket f�r Lettershop-Team aufmachen lassen."}
+
+		 ] 
+} ,{
+
+
+
+    "id":"CX_011_CX_MIDiff",
+    "name": "WflProc:MIDiff", 
+    "type": "DB",
+    "res": "DmsCxDB",
+	 "description": "MI-Fragen wecken cX-Prozesse nicht auf",
+    "thresholddimension":  "Anzahl Fragen",
+    "threshold_info":100,
+    "threshold_warn":300,
+    "threshold_error":500,
+    "threshold_escal":1000,
+    "sql":"select sysdate timestamp, 
+  'ManuallIndexing could not wake up CTX Processes' msg,      
+   abs(ctx_manuelle_indizierung.counter - mx_manuelle_indizierung.counter) threshold
+ from 
+   (select count(*) counter 
+   from ityx_cx.cxdsg_cdocpool 
+   where (parameter like '46%' or parameter like 'FHV_410%' )
+   and status=3 
+   ) ctx_manuelle_indizierung, 
+   (select count(*) counter 
+   from frage@MEXPROD.SKY.DE 
+   where teilprojektid=1125 
+   and status        <> 'erledigt' 
+   and geloeschtam    =0 
+   ) mx_manuelle_indizierung 
+", 
+    "solutions": [{"problem":"Schlechte Performance oder DB/Application-Deadlock in Contex", 
+                       "desc":"Abh�ngig vom Prozess kann es an WFL/Java-Problemen, externen Schnittstelle, FuzzyDB oder der Datenbank liegen. Als erstes bitte Wfl-Logs �berpr�fen."},
+		  {"problem":"AfterDeplyoment Probleme", 
+                       "desc":"Abwarten, Fragen werden korrigiert mit automatischer Routine"},
+		  {"problem":"Analysedaten sichern", 
+                       "desc":"Wenn m�glich, bitte Threaddump des Wfl-Servers erzeugen"}
+		 ] 
+
+
+} ,{
+
+
+    "id":"CX_012_CX_FuzzyDBSync",
+    "name": "WflProc:FuzzyDBSync", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "NewdDB-synchronisation zu alt",
+    "thresholddimension":  "Anzahl Tagen seit letzter FuzzyDB Synchronisation x 4Checks",
+    "threshold_info":6,
+    "threshold_warn":8,
+    "threshold_error":12,
+    "threshold_escal":16,
+    "sql":"  select  nvl(max(operation_date),(sysdate-365)) timestamp,  'Last update of newdb_customer '||  to_char( max(operation_date)   , 'YY.MM.DD HH24:MI')    msg,  round (sysdate - nvl(max(operation_date),(sysdate-365)),0) threshold  from newdb_customer
+		union
+		select nvl(max(operation_date),(sysdate-365))  timestamp,  'Last update of newdb_contract '||  to_char( max(operation_date)   , 'YY.MM.DD HH24:MI')   msg, round (sysdate - nvl(max(operation_date),(sysdate-365)),0) threshold  from newdb_contract
+		union
+		select nvl(max(operation_date),(sysdate-365))  timestamp,'Last update of newdb_asset  '||   to_char( max(operation_date)   , 'YY.MM.DD HH24:MI')   msg, round (sysdate - nvl(max(operation_date),(sysdate-365)),0) threshold  from newdb_asset
+		union
+		select nvl(max(operation_date),(sysdate-365))  timestamp, 'Last update of newdb_campaign '||   to_char( max(operation_date)   , 'YY.MM.DD HH24:MI')  msg, round (sysdate - nvl(max(operation_date),(sysdate-365)),0) threshold  from newdb_campaign
+    ", 
+    "solutions": [{"problem":"FuzzyDB-Synchronisation zu alt", 
+                       "desc":"DB-Link zur NewDB, Daten in NewDB-Views, Synchronisationslogs �berpr�fen"}
+		 ] 
+
+
+} ,{
+
+
+    "id":"CX_013_CX_FuzzyDB",
+    "name": "WflProc:FuzzyDB", 
+    "type": "DB",
+    "res": "DmsCxDB",
+     "description": "FuzzyDBGenerierung zu alt",
+    "thresholddimension":  "Anzahl Tagen seit letzter Generierung > 1",
+    "threshold_info":2,
+    "threshold_warn":2,
+    "threshold_error":3,
+    "threshold_escal":4,
+    "sql":"  select ityxtimetodate(lastimport)timestamp , 
+ 'Last update of fuzzyDB-Index:'|| fm_tablename || ' is to old: ' ||   to_char(ityxtimetodate(lastimport)   , 'YY.MM.DD HH24:MI')   msg,
+ round (sysdate - ityxtimetodate(lastimport),0) threshold
+  from cxmat_dat where fm_tablename like '%fuzzy%'
+	", 
+    "solutions": [{"problem":"FuzzyDB-Synchronisation zu alt", 
+                       "desc":"NightlyJobs �berpr�fen, FuzzyDB mit maintenance-script 240 generieren und �berpr�fen"}
+		 ]  
+
+} ,{
+
+
+    "id":"CX_014_CX_KPI",
+    "name": "WflProc:KPI_Scheduler", 
+    "type": "DB",
+    "res": "DmsCxDB",
+		"active": "false",
+    "description": "Funktionspr�fung des KPI Schedulers (15min)",
+    "thresholddimension":  "true - wenn kein Eintrag in letzten 15min",
+    "threshold_info":1,
+    "threshold_warn":1,
+    "threshold_error":2,
+    "threshold_escal":2,
+    "sql":"  select sysdate timestamp, 
+    'KPI-CTX-Scheduler is Running 15min, LastRun: '||  to_char( max(time)   , 'YY.MM.DD HH24:MI')    msg,
+    CASE 
+      when count(*) < 1 
+      then 1 
+      else 0
+    END threshold 
+  from ntt_kpi_docpool 
+  where time > (sysdate - interval '17' minute) 
+	", 
+    "solutions": [{"problem":"KPI Scheduler l�uft nicht", 
+                       "desc":"Ist der PFAD/aosvcityx Benutzer aktiv? L�uft der sheduled Script?"}
+		 ] 
+
+
+
+
+} ,{
+
+
+    "id":"CX_015_CX_DocsHangingInCX",
+    "name": "WflProc:DocsHangingInCX", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Dokumente die in CTX-Workflow h�ngen",
+    "thresholddimension":  "Anzahl der Dokumente",
+    "threshold_info":20,
+    "threshold_warn":100,
+    "threshold_error":300,
+    "threshold_escal":1000,
+    "sql":" select ityxtimetodate(greatest(createtime, lastdoctime)) timestamp,
+'id: ' || id || ' docID: ' || collectionid || ' docpool: ' || parameter || ' status:' || decode(status, 0,'wait', 1, 'running',3,'manuall_indexing_sleep', 16, 'error', 19, 'error19',  status) || ' created: '||  to_char( ityxtimetodate(createtime)   , 'YY.MM.DD HH24:MI')     msg,
+1 threshold
+from cxdsg_cdocpool
+where status <>32
+ and parameter not like 'SL3K%'
+ and parameter not like 'FHV%'
+ and parameter not like '46%'
+ and parameter not like '501%'
+ and parameter not like '81%'
+ and parameter not in ('Archiv','MoveFileToArchive','Associate')
+ and greatest(createtime, lastdoctime)<datetoityxtime(sysdate - interval '48' hour)
+	", 
+    "solutions": [{"problem":"Dokumente h�ngen in Contex seit mehr als 12h (DOC-Problem)", 
+                       "desc":"in ServiceCenter �berpr�fen, ggf. R�cksetzen (auf Wait-stellen) oder Aufr�umen"},
+		  {"problem":"Dokumente h�ngen in Contex seit mehr als 12h (Prozess h�ngt)", 
+                       "desc":"Sollte ein Prozess keine Dokumente ab einen Zeitpunkt verarbeiten - Prozess neustarten, wenn nicht m�glich, Wfl/Cluster neustart (advanced: Eine plus-Kopie erstellen und parallel zum aufgeh�ngten prozess laufen lassen)"}
+		 ] 
+
+} ,{
+
+
+    "id":"CX_016_CX_LockingToLong",
+    "name": "WflProc:CX_LockingToLong", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Dokumente die von CTX-Workflow ungew�hnlich lange gesperrt wurden",
+    "thresholddimension":  "Anzahl der Dokumente",
+    "threshold_info":1,
+    "threshold_warn":1,
+    "threshold_error":5,
+    "threshold_escal":30,
+    "sql":" select ityxtimetodate(greatest(createtime, lastdoctime)) timestamp,
+'id: ' || id || ' docID: ' || collectionid || ' docpool: ' || parameter || ' status:' || decode(status, 0,'wait', 1, 'running',3,'manuall_indexing_sleep', 16, 'error', 19, 'error19',  status) || ' created: '||  to_char( ityxtimetodate(createtime)   , 'YY.MM.DD HH24:MI')   msg,
+1 threshold
+from cxdsg_cdocpool
+where status <>32
+ and locking    IS NOT NULL 
+ and parameter not like 'SL3K%'
+ and parameter not like 'FHV%'
+ and parameter not in ('Archiv','MoveFileToArchive','Associate')
+ and greatest(createtime, lastdoctime)<datetoityxtime(sysdate - interval '1' hour)
+ and decode (locktime,null,datetoityxtime(sysdate),0,datetoityxtime(sysdate),locktime) <= datetoityxtime(sysdate - interval '3' hour) 
+	", 
+    "solutions": [{"problem":"Dokumente wurden von Contex mehr als 3h gesperrt", 
+                       "desc":"Pruefen ob Prozesse haengen, evtl. CTX-Neustart."}
+		 ] 
+},{
+
+    "id":"CX_017_CX_MiHangingInCX",
+    "name": "WflProc:MIDocsHangingInCX", 
+    "type": "DB",
+    "active": -1,
+    "res": "DmsCxDB",
+    "description": "Manuelle IndizierungsDokumente die in CTX-Workflow h�ngen",
+    "thresholddimension":  "Anzahl der Dokumente",
+    "threshold_info":1,
+    "threshold_warn":4,
+    "threshold_error":10,
+    "threshold_escal":50,
+    "sql":" select ityxtimetodate(greatest(createtime, lastdoctime)) timestamp,
+'id: ' || id || ' docID: ' || collectionid || ' docpool: ' || parameter || ' status:' || decode(status, 0,'wait', 1, 'running',3,'manuall_indexing_sleep', 16, 'error', 19, 'error19',  status) || ' created: '||  to_char( ityxtimetodate(createtime)   , 'YY.MM.DD HH24:MI')   msg,
+1 threshold
+from cxdsg_cdocpool
+where status <>32
+ and parameter like '46%'
+ and greatest(createtime, lastdoctime)<datetoityxtime(sysdate - interval '3' day)
+	", 
+    "solutions": [{"problem":"ManuelleIndizierungs-Dokumente h�ngen in Contex seit mehr als 3 Tage", 
+                       "desc":"Arbeitet Arbeitsvorbereitung? (Asterion)"}
+		 ] 
+},{
+
+    "id":"CX_018_SubcatConsistency",
+    "name": "WflProc:SubCatConsistency", 
+    "type": "DB",
+    "res": "DmsCxDB",
+	 "active": -1,
+    "description": "Konsistenz der Categorien in SubCat",
+    "thresholddimension":  "Anzahl der Dokumente",
+    "threshold_info":1,
+    "threshold_warn":1,
+    "threshold_error":1,
+    "threshold_escal":1,
+    "sql":" select sysdate timestamp,
+'Subcat: ' || sc.name || ' missing category: ' || substr(rc.rgpath,2) msg,
+1 threshold
+from cxcat_regexcat rc , cxadm_subcat sc
+where rc.subcat<>3 and 
+not exists (select * from cxadm_tns tns where tns.subcat=rc.subcat and tns.name=substr(rc.rgpath,2) )
+	", 
+    "solutions": [{"problem":"UndefinedCategory in Subcat - die Regex-Definition der Contex-Subcats verwendet eine formtype-Kategorie die nicht definiert ist.  Erwartete Auswirkung: Probleme mit Klassifizierung", 
+                       "desc":"Sofort unter cX-AdminTool->Administration->Masterdata richtiges Master und Subcat w�hlen und unter Categories auf Root-Element dr�cken, Kategorie hinzuf�gen und Committen. Nach dem Commit muss hinter der Kategorie neues ID>0 angezeigt werden."}
+		 ] 
+
+
+},{
+
+    "id":"CX_019_RegcatConsistency",
+    "name": "WflProc:RegCatConsistency", 
+    "type": "DB",
+    "res": "DmsCxDB",
+	 "active": -1,
+    "description": "Konsistenz der Categorien in RegexCategorizer",
+    "thresholddimension":  "Anzahl der Dokumente",
+    "threshold_info":1,
+    "threshold_warn":1,
+    "threshold_error":1,
+    "threshold_escal":1,
+    "sql":"select sysdate timestamp,
+'RuleCat-Node: ' || t.leafname || ' missing category: ' || dbms_lob.substr(a.actionparam,100,1)  msg,
+1 threshold
+from cxmct_action a, cxmct_actionchilds c,
+cxmct_treenode t, cxmct_nodedata d,
+cxadm_subcat sc
+where t.id=d.id
+and c.cxmct_nodedat_id=d.data_mid
+and  actiontype=1010
+and a.id=c.actions_id
+and not exists (select * from cxadm_tns tns where tns.subcat=4 and tns.name=dbms_lob.substr(a.actionparam,100,1) )
+	", 
+    "solutions": [{"problem":"UndefinedCategory in Subcat - die Regex-Definition der Contex-Regex-Categorizers verwendet eine formtype-Kategorie die nicht definiert ist. Erwartete Auswirkung: Probleme mit Klassifizierung", 
+                       "desc":"Sofort unter cX-AdminTool->Administration->Masterdata richtiges Master und Subcat w�hlen und unter Categories auf Root-Element dr�cken, Kategorie hinzuf�gen und Committen. Nach dem Commit muss hinter der Kategorie neues ID>0 angezeigt werden."}
+		 ] 
+
+
+},{
+
+    "id":"CX_020_RegcatConsistencyDouble",
+    "name": "WflProc:RegCatConsistencyDouble", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Konsistenz der Categorien in RegexCategorizer",
+    "thresholddimension":  "Anzahl der doublikaten",
+    "threshold_info":1,
+    "threshold_warn":1,
+    "threshold_error":1,
+    "threshold_escal":1,
+    "sql":"
+
+select sysdate timestamp,
+'RuleCat: ' || name || ' subcat:'|| subcat || ' double items: ' || count(*)  msg,
+count(*) threshold
+from cxadm_tns where master=1 
+and subcat>2
+group by subcat, name having count(*)>1
+	", 
+    "solutions": [{"problem":"DoubleCategory in Subcat - die Regex-Definition der Contex-Regex-Categorizers verwendet eine formtype-Kategorie die mehrfach definiert ist. Erwartete Auswirkung: Probleme mit Klassifizierung", 
+                       "desc":"Sofort unter cX-AdminTool->Administration->Masterdata richtiges Master und Subcat w�hlen und unter Categories doppelte Eintr�ge l�schen und Committen."}
+		 ] 
+
+},{
+
+    "id":"CX_021_CI_ToManyToCustomerShort",
+    "name": "CustomerIndexing:ToManyDocumentsIndexedForOneCustomer:ShortTerm", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Automatische Kundenindizierung indiziert zu viele Dokumente einem Kunden zu",
+    "thresholddimension":  "Anzahl der Dokumente",
+    "threshold_info":10,
+    "threshold_warn":15,
+    "threshold_error":25,
+    "threshold_escal":50,
+    "sql":"select  sysdate timestamp, customerid||': '''|| (select LISTAGG(s.ctx_documentid, ''', ''') WITHIN GROUP (Order by log_id)  from  ntt_cx_report s where s.currentdocpool =400 and s.step='END' and r.customerid=s.customerid and s.created>(sysdate-interval '3' hour) )||'''' msg,
+count(distinct ctx_documentid) threshold
+from ntt_cx_report r where currentdocpool =400
+and customerid not in ('4446377233','6048354698','7146844402','5207288279','5446421772', '2445070442', '1704205989', '6245728549','6347708266','2947511097','2248442590','9448584858','8010748844','9347360440','6347794428','3548298040','2848001946','4448603958','4711918085','1440077285','4503452709','1945734350','3011648950','7446567927','6946755694','3048651621','6404552658','2948322534')
+and r.created>(sysdate-interval '3' hour) and step='END' and r.customerid is not null and r.customerid <>0
+group by r.customerid having count(*)>8
+order by 3 desc
+	", 
+    "solutions": [{"problem":"Falsches Alarm: Kunde kommuniziert in den letzten Stunden intensiv mit der Hotline.", 
+                       "desc":"Gelegentlich ok, wenn ein Kunde viel mit der Hotline Kommuniziert."},
+		  {"problem":"Irgendein Merkmall f�hrt zur falscher Indizierung", 
+                       "desc":"Die Dokumente anhand CX.NTT_CX_Reporting raussuchen, und in AdminTool/InformationExtraction �berpr�fen. Ggf. durch �nderungen der REGEX oder durch blacklisting in den IE-Klassen verhindern"},
+                  {"problem":"Aktuelle Blacklist", 
+                       "desc":"CS Testuser: 4446377233. Kommunikativer Users: 6048354698"}
+		 ] 
+
+
+
+},{
+
+    "id":"CX_022_CIB_ToManyToCustomerLong",
+    "name": "CustomerIndexing:ToManyDocumentsIndexedForOneCustomer:LongTerm", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Automatische Kundenindizierung indiziert zu viele Dokumente einem Kunden zu",
+    "thresholddimension":  "Anzahl der Dokumente",
+    "threshold_info":15,
+    "threshold_warn":25,
+    "threshold_error":60,
+    "threshold_escal":100,
+    "sql":"select  sysdate timestamp, customerid||': '''|| (select LISTAGG(s.ctx_documentid, ''', ''') 
+WITHIN GROUP (Order by log_id)  from  ntt_cx_report s where s.currentdocpool =400 and s.step='END' and r.customerid=s.customerid and s.created>(sysdate-interval '7' hour) )||'''' msg,
+count(distinct ctx_documentid) threshold
+from ntt_cx_report r where currentdocpool =400
+and customerid not in ('7648495262', '1109595696','4446377233','6048354698','7146844402','5207288279','5446421772', '2445070442', '1704205989', '6245728549','3707647702','9147652603','6347708266','9448355299','2011749395','1545264389','3746129434','7048334568','2947511097','2248442590','8445168849','8211708940','7448558692','9748725445','9448584858','8010748844','6347794428','9347360440','3548298040','2848001946','4448603958','4711918085','4503452709','1440077285','1945734350','9511713097','6348579538','2208254812','9747831919','1645522166','3011648950','7446567927','2145066122','6946755694','3048651621')
+and r.created>(sysdate- interval '7' hour) and step='END' and r.customerid is not null and r.customerid <>0
+group by r.customerid having count(*)>7
+order by 3 desc
+	", 
+    "solutions": [{"problem":"Falsches Alarm: Kunde kommuniziert in den letzten Stunden intensiv mit der Hotline.", 
+                       "desc":"Gelegentlich ok, wenn ein Kunde viel mit der Hotline Kommuniziert."},
+		  {"problem":"Irgendein Merkmall f�hrt zur falscher Indizierung", 
+                       "desc":"Die Dokumente anhand CX.NTT_CX_Reporting raussuchen, und in AdminTool/InformationExtraction �berpr�fen. Ggf. durch �nderungen der REGEX oder durch blacklisting in den IE-Klassen verhindern"},
+                  {"problem":"Aktuelle Blacklist", 
+                       "desc":"CS Testuser: 4446377233. Kommunikativer Users: 6048354698"}
+		 ] 
+
+
+
+},{
+    "id":"CX_023_CustIndx_Quote",
+    "name": "CustomerIndexing:Quote", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Automatische Kundenindizierung: Quote der automatisch erkannten Kunden (dokumente mit erkannten Kunden/alle Dokumente)",
+    "thresholddimension":  "Negative Abweichung in % von der gew�nschten Quote der automatisch erkannten Kunden",
+    "threshold_info":2,
+    "threshold_warn":10,
+    "threshold_error":15,
+    "threshold_escal":20,
+    "sql":"
+select sysdate timestamp,
+'Channel: '||a.doctype||' automatically found customer quote:'|| round(100*(i.indiziert/a.alle), 2) || ' goal:' ||
+case (a.doctype) when 'BRIEF' then 65
+when 'FAX' then 60
+when 'EMAIL' then 75
+end
+ msg, 
+case (a.doctype)
+when 'BRIEF' then 
+    case 
+      when a.alle>70 AND (100*(i.indiziert/a.alle))<65 then 65 - round(100*(i.indiziert/a.alle),0)
+      else 0
+    end
+when 'FAX' then 
+    case 
+      when a.alle>50 AND (100*(i.indiziert/a.alle))<60 then 60 - round(100*(i.indiziert/a.alle),0)
+      else 0
+    end
+when 'EMAIL' then 
+    case 
+      when a.alle>50 AND (100*(i.indiziert/a.alle))<75 then 75 - round(100*(i.indiziert/a.alle),0)
+      else 0
+    end
+end threshold
+from 
+(select doctype, count(distinct ctx_documentid) indiziert
+from ntt_cx_report where  currentdocpool =400 and step='END'
+and customerid is not null and customerid <>0
+and created>(sysdate - interval '3' hour)
+group by doctype) i,
+(select doctype, count(distinct ctx_documentid) alle 
+from ntt_cx_report where  currentdocpool =400 and step='END'
+and created>(sysdate - interval '3' hour)
+group by doctype
+) a
+where i.doctype=a.doctype
+	", 
+    "solutions": [{"problem":"FuzzyMatcher nicht upToDate", 
+                       "desc":"Aktualit�t des FuzzyMatchers �berpr�fen: cTXDB.newdb_ tabellen, spalte operation_date sowie AdminTool/FuzzyMatcher"}, 
+		  {"problem":"Problem mit Cluster", 
+                       "desc":"Wird von Workflow der richtige FuzzyMatcher-Server verwendet?"},
+		  {"problem":"Problem mit IE-Tags", 
+                       "desc":"Die nicht erkannte ManuelleIndizierungs-Fragen �berpr�fen"},
+		  {"problem":"Problem mit IE-Tags", 
+                       "desc":"InformationExtraction-Tags �berpr�fen"}
+		 ] 
+
+},{
+    "id":"CX_024_DoublesByContex",
+    "name": "MultipleDocInjectionUsingSameDocID", 
+    "type": "DB",
+    "res": "DmsCxDB",
+	"active": "false",
+    "description": "Contex erzeugt Duplikate und f�gt diese ins Mediatrix ein",
+    "thresholddimension":  "Anzahl der Duplikate",
+    "threshold_info":1,
+    "threshold_warn":1,
+    "threshold_error":10,
+    "threshold_escal":100,
+    "sql":"
+
+select sysdate timestamp, 
+ctx_documentid || ' count:' || count(*) msg, case when count(*)>1 then 1 else 0 end  threshold
+from ntt_cx_report 
+where currentdocpool between 599 and 612 
+and created>sysdate-1
+and created>to_date('2015.07.14 15:00', 'yyyy.mm.dd hh24:mi')
+and STEP='END'
+group by ctx_documentid having count(*)>1
+	", 
+    "solutions": [{"problem":"Fehler in Contex, in Prozessen oder in Workaround-Routinen", 
+                       "desc":"600-Prozesse Stoppen, mittels ntt_cx_reporting table analysieren, Quelle Beheben, Docs in 600-Docpool von Duplikaten bereinigen, Prozesse starten"}		  
+		 ] 
+
+},{
+    "id":"CX_025_CXMultiDocIDForOneDocument",
+    "name": "Contex Multiple DocIDs for one document", 
+    "type": "DB",
+    "res": "DmsCxDB",
+		"active": "false",
+    "description": "Contex erzeugt Duplikate/Splits von Dokumenten was zur Duplikaten in MX f�hren k�nnte",
+    "thresholddimension":  "Anzahl der Duplikate",
+    "threshold_info":1,
+    "threshold_warn":1,
+    "threshold_error":10,
+    "threshold_escal":100,
+    "sql":"
+
+select sysdate timestamp, 
+documentsource ||' '|| currentdocpool ||' '|| documentid || ' count:' || count(*) msg, case when count(*)>1 then 1 else 0 end  threshold
+from ntt_cx_report 
+where currentdocpool between 599 and 612 
+and created>sysdate-1
+and created>to_date('2015.07.14 15:00', 'yyyy.mm.dd hh24:mi')
+and STEP='END'
+and formtype not in ('SEPAMandate', 'vosbelege')
+and documentid is not null
+group by documentsource, currentdocpool, length(CTX_DOCUMENTID), documentid having count(*)>1
+	", 
+    "solutions": [{"problem":"Fehler in Contex, in Prozessen oder in Workaround-Routinen", 
+                       "desc":"600-Prozesse Stoppen, mittels ntt_cx_reporting table analysieren (unterschiedliche DocID's fuer die angegebenen docsource/docmentid), Quelle Beheben, Docs in 600-Docpool von Duplikaten bereinigen, Prozesse starten"}		  
+		 ] 
+
+
+
+},{
+    "id":"CX_026_DocNotReached600Process",
+    "name": "Document doesn't reach 600Process. Tepichproblem", 
+    "type": "DB",
+    "res": "DmsCxDB",
+		"active": "true",
+    "description": "Aufgelistete Dokumente haben bei Contex den 600 Prozess nicht erreicht, dh. sind irgenwie verschwunden",
+    "thresholddimension":  "Anzahl der Verschwundenen Dokumente",
+    "threshold_info":1,
+    "threshold_warn":1,
+    "threshold_error":20,
+    "threshold_escal":100,
+    "sql":"
+select sysdate timestamp, 
+''''||CTX_DOCUMENTID ||''', ' msg, 
+1  threshold
+from (
+select CTX_DOCUMENTID 
+from 
+(select regexp_substr(CTX_DOCUMENTID,'[[:alnum:]]{21}-[[:alnum:]]{8}') CTX_DOCUMENTID
+    from ntt_cx_report
+    where step='START' 
+      and currentdocpool =300
+      and created between sysdate -3 and sysdate - interval '120' minute
+  ) 
+minus
+ (select regexp_substr(CTX_DOCUMENTID,'[[:alnum:]]{21}-[[:alnum:]]{8}')  CTX_DOCUMENTID
+    from ntt_cx_report 
+    where step='END' 
+    and currentdocpool in (600, 601, 602, 603)
+    and created>sysdate -3
+  ) 
+minus
+ (select  regexp_substr(collectionid,'[[:alnum:]]{21}-[[:alnum:]]{8}')  CTX_DOCUMENTID
+  from CXDSG_CDOCPOOL 
+  where status <>32 ) 
+minus
+ (select regexp_substr(CTX_DOCUMENTID,'[[:alnum:]]{21}-[[:alnum:]]{8}')  CTX_DOCUMENTID
+    from ntt_cx_report 
+    where created>sysdate-interval '120' minute
+  ) 
+)
+", 
+    "solutions": [{"problem":"Fehler in ContexProzessen wahrscheinlich", 
+                       "desc":"Anhand der angegebenen DocIDs die ntt_cx_report (ctx_documentid) oder cxdsg_cdocpool (collectionid) Tabelle pr�fen und rausfinden in welchem Prozess das Dokument stecken geblieben ist."}		  
+		 ] 
+
+	} ,{	
+
+    "id":"CX_027_CX_DB_maxCursorProDBSession",
+    "name": "CX:CX_DB_maxCursorProDBSession", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Statusmeldung wie viele offene Cursoren eine DB-Session hat (Max f�r eine Session)",
+    "thresholddimension":  "Anzahl offener Cursoren auf der DB",
+    "threshold_info":5000,
+    "threshold_warn":8000,
+    "threshold_error":9000,
+    "threshold_escal":9999,
+    "sql":" 
+	select sysdate TIMESTAMP,
+  ('Count of open cursors within the DB') msg,
+  MAX(a.value) threshold
+  FROM v$sesstat a, v$statname b, v$session s
+  WHERE a.statistic# = b.statistic#  AND s.sid=a.sid AND b.name  = 'opened cursors current' AND username LIKE 'ITYX_CX'
+	", 
+    "solutions": [{"problem":"Anzahl offener Cursoren auf der Datenbank", 
+                       "desc":"Erh�hte Gefahr dass die DB den Dienst quitiert. Sollte danach Systemausfallmeldung kommen - den kompletten DMS-Cluster neustarten"}		 
+		 ] 		 
+		 
+} ,{	
+    "id":"CX_028_DB_sumCursorsOverAllDBSessions",
+    "name": "CX_28_MX_DB_sumCursorsOverAllDBSessions", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Statusmeldung wie viele offene Cursoren eine DB-Session hat (Summe �ber alle Sessions)",
+    "thresholddimension": "Anzahl offener Cursoren auf der DB",
+    "threshold_info":10000,
+    "threshold_warn":60000,
+    "threshold_error":80000,
+    "threshold_escal":120000,
+    "sql":" 
+	select sysdate TIMESTAMP,
+  ('Count of open cursors within the DB') msg,
+   SUM(a.value) threshold
+  FROM v$sesstat a, v$statname b, v$session s
+  WHERE a.statistic# = b.statistic#  AND s.sid=a.sid AND b.name  = 'opened cursors current' AND username LIKE 'ITYX_CX'
+	", 
+    "solutions": [{"problem":"Anzahl offener Cursoren auf der Datenbank", 
+                       "desc":"Erh�hte Gefahr dass die DB den Dienst quitiert. Sollte danach Systemausfallmeldung kommen - den kompletten DMS-Cluster neustarten"}		 
+		 ]  
+
+} ,{	
+    "id":"CX_029_DB_sumDBSessions",
+    "name": "CX_029_opencursor", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "Statusmeldung wie viele offene Sessions auf der DB existieren",
+    "thresholddimension": "Anzahl offener Cursoren auf der DB",
+    "threshold_info":200,
+    "threshold_warn":800,
+    "threshold_error":1500,
+    "threshold_escal":2500,
+    "sql":" 
+	select sysdate TIMESTAMP,
+  ('Count of open sessions within the DB') msg,
+     count(*) threshold
+    from v$session where osuser='SYSTEM'
+	", 
+    "solutions": [{"problem":"Anzahl offener Sessions auf der Datenbank", 
+                       "desc":"Erhoehte Gefahr dass die DB den Dienst quitiert. Sollte danach Systemausfallmeldung kommen - den kompletten DMS-Cluster neustarten"}		 
+		 ]  
+		 } ,{	
+    "id":"CX_030_EmailDaemonLock",
+    "name": "CX_030_EmailDaemonLock", 
+    "type": "DB",
+    "res": "DmsCxDB",
+    "description": "EmailDaemon lockt zu lange MXMailReturn Dokumente",
+    "thresholddimension": "Anzahl gelockten Dateien > 30 min",
+        "threshold_info":1,
+        "threshold_warn":100,
+        "threshold_error":200,
+        "threshold_escal":500,
+        "sql":"
+        select  sysdate TIMESTAMP,
+        'Count of locked CXDSG_Docpool - Documents: MXMailReturn. Lock since:' || min(ityxtimetodate(dp.locktime)) msg,
+        count(*) threshold
+        from cxdsg_cdocpool dp
+        where parameter like 'MX%' and status=0 and locking is not null
+        and locktime<datetoityxtime(sysdate-interval '30' minute )
+        ",
+        "solutions": [{"problem":"Mehrere MXInjection Dokumente von Email-Daemon seit über 30 Minuten gesperrt",
+          "desc":"Email-Daemon blockt wahrscheinlich den ContexSever/Wfl/Scheduler-Daemon. Bitte Email-Daemon neustarten, gelockte Dokumente in AdminTool entsperren und pr�fen in MX dass der Email-Daemon keine Fragen gesperrt hat."}
+        ]
+      },{
+        "id":"CX_031_EmailDaemonLock",
+        "name": "CX_031_EmailDaemonLock",
+        "type": "DB",
+        "res": "DmsCxDB",
+        "description": "EmailDaemon lockt zu lange MXMailReturn Dokumente",
+        "thresholddimension": "Minuten: Dauer des laengsten Locks",
+        "threshold_info":5,
+        "threshold_warn":15,
+        "threshold_error":25,
+        "threshold_escal":35,
+        "sql":"
+select 'Longest lock in CXDSG_CDOCPOOL - Documents: MXMailReturn.' as MSG, nvl(max(THRESHOLD), 0.00) as THRESHOLD
+from
+(
+select  round((sysdate - ITYXTIMETODATE(locktime))*24*60, 2) as threshold
+from cxdsg_cdocpool dp
+where parameter like 'MX%'
+and status=0
+and locking is not null
+and locktime < datetoityxtime(sysdate-interval '5' minute)
+)
+        ",
+        "solutions": [{"problem":"MXInjection Dokumente zu lange von Email-Daemon gesperrt",
+          "desc":"Email-Daemon blockt wahrscheinlich den ContexSever/Wfl/Scheduler-Daemon. Bitte Email-Daemon neustarten, gelockte Dokumente in AdminTool entsperren und prüfen in MX dass der Email-Daemon keine Fragen gesperrt hat."}
+        ]}
+    ]}

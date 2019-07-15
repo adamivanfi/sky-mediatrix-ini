@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:tns="http://www.sky.de/integration/web/CustomerDataService/1.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://www.sky.de/integration/web/CustomerDataService/1.0">
+    <wsdl:types>
+        <xs:schema xmlns:ns1="http://www.sky.de/integration/web/CustomerDataService/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.sky.de/integration/web/CustomerDataService/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="Asset_Type">
+                <xs:sequence>
+                    <xs:element name="SMCSerialNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="HardDiskType" type="xs:string" minOccurs="0"/>
+                    <xs:element name="HardDiskSerialNum" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ReceiverType" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ReceiverSerialNum" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CIPlusModuleType" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CIPlusModuleSerialNum" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Campaign_Type">
+                <xs:sequence>
+                    <xs:element name="CampaignType" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Contract_Type">
+                <xs:sequence>
+                    <xs:element name="HouseNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Staircase" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Floor" type="xs:string" minOccurs="0"/>
+                    <xs:element name="FlatNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="UnexpectedReturnContract" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ContractId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ContractDate" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Street" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ZipCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="City" type="xs:string" minOccurs="0"/>
+                    <xs:element name="AccountNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="BankCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="BankAccountHolder" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Pricelist" type="xs:string" minOccurs="0"/>
+                    <xs:element name="SubscriptionStartDate" type="xs:string" minOccurs="0"/>
+                    <xs:element name="EarmarkedCancellationDate" type="xs:string" minOccurs="0"/>
+                    <xs:element name="PossibleCancellationDate" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CancelDate" type="xs:string" minOccurs="0"/>
+                    <xs:element name="AccountBalance" type="xs:string" minOccurs="0"/>
+                    <xs:element name="WMFlag" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Mandate" type="ns1:Mandate_Type" minOccurs="0"/>
+                    <xs:element name="Asset" type="ns1:Asset_Type" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Customer_Type">
+                <xs:sequence>
+                    <xs:element name="MobileNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ContractContent" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CustomerId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="EmailAddress" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Salutation" type="xs:string" minOccurs="0"/>
+                    <xs:element name="FirstName" type="xs:string" minOccurs="0"/>
+                    <xs:element name="LastName" type="xs:string" minOccurs="0"/>
+                    <xs:element name="TelephoneNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CustomerCategory" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Stamp" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Campaign" type="ns1:Campaign_Type" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="ServiceRequest" type="ns1:ServiceRequest_Type" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="Contract" type="ns1:Contract_Type" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="Dunning" type="ns1:Dunning_Type" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Dunning_Type">
+                <xs:sequence>
+                    <xs:element name="DunningContractId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="DunningLevel" type="xs:string" minOccurs="0"/>
+                    <xs:element name="LastDunningLetterAmount" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Mandate_Type">
+                <xs:sequence>
+                    <xs:element name="CustomerIBAN" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CustomerBIC" type="xs:string" minOccurs="0"/>
+                    <xs:element name="MandateRefId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="SignatureDate" type="xs:string" minOccurs="0"/>
+                    <xs:element name="SignatureFlag" type="xs:string" minOccurs="0"/>
+                    <xs:element name="MandateStatus" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="Result_Type">
+                <xs:restriction base="xs:string">
+                    <xs:length value="2"/>
+                    <xs:enumeration value="OK"/>
+                    <xs:enumeration value="KO"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:complexType name="ServiceRequest_Type">
+                <xs:sequence>
+                    <xs:element name="ContractChangeCategory" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ContractChangeDate" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getDynamicCustomerDataRequest_Type">
+                <xs:sequence>
+                    <xs:element name="RequestType" type="xs:string"/>
+                    <xs:element name="CustomerId" type="xs:string"/>
+                    <xs:element name="ContractId" type="xs:string" minOccurs="0"/>
+                    <xs:element name="RequestedFields" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getDynamicCustomerDataResponse_Type">
+                <xs:sequence>
+                    <xs:element name="Result" type="ns1:Result_Type"/>
+                    <xs:element name="RetCode" type="xs:string"/>
+                    <xs:element name="ErrorDesc" type="xs:string" minOccurs="0"/>
+                    <xs:element name="RequestType" type="xs:string"/>
+                    <xs:element name="CustomerId" type="xs:string"/>
+                    <xs:element name="Customer" type="ns1:Customer_Type" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Customer" type="ns1:Customer_Type"/>
+            <xs:element name="getDynamicCustomerDataRequest" type="ns1:getDynamicCustomerDataRequest_Type"/>
+            <xs:element name="getDynamicCustomerDataResponse" type="ns1:getDynamicCustomerDataResponse_Type"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="CustomerDataService.serviceagent">
+        <wsdl:port name="CustomerDataServiceEndpoint" binding="tns:CustomerDataServiceEndpointBinding">
+            <soap:address location="http://localhost:13100/BusinessService/CustomerDataService"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="PortType">
+        <wsdl:operation name="getDynamicCustomerData">
+            <wsdl:input message="tns:MsgGetDynamicCustomerDataRequest"/>
+            <wsdl:output message="tns:MsgGetDynamicCustomerDataResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CustomerDataServiceEndpointBinding" type="tns:PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getDynamicCustomerData">
+            <soap:operation style="document" soapAction="getDynamicCustomerData"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="getDynamicCustomerDataRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="getDynamicCustomerDataResponse"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="MsgGetDynamicCustomerDataRequest">
+        <wsdl:part name="getDynamicCustomerDataRequest" element="tns:getDynamicCustomerDataRequest"/>
+    </wsdl:message>
+    <wsdl:message name="MsgGetDynamicCustomerDataResponse">
+        <wsdl:part name="getDynamicCustomerDataResponse" element="tns:getDynamicCustomerDataResponse"/>
+    </wsdl:message>
+</wsdl:definitions>

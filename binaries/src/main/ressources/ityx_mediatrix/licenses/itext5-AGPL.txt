@@ -1,0 +1,60 @@
+
+If you want to purchase an iText license, or if have a question about sales, please fill out our our online form or mail to .
+You can also mail iText Software Corp at these addresses:
+For Europe, Middle-East, Asia, Africa 	For the US, Canada, South-America, Oceania
+iText Software BVBA 	iText Software Corp.
+Adolf Baeyensstraat 121
+9040 Sint-Amandsberg (Ghent)
+BELGIUM 	2150 Portola Ave., Suite D-239
+Livermore, CA 94551
+USA
+tel: +32 478 96 58 76 	tel: +1 (650) 384-0463
+fax: +32 92 70 33 75 	fax: +1 (650) 412-2486
+A sales person will inform you about the different products and prices that are available.
+Open source
+Although iText is a free/open source software (F/OSS) project, giving you a lot of freedom and flexibility regarding the use of the iText software, 
+this doesn’t mean you're free to do anything you want with the product: you have to respect the Affero General Public License.
+You can be released from the requirements of the license by purchasing a commercial license from iText Software Corp.
+Buying such a license is mandatory as soon as you develop commercial activities involving the iText software without disclosing the source code of your own applications.
+ These activities include: offering paid services to customers as an ASP, serving PDFs on the fly in a web application, shipping iText with a closed source product.
+Why buy a license?
+An iText commercial license provides advantages not available with the open-source AGPL license. The specific benefits of a commercial license include:
+
+    Indemnification in the event of IP (intellectual property) or patent infringement
+    Release from the requirements of the copyleft AGPL license, which include:
+        distribution of all source code including your own product, including if it is a web-based application
+        licensing of your own product under the AGPL license
+        prominent mention and inclusion of the iText copyright and the AGPL license
+        disclosure of modifications
+    Release from the requirement to not change the PDF Producer line in the generated PDF properties
+
+Along with a commercial license, you can also purchase priority technical support
+Pricing
+iText Commercial licenses are sold much like other commercial software. The type of license and price depends on your application. Therefore, we need additional information 
+to provide pricing. We need to know which of the following type of applications are you looking to build:
+
+1a) iText Commercial Server Licenses
+1b) iText Commercial Desktop Licenses
+    For application within an organizations network to be accessed by employees of the company for generation and manipulation of PDFs. Server licenses are sold by the server
+ or in virtualized environment by the VM. Desktop licenses are by quantities of desktops.
+2) iText Commercial SaaS/Hosted Licenses
+    For a hosted solution within an organization to be accessed by external users. Licensing is based on a known subscriber base and if there is no known universe of subscribers,
+ it is based on volumes of documents generated.
+3a) iText Commercial Server OEM Licenses
+3b) iText Commercial Desktop OEM Licenses
+    For ISVs who wish to include the iText library within their applications and wish royalty-free distribution of licenses. The license is based on volume categories of licenses to be distributed.
+4a) iText for Android: consumer apps
+4b) iText for Android: business apps
+4c) iText for Android: developer
+    For Android smart phones and tabletPCs, we have a version of iText with reduced file size and functionality that works on Android.
+iText is available as a Java and .NET library.
+    Please indicate which version you are interested in.
+So, we need to know which category you are (1a, 1b, 2 or 3a, 3b) and within that category the additional information required, including which library version, to provide a price to you. Optionally,
+ but it would be helpful, is for you to provide a general description of your application or product.
+ 
+Trademark
+iText is a registered Trademark of 1T3XT BVBA.
+United States Patent and Trademark Office Reg. No. 3,918,709;
+registered Feb. 15, 2011; Int. Cl.: 9;
+first use 2-15-2000; in commerce 2-14-2000.
+serial No. 77-910,731; filed 1-13-2010.

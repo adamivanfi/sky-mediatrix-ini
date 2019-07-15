@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.nttdata.de.dmsityx.server</groupId>
+        <artifactId>server</artifactId>
+        <version>2.0.3-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>mxbusinessrules</artifactId>
+    <version>2.0.3-SNAPSHOT</version>
+
+    <build>
+        <finalName>ntt-skydms-${project.parent.artifactId}-${project.artifactId}-${project.version}</finalName>
+          <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+          </plugins>  
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.nttdata.de.dmsityx.mxclient</groupId>
+            <artifactId>mxbusinessrules-client</artifactId>
+            <version>${project.version}</version>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.nttdata.de.dmsityx.server</groupId>
+            <artifactId>sharedservices</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>de.ityx.customer.commons</groupId>
+            <artifactId>aspose-itext-pdf-convertor</artifactId>
+            <version>${MX_EXTLIB_ASPOSEITEX_VER}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>mediatrix-kernel</artifactId>
+            <version>${MX_CORE_MX_VER}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>mediatrix-services</artifactId>
+            <version>${MX_CORE_MX_VER}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>mediatrix-server</artifactId>
+            <version>${MX_CORE_MX_VER}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itext-parent</artifactId>
+            <version>${MX_EXTLIB_ITEXTPDF_VER}</version>
+        </dependency>
+
+    <!--  <dependency>
+            <groupId>com.aspose</groupId>
+            <artifactId>aspose-cells</artifactId>
+            <version>${MX_EXTLIB_ASPOSECELLS}</version>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-imaging</artifactId>
+            <version>${EXTLIB_COMMONSIMG_VER}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>net.sourceforge.jchardet</groupId>
+            <artifactId>jchardet</artifactId>
+            <version>${EXTLIB_JCHARDET_VER}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.juniversalchardet</groupId>
+            <artifactId>juniversalchardet</artifactId>
+            <version>${EXTLIB_JUNICHARDET_VER}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>contex-security-core</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>3.2.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>${EXTLIB_ELASTICSEARCH_VER}</version>
+        </dependency>
+        <dependency>
+            <groupId>antlr</groupId>
+            <artifactId>antlr</artifactId>
+            <version>2.7.7</version>
+        </dependency>
+
+        <!--
+        <dependency>
+        	<groupId>de.ityx</groupId>
+        	<artifactId>aspose_converter_service</artifactId>
+        	<version>2.0.3</version>
+        </dependency>
+        -->
+    </dependencies>
+
+
+</project>

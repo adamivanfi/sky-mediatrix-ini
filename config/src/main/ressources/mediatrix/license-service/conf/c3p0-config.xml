@@ -1,0 +1,21 @@
+<c3p0-config>
+	<default-config>
+		<!-- <property name="maxIdleTime">14400</property> -->
+		<property name="acquireRetryAttempts">10</property>
+		<property name="idleConnectionTestPeriod">60</property>
+		<!-- <property name="debugUnreturnedConnectionStackTraces">false</property> -->
+		
+		    <property name="maxIdleTime">1680</property><!-- 28 min -->
+		<!-- <property name="maxIdleTime">14400</property>   -->
+        <property name="maxPoolSize">300</property>
+        <property name="unreturnedConnectionTimeout">1560</property> <!-- 26 min -->
+        <property name="debugUnreturnedConnectionStackTraces">true</property>
+		<property name="preferredTestQuery">select 1,2,3,4 from dual</property>
+	</default-config>
+<!-- 	<named-config name="LicenseTracker"> -->
+<!-- 		<property name="maxIdleTime">14400</property>		 -->
+<!-- 		<property name="acquireRetryAttempts">10</property> -->
+<!-- 		<property name="idleConnectionTestPeriod">60</property> -->
+<!-- 		<property name="debugUnreturnedConnectionStackTraces">false</property> -->
+<!-- 	</named-config> -->
+</c3p0-config>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<License>
+  <Data>
+    <LicensedTo>Cirquent GmbH</LicensedTo>
+    <LicenseType>Developer Small Business</LicenseType>
+    <LicenseNote>Limited to 1 developer.</LicenseNote>
+    <OrderID>120110075959</OrderID>
+    <OEM>This is not a non-redistributable license</OEM>
+    <Products>
+      <Product>Aspose.Total for Java</Product>
+    </Products>
+    <EditionType>Enterprise</EditionType>
+    <SerialNumber>7e589293-cf53-40ca-b038-deabd791aff8</SerialNumber>
+    <SubscriptionExpiry>20130110</SubscriptionExpiry>
+    <LicenseVersion>2.2</LicenseVersion>
+  </Data>
+  <Signature>KSg4e+DbArR9IgKlZ5/Reph8QXoFlXq7rnKMn3qD3v3RtuXqvg0Rp50r9ZIGzX4N2WZOusDq7rYpgUG6HnEp/GND6Wiwu1eYXpIh7RAwL9ewg8AUnl/JLzZHR34ob4CAXQhXoTaEeGuv1P6UzczCR9XwvTOQWTym/pJb16skLeI=</Signature>
+</License>

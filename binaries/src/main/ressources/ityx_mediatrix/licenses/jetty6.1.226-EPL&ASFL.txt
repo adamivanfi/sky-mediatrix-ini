@@ -1,0 +1,10 @@
+The Jetty project is coordinated between Eclipse for the latest core components and the codehaus for Jetty accessories, extensions, 
+and older versions of Jetty.
+
+Jetty 7 is dual licensed under the Apache License 2.0 and Eclipse Public License 1.0. 
+Jetty is free for commercial use and distribution under the terms of either license, with exceptions listed in the NOTICE file.
+
+The latest Jetty accessories, extensions, and integrations are available from the codehaus and are licensed under the Apache 
+License 2.0 with exceptions explained in the NOTICE file.
+
+Jetty 6 is distributed solely under the Apache License 2.0 with details and exceptions listed in the NOTICE file. 

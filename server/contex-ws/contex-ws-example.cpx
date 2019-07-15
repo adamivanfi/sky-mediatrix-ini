@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StateGraph version="1.0" start="1">
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="5" type="New Variable" x="320.0" y="20.0">
+    <Next id="3" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="key" value="session.testVar" />
+      <param type="String" name="typ" value="TEXT" />
+      <param type="String" name="value" value="testOutput" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="4" type="Exflow" x="620.0" y="20.0">
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="3" type="Store" x="470.0" y="20.0">
+    <Next id="4" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="keyIn" value="session.testVar" />
+      <param type="String" name="operator" value="copy" />
+      <param type="String" name="keyOut" value="out.outputparam" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="2" type="Exflow" x="170.0" y="20.0">
+    <Next id="5" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="do something" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="1" type="New Var. List" x="20.0" y="20.0">
+    <Next id="2" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="xmlDataVector" value="&lt;vector&gt;&#xA;  &lt;vector&gt;&#xA;    &lt;string&gt;input&lt;/string&gt;&#xA;    &lt;string&gt;String&lt;/string&gt;&#xA;    &lt;string&gt;##input.inputparam##&lt;/string&gt;&#xA;  &lt;/vector&gt;&#xA;&lt;/vector&gt;" />
+      <param type="String" name="propertyName" value="" />
+    </values>
+  </State>
+  <edge source="3" target="4" text="">
+    <point x="470" y="20" />
+    <point x="620" y="20" />
+  </edge>
+  <edge source="5" target="3" text="">
+    <point x="320" y="20" />
+    <point x="470" y="20" />
+  </edge>
+  <edge source="2" target="5" text="">
+    <point x="170" y="20" />
+    <point x="320" y="20" />
+  </edge>
+  <edge source="1" target="2" text="">
+    <point x="20" y="20" />
+    <point x="170" y="20" />
+  </edge>
+  <InputMaps>
+    <Key Name="modelMap">
+      <ParameterMap class="de.ityx.contex.impl.designer.exflow.maps.ParameterMap">
+        <Parameter Name="inputparam" Type="10" Default="" />
+      </ParameterMap>
+    </Key>
+  </InputMaps>
+  <OutputMaps>
+    <Key Name="outputMap">
+      <ParameterMap class="de.ityx.contex.impl.designer.exflow.maps.ParameterMap">
+        <Parameter Name="outputparam" Type="10" Default="" />
+      </ParameterMap>
+    </Key>
+  </OutputMaps>
+</StateGraph>
+

@@ -1,0 +1,989 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://efbus.services/CustomerServiceFAA" xmlns:ns0="http://sky.de.customer/FAA/schemas" xmlns:ns2="http://de.sky.com/rd2" xmlns:ns1="http://de.sky.com/rd3" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns3="http://de.sky.com/rd1" name="Untitled" targetNamespace="http://efbus.services/CustomerServiceFAA">
+    <wsdl:types>
+        <xs:schema xmlns:rd3="http://de.sky.com/rd3" xmlns:rd2="http://de.sky.com/rd2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://sky.de.customer/FAA/schemas" xmlns:rd1="http://de.sky.com/rd1" targetNamespace="http://sky.de.customer/FAA/schemas" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:import namespace="http://de.sky.com/rd1"/>
+            <xs:import namespace="http://de.sky.com/rd2"/>
+            <xs:import namespace="http://de.sky.com/rd3"/>
+            <xs:complexType name="AssetList_Type">
+                <xs:sequence>
+                    <xs:element name="Asset" type="ns1:Asset_Type" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Asset_Type">
+                <xs:sequence>
+                    <xs:element name="status" type="xs:string"/>
+                    <xs:choice>
+                        <xs:element name="CIplus" type="ns1:CI_Type" minOccurs="0"/>
+                        <xs:element name="CooperationDevice" type="ns1:CooperationDevice_Type" minOccurs="0"/>
+                        <xs:element name="Receiver" type="ns1:RECEIVER_Type" minOccurs="0"/>
+                        <xs:element name="SmartCard" type="ns1:SMARTCARD_Type" minOccurs="0"/>
+                    </xs:choice>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CI_Type">
+                <xs:sequence>
+                    <xs:element name="serialNo" type="xs:string"/>
+                    <xs:element name="technology" type="xs:string" minOccurs="0"/>
+                    <xs:element name="receiverModel" type="xs:string" minOccurs="0"/>
+                    <xs:element name="product" type="ns1:serviceType"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CampaignElement_Type">
+                <xs:sequence>
+                    <xs:element name="CampaignType" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CampaignFamily" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CampaignNumber" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CategoryBenefits_Type">
+                <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="counter" type="xs:integer" minOccurs="0"/>
+                    <xs:element name="benefitsAvailable" type="xs:integer" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ContractElement_Type">
+                <xs:sequence>
+                    <xs:element name="ContractType" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ContractList_Type">
+                <xs:sequence>
+                    <xs:element name="Contract" type="ns1:Contract_Type" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Contract_Type">
+                <xs:sequence>
+                    <xs:element name="ContractNumber" type="xs:string"/>
+                    <xs:element name="ContractStatus" type="xs:string"/>
+                    <xs:element name="ContractType" type="xs:string"/>
+                    <xs:element name="Operator" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Platform" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ReceptionType" type="xs:string" minOccurs="0"/>
+                    <xs:element name="DunningLevel" type="xs:integer" minOccurs="0"/>
+                    <xs:element name="DunningReason" type="xs:string" minOccurs="0"/>
+                    <xs:element name="DunningGroup" type="xs:string" minOccurs="0"/>
+                    <xs:element name="DunningAction" type="xs:string" minOccurs="0"/>
+                    <xs:element name="secondTV" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="expectedReturn" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="openShippingOrder" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="expectedShipmentOrder" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="openOnSiteService" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="deviceDataIncomplete" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="SR_List" type="ns1:SR_List_Type" minOccurs="0"/>
+                    <xs:element name="PackageList" type="ns1:PackageList_Type" minOccurs="0"/>
+                    <xs:element name="futureChangeAddressFlag" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="futureChangeBankFlag" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="futureChangeSystemFlag" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="HD" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="hasCancellationDate" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="ContractCancellationDate" type="xs:date" minOccurs="0"/>
+                    <xs:element name="skyQFlag" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="skyQRateCardFlag" type="ns1:Flag_Type" minOccurs="0"/>
+                    <xs:element name="mopHistory" type="ns1:MopHistory_Type" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CooperationDevice_Type">
+                <xs:sequence>
+                    <xs:element name="DeviceIdentifier" type="xs:string"/>
+                    <xs:element name="product" type="ns1:serviceType"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CustomerDataRequest_Type">
+                <xs:sequence>
+                    <xs:element name="CustomerNumber">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="SMCNumber">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="ContactChannel" type="xs:string"/>
+                    <xs:element name="CRMType" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CustomerStatus" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CustomerDataResponse_Type">
+                <xs:choice>
+                    <xs:element name="Prem2Customer" type="ns1:Prem2CustomerDataResponse_Type"/>
+                    <xs:sequence>
+                        <xs:element name="CustomerRecognitionFlag" type="ns1:Flag_Type"/>
+                        <xs:element name="ZipCode1" type="xs:string"/>
+                        <xs:element name="ZipCode2" type="xs:string"/>
+                        <xs:element name="ZipCode3" type="xs:string"/>
+                        <xs:element name="ZipCode4" type="xs:string"/>
+                        <xs:element name="ZipCode5" type="xs:string"/>
+                        <xs:element name="CustomerMigration" type="xs:string"/>
+                        <xs:element name="HotelFlag" type="ns1:Flag_Type"/>
+                        <xs:element name="SportbarFlag" type="ns1:Flag_Type"/>
+                        <xs:element name="CustomerType">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string"/>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element ref="ns1:NBAList" minOccurs="0"/>
+                        <xs:element ref="ns1:MultipleContactList" minOccurs="0"/>
+                        <xs:element name="ContractNumber" type="xs:string"/>
+                        <xs:element name="MandateStatus" type="xs:string" minOccurs="0"/>
+                        <xs:element name="ExistingMandateFlag" type="ns1:Flag_Type"/>
+                        <xs:element name="CustomerStatus">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string"/>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="CustomerCancellationFlag" type="ns1:Flag_Type"/>
+                        <xs:element name="DunningLevel" type="xs:integer" minOccurs="0"/>
+                        <xs:element name="DunningExitFlag" type="xs:string" minOccurs="0"/>
+                        <xs:element name="DunningReason" type="xs:string" minOccurs="0"/>
+                        <xs:element name="DunningGroup" type="xs:string" minOccurs="0"/>
+                        <xs:element name="ChurnReturnFlag" type="ns1:Flag_Type" minOccurs="0"/>
+                        <xs:element name="PriceList" type="xs:string"/>
+                        <xs:element ref="ns1:PackAndProductList" minOccurs="0"/>
+                        <xs:element name="CampaignList" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element ref="ns1:CampaignElement" minOccurs="0" maxOccurs="unbounded"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="CategoryBenefitsList" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element ref="ns1:CategoryBenefits" minOccurs="0" maxOccurs="unbounded"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="ContractList" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element ref="ns1:ContractElement" minOccurs="0" maxOccurs="unbounded"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="RateCardFlag" type="ns1:Flag_Type" minOccurs="0"/>
+                        <xs:element name="SkyPlusFlag" type="ns1:Flag_Type"/>
+                        <xs:element name="ContractStartDays" type="xs:integer"/>
+                        <xs:element name="ContractExpirationDate" type="xs:dateTime"/>
+                        <xs:element name="ContractExpirationDays" type="xs:integer"/>
+                        <xs:element name="TerminationReason" minOccurs="0">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string"/>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="ReceptionType" minOccurs="0">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string"/>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="Operator" minOccurs="0">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string"/>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="HWDunningList" minOccurs="0">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element ref="ns1:HardwareDunning" minOccurs="0" maxOccurs="unbounded"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="CustomerCategory" type="xs:string" minOccurs="0"/>
+                        <xs:element name="MGMFlag" type="ns1:Flag_Type"/>
+                        <xs:element name="RemittorFlag" type="ns1:Flag_Type"/>
+                        <xs:element name="LastContractChangeElapsed" type="xs:integer" minOccurs="0"/>
+                        <xs:element name="Platform" type="xs:string" minOccurs="0"/>
+                        <xs:element name="HardDiskCapacity" type="xs:string" minOccurs="0"/>
+                        <xs:element name="ReceiverType" type="xs:string" minOccurs="0"/>
+                        <xs:element name="ReceiverModel" type="xs:string" minOccurs="0"/>
+                        <xs:element name="SkyOnlineTVBox" type="ns1:Flag_Type" minOccurs="0"/>
+                        <xs:element name="CancellationRisk" type="xs:string" minOccurs="0"/>
+                        <xs:element name="Segment" type="xs:string" minOccurs="0"/>
+                        <xs:element ref="ns1:SRIntentionList" minOccurs="0"/>
+                        <xs:element name="Country" type="xs:string" minOccurs="0"/>
+                        <xs:element name="PPVType" type="xs:string" minOccurs="0">
+                            <xs:annotation>
+                                <xs:documentation>always M for Siebel customers</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="PPVAllowed" type="xs:boolean" minOccurs="0"/>
+                        <xs:element name="BMAllowed" type="xs:boolean" minOccurs="0"/>
+                        <xs:element name="SkyPinStatus" type="xs:string" minOccurs="0"/>
+                        <xs:element name="hasBeenRecentlyConnected" type="ns1:Flag_Type" minOccurs="0"/>
+                        <xs:element name="customerSegment" type="ns1:customerSegment_type" minOccurs="0"/>
+                        <xs:element name="skyQFlag" type="xs:boolean" minOccurs="0"/>
+                        <xs:element name="skyQRateCardFlag" type="ns1:Flag_Type" minOccurs="0"/>
+                        <xs:element ref="ns1:ServiceList" minOccurs="0"/>
+                        <xs:element name="skyExtraEligibleFlag" type="ns1:Flag_Type" minOccurs="0"/>
+                        <xs:element name="skyExtraStatus" type="xs:string" minOccurs="0"/>
+                        <xs:element name="skyExtraTier" type="xs:string" minOccurs="0"/>
+                        <xs:element name="boxOnlySubscriptionFlag" type="ns1:Flag_Type" minOccurs="0"/>
+                        <xs:element name="DaysToPossibleCancellation" type="xs:integer" minOccurs="0"/>
+                        <xs:element name="RetCode" type="xs:string"/>
+                        <xs:element name="ErrorDesc" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:choice>
+            </xs:complexType>
+            <xs:complexType name="CustomerDiagnosticDataRequest_Type">
+                <xs:sequence>
+                    <xs:element name="CustomerNumber">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="ContactChannel" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CustomerDiagnosticDataResponse_Type">
+                <xs:sequence>
+                    <xs:element name="RetCode" type="xs:string"/>
+                    <xs:element name="ErrorDesc" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CustomerData" type="ns1:Customer_Type" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Customer_Type">
+                <xs:sequence>
+                    <xs:element name="CustomerCategory">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="Firstname" type="xs:string"/>
+                    <xs:element name="Lastname" type="xs:string"/>
+                    <xs:element name="CustomerStatus" type="xs:string"/>
+                    <xs:element name="skyPinSet" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="WebLoginFlag" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="Country" type="xs:string"/>
+                    <xs:element name="ZipCode" type="xs:string"/>
+                    <xs:element name="CustomerMigration" type="xs:string"/>
+                    <xs:element name="HotelFlag" type="ns1:Flag_Type"/>
+                    <xs:element name="SportbarFlag" type="ns1:Flag_Type"/>
+                    <xs:element name="NumberOfActiveContracts" type="xs:int"/>
+                    <xs:element name="LastContactReason" type="xs:string" minOccurs="0"/>
+                    <xs:element name="LastContactDate" type="xs:dateTime" minOccurs="0"/>
+                    <xs:element name="MultipleContactList" type="ns1:MultipleContactList_Type" minOccurs="0"/>
+                    <xs:element name="ContractList" type="ns1:ContractList_Type" minOccurs="0"/>
+                    <xs:element name="skyGoDeviceList" type="ns1:skyGoDeviceList_Type" minOccurs="0"/>
+                    <xs:element name="STBDiagnosticDataList" type="ns1:STBDiagnosticDataList_Type" minOccurs="0"/>
+                    <xs:element name="isEligibleUpdThreshold" type="xs:string" minOccurs="0"/>
+                    <xs:element name="futureChangeContactFlag" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="customerSegmentation" type="ns1:customerSegmentation_type" minOccurs="0"/>
+                    <xs:element name="isDeviceListSkyFull" type="xs:string" minOccurs="0"/>
+                    <xs:element name="isDeviceListTicketFull" type="xs:string" minOccurs="0"/>
+                    <xs:element name="emailAddress" type="xs:string" minOccurs="0"/>
+                    <xs:element name="dateOfBirth" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CampaignList" minOccurs="0">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element ref="ns1:CampaignElement" minOccurs="0" maxOccurs="unbounded"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Fault_Type">
+                <xs:sequence>
+                    <xs:element name="ErrorCode" type="xs:string"/>
+                    <xs:element name="ErrorDesc" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="Flag_Type">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="N"/>
+                    <xs:enumeration value="Y"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:complexType name="HardwareDunningElem_Type">
+                <xs:sequence>
+                    <xs:element name="Level" type="xs:string"/>
+                    <xs:element name="HardwareType" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="MopHistory_Type">
+                <xs:sequence>
+                    <xs:element name="payerName" type="xs:string" minOccurs="0"/>
+                    <xs:element name="bankName" type="xs:string" minOccurs="0"/>
+                    <xs:element name="iban" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="MultipleContactList_Type">
+                <xs:sequence>
+                    <xs:element name="Contact_Interval_3D" type="xs:integer"/>
+                    <xs:element name="Contact_Interval_7D" type="xs:integer"/>
+                    <xs:element name="Contact_Interval_14D" type="xs:integer"/>
+                    <xs:element name="Contact_Interval_21D" type="xs:integer"/>
+                    <xs:element name="Contact_Interval_28D" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="NBAList_Type">
+                <xs:sequence>
+                    <xs:element name="NBACode" minOccurs="0" maxOccurs="unbounded">
+                        <xs:complexType>
+                            <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                    <xs:attribute name="priority" use="required" type="xs:integer"/>
+                                </xs:extension>
+                            </xs:simpleContent>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PREM2_Customer_Type">
+                <xs:sequence>
+                    <xs:element name="customerNumber" type="xs:string"/>
+                    <xs:element name="skyPinStatus" type="xs:string" minOccurs="0"/>
+                    <xs:element name="smartcard" type="ns1:PREM2_Smartcard_Type" minOccurs="0"/>
+                    <xs:element name="freeTakesNumber" type="xs:int" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>Source: TPPVFRG.PPV_AKT_ZAEHLER</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PREM2_Smartcard_Type">
+                <xs:sequence>
+                    <xs:element name="smartcardNumber" type="xs:string">
+                        <xs:annotation>
+                            <xs:documentation>Source: TSASPROF.GERAET_NR_14
+						- this field contains the SmartcardNumber</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="countryNr" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>Source: TSASPROF.AK_NR
+						- only needed if this can be different from TADRESS.AK_NR</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ppvType" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>Source: TSASPROF.PK_PPV_TYP</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="ppvAllowed" type="xs:boolean">
+                        <xs:annotation>
+                            <xs:documentation>Source: TSASPROF.PPV_ERLAUBT_KZ</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="bmAllowed" type="xs:boolean">
+                        <xs:annotation>
+                            <xs:documentation>Source: TSASPROF.BLUE_ERLAUBT_KZ</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PackAndProductList_Type">
+                <xs:sequence>
+                    <xs:element name="PackAndProduct" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PackageList_Type">
+                <xs:sequence>
+                    <xs:element name="Package" type="ns1:Package_Type" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Package_Type">
+                <xs:sequence>
+                    <xs:element name="rateCode" type="xs:string"/>
+                    <xs:element name="packageName" type="xs:string" minOccurs="0"/>
+                    <xs:element name="HardDiskFlag" type="ns1:Flag_Type"/>
+                    <xs:element name="WLANFlag" type="ns1:Flag_Type"/>
+                    <xs:element name="AssetList" type="ns1:AssetList_Type" minOccurs="0"/>
+                    <xs:element name="ProductList" type="ns1:ProductList_Type" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Prem2CustomerDataResponse_Type">
+                <xs:sequence>
+                    <xs:element name="RetCode" type="xs:string"/>
+                    <xs:element name="RetDesc" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Prem2CustomerData" type="ns1:PREM2_Customer_Type" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ProductList_Type">
+                <xs:sequence>
+                    <xs:element name="ProductElement" type="ns1:Product_Type" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Product_Type">
+                <xs:sequence>
+                    <xs:element name="rateCode" type="xs:string"/>
+                    <xs:element name="Product" type="xs:string" minOccurs="0"/>
+                    <xs:element name="isSkyGo" type="xs:boolean" minOccurs="0"/>
+                    <xs:element name="activationDate" type="xs:date" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RECEIVER_Type">
+                <xs:sequence>
+                    <xs:element name="receiverNo" type="xs:string"/>
+                    <xs:element name="HDDSize" type="xs:string" minOccurs="0"/>
+                    <xs:element name="color" type="xs:string" minOccurs="0"/>
+                    <xs:element name="technology" type="xs:string" minOccurs="0"/>
+                    <xs:element name="SkyPlusFlag" type="xs:boolean"/>
+                    <xs:element name="receiverModel" type="xs:string" minOccurs="0"/>
+                    <xs:element name="skyModel" type="xs:string" minOccurs="0"/>
+                    <xs:element name="deliveryDate" type="xs:date"/>
+                    <xs:element name="product" type="ns1:serviceType"/>
+                    <xs:element name="hasBeenRecentlyConnected" type="ns1:Flag_Type" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SMARTCARD_Type">
+                <xs:sequence>
+                    <xs:element name="number" type="xs:string"/>
+                    <xs:element name="ppvAllowed" type="xs:boolean"/>
+                    <xs:element name="lastActivationDate" type="xs:date"/>
+                    <xs:element name="product" type="ns1:serviceType"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SRElement_Type">
+                <xs:sequence>
+                    <xs:element name="Intention" type="xs:string"/>
+                    <xs:element name="Number" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SRIntentionList_Type">
+                <xs:sequence>
+                    <xs:element name="SR_Intention_3D" type="ns1:SR_Intention_Type"/>
+                    <xs:element name="SR_Intention_7D" type="ns1:SR_Intention_Type"/>
+                    <xs:element name="SR_Intention_14D" type="ns1:SR_Intention_Type"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SR_Intention_Type">
+                <xs:sequence>
+                    <xs:element name="SRElement" type="ns1:SRElement_Type" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SR_List_Type">
+                <xs:sequence>
+                    <xs:element name="ServiceRequest" type="ns1:SR_Type" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="SR_Type">
+                <xs:sequence>
+                    <xs:element name="category" type="xs:string"/>
+                    <xs:element name="subCategory" type="xs:string"/>
+                    <xs:element name="reason" type="xs:string" minOccurs="0"/>
+                    <xs:element name="reasonDetail" type="xs:string" minOccurs="0"/>
+                    <xs:element name="Notes" type="xs:string" minOccurs="0"/>
+                    <xs:element name="openDate" type="xs:date" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="STBDiagnosticDataList_Type">
+                <xs:sequence>
+                    <xs:element name="Export1" type="ns1:export1_type" minOccurs="0"/>
+                    <xs:element name="Export2" type="ns1:export2_type" minOccurs="0"/>
+                    <xs:element name="Export3" type="ns1:export3_type" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ServiceList_Type">
+                <xs:sequence>
+                    <xs:element name="ServiceRateCode" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="customerSegment_type">
+                <xs:sequence>
+                    <xs:element name="contractNumber" type="xs:string" minOccurs="0"/>
+                    <xs:element name="segment" type="xs:string" minOccurs="0"/>
+                    <xs:element name="previousSegment" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="customerSegmentation_type">
+                <xs:sequence>
+                    <xs:element name="customerSegment" type="ns1:customerSegment_type" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="export1_type">
+                <xs:sequence>
+                    <xs:element ref="rd1:export"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="export2_type">
+                <xs:sequence>
+                    <xs:element ref="rd2:export"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="export3_type">
+                <xs:sequence>
+                    <xs:element ref="rd3:export"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="priceType">
+                <xs:restriction base="xs:decimal">
+                    <xs:fractionDigits value="2"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:complexType name="serviceType">
+                <xs:sequence>
+                    <xs:element name="ratecode" type="xs:string"/>
+                    <xs:element name="name" type="xs:string" minOccurs="0"/>
+                    <xs:element name="price" type="ns1:priceType" minOccurs="0"/>
+                    <xs:element name="paymentInterval" type="xs:string" minOccurs="0"/>
+                    <xs:element name="status" type="xs:string" minOccurs="0"/>
+                    <xs:element name="productType" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="skyGoDeviceList_Type">
+                <xs:sequence>
+                    <xs:element name="skyGoDevice" type="ns1:skyGoDevice_Type" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="skyGoDevice_Type">
+                <xs:sequence>
+                    <xs:element name="deviceType" type="xs:string"/>
+                    <xs:element name="deviceId" type="xs:string"/>
+                    <xs:element name="resetAvailDate" type="xs:date" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="CampaignElement" type="ns1:CampaignElement_Type"/>
+            <xs:element name="CategoryBenefits" type="ns1:CategoryBenefits_Type"/>
+            <xs:element name="ContractElement" type="ns1:ContractElement_Type"/>
+            <xs:element name="CustomerDataRequest" type="ns1:CustomerDataRequest_Type"/>
+            <xs:element name="CustomerDataResponse" type="ns1:CustomerDataResponse_Type"/>
+            <xs:element name="CustomerDiagnosticDataRequest" type="ns1:CustomerDiagnosticDataRequest_Type"/>
+            <xs:element name="CustomerDiagnosticDataResponse" type="ns1:CustomerDiagnosticDataResponse_Type"/>
+            <xs:element name="Fault" type="ns1:Fault_Type"/>
+            <xs:element name="HardwareDunning" type="ns1:HardwareDunningElem_Type"/>
+            <xs:element name="MultipleContactList" type="ns1:MultipleContactList_Type"/>
+            <xs:element name="NBAList" type="ns1:NBAList_Type"/>
+            <xs:element name="PackAndProductList" type="ns1:PackAndProductList_Type"/>
+            <xs:element name="PackageList_Type" type="ns1:PackageList_Type"/>
+            <xs:element name="SRIntentionList" type="ns1:SRIntentionList_Type"/>
+            <xs:element name="SR_List" type="ns1:SR_List_Type"/>
+            <xs:element name="ServiceList" type="ns1:ServiceList_Type"/>
+            <xs:element name="customerSegmentationElement" type="ns1:customerSegment_type"/>
+            <xs:element name="customerSegmentationList" type="ns1:customerSegmentation_type"/>
+            <xs:element name="skyGODeviceList" type="ns1:skyGoDeviceList_Type"/>
+        </xs:schema>
+        <xs:schema xmlns:tns="http://de.sky.com/rd3" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://de.sky.com/rd3" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="export">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="tuning_check">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="cable" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                            <xs:simpleContent>
+                                                <xs:extension base="xs:string">
+                                                    <xs:attribute name="bandwidth" use="required" type="xs:byte"/>
+                                                    <xs:attribute name="frequency" use="required" type="xs:int"/>
+                                                    <xs:attribute name="modulation" use="required" type="xs:string"/>
+                                                    <xs:attribute name="name" use="required" type="xs:string"/>
+                                                    <xs:attribute name="signal_quality" use="required" type="xs:byte"/>
+                                                    <xs:attribute name="signal_strength" use="required" type="xs:byte"/>
+                                                    <xs:attribute name="symbolrate" use="required" type="xs:short"/>
+                                                </xs:extension>
+                                            </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="dth" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                            <xs:simpleContent>
+                                                <xs:extension base="xs:string">
+                                                    <xs:attribute name="frequency" use="required" type="xs:int"/>
+                                                    <xs:attribute name="modulation" use="required" type="xs:string"/>
+                                                    <xs:attribute name="name" use="required" type="xs:string"/>
+                                                    <xs:attribute name="polarisation" use="required" type="xs:byte"/>
+                                                    <xs:attribute name="signal_quality" use="required" type="xs:byte"/>
+                                                    <xs:attribute name="signal_strength" use="required" type="xs:byte"/>
+                                                    <xs:attribute name="symbolrate" use="required" type="xs:short"/>
+                                                </xs:extension>
+                                            </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="seq" type="xs:string"/>
+                    <xs:attribute name="smc" type="xs:string"/>
+                    <xs:attribute name="stb" type="xs:string"/>
+                    <xs:attribute name="step" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://de.sky.com/rd2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="export">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="hdd_stats">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:string">
+                                        <xs:attribute name="anytime_count_booked" type="xs:short"/>
+                                        <xs:attribute name="anytime_count_err_ca" type="xs:short"/>
+                                        <xs:attribute name="anytime_count_err_signal" type="xs:short"/>
+                                        <xs:attribute name="anytime_count_err_user" type="xs:short"/>
+                                        <xs:attribute name="anytime_count_fail" type="xs:short"/>
+                                        <xs:attribute name="anytime_count_partial" type="xs:short"/>
+                                        <xs:attribute name="anytime_count_succeeded" type="xs:short"/>
+                                        <xs:attribute name="anytime_count_total" type="xs:short"/>
+                                        <xs:attribute name="rec_count_fail" type="xs:short"/>
+                                        <xs:attribute name="rec_count_future" type="xs:short"/>
+                                        <xs:attribute name="rec_count_partial" type="xs:short"/>
+                                        <xs:attribute name="rec_count_succeeded" type="xs:short"/>
+                                        <xs:attribute name="rec_count_total" type="xs:short"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="seq" type="xs:string"/>
+                    <xs:attribute name="smc" type="xs:string"/>
+                    <xs:attribute name="stb" type="xs:string"/>
+                    <xs:attribute name="step" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://de.sky.com/rd1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="export">
+                <xs:complexType>
+                    <xs:all>
+                        <xs:element name="applications">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="app" minOccurs="0" maxOccurs="unbounded">
+                                        <xs:complexType>
+                                            <xs:simpleContent>
+                                                <xs:extension base="xs:string">
+                                                    <xs:attribute name="id" use="required" type="xs:byte"/>
+                                                    <xs:attribute name="name" use="required" type="xs:string"/>
+                                                    <xs:attribute name="visibility" type="xs:byte"/>
+                                                </xs:extension>
+                                            </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="boot_app">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:string">
+                                        <xs:attribute name="counter" type="xs:int"/>
+                                        <xs:attribute name="version" type="xs:int"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="boot_app_bmail">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:string">
+                                        <xs:attribute name="counter" type="xs:byte"/>
+                                        <xs:attribute name="date" type="xs:int"/>
+                                        <xs:attribute name="lastBitId" type="xs:byte"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="ca">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="drm">
+                                        <xs:complexType>
+                                            <xs:simpleContent>
+                                                <xs:extension base="xs:string">
+                                                    <xs:attribute name="lastupdate" type="xs:int"/>
+                                                    <xs:attribute name="mode" type="xs:byte"/>
+                                                </xs:extension>
+                                            </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="cainfo">
+                                        <xs:complexType>
+                                            <xs:simpleContent>
+                                                <xs:extension base="xs:string">
+                                                    <xs:attribute name="ca_serial" type="xs:long"/>
+                                                    <xs:attribute name="ca_state" type="xs:byte"/>
+                                                    <xs:attribute name="ca_state_text" type="xs:string"/>
+                                                    <xs:attribute name="ca_version" type="xs:string"/>
+                                                    <xs:attribute name="cwe" type="xs:string"/>
+                                                    <xs:attribute name="provider" type="xs:byte"/>
+                                                </xs:extension>
+                                            </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="smc_bits_geographic">
+                                        <xs:complexType>
+                                            <xs:simpleContent>
+                                                <xs:extension base="xs:string">
+                                                    <xs:attribute name="austria" type="xs:byte"/>
+                                                    <xs:attribute name="germany" type="xs:byte"/>
+                                                    <xs:attribute name="luxemburg" type="xs:byte"/>
+                                                    <xs:attribute name="schwitzerland" type="xs:byte"/>
+                                                </xs:extension>
+                                            </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="smc_bits_stb">
+                                        <xs:complexType>
+                                            <xs:simpleContent>
+                                                <xs:extension base="xs:string">
+                                                    <xs:attribute name="cablestb" type="xs:byte"/>
+                                                    <xs:attribute name="ciplus" type="xs:byte"/>
+                                                    <xs:attribute name="issuer" type="xs:byte"/>
+                                                    <xs:attribute name="satstb" type="xs:byte"/>
+                                                    <xs:attribute name="sportsbar" type="xs:byte"/>
+                                                    <xs:attribute name="stbpincount" type="xs:byte"/>
+                                                </xs:extension>
+                                            </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="smc_bits_bmail">
+                                        <xs:complexType>
+                                            <xs:simpleContent>
+                                                <xs:extension base="xs:string">
+                                                    <xs:attribute name="bit" type="xs:byte"/>
+                                                    <xs:attribute name="setdate" type="xs:int"/>
+                                                </xs:extension>
+                                            </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="entitlements">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="ca_entitlement" minOccurs="0" maxOccurs="unbounded">
+                                                    <xs:complexType>
+                                                        <xs:simpleContent>
+                                                            <xs:extension base="xs:string">
+                                                                <xs:attribute name="expiration" type="xs:int"/>
+                                                                <xs:attribute name="service_id" use="required" type="xs:int"/>
+                                                            </xs:extension>
+                                                        </xs:simpleContent>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="channel_list">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:string">
+                                        <xs:attribute name="last_scan" type="xs:int"/>
+                                        <xs:attribute name="radio_all" type="xs:short"/>
+                                        <xs:attribute name="radio_fav" type="xs:short"/>
+                                        <xs:attribute name="radio_favmode_auto" type="xs:string"/>
+                                        <xs:attribute name="start_channel_fix" type="xs:string"/>
+                                        <xs:attribute name="start_channel_name" type="xs:string"/>
+                                        <xs:attribute name="start_channel_nr" type="xs:short"/>
+                                        <xs:attribute name="tv_all" type="xs:short"/>
+                                        <xs:attribute name="tv_fav" type="xs:short"/>
+                                        <xs:attribute name="tv_favmode_auto" type="xs:string"/>
+                                        <xs:attribute name="tv_sky" type="xs:short"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="edid">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:string">
+                                        <xs:attribute name="audio" type="xs:string"/>
+                                        <xs:attribute name="hdcp" type="xs:string"/>
+                                        <xs:attribute name="manufacturer_id" type="xs:string"/>
+                                        <xs:attribute name="model_name" type="xs:string"/>
+                                        <xs:attribute name="pref_res" type="xs:string"/>
+                                        <xs:attribute name="prod_code" type="xs:short"/>
+                                        <xs:attribute name="serial" type="xs:string"/>
+                                        <xs:attribute name="week_of_man" type="xs:short"/>
+                                        <xs:attribute name="year_of_man" type="xs:short"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="hdd">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:string">
+                                        <xs:attribute name="anytime_enabled" type="xs:string"/>
+                                        <xs:attribute name="anytime_used" type="xs:short"/>
+                                        <xs:attribute name="auto_del_recs" type="xs:string"/>
+                                        <xs:attribute name="egt_auto" type="xs:string"/>
+                                        <xs:attribute name="egt_seconds" type="xs:short"/>
+                                        <xs:attribute name="rec_used" type="xs:short"/>
+                                        <xs:attribute name="sgt_auto" type="xs:string"/>
+                                        <xs:attribute name="sgt_seconds" type="xs:short"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="ipnetwork">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:string">
+                                        <xs:attribute name="cable_plugged" type="xs:string"/>
+                                        <xs:attribute name="dhcp" type="xs:string"/>
+                                        <xs:attribute name="dns_primary" type="xs:string"/>
+                                        <xs:attribute name="dns_secondary" type="xs:string"/>
+                                        <xs:attribute name="gateway" type="xs:string"/>
+                                        <xs:attribute name="ipaddress" type="xs:string"/>
+                                        <xs:attribute name="macaddress" type="xs:string"/>
+                                        <xs:attribute name="proxy_address" type="xs:string"/>
+                                        <xs:attribute name="proxy_port" type="xs:short"/>
+                                        <xs:attribute name="state" type="xs:byte"/>
+                                        <xs:attribute name="submask" type="xs:string"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="settings">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:string">
+                                        <xs:attribute name="audio_delay" type="xs:short"/>
+                                        <xs:attribute name="auto_power_down" type="xs:byte"/>
+                                        <xs:attribute name="deepstandby_mode" type="xs:byte"/>
+                                        <xs:attribute name="deepstandby_time_begin" type="xs:string"/>
+                                        <xs:attribute name="deepstandby_time_end" type="xs:string"/>
+                                        <xs:attribute name="dolby" type="xs:string"/>
+                                        <xs:attribute name="dolby_hdmi" type="xs:string"/>
+                                        <xs:attribute name="hdmi_adaption" type="xs:string"/>
+                                        <xs:attribute name="hdmi_resolution" type="xs:string"/>
+                                        <xs:attribute name="mode_3d" type="xs:string"/>
+                                        <xs:attribute name="osd_banner_time" type="xs:byte"/>
+                                        <xs:attribute name="osd_banner_volume" type="xs:string"/>
+                                        <xs:attribute name="scart_adaption" type="xs:string"/>
+                                        <xs:attribute name="scart_aspectr" type="xs:string"/>
+                                        <xs:attribute name="scart_avcontrol" type="xs:string"/>
+                                        <xs:attribute name="scart_signal" type="xs:string"/>
+                                        <xs:attribute name="subtitles" type="xs:string"/>
+                                        <xs:attribute name="update_task" type="xs:string"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="system">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:string">
+                                        <xs:attribute name="last_sw_update" type="xs:int"/>
+                                        <xs:attribute name="last_update_task" type="xs:int"/>
+                                        <xs:attribute name="sw_version" type="xs:string"/>
+                                        <xs:attribute name="system_uptime" type="xs:int"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="tuner">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="cable_network" minOccurs="0">
+                                        <xs:complexType>
+                                            <xs:simpleContent>
+                                                <xs:extension base="xs:string">
+                                                    <xs:attribute name="id" type="xs:int"/>
+                                                    <xs:attribute name="name" type="xs:string"/>
+                                                </xs:extension>
+                                            </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element name="lnb" minOccurs="0" maxOccurs="4">
+                                        <xs:complexType>
+                                            <xs:simpleContent>
+                                                <xs:extension base="xs:string">
+                                                    <xs:attribute name="diseqcmode" type="xs:int"/>
+                                                    <xs:attribute name="id" type="xs:int"/>
+                                                    <xs:attribute name="satcrb1" type="xs:int"/>
+                                                    <xs:attribute name="satcrb2" type="xs:int"/>
+                                                    <xs:attribute name="satcrf1" type="xs:int"/>
+                                                    <xs:attribute name="satcrf2" type="xs:int"/>
+                                                    <xs:attribute name="satname" type="xs:string"/>
+                                                    <xs:attribute name="type" type="xs:string"/>
+                                                </xs:extension>
+                                            </xs:simpleContent>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="single_cable" type="xs:string"/>
+                                <xs:attribute name="type" type="xs:string"/>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="wifi" minOccurs="0">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:string">
+                                        <xs:attribute name="encryption" type="xs:int"/>
+                                        <xs:attribute name="firmware" type="xs:string"/>
+                                        <xs:attribute name="mac" type="xs:string"/>
+                                        <xs:attribute name="mode" type="xs:int"/>
+                                        <xs:attribute name="security" type="xs:int"/>
+                                        <xs:attribute name="signal" type="xs:int"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:all>
+                    <xs:attribute name="seq" type="xs:string"/>
+                    <xs:attribute name="smc" type="xs:string"/>
+                    <xs:attribute name="stb" type="xs:string"/>
+                    <xs:attribute name="step" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="CustomerServiceFAA">
+        <wsdl:port name="CustomerServiceFAA" binding="tns:CustomerServiceFAABinding">
+            <soap:address location="http://localhost:9310/BusinessService/CustomerServiceFAA"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="PortType">
+        <wsdl:operation name="GetCustomerData">
+            <wsdl:input message="tns:MsgCustomerDataRequest"/>
+            <wsdl:output message="tns:MsgCustomerDataResponse"/>
+            <wsdl:fault name="fault1" message="tns:MsgFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetCustomerDiagnosticData">
+            <wsdl:input message="tns:MsgCustomerDiagnosticDataRequest"/>
+            <wsdl:output message="tns:MsgCustomerDiagnosticDataResponse"/>
+            <wsdl:fault name="fault1" message="tns:MsgFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CustomerServiceFAABinding" type="tns:PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetCustomerData">
+            <soap:operation style="document" soapAction="GetCustomerData"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="CustomerDataRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="CustomerDataResponse"/>
+            </wsdl:output>
+            <wsdl:fault name="fault1">
+                <soap:fault use="literal" name="fault1"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="GetCustomerDiagnosticData">
+            <soap:operation style="document" soapAction="GetCustomerDiagnosticData"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="CustomerDiagnosticDataRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="CustomerDiagnosticDataResponse"/>
+            </wsdl:output>
+            <wsdl:fault name="fault1">
+                <soap:fault use="literal" name="fault1"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="MsgCustomerDataRequest">
+        <wsdl:part name="CustomerDataRequest" element="ns0:CustomerDataRequest"/>
+    </wsdl:message>
+    <wsdl:message name="MsgCustomerDataResponse">
+        <wsdl:part name="CustomerDataResponse" element="ns0:CustomerDataResponse"/>
+    </wsdl:message>
+    <wsdl:message name="MsgFault">
+        <wsdl:part name="Fault" element="ns0:Fault"/>
+    </wsdl:message>
+    <wsdl:message name="MsgCustomerDiagnosticDataRequest">
+        <wsdl:part name="CustomerDiagnosticDataRequest" element="ns0:CustomerDiagnosticDataRequest"/>
+    </wsdl:message>
+    <wsdl:message name="MsgCustomerDiagnosticDataResponse">
+        <wsdl:part name="CustomerDiagnosticDataResponse" element="ns0:CustomerDiagnosticDataResponse"/>
+    </wsdl:message>
+</wsdl:definitions>

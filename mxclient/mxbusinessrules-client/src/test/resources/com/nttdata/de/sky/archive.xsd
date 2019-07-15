@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	<xs:element name="archive">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="documentid" />
+				<xs:element ref="documentcount" />
+				<xs:element ref="datadictionary" />
+				<xs:element ref="archivecommand" />
+				<xs:element ref="readablesource" />
+				<xs:element ref="meta" />
+				<xs:element ref="IsCampaign" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="documentid" type="xs:string" />
+	<xs:element name="documentcount" type="xs:integer" />
+	<xs:element name="datadictionary" type="xs:NCName" />
+	<xs:element name="archivecommand" type="xs:NCName" />
+	<xs:element name="readablesource" type="xs:string" />
+	<xs:element name="IsCampaign">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="0" />
+				<xs:enumeration value="1" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="meta">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="metarecord" />
+			</xs:sequence>
+			<xs:attribute name="count" use="required" type="xs:integer" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="metarecord">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" ref="metavalue" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="metavalue">
+		<xs:complexType mixed="true">
+			<xs:attribute name="key" use="required" type="xs:NCName" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>mxclient</artifactId>
+        <groupId>com.nttdata.de.dmsityx.mxclient</groupId>
+        <version>2.0.3-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+    <artifactId>ityx-clientevents-extensions</artifactId>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>customer-mx-extension-clientevents</artifactId>
+            <version>${MX_EXTLIB_CLIENTEVENTS_VER}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>de.ityx</groupId>
+                    <artifactId>mediatrix-kernel</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>de.ityx</groupId>
+                    <artifactId>mediatrix</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.nttdata.de.dmsityx.mxclient</groupId>
+            <artifactId>outbound</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+    </dependencies>
+
+</project>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:tns="http://efbus.services/CustomerServiceFAA" xmlns:ns0="http://sky.de.customer/FAA/schemas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Untitled" targetNamespace="http://efbus.services/CustomerServiceFAA">
+    <wsdl:types>
+        <xs:schema xmlns:ns1="http://sky.de.customer/FAA/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sky.de.customer/FAA/schemas" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="CampaignElement_Type">
+                <xs:sequence>
+                    <xs:element name="CampaignType" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CampaignFamily" type="xs:string" minOccurs="0"/>
+                    <xs:element name="CampaignNumber" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CategoryBenefits_Type">
+                <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="counter" type="xs:integer" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ContractElement_Type">
+                <xs:sequence>
+                    <xs:element name="ContractType" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CustomerDataRequest_Type">
+                <xs:sequence>
+                    <xs:element name="CustomerNumber">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="SMCNumber">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="ContactChannel" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CustomerDataResponse_Type">
+                <xs:sequence>
+                    <xs:element name="CustomerRecognitionFlag" type="ns1:Flag_Type"/>
+                    <xs:element name="ZipCode1" type="xs:string"/>
+                    <xs:element name="ZipCode2" type="xs:string"/>
+                    <xs:element name="ZipCode3" type="xs:string"/>
+                    <xs:element name="ZipCode4" type="xs:string"/>
+                    <xs:element name="ZipCode5" type="xs:string"/>
+                    <xs:element name="CustomerMigration" type="xs:string"/>
+                    <xs:element name="HotelFlag" type="ns1:Flag_Type"/>
+                    <xs:element name="SportbarFlag" type="ns1:Flag_Type"/>
+                    <xs:element name="CustomerType">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element ref="ns1:NBAList" minOccurs="0"/>
+                    <xs:element ref="ns1:MultipleContactList" minOccurs="0"/>
+                    <xs:element name="ContractNumber" type="xs:string"/>
+                    <xs:element name="CustomerStatus">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="CustomerCancellationFlag" type="ns1:Flag_Type"/>
+                    <xs:element name="DunningLevel" type="xs:integer" minOccurs="0"/>
+                    <xs:element name="DunningReason" type="xs:string" minOccurs="0"/>
+                    <xs:element name="DunningGroup" type="xs:string" minOccurs="0"/>
+                    <xs:element name="PriceList" type="xs:string"/>
+                    <xs:element ref="ns1:PackAndProductList" minOccurs="0"/>
+                    <xs:element name="CampaignList" minOccurs="0">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element ref="ns1:CampaignElement" minOccurs="0" maxOccurs="unbounded"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="CategoryBenefitsList" minOccurs="0">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element ref="ns1:CategoryBenefits" minOccurs="0" maxOccurs="unbounded"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+			        <xs:element name="ContractList" minOccurs="0">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element ref="ns1:ContractElement" minOccurs="0" maxOccurs="unbounded"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="RateCardFlag" type="ns1:Flag_Type" minOccurs="0"/>
+                    <xs:element name="SkyPlusFlag" type="ns1:Flag_Type"/>
+                    <xs:element name="ContractStartDays" type="xs:integer"/>
+                    <xs:element name="ContractExpirationDate" type="xs:dateTime"/>
+                    <xs:element name="ContractExpirationDays" type="xs:integer"/>
+                    <xs:element name="TerminationReason" minOccurs="0">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="ReceptionType" minOccurs="0">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="Operator" minOccurs="0">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string"/>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="HWDunningList" minOccurs="0">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element ref="ns1:HardwareDunning" minOccurs="0" maxOccurs="unbounded"/>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="CustomerCategory" type="xs:string" minOccurs="0"/>
+                    <xs:element name="MGMFlag" type="ns1:Flag_Type"/>
+                    <xs:element name="RemittorFlag" type="ns1:Flag_Type"/>
+                    <xs:element name="LastContractChangeElapsed" type="xs:integer" minOccurs="0"/>
+                    <xs:element name="Platform" type="xs:string" minOccurs="0"/>
+                    <xs:element name="HardDiskCapacity" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ReceiverType" type="xs:string" minOccurs="0"/>
+                    <xs:element name="ReceiverModel" type="xs:string" minOccurs="0"/>
+                    <xs:element name="RetCode" type="xs:string"/>
+                    <xs:element name="ErrorDesc" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Fault_Type">
+                <xs:sequence>
+                    <xs:element name="ErrorCode" type="xs:string"/>
+                    <xs:element name="ErrorDesc" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="Flag_Type">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="N"/>
+                    <xs:enumeration value="Y"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:complexType name="HardwareDunningElem_Type">
+                <xs:sequence>
+                    <xs:element name="Level" type="xs:string"/>
+                    <xs:element name="HardwareType" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="MultipleContactList_Type">
+                <xs:sequence>
+                    <xs:element name="Contact_Interval_3D" type="xs:integer"/>
+                    <xs:element name="Contact_Interval_7D" type="xs:integer"/>
+                    <xs:element name="Contact_Interval_14D" type="xs:integer"/>
+                    <xs:element name="Contact_Interval_21D" type="xs:integer"/>
+                    <xs:element name="Contact_Interval_28D" type="xs:integer"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="NBAList_Type">
+                <xs:sequence>
+                    <xs:element name="NBACode" minOccurs="0" maxOccurs="unbounded">
+                        <xs:complexType>
+                            <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                    <xs:attribute name="priority" use="required" type="xs:integer"/>
+                                </xs:extension>
+                            </xs:simpleContent>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PackAndProductList_Type">
+                <xs:sequence>
+                    <xs:element name="PackAndProduct" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="CampaignElement" type="ns1:CampaignElement_Type"/>
+            <xs:element name="CategoryBenefits" type="ns1:CategoryBenefits_Type"/>
+            <xs:element name="ContractElement" type="ns1:ContractElement_Type"/>
+            <xs:element name="CustomerDataRequest" type="ns1:CustomerDataRequest_Type"/>
+            <xs:element name="CustomerDataResponse" type="ns1:CustomerDataResponse_Type"/>
+            <xs:element name="Fault" type="ns1:Fault_Type"/>
+            <xs:element name="HardwareDunning" type="ns1:HardwareDunningElem_Type"/>
+            <xs:element name="MultipleContactList" type="ns1:MultipleContactList_Type"/>
+            <xs:element name="NBAList" type="ns1:NBAList_Type"/>
+            <xs:element name="PackAndProductList" type="ns1:PackAndProductList_Type"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="CustomerServiceFAA">
+        <wsdl:port name="CustomerServiceFAA" binding="tns:CustomerServiceFAABinding">
+            <soap:address location="http://localhost:9300/BusinessService/CustomerServiceFAA"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="PortType">
+        <wsdl:operation name="GetCustomerData">
+            <wsdl:input message="tns:MsgCustomerDataRequest"/>
+            <wsdl:output message="tns:MsgCustomerDataResponse"/>
+            <wsdl:fault name="fault1" message="tns:MsgFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CustomerServiceFAABinding" type="tns:PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetCustomerData">
+            <soap:operation style="document" soapAction="GetCustomerData"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="CustomerDataRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="CustomerDataResponse"/>
+            </wsdl:output>
+            <wsdl:fault name="fault1">
+                <soap:fault use="literal" name="fault1"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="MsgCustomerDataRequest">
+        <wsdl:part name="CustomerDataRequest" element="ns0:CustomerDataRequest"/>
+    </wsdl:message>
+    <wsdl:message name="MsgCustomerDataResponse">
+        <wsdl:part name="CustomerDataResponse" element="ns0:CustomerDataResponse"/>
+    </wsdl:message>
+    <wsdl:message name="MsgFault">
+        <wsdl:part name="Fault" element="ns0:Fault"/>
+    </wsdl:message>
+</wsdl:definitions>

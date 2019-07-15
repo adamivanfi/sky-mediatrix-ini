@@ -1,0 +1,4 @@
+Freehep-graphics-base is licensed under LGPL see 
+
+the following url:
+                  http://java.freehep.org/license.html

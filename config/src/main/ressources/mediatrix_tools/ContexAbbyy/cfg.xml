@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contexOCRConfig skewDetectionDisabled="true" orientationDetectionDisabled="true" identifier="" xsi:noNamespaceSchemaLocation="ocrconfig.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <customProperties/>
+    <language>German</language>
+</contexOCRConfig>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<License>
+  <Data>
+    <LicensedTo>ITyX Gesellschaft für Systementwicklung und -beratung mbH</LicensedTo>
+    <LicenseType>Developer Small Business</LicenseType>
+    <LicenseNote>Limited to 1 developer.</LicenseNote>
+    <OrderID>111212053045</OrderID>
+    <OEM>This is not a non-redistributable license</OEM>
+    <Products>
+      <Product>Aspose.Total for Java</Product>
+    </Products>
+    <EditionType>Enterprise</EditionType>
+    <SerialNumber>26e9746e-5c47-4c2b-9d23-85fb1c0db9bb</SerialNumber>
+    <SubscriptionExpiry>20130102</SubscriptionExpiry>
+    <LicenseExpiry>20120202</LicenseExpiry>
+    <ExpiryNote>This is a temporary license for non-commercial use only and it will expire on 2012-02-02.</ExpiryNote>
+    <LicenseVersion>2.2</LicenseVersion>
+  </Data>
+  <Signature>GQFn3LJZz6qgwjx683UuA3KEictEtNlTFoS1R8ED9UqR5VO1tSg0GuJU5CgmtJZUtsjMQVYeR++EmBZA/SNmEO07/AKTODrOqfKDBohDVtWdbyMojZQGRAdVpworxtkhceOQDj7wf2Jip/c7gzF6YJH5uHwIwJuqikrU/C+Qs1I=</Signature>
+</License>

@@ -1,0 +1,23 @@
+{ "checks": [ {
+     "id":"MXAgMon_001_Staging",
+    "name": "MXAgMon_001_Staging", 
+    "type": "DB",
+    "active": -1,
+    "res": "DmsMxAgMonDB",
+    "description": "Staging der EbMon-Tabellen fuer DWH ist zu alt",
+    "thresholddimension":  "Anzahl Tagen seit letzter EbMon-Staging Synchronisation",
+    "threshold_info":1,
+    "threshold_warn":2,
+    "threshold_error":4,
+    "threshold_escal":8,
+    "sql":" select  nvl(max(created),(sysdate-365)) timestamp, 
+      'Last update of EBMF_EVENT_JN '||  to_char( max(created)   , 'YY.MM.DD HH24:MI')    msg,  
+      round (sysdate - nvl(max(created),(sysdate-365)),0) threshold  from EBMF_EVENT_JN
+		    ", 
+    "solutions": [{"problem":"Staging der EbMon-Tabellen zu alt", 
+                       "desc":"Auf der DDMS2 die Sheduling-Tasks für das Staging der Prod-EbAgMon-Tabellen zur der INT-DB/Agmon schema überprüfen"}
+		 ] 
+
+
+
+}]}

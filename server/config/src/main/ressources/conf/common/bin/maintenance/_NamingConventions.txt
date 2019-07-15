@@ -1,0 +1,11 @@
+Naming convetions
+
+0xx restart and deployment
+1xx consistency checks
+2xx periodic tasks
+3xx monitoring
+4xx getting informations
+
+
+90x configuration
+9xx utiliites

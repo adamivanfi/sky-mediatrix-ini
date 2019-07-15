@@ -1,0 +1,9 @@
+
+<endpoints>
+	<!-- OCR -->
+	<endpoint host="wd008935" port="1099" serviceName="AbbyyOCRService,AbbyyService,OCRService,ServerTextCategorizer,ICatConfigurationService,IMCategorizer,IFormCategorizer,EngineInterface,IFuzzyMatcherEngine"/>
+	<!-- MTRIX -->
+	<endpoint host="wd009011" port="1099" serviceName="EngineInterface,IFuzzyMatcherEngine"/> 	
+	<!-- CX -->
+	<endpoint host="wd008958" port="1099" serviceName="!AbbyyOCRService,AbbyyService"/>	
+</endpoints>

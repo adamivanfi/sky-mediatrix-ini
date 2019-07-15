@@ -1,0 +1,22 @@
+# workers.properties.minimal -
+#
+# This file provides minimal jk configuration properties needed to
+# connect to Tomcat.
+
+#
+# The workers that jk should create and work with.
+#
+worker.list=mtrix1, mtrix2
+
+#
+# Defining a worker named worker1 and of type ajp13.
+# Note that the name and the type do not have to match.
+#
+worker.mtrix1.type=ajp13
+worker.mtrix1.host=wd009011.pfad.biz
+worker.mtrix1.port=8009
+
+
+worker.mtrix2.type=ajp13
+worker.mtrix2.host=wd008958.pfad.biz
+worker.mtrix2.port=8009

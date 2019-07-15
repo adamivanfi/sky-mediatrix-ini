@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="CustomerDataService" resourceRoot="" soapui-version="5.0.0" abortOnError="false" runType="SEQUENTIAL" activeEnvironment="Default" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="CustomerDataServiceEndpointBinding" type="wsdl" bindingName="{http://www.sky.de/integration/web/CustomerDataService/1.0}CustomerDataServiceEndpointBinding" soapVersion="1_1" anonymous="optional" definition="http://10.96.111.12:13100/BusinessService/CustomerDataService/CustomerDataService.serviceagent?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://10.96.111.12:13100/BusinessService/CustomerDataService/CustomerDataService.serviceagent?wsdl"><con:part><con:url>http://10.96.111.12:13100/BusinessService/CustomerDataService/CustomerDataService.serviceagent?wsdl</con:url><con:content><![CDATA[<!--Created by TIBCO WSDL-->
+<wsdl:definitions name="Untitled" targetNamespace="http://www.sky.de/integration/web/CustomerDataService/1.0" xmlns:tns="http://www.sky.de/integration/web/CustomerDataService/1.0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.sky.de/integration/web/CustomerDataService/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:ns1="http://www.sky.de/integration/web/CustomerDataService/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="Asset_Type">
+        <xs:sequence>
+          <xs:element name="SMCSerialNumber" type="xs:string" minOccurs="0"/>
+          <xs:element name="HardDiskType" type="xs:string" minOccurs="0"/>
+          <xs:element name="HardDiskSerialNum" type="xs:string" minOccurs="0"/>
+          <xs:element name="ReceiverType" type="xs:string" minOccurs="0"/>
+          <xs:element name="ReceiverSerialNum" type="xs:string" minOccurs="0"/>
+          <xs:element name="CIPlusModuleType" type="xs:string" minOccurs="0"/>
+          <xs:element name="CIPlusModuleSerialNum" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Campaign_Type">
+        <xs:sequence>
+          <xs:element name="Stamp" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Contract_Type">
+        <xs:sequence>
+          <xs:element name="HouseNumber" type="xs:string" minOccurs="0"/>
+          <xs:element name="Staircase" type="xs:string" minOccurs="0"/>
+          <xs:element name="Floor" type="xs:string" minOccurs="0"/>
+          <xs:element name="FlatNumber" type="xs:string" minOccurs="0"/>
+          <xs:element name="UnexpectedReturnContract" type="xs:string" minOccurs="0"/>
+          <xs:element name="ContractId" type="xs:string" minOccurs="0"/>
+          <xs:element name="ContractDate" type="xs:string" minOccurs="0"/>
+          <xs:element name="Street" type="xs:string" minOccurs="0"/>
+          <xs:element name="ZipCode" type="xs:string" minOccurs="0"/>
+          <xs:element name="City" type="xs:string" minOccurs="0"/>
+          <xs:element name="AccountNumber" type="xs:string" minOccurs="0"/>
+          <xs:element name="BankCode" type="xs:string" minOccurs="0"/>
+          <xs:element name="BankAccountHolder" type="xs:string" minOccurs="0"/>
+          <xs:element name="Pricelist" type="xs:string" minOccurs="0"/>
+          <xs:element name="SubscriptionStartDate" type="xs:string" minOccurs="0"/>
+          <xs:element name="EarmarkedCancellationDate" type="xs:string" minOccurs="0"/>
+          <xs:element name="PossibleCancellationDate" type="xs:string" minOccurs="0"/>
+          <xs:element name="Asset" type="ns1:Asset_Type" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Customer_Type">
+        <xs:sequence>
+          <xs:element name="MobileNumber" type="xs:string" minOccurs="0"/>
+          <xs:element name="ContractContent" type="xs:string" minOccurs="0"/>
+          <xs:element name="CustomerId" type="xs:string" minOccurs="0"/>
+          <xs:element name="EmailAddress" type="xs:string" minOccurs="0"/>
+          <xs:element name="Salutation" type="xs:string" minOccurs="0"/>
+          <xs:element name="FirstName" type="xs:string" minOccurs="0"/>
+          <xs:element name="LastName" type="xs:string" minOccurs="0"/>
+          <xs:element name="TelephoneNumber" type="xs:string" minOccurs="0"/>
+          <xs:element name="CustomerCategory" type="xs:string" minOccurs="0"/>
+          <xs:element name="Campaign" type="ns1:Campaign_Type" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ServiceRequest" type="ns1:ServiceRequest_Type" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="Contract" type="ns1:Contract_Type" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="Dunning" type="ns1:Dunning_Type" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Dunning_Type">
+        <xs:sequence>
+          <xs:element name="DunningContractId" type="xs:string" minOccurs="0"/>
+          <xs:element name="DunningLevel" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="Result_Type">
+        <xs:restriction base="xs:string">
+          <xs:length value="2"/>
+          <xs:enumeration value="OK"/>
+          <xs:enumeration value="KO"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="ServiceRequest_Type">
+        <xs:sequence>
+          <xs:element name="ContractChangeCategory" type="xs:string" minOccurs="0"/>
+          <xs:element name="ContractChangeDate" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getDynamicCustomerDataRequest_Type">
+        <xs:sequence>
+          <xs:element name="RequestType" type="xs:string"/>
+          <xs:element name="CustomerId" type="xs:string"/>
+          <xs:element name="ContractId" type="xs:string" minOccurs="0"/>
+          <xs:element name="RequestedFields" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getDynamicCustomerDataResponse_Type">
+        <xs:sequence>
+          <xs:element name="Result" type="ns1:Result_Type"/>
+          <xs:element name="RetCode" type="xs:string"/>
+          <xs:element name="ErrorDesc" type="xs:string" minOccurs="0"/>
+          <xs:element name="RequestType" type="xs:string"/>
+          <xs:element name="CustomerId" type="xs:string"/>
+          <xs:element name="Customer" type="ns1:Customer_Type" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Customer" type="ns1:Customer_Type"/>
+      <xs:element name="getDynamicCustomerDataRequest" type="ns1:getDynamicCustomerDataRequest_Type"/>
+      <xs:element name="getDynamicCustomerDataResponse" type="ns1:getDynamicCustomerDataResponse_Type"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:service name="CustomerDataService.serviceagent">
+    <wsdl:port name="CustomerDataServiceEndpoint" binding="tns:CustomerDataServiceEndpointBinding">
+      <soap:address location="http://localhost:13100/BusinessService/CustomerDataService"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsdl:portType name="PortType">
+    <wsdl:operation name="getDynamicCustomerData">
+      <wsdl:input message="tns:MsgGetDynamicCustomerDataRequest"/>
+      <wsdl:output message="tns:MsgGetDynamicCustomerDataResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerDataServiceEndpointBinding" type="tns:PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getDynamicCustomerData">
+      <soap:operation style="document" soapAction="getDynamicCustomerData"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="getDynamicCustomerDataRequest"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="getDynamicCustomerDataResponse"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:message name="MsgGetDynamicCustomerDataRequest">
+    <wsdl:part name="getDynamicCustomerDataRequest" element="tns:getDynamicCustomerDataRequest"/>
+  </wsdl:message>
+  <wsdl:message name="MsgGetDynamicCustomerDataResponse">
+    <wsdl:part name="getDynamicCustomerDataResponse" element="tns:getDynamicCustomerDataResponse"/>
+  </wsdl:message>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://10.96.111.12:13100/BusinessService/CustomerDataService</con:endpoint><con:endpoint>http://10.96.53.10:13100/BusinessService/CustomerDataService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="getDynamicCustomerData" name="getDynamicCustomerData" bindingOperationName="getDynamicCustomerData" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="getRouting"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.96.53.10:13100/BusinessService/CustomerDataService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.sky.de/integration/web/CustomerDataService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getDynamicCustomerDataRequest>
+                  <ns:RequestType>Routing</ns:RequestType>
+         <ns:CustomerId>9548772993</ns:CustomerId>
+<ns:RequestedFields>DunningContractId;DunningLevel;ContractChangeCategory;ContractChangeDate;CustomerCategory;EarmarkedCancellationDate;Pricelist;Stamp;SubscriptionStartDate;ContractContent;UnexpectedReturnContract</ns:RequestedFields>
+      </ns:getDynamicCustomerDataRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getDynamicCustomerData"/><con:wsrmConfig version="1.2"/></con:call><con:call name="getTextModule"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.96.53.10:13100/BusinessService/CustomerDataService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.sky.de/integration/web/CustomerDataService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getDynamicCustomerDataRequest>
+         <ns:RequestType>TextModule</ns:RequestType>
+         <ns:CustomerId>5500356528</ns:CustomerId>
+         <ns:RequestedFields>ContractContent;CustomerCategory;CustomerId;FirstName;LastName;MobileNumber;Salutation;TelephoneNumber;AccountBalance;BankAccountHolder;BankCode;City;ContractDate;ContractId;EarmarkedCancellationDate;FlatNumber;Floor;HouseNumber;PossibleCancellationDate;Staircase;Street;SubscriptionStartDate;ZipCode;CIPlusModuleSerialNum;CIPlusModuleType;HardDiskSerialNum;HardDiskType;ReceiverSerialNum;ReceiverType;SMCSerialNumber;DunningContractId;LastDunningLetterAmount</ns:RequestedFields>
+      </ns:getDynamicCustomerDataRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getDynamicCustomerData"/><con:wsrmConfig version="1.2"/></con:call><con:call name="getTextModuleShort"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.96.53.10:13100/BusinessService/CustomerDataService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.sky.de/integration/web/CustomerDataService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getDynamicCustomerDataRequest>
+         <ns:RequestType>TextModule</ns:RequestType>
+         <ns:CustomerId>1809247688</ns:CustomerId>
+           <ns:RequestedFields>FirstName;LastName</ns:RequestedFields>
+      </ns:getDynamicCustomerDataRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getDynamicCustomerData"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Copy of getRouting"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.96.111.12:13100/BusinessService/CustomerDataService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.sky.de/integration/web/CustomerDataService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getDynamicCustomerDataRequest>
+                  <ns:RequestType>Routing</ns:RequestType>
+         <ns:CustomerId>9548772993</ns:CustomerId>
+<ns:RequestedFields>DunningContractId;DunningLevel;ContractChangeCategory;ContractChangeDate;CustomerCategory;EarmarkedCancellationDate;Pricelist;Stamp;SubscriptionStartDate;ContractContent;UnexpectedReturnContract</ns:RequestedFields>
+      </ns:getDynamicCustomerDataRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+2015-10-17 09:59:42,512 [50.115] reparation.java: 164(                       execute)  ERROR NTTWflLogger    - Problems with enrichment:ITYX20151013142548329-I1F6E162IF3.2: 9548772993 returned KO:  contrNr:44087157 err:Oracle Fatal Error invoking BRM for Dunning entity
+java.lang.RuntimeException: IF3.2: 9548772993 returned KO:  
+contrNr:44087157 err:Oracle Fatal Error invoking BRM for Dunning entity
+]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getDynamicCustomerData"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true" id="2e302b44-b11f-4977-8bcd-5b0390030552"><con:settings/><con:testStep type="delay" name="Delay"><con:settings/><con:config><delay>1000</delay></con:config></con:testStep><con:testStep type="request" name="getDynamicCustomerData - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CustomerDataServiceEndpointBinding</con:interface><con:operation>getDynamicCustomerData</con:operation><con:request name="getDynamicCustomerData - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.96.53.10:13100/BusinessService/CustomerDataService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.sky.de/integration/web/CustomerDataService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getDynamicCustomerDataRequest>
+                  <ns:RequestType>Routing</ns:RequestType>
+         <ns:CustomerId>1240003368</ns:CustomerId>
+<ns:RequestedFields>DunningContractId;DunningLevel;ContractChangeCategory;ContractChangeDate;CustomerCategory;EarmarkedCancellationDate;Pricelist;Stamp;SubscriptionStartDate;UnexpectedReturnContract
+</ns:RequestedFields>
+      </ns:getDynamicCustomerDataRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getDynamicCustomerData"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="delay" name="Delay 1"><con:settings/><con:config><delay>1000</delay></con:config></con:testStep><con:testStep type="request" name="getDynamicCustomerData - getTextModule"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CustomerDataServiceEndpointBinding</con:interface><con:operation>getDynamicCustomerData</con:operation><con:request name="getDynamicCustomerData - getTextModule" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.96.53.10:13100/BusinessService/CustomerDataService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.sky.de/integration/web/CustomerDataService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getDynamicCustomerDataRequest>
+         <ns:RequestType>TextModule</ns:RequestType>
+         <ns:CustomerId>1840005990</ns:CustomerId>
+            <ns:ContractId>40006267</ns:ContractId>
+         <ns:RequestedFields>ContractContent;CustomerCategory;CustomerId;FirstName;LastName;MobileNumber;Salutation;TelephoneNumber;AccountBalance;BankAccountHolder;BankCode;City;ContractDate;ContractId;EarmarkedCancellationDate;FlatNumber;Floor;HouseNumber;PossibleCancellationDate;Staircase;Street;SubscriptionStartDate;ZipCode;CIPlusModuleSerialNum;CIPlusModuleType;HardDiskSerialNum;HardDiskType;ReceiverSerialNum;ReceiverType;SMCSerialNumber;DunningContractId;LastDunningLetterAmount</ns:RequestedFields>
+      </ns:getDynamicCustomerDataRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getDynamicCustomerData"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

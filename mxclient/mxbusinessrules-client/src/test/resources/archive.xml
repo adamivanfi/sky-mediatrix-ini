@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archive xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="temp.xsd">
+	<documentid>ITYX12344-12322323-23232323-232323</documentid>
+	<documentcount>2</documentcount>
+	<datadictionary>DMSArchiveMeta</datadictionary>
+	<archivecommand>CREATE</archivecommand>
+	<readablesource>ITyX Mediatrix</readablesource>
+	<meta count="2">
+		<metarecord>
+			<metavalue key="metadataName">any data</metavalue>
+			<metavalue key="metadataName2">any data too</metavalue>
+		</metarecord>
+		<metarecord>
+			<metavalue key="metadataName1">any data1</metavalue>
+			<metavalue key="metadataName22">any data too2</metavalue>
+		</metarecord>
+	</meta>
+	<IsCampaign>0</IsCampaign>
+</archive>

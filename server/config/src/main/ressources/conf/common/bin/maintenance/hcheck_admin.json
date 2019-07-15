@@ -1,0 +1,283 @@
+{ 
+"checks":
+ [ { 
+    "id":   "CXAdmin001",
+    "name": "AlertLogs - Database Health", 
+    "description": "Überprüfung der Datenbank AlertLogs (Contex) DBNode 1",
+    "active": "true",
+    "type": "DB",
+    "res": "DmsCxDBAdm",
+    "thresholddimension":  "logs",
+    "threshold_info":1,
+    "threshold_warn":3,
+    "threshold_error":4,
+    "threshold_escal":5,
+    "sql":"
+SELECT TO_CHAR(thedate,'DD.MM.RR HH24:MI:SS') TIMESTAMP,
+  msg_line msg,
+  case 
+  when msg_line like '%VKRM%' then 1
+  when msg_line like '%CJQ0%' then 1
+  when msg_line like '%Tns error struct:%' then 1
+  when msg_line like '%Fatal NI connect error 12170.%' then 1
+  when msg_line like '%WARNING: db_recovery_file_dest is same as db_create_online_log_dest%'  then 1
+  when msg_line like '%ORA-00060%' then 0
+  when msg_line like '%arning%' then 3
+  when msg_line like '%Global Enqueue Services Deadlock detected%' then 3
+  when msg_line like '%ALTER SYSTEM ARCHIVE LOG%' then 1
+  when msg_line like '%ALTER%' then 4
+  else 5
+  end threshold
+FROM sys.alertlog s
+WHERE thedate > sysdate - interval '16' Minute
+AND (msg_line  LIKE 'Starting ORACLE instance%'
+OR msg_line LIKE 'Global Enqueue Services Deadlock detected%'
+OR msg_line LIKE 'ORA-%'
+OR msg_line LIKE 'NOTE: ASMB terminating'
+OR msg_line LIKE '%rror%'
+OR msg_line LIKE '%arning%'
+OR msg_line LIKE '%WARNING%'
+OR msg_line LIKE 'Oracle Database%'
+OR msg_line LIKE '%starting up%'
+OR msg_line LIKE '%ALTER%'
+OR msg_line LIKE '%started%')
+AND (msg_line  NOT like '%db_recovery_file_dest is same as db_create_online_log_dest_1%')
+ORDER BY lineno
+", 
+    "solutions":[ {"problem":"Probleme mit der CONTEX-DATENBANK",
+		    "desc":"Wenn notwendig, Ticket DB-Team öffnen"},
+		  {"problem":"Global Enqueue Services Deadlock detected. DB-Blockade zw. Prozessen 600, 660 und Email-Daemon.", 
+                      "desc":"Eine ganze Stunde abwarten, wenn die Verarbeitung nicht startet - Neustart von CTX-Server notwendig."},
+					  {"problem":"Manuelle Ausfuehrung des SQL Statements", "desc":"ALTER SESSION SET NLS_LANGUAGE =  ENGLISH"}
+		] 
+} ,  { 
+
+    "id":   "MXAdmin001",
+    "type": "DB",
+    "res": "DmsMxDBAdm",
+    "name": "AlertLogs - Database Health", 
+    "active": "true",
+   "description": "Überprüfung der Datenbank AlertLogs (Mediatrix) DBNode1",
+    "thresholddimension":  "logs",
+    "threshold_info":1,
+    "threshold_warn":3,
+    "threshold_error":4,
+    "threshold_escal":5,
+    "sql":"
+SELECT TO_CHAR(thedate,'DD.MM.RR HH24:MI:SS') TIMESTAMP,
+  msg_line  msg,
+  case 
+  when msg_line like '%VKRM%' then 1
+  when msg_line like '%CJQ0%' then 1
+  when msg_line like '%Tns error struct:%' then 1
+  when msg_line like '%Fatal NI connect error 12170.%' then 1
+  when msg_line like '%WARNING: db_recovery_file_dest is same as db_create_online_log_dest%'  then 1
+  when msg_line like '%ORA-00060%' then 1
+  when msg_line like '%arning%' then 3
+  when msg_line like '%Global Enqueue Services Deadlock detected%' then 3
+  when msg_line like '%ALTER SYSTEM ARCHIVE LOG%' then 1
+  when msg_line like '%ALTER%' then 4
+  else 5
+  end threshold
+FROM sys.alertlog s
+WHERE thedate > sysdate - interval '16' Minute
+AND (msg_line  LIKE 'Starting ORACLE instance%'
+OR msg_line  LIKE 'Global Enqueue Services Deadlock detected%'
+OR msg_line  LIKE 'ORA-%'
+OR msg_line  LIKE 'NOTE: ASMB terminating'
+OR msg_line  LIKE '%rror%'
+OR msg_line  LIKE '%arning%'
+OR msg_line  LIKE '%WARNING%'
+OR msg_line  LIKE 'Oracle Database%'
+OR s.msg_line  LIKE '%starting up%'
+OR s.msg_line  LIKE '%ALTER%'
+OR msg_line  LIKE '%started%')
+AND (s.msg_line  NOT like '%db_recovery_file_dest is same as db_create_online_log_dest_1%')
+ORDER BY lineno
+", 
+    "solutions":[ {"problem":"Probleme mit der Mediatrix-DATENBANK",
+			"desc":"Wenn notwendig, Ticket DB-Team öffnen"},
+		  {"problem":"Global Enqueue Services Deadlock detected. DB-Blockade zw. Prozessen 600, 660 und Email-Daemon.", 
+                      "desc":"Eine ganze Stunde abwarten, wenn die Verarbeitung nicht startet - Neustart von CTX-Server notwendig."}
+		] 
+
+},{
+    "id":"MXAdmin002_DBSpace",
+    "name": "Mediatrix_DBFilesystemspace", 
+    "type": "DBP",
+    "res": "DmsMxDBAdm",
+    "description": "Speicherplatz in der Datenbank (Tablespace und Datatifes)",
+    "thresholddimension":  "% der Belegung",
+    "threshold_info":90,
+    "threshold_warn":98,
+    "threshold_error":99,
+    "threshold_escal":99,
+    "sql":"
+select sysdate timestamp,
+ 'Tablespace: ' || df.tablespace_name || ' <br/>' 
+ || ' Total usage:'||  Round(((sum(df.bytes)-sum(fs.bytes))/sum(df.maxbytes))*100, 0)  || '%  <br/>' 
+ || ' Total free space:'|| round((sum(df.maxbytes)-(sum(df.bytes)-sum(fs.bytes)))/ (1024 * 1024*1024),1)  || 'GB  <br/>' 
+ || ' Tablespace aviable:'||round(sum(fs.bytes)/(1024 * 1024*1024),1) || 'GB  <br/>' 
+ || ' DataFiles aviable:' ||round(sum(df.maxbytes)/(1024 * 1024*1024),1)  || 'GB  <br/>' 
+ || ' DataFiles current size:'|| round(sum(df.bytes)/(1024 * 1024*1024),1)  || 'GB ' 
+  msg, 
+  Round(((sum(df.bytes)-sum(fs.bytes))/sum(df.maxbytes))*100, 0) threshold
+  
+ from (SELECT tablespace_name, FILE_ID, SUM(bytes) bytes, SUM(maxbytes) maxbytes
+          FROM dba_data_files
+          where online_status='ONLINE' and status='AVAILABLE'
+         GROUP BY tablespace_name, file_id) df,
+         (select tablespace_name, file_id, sum(bytes) bytes 
+         from dba_free_space 
+         GROUP BY tablespace_name, file_id )  fs
+ where 
+   fs.tablespace_name  = df.tablespace_name
+   and fs.file_id = df.file_id
+   and fs.tablespace_name <>'UNDOTBS1'
+   GROUP BY df.tablespace_name
+", 
+    "solutions": [{"problem":"Datenbank droht zu überlaufen", 
+                       "desc":"Sollten die DB-Admins nicht reagieren - Ticket aufmachen und informieren"}, 
+		  {"problem":"Wenn Datenbank ist übergelaufen", 
+                       "desc":"DMS-Cluster nach Problembehebung neustarten"}
+		 ] 
+
+
+},{
+    "id":"MXAdmin003_UNDODBSpace",
+    "name": "Mediatrix_DBFilesystemspace_UNDO", 
+    "type": "DBP",
+    "res": "DmsMxDBAdm",
+    "description": "Speicherplatz in der UNDO-TS in Datenbank (Tablespace und Datatifes) zu hoch",
+    "thresholddimension":  "% der Belegung",
+    "threshold_info":90,
+    "threshold_warn":100,
+    "threshold_error":101,
+    "threshold_escal":102,
+    "sql":"
+select sysdate timestamp,
+ 'Tablespace: ' || df.tablespace_name || ' <br/>' 
+ || ' Total usage:'||  Round(((sum(df.bytes)-sum(fs.bytes))/sum(df.maxbytes))*100, 0)  || '%  <br/>' 
+ || ' Total free space:'|| round((sum(df.maxbytes)-(sum(df.bytes)-sum(fs.bytes)))/ (1024 * 1024*1024),1)  || 'GB  <br/>' 
+ || ' Tablespace aviable:'||round(sum(fs.bytes)/(1024 * 1024*1024),1) || 'GB  <br/>' 
+ || ' DataFiles aviable:' ||round(sum(df.maxbytes)/(1024 * 1024*1024),1)  || 'GB  <br/>' 
+ || ' DataFiles current size:'|| round(sum(df.bytes)/(1024 * 1024*1024),1)  || 'GB ' 
+  msg, 
+  Round(((sum(df.bytes)-sum(fs.bytes))/sum(df.maxbytes))*100, 0) threshold
+  
+ from (SELECT tablespace_name, FILE_ID, SUM(bytes) bytes, SUM(maxbytes) maxbytes
+          FROM dba_data_files
+          where online_status='ONLINE' and status='AVAILABLE'
+         GROUP BY tablespace_name, file_id) df,
+         (select tablespace_name, file_id, sum(bytes) bytes 
+         from dba_free_space 
+         GROUP BY tablespace_name, file_id )  fs
+ where 
+   fs.tablespace_name  = df.tablespace_name
+   and fs.file_id = df.file_id
+   and fs.tablespace_name ='UNDOTBS1'
+   GROUP BY df.tablespace_name
+", 
+    "solutions": [{"problem":"Datenbank droht zu überlaufen", 
+                       "desc":"Sollten die DB-Admins nicht reagieren - Ticket aufmachen und informieren"}, 
+		  {"problem":"Wenn Datenbank ist übergelaufen", 
+                       "desc":"DMS-Cluster nach Problembehebung neustarten"}
+		 ] 
+
+},{
+    "id":"CXAdmin002_DBSpace",
+    "name": "Contex_DBFilesystemspace", 
+    "type": "DBP",
+    "res": "DmsCxDBAdm",
+    "description": "Speicherplatz in der Datenbank (Tablespace und Datatifes)",
+    "thresholddimension":  "% der Belegung",
+    "threshold_info":90,
+    "threshold_warn":97,
+    "threshold_error":98,
+    "threshold_escal":99,
+    "sql":"
+select sysdate timestamp,
+ 'Tablespace: ' || df.tablespace_name 
+ || ' Total usage:'||  Round(((sum(df.bytes)-sum(fs.bytes))/sum(df.maxbytes))*100, 0)  || '% <br/>' 
+ || ' Total free space:'|| round((sum(df.maxbytes)-(sum(df.bytes)-sum(fs.bytes)))/ (1024 * 1024*1024),1)  || 'GB <br/>' 
+ || ' Tablespace aviable:'||round(sum(fs.bytes)/(1024 * 1024*1024),1) || 'GB <br/>' 
+ || ' DataFiles aviable:' ||round(sum(df.maxbytes)/(1024 * 1024*1024),1)  || 'GB <br/>' 
+ || ' DataFiles current size:'|| round(sum(df.bytes)/(1024 * 1024*1024),1)  || 'GB ' 
+  msg, 
+  Round(((sum(df.bytes)-sum(fs.bytes))/sum(df.maxbytes))*100, 0) threshold
+  
+ from (SELECT tablespace_name, FILE_ID, SUM(bytes) bytes, SUM(maxbytes) maxbytes
+          FROM dba_data_files
+          where online_status='ONLINE' and status='AVAILABLE'
+         GROUP BY tablespace_name, file_id) df,
+         (select tablespace_name, file_id, sum(bytes) bytes 
+         from dba_free_space 
+         GROUP BY tablespace_name, file_id )  fs
+ where 
+   fs.tablespace_name  = df.tablespace_name
+   and fs.file_id = df.file_id
+   and fs.tablespace_name <>'UNDOTBS1'
+   GROUP BY df.tablespace_name
+", 
+    "solutions": [{"problem":"Datenbank droht zu überlaufen", 
+                       "desc":"Sollten die DB-Admins nicht reagieren - Ticket aufmachen und informieren"}, 
+		  {"problem":"Wenn Datenbank ist übergelaufen", 
+                       "desc":"DMS-Cluster nach Problembehebung neustarten"}
+		 ] 
+
+
+},{
+    "id":"CXAdmin003_DBFilesOnline",
+    "name": "Contex_DBFilesOnline", 
+    "type": "DB",
+    "res": "DmsCxDBAdm",
+    "description": "Speicherplatz in der Datenbank (Tablespace und Datatifes)",
+    "thresholddimension":  "% der Belegung",
+    "threshold_info":1,
+    "threshold_warn":1,
+    "threshold_error":1,
+    "threshold_escal":1,
+    "sql":"
+select sysdate timestamp,
+ 'Tablespace: ' || tablespace_name ||' <br/>' 
+ || ' File:'||  file_name  || ' <br/>' 
+ || ' OnlineStatus:'|| online_status  ||' <br/>' 
+ || ' Aviable:'||status ||' <br/>' 
+  msg, 
+  10 threshold
+
+ from dba_data_files
+ where online_status<>'ONLINE' and status<>'AVAILABLE'
+", 
+    "solutions": [{"problem":"DatenbankStorage-Problem", 
+                       "desc":"Wenn nach einem Crash - bitte mit DB-Admins absprechen. Bis zur Lösung sollte die Applikation nicht hochgefahren werden."}
+		 ] 
+
+},{
+    "id":"MXAdmin003_DBFilesOnline",
+    "name": "Mediatrix_DBFilesOnline", 
+    "type": "DB",
+    "res": "DmsMxDBAdm",
+    "description": "Speicherplatz in der Datenbank (Tablespace und Datatifes)",
+    "thresholddimension":  "% der Belegung",
+    "threshold_info":1,
+    "threshold_warn":1,
+    "threshold_error":1,
+    "threshold_escal":1,
+    "sql":"
+select sysdate timestamp,
+ 'Tablespace: ' || tablespace_name ||' <br/>' 
+ || ' File:'||  file_name  || ' <br/>' 
+ || ' OnlineStatus:'|| online_status  ||' <br/>' 
+ || ' Aviable:'||status ||' <br/>' 
+  msg, 
+  10 threshold
+
+ from dba_data_files
+ where online_status<>'ONLINE' and status<>'AVAILABLE'
+", 
+    "solutions": [{"problem":"DatenbankStorage-Problem", 
+                       "desc":"Wenn nach einem Crash - bitte mit DB-Admins absprechen. Bis zur Lösung sollte die Applikation nicht hochgefahren werden."}
+		 ] 
+
+}]}

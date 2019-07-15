@@ -1,0 +1,46 @@
+<c3p0-config>
+
+    <!-- Default connection pool configuration for any service not explicitly configured -->
+	<default-config>
+        <property name="maxIdleTime">2520</property><!-- 42 min -->
+        <property name="maxPoolSize">300</property>
+        <property name="acquireRetryAttempts">30</property>
+        <property name="idleConnectionTestPeriod">180</property>
+		<property name="unreturnedConnectionTimeout">2400</property> <!-- 40 min - sonnst schafft FuzzyMatcher sich nicht zu bauen -->
+        <property name="debugUnreturnedConnectionStackTraces">true</property>
+		<property name="preferredTestQuery">select 2 from dual</property>
+   
+   </default-config>
+
+    <!-- Connection pool of legacy contex services (DocPool, FuzzyMatcher, ICat, Extag, ...) -->
+    <named-config name="LegacyService">
+        <property name="maxPoolSize">300</property>
+        <property name="maxIdleTime">2520</property><!-- 14 min -->
+        <property name="acquireRetryAttempts">30</property>
+        <property name="idleConnectionTestPeriod">180</property>
+		<property name="unreturnedConnectionTimeout">2400</property> <!-- 26 min -->
+        <property name="debugUnreturnedConnectionStackTraces">true</property>
+		<property name="preferredTestQuery">select 1,2 from dual</property>
+  
+  </named-config>
+
+    <!-- Connection pool for multi tenancy enabled services -->
+    <named-config name="multitenancy">
+        <property name="maxPoolSize">300</property>
+        <property name="maxIdleTime">2520</property>
+        <property name="acquireRetryAttempts">30</property>
+        <property name="idleConnectionTestPeriod">180</property>
+		<property name="unreturnedConnectionTimeout">2400</property> 
+        <property name="debugUnreturnedConnectionStackTraces">false</property>
+		<property name="preferredTestQuery">select 1,2,3 from dual</property>
+   
+   </named-config>
+    
+<!-- 	<named-config name="DATASOURCE_NAME"> -->
+<!-- 		<property name="maxIdleTime">2520</property>		 -->
+<!-- 		<property name="acquireRetryAttempts">10</property> -->
+<!-- 		<property name="idleConnectionTestPeriod">60</property> -->
+<!-- 		<property name="debugUnreturnedConnectionStackTraces">false</property> -->
+<!-- 	</named-config> -->
+
+</c3p0-config>

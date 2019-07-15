@@ -1,0 +1,37 @@
+<c3p0-config>
+
+    <!-- Default connection pool configuration for any service not explicitly configured -->
+	<default-config>
+        <property name="maxIdleTime">14400</property>
+        <property name="maxPoolSize">15</property>
+        <property name="acquireRetryAttempts">10</property>
+        <property name="idleConnectionTestPeriod">10</property>
+        <property name="debugUnreturnedConnectionStackTraces">false</property>
+    </default-config>
+
+    <!-- Connection pool of legacy contex services (DocPool, FuzzyMatcher, ICat, Extag, ...) -->
+    <named-config name="LegacyService">
+        <property name="maxPoolSize">150</property>
+        <property name="maxIdleTime">14400</property>       
+        <property name="acquireRetryAttempts">10</property>
+        <property name="idleConnectionTestPeriod">60</property>
+        <property name="debugUnreturnedConnectionStackTraces">false</property>
+    </named-config>
+
+    <!-- Connection pool for multi tenancy enabled services -->
+    <named-config name="multitenancy">
+        <property name="maxPoolSize">15</property>
+        <property name="maxIdleTime">14400</property>       
+        <property name="acquireRetryAttempts">10</property>
+        <property name="idleConnectionTestPeriod">60</property>
+        <property name="debugUnreturnedConnectionStackTraces">false</property>
+    </named-config>
+    
+<!-- 	<named-config name="DATASOURCE_NAME"> -->
+<!-- 		<property name="maxIdleTime">14400</property>		 -->
+<!-- 		<property name="acquireRetryAttempts">10</property> -->
+<!-- 		<property name="idleConnectionTestPeriod">60</property> -->
+<!-- 		<property name="debugUnreturnedConnectionStackTraces">false</property> -->
+<!-- 	</named-config> -->
+
+</c3p0-config>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	
+	<!-- Bean that handles resources that could not be imported for some reason -->	
+	<bean id="errorHandler" class="de.ityx.scheduler.error.DefaultErrorHandler" />
+
+	<!-- Callback for scheduler jobs that create a CDocument and notify the process order service -->
+	<bean id="resourceHandler"	class="de.ityx.scheduler.jobs.resource.DocPoolProcessResourceHandler">
+		<property name="processOrderService">
+			<bean id="orderService" class="de.ityx.scheduler.processorder.api.ProcessOrderServiceClient"></bean>
+		</property>
+		<property name="documentPoolService">
+			<bean id="documentPoolService" class="de.ityx.contex.impl.document.service.DocumentPoolServiceClient" />
+		</property>
+	</bean>
+
+	<!-- Bean that builds the absolute Path of a resource -->
+	<bean id="pathBuilder" class="de.ityx.scheduler.jobs.base.DefaultPathBuilder" />
+
+</beans>

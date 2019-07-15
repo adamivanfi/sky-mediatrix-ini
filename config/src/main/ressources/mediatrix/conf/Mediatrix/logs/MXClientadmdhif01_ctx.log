@@ -1,0 +1,698 @@
+2016-06-17 09:24:07,842 [read-9] Properties.java:  50(                 getProperties)  WARN  ex.CXProperties - CXProperties not initialized! You should always initialize CXProperties eagerly.
+2016-06-17 09:24:07,936 [read-9] Properties.java:  81(                 getProperties)  INFO  ex.CXProperties - Loading default property configuration
+2016-06-17 09:24:08,467 [read-9] rtyBuilder.java: 107(        initializeCXProperties)  INFO  PropertyBuilder - Initializing CXProperties...
+2016-06-17 09:24:08,467 [read-9] nfigurator.java:  19(           configureProperties)  INFO  rtyConfigurator - Reading local properties
+2016-06-17 09:24:08,467 [read-9] derSupport.java: 172(                loadProperties)  INFO  rtyConfigurator - Loading properties file from URL [file:C:/mediatrix/conf/mediatrix/conf/contex.properties]
+2016-06-17 09:24:08,467 [read-9] derSupport.java: 181(                loadProperties)  WARN  rtyConfigurator - Could not load properties from URL [file:C:/mediatrix/conf/mediatrix/conf/contex.properties]: C:\mediatrix\conf\mediatrix\conf\contex.properties (The system cannot find the path specified)
+2016-06-17 09:24:08,467 [read-9] nfigurator.java:  19(           configureProperties)  INFO  rtyConfigurator - Reading local properties
+2016-06-17 09:24:08,467 [read-9] derSupport.java: 172(                loadProperties)  INFO  rtyConfigurator - Loading properties file from URL [file:C:/mediatrix/conf/contex.properties]
+2016-06-17 09:24:08,467 [read-9] nfigurator.java:  19(           configureProperties)  INFO  rtyConfigurator - Reading local properties
+2016-06-17 09:24:08,467 [read-9] derSupport.java: 172(                loadProperties)  INFO  rtyConfigurator - Loading properties file from class path resource [META-INF/product.properties]
+2016-06-17 09:24:08,482 [read-9] derSupport.java: 181(                loadProperties)  WARN  rtyConfigurator - Could not load properties from class path resource [META-INF/product.properties]: class path resource [META-INF/product.properties] cannot be opened because it does not exist
+2016-06-17 09:24:08,482 [read-9] tProcessor.java:  21(             processProperties)  DEBUG tyPostProcessor - Replacing property [hibernate.connection.password]
+2016-06-17 09:24:08,701 [read-9] tProcessor.java:  21(             processProperties)  DEBUG tyPostProcessor - Replacing property [password]
+2016-06-17 09:24:08,701 [read-9] rtyBuilder.java: 109(        initializeCXProperties)  INFO  PropertyBuilder - ...done initializing CXProperties
+
+2016-06-17 09:24:08,701 [read-9] Properties.java:  27(          debugPrintProperties)  DEBUG ex.CXProperties - Printing all configured properties...
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - document.email.preferredContentType = text/plain
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.insight.es.cluster.name = idigindexclusterint
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.password = *******
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - bean.syncfactory = com.nttdata.de.sky.ityx.common.DocumentIDSyncFactory
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.username = ITYX_CX
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - host = mecondbi01.premiere.de
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - matcher.initOnQuery = true
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - exceptionhandler.properties = C:\mediatrix\conf\conf\exceptions.properties
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - document.viewer.thumbnails.smooth = true
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - tesseract.datadir = C:\mediatrix\ocr\tesseract3/
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - br.props = C:\mediatrix\conf\br.properties
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - datadir = C:/mediatrix_data/CX_Fuzzy
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - idig_clauses = 50000
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - designer.service.host = wd008958.pfad.biz
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate_connections = 300
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.idle_test_period = 840
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - admin.sqlbrowser = true
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.timeout = 300
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.maxIdleTime = 180
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - image.mono.compression = CCITT T.6
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - mail.mime.ignoreunknownencoding = true
+2016-06-17 09:24:08,701 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - oracle.usesequence = 1
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - ityx.logger = C:\mediatrix\conf\contex.log4j.properties
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - dbappendix = oracle10
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.min_size = 5
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.driver_class = oracle.jdbc.driver.OracleDriver
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - password = *******
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.activemq.brokerUrl = tcp://wd008958.pfad.biz:61616
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - login = ITYX_CX
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - port = 1525
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.url = jdbc:oracle:thin:@mecondbi01.premiere.de:1525:CONTST02
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.dialect = de.ityx.contex.dba.dialects.Oracle10Dialect
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.scheduler.maxThreadCount = 128
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - image.color.compression = LZW
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - abbyy.version = 10
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.max_size = 300
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - database = CONTST02
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.checkoutTime = 180
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - contex.ocr.abbyy.maxthreads = 12
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.scheduler.minThreadCount = 64
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.maxPoolSize = 300
+2016-06-17 09:24:08,717 [read-9] Properties.java:  29(          debugPrintProperties)  DEBUG ex.CXProperties - Done printing configured properties
+
+2016-06-17 09:24:08,717 [read-9] Properties.java:  31(          debugPrintProperties)  DEBUG ex.CXProperties - Printing system properties...
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.runtime.name = Java(TM) SE Runtime Environment
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.boot.library.path = C:\mediatrix_tools\Java\jdk7\jre\bin
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.version = 24.80-b11
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.vendor = Oracle Corporation
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vendor.url = http://java.oracle.com/
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - path.separator = ;
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.security.krb5.realm = PFAD.BIZ
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - file.encoding.pkg = sun.io
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.script = 
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.country = GB
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.java.launcher = SUN_STANDARD
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.os.patch.level = 
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - program.name = 
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.specification.name = Java Virtual Machine Specification
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.dir = C:\mediatrix_tools\groovy\bin
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.runtime.version = 1.7.0_80-b15
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.awt.graphicsenv = sun.awt.Win32GraphicsEnvironment
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.endorsed.dirs = C:\mediatrix_tools\Java\jdk7\jre\lib\endorsed
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - os.arch = amd64
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.security.krb5.kdc = s-ng-addc1.pfad.biz
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.io.tmpdir = C:\tmp
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - line.separator = 
+
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.specification.vendor = Oracle Corporation
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.variant = 
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - os.name = Windows Server 2012 R2
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - tools.jar = C:\mediatrix_tools\Java\jdk7\lib\tools.jar
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.jnu.encoding = Cp1252
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - script.name = 
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.library.path = C:\mediatrix_tools\Java\jdk7\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\mediatrix\ocr\tesseract3;C:\mediatrix_tools\CommandLineTools;C:\mediatrix_tools\GnuWin32\bin;C:\mediatrix_tools\groovy\bin;C:\mediatrix_tools\ImageMagick;C:\mediatrix_tools\Java\jdk7\bin;C:\mediatrix_tools\OracleClient;C:\mediatrix_tools\curl-7.49.0-win64-mingw\bin;.
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.awt.enableExtraMouseButtons = true
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.specification.name = Java Platform API Specification
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.class.version = 51.0
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - os.version = 6.3
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.home = C:\mediatrix\conf
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.timezone = Europe/London
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.awt.printerjob = sun.awt.windows.WPrinterJob
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.specification.version = 1.7
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - file.encoding = Cp1252
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.name = admdhif01
+2016-06-17 09:24:08,717 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.class.path = C:\mediatrix_tools\groovy\bin\..\lib\groovy-2.4.6.jar
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.security.krb5.debug = false
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - ityx.home = C:\mediatrix\conf/mediatrix
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.specification.version = 1.7
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.arch.data.model = 64
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.home = C:\mediatrix_tools\Java\jdk7\jre
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.java.command = org.codehaus.groovy.tools.GroovyStarter --main groovy.ui.Console --conf C:\mediatrix_tools\groovy\bin\..\conf\groovy-starter.conf --classpath .
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - scout.bestsella.com.WorkflowWebserviceServiceLocator = 
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.specification.vendor = Oracle Corporation
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.language = en
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - awt.toolkit = sun.awt.windows.WToolkit
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.info = mixed mode
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.version = 1.7.0_80
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.ext.dirs = C:\mediatrix_tools\Java\jdk7\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.boot.class.path = C:\mediatrix_tools\Java\jdk7\jre\lib\resources.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\rt.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\sunrsasign.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\jsse.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\jce.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\charsets.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\jfr.jar;C:\mediatrix_tools\Java\jdk7\jre\classes
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vendor = Oracle Corporation
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.security.auth.login.config = login.conf
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - file.separator = \
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ntt.sky.servicename = MXClientadmdhif01
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.cpu.endian = little
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.io.unicode.encoding = UnicodeLittle
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.full.stacktrace = false
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.sanitized.stacktraces = org.codehaus.groovy.runtime.
+                org.codehaus.groovy.
+                groovy.lang.
+                gjdk.groovy.lang.
+                sun.
+                java.lang.reflect.
+                java.lang.Thread
+                groovy.ui.Console
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.starter.conf = C:\mediatrix_tools\groovy\bin\..\conf\groovy-starter.conf
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.desktop = windows
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.cpu.isalist = amd64
+2016-06-17 09:24:08,732 [read-9] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.home = C:\mediatrix_tools\groovy\bin\..
+2016-06-17 09:24:08,732 [read-9] Properties.java:  33(          debugPrintProperties)  DEBUG ex.CXProperties - Done printing system properties
+
+2016-06-17 11:01:20,872 [ead-10] Properties.java:  50(                 getProperties)  WARN  ex.CXProperties - CXProperties not initialized! You should always initialize CXProperties eagerly.
+2016-06-17 11:01:21,013 [ead-10] Properties.java:  81(                 getProperties)  INFO  ex.CXProperties - Loading default property configuration
+2016-06-17 11:01:21,513 [ead-10] rtyBuilder.java: 107(        initializeCXProperties)  INFO  PropertyBuilder - Initializing CXProperties...
+2016-06-17 11:01:21,513 [ead-10] nfigurator.java:  19(           configureProperties)  INFO  rtyConfigurator - Reading local properties
+2016-06-17 11:01:21,513 [ead-10] derSupport.java: 172(                loadProperties)  INFO  rtyConfigurator - Loading properties file from URL [file:C:/mediatrix/conf/mediatrix/conf/contex.properties]
+2016-06-17 11:01:21,513 [ead-10] derSupport.java: 181(                loadProperties)  WARN  rtyConfigurator - Could not load properties from URL [file:C:/mediatrix/conf/mediatrix/conf/contex.properties]: C:\mediatrix\conf\mediatrix\conf\contex.properties (The system cannot find the path specified)
+2016-06-17 11:01:21,513 [ead-10] nfigurator.java:  19(           configureProperties)  INFO  rtyConfigurator - Reading local properties
+2016-06-17 11:01:21,513 [ead-10] derSupport.java: 172(                loadProperties)  INFO  rtyConfigurator - Loading properties file from URL [file:C:/mediatrix/conf/contex.properties]
+2016-06-17 11:01:21,528 [ead-10] nfigurator.java:  19(           configureProperties)  INFO  rtyConfigurator - Reading local properties
+2016-06-17 11:01:21,528 [ead-10] derSupport.java: 172(                loadProperties)  INFO  rtyConfigurator - Loading properties file from class path resource [META-INF/product.properties]
+2016-06-17 11:01:21,528 [ead-10] derSupport.java: 181(                loadProperties)  WARN  rtyConfigurator - Could not load properties from class path resource [META-INF/product.properties]: class path resource [META-INF/product.properties] cannot be opened because it does not exist
+2016-06-17 11:01:21,528 [ead-10] tProcessor.java:  21(             processProperties)  DEBUG tyPostProcessor - Replacing property [hibernate.connection.password]
+2016-06-17 11:01:21,731 [ead-10] tProcessor.java:  21(             processProperties)  DEBUG tyPostProcessor - Replacing property [password]
+2016-06-17 11:01:21,731 [ead-10] rtyBuilder.java: 109(        initializeCXProperties)  INFO  PropertyBuilder - ...done initializing CXProperties
+
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  27(          debugPrintProperties)  DEBUG ex.CXProperties - Printing all configured properties...
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - document.email.preferredContentType = text/plain
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.insight.es.cluster.name = idigindexclusterint
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.password = *******
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - bean.syncfactory = com.nttdata.de.sky.ityx.common.DocumentIDSyncFactory
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.username = ITYX_CX
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - host = mecondbi01.premiere.de
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - matcher.initOnQuery = true
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - exceptionhandler.properties = C:\mediatrix\conf\conf\exceptions.properties
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - document.viewer.thumbnails.smooth = true
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - tesseract.datadir = C:\mediatrix\ocr\tesseract3/
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - br.props = C:\mediatrix\conf\br.properties
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - datadir = C:/mediatrix_data/CX_Fuzzy
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - idig_clauses = 50000
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - designer.service.host = wd008958.pfad.biz
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate_connections = 300
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.idle_test_period = 840
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - admin.sqlbrowser = true
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.timeout = 300
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.maxIdleTime = 180
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - image.mono.compression = CCITT T.6
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - mail.mime.ignoreunknownencoding = true
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - oracle.usesequence = 1
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - ityx.logger = C:\mediatrix\conf\contex.log4j.properties
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - dbappendix = oracle10
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.min_size = 5
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.driver_class = oracle.jdbc.driver.OracleDriver
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - password = *******
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.activemq.brokerUrl = tcp://wd008958.pfad.biz:61616
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - login = ITYX_CX
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - port = 1525
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.url = jdbc:oracle:thin:@mecondbi01.premiere.de:1525:CONTST02
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.dialect = de.ityx.contex.dba.dialects.Oracle10Dialect
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.scheduler.maxThreadCount = 128
+2016-06-17 11:01:21,731 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - image.color.compression = LZW
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - abbyy.version = 10
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.max_size = 300
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - database = CONTST02
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.checkoutTime = 180
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - contex.ocr.abbyy.maxthreads = 12
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.scheduler.minThreadCount = 64
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.maxPoolSize = 300
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  29(          debugPrintProperties)  DEBUG ex.CXProperties - Done printing configured properties
+
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  31(          debugPrintProperties)  DEBUG ex.CXProperties - Printing system properties...
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.runtime.name = Java(TM) SE Runtime Environment
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.boot.library.path = C:\mediatrix_tools\Java\jdk7\jre\bin
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.version = 24.80-b11
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.vendor = Oracle Corporation
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vendor.url = http://java.oracle.com/
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - path.separator = ;
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.security.krb5.realm = PFAD.BIZ
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - file.encoding.pkg = sun.io
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.script = 
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.country = GB
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.java.launcher = SUN_STANDARD
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.os.patch.level = 
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - program.name = 
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.specification.name = Java Virtual Machine Specification
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.dir = C:\mediatrix_tools\groovy\bin
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.runtime.version = 1.7.0_80-b15
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.awt.graphicsenv = sun.awt.Win32GraphicsEnvironment
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.endorsed.dirs = C:\mediatrix_tools\Java\jdk7\jre\lib\endorsed
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - os.arch = amd64
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.security.krb5.kdc = s-ng-addc1.pfad.biz
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.io.tmpdir = C:\tmp
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - line.separator = 
+
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.specification.vendor = Oracle Corporation
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.variant = 
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - os.name = Windows Server 2012 R2
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - tools.jar = C:\mediatrix_tools\Java\jdk7\lib\tools.jar
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.jnu.encoding = Cp1252
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - script.name = 
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.library.path = C:\mediatrix_tools\Java\jdk7\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\mediatrix\ocr\tesseract3;C:\mediatrix_tools\CommandLineTools;C:\mediatrix_tools\GnuWin32\bin;C:\mediatrix_tools\groovy\bin;C:\mediatrix_tools\ImageMagick;C:\mediatrix_tools\Java\jdk7\bin;C:\mediatrix_tools\OracleClient;C:\mediatrix_tools\curl-7.49.0-win64-mingw\bin;.
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.awt.enableExtraMouseButtons = true
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.specification.name = Java Platform API Specification
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.class.version = 51.0
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - os.version = 6.3
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.home = C:\mediatrix\conf
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.timezone = Europe/London
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.awt.printerjob = sun.awt.windows.WPrinterJob
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.specification.version = 1.7
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - file.encoding = Cp1252
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.name = admdhif01
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.class.path = C:\mediatrix_tools\groovy\bin\..\lib\groovy-2.4.6.jar
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.security.krb5.debug = false
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - ityx.home = C:\mediatrix\conf/mediatrix
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.specification.version = 1.7
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.arch.data.model = 64
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.home = C:\mediatrix_tools\Java\jdk7\jre
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.java.command = org.codehaus.groovy.tools.GroovyStarter --main groovy.ui.Console --conf C:\mediatrix_tools\groovy\bin\..\conf\groovy-starter.conf --classpath .
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - scout.bestsella.com.WorkflowWebserviceServiceLocator = 
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.specification.vendor = Oracle Corporation
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.language = en
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - awt.toolkit = sun.awt.windows.WToolkit
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.info = mixed mode
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.version = 1.7.0_80
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.ext.dirs = C:\mediatrix_tools\Java\jdk7\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.boot.class.path = C:\mediatrix_tools\Java\jdk7\jre\lib\resources.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\rt.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\sunrsasign.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\jsse.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\jce.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\charsets.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\jfr.jar;C:\mediatrix_tools\Java\jdk7\jre\classes
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vendor = Oracle Corporation
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.security.auth.login.config = login.conf
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - file.separator = \
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+2016-06-17 11:01:21,747 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ntt.sky.servicename = MXClientadmdhif01
+2016-06-17 11:01:21,763 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.cpu.endian = little
+2016-06-17 11:01:21,763 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.io.unicode.encoding = UnicodeLittle
+2016-06-17 11:01:21,763 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.full.stacktrace = false
+2016-06-17 11:01:21,763 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.sanitized.stacktraces = org.codehaus.groovy.runtime.
+                org.codehaus.groovy.
+                groovy.lang.
+                gjdk.groovy.lang.
+                sun.
+                java.lang.reflect.
+                java.lang.Thread
+                groovy.ui.Console
+2016-06-17 11:01:21,763 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.starter.conf = C:\mediatrix_tools\groovy\bin\..\conf\groovy-starter.conf
+2016-06-17 11:01:21,763 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.desktop = windows
+2016-06-17 11:01:21,763 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.cpu.isalist = amd64
+2016-06-17 11:01:21,763 [ead-10] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.home = C:\mediatrix_tools\groovy\bin\..
+2016-06-17 11:01:21,763 [ead-10] Properties.java:  33(          debugPrintProperties)  DEBUG ex.CXProperties - Done printing system properties
+
+2016-06-20 10:48:26,291 [read-7] curityTool.java:  63(         getSystemUserPassword)  WARN  texSecurityTool - You are using default system user password! Change it via 'de.ityx.system.user.password' system property.
+2016-06-20 10:48:26,744 [read-7] Properties.java:  50(                 getProperties)  WARN  ex.CXProperties - CXProperties not initialized! You should always initialize CXProperties eagerly.
+2016-06-20 10:48:26,869 [read-7] Properties.java:  81(                 getProperties)  INFO  ex.CXProperties - Loading default property configuration
+2016-06-20 10:48:27,369 [read-7] rtyBuilder.java: 107(        initializeCXProperties)  INFO  PropertyBuilder - Initializing CXProperties...
+2016-06-20 10:48:27,369 [read-7] nfigurator.java:  19(           configureProperties)  INFO  rtyConfigurator - Reading local properties
+2016-06-20 10:48:27,369 [read-7] derSupport.java: 172(                loadProperties)  INFO  rtyConfigurator - Loading properties file from URL [file:C:/mediatrix/conf/mediatrix/conf/contex.properties]
+2016-06-20 10:48:27,369 [read-7] derSupport.java: 181(                loadProperties)  WARN  rtyConfigurator - Could not load properties from URL [file:C:/mediatrix/conf/mediatrix/conf/contex.properties]: C:\mediatrix\conf\mediatrix\conf\contex.properties (The system cannot find the path specified)
+2016-06-20 10:48:27,369 [read-7] nfigurator.java:  19(           configureProperties)  INFO  rtyConfigurator - Reading local properties
+2016-06-20 10:48:27,369 [read-7] derSupport.java: 172(                loadProperties)  INFO  rtyConfigurator - Loading properties file from URL [file:C:/mediatrix/conf/contex.properties]
+2016-06-20 10:48:27,369 [read-7] nfigurator.java:  19(           configureProperties)  INFO  rtyConfigurator - Reading local properties
+2016-06-20 10:48:27,369 [read-7] derSupport.java: 172(                loadProperties)  INFO  rtyConfigurator - Loading properties file from class path resource [META-INF/product.properties]
+2016-06-20 10:48:27,369 [read-7] derSupport.java: 181(                loadProperties)  WARN  rtyConfigurator - Could not load properties from class path resource [META-INF/product.properties]: class path resource [META-INF/product.properties] cannot be opened because it does not exist
+2016-06-20 10:48:27,369 [read-7] tProcessor.java:  21(             processProperties)  DEBUG tyPostProcessor - Replacing property [hibernate.connection.password]
+2016-06-20 10:48:27,603 [read-7] tProcessor.java:  21(             processProperties)  DEBUG tyPostProcessor - Replacing property [password]
+2016-06-20 10:48:27,603 [read-7] rtyBuilder.java: 109(        initializeCXProperties)  INFO  PropertyBuilder - ...done initializing CXProperties
+
+2016-06-20 10:48:27,603 [read-7] Properties.java:  27(          debugPrintProperties)  DEBUG ex.CXProperties - Printing all configured properties...
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - document.email.preferredContentType = text/plain
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.insight.es.cluster.name = idigindexclusterint
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.password = *******
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - bean.syncfactory = com.nttdata.de.sky.ityx.common.DocumentIDSyncFactory
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.username = ITYX_CX
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - host = mecondbi01.premiere.de
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - matcher.initOnQuery = true
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - exceptionhandler.properties = C:\mediatrix\conf\conf\exceptions.properties
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - document.viewer.thumbnails.smooth = true
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - tesseract.datadir = C:\mediatrix\ocr\tesseract3/
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - br.props = C:\mediatrix\conf\br.properties
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - datadir = C:/mediatrix_data/CX_Fuzzy
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - idig_clauses = 50000
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - designer.service.host = wd008958.pfad.biz
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate_connections = 300
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.idle_test_period = 840
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - admin.sqlbrowser = true
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.timeout = 300
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.maxIdleTime = 180
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - image.mono.compression = CCITT T.6
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - mail.mime.ignoreunknownencoding = true
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - oracle.usesequence = 1
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - ityx.logger = C:\mediatrix\conf\contex.log4j.properties
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - dbappendix = oracle10
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.min_size = 5
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.driver_class = oracle.jdbc.driver.OracleDriver
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - password = *******
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.activemq.brokerUrl = tcp://wd008958.pfad.biz:61616
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - login = ITYX_CX
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - port = 1525
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.url = jdbc:oracle:thin:@mecondbi01.premiere.de:1525:CONTST02
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.dialect = de.ityx.contex.dba.dialects.Oracle10Dialect
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.scheduler.maxThreadCount = 128
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - image.color.compression = LZW
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - abbyy.version = 10
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.max_size = 300
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - database = CONTST02
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.checkoutTime = 180
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - contex.ocr.abbyy.maxthreads = 12
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.scheduler.minThreadCount = 64
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.maxPoolSize = 300
+2016-06-20 10:48:27,603 [read-7] Properties.java:  29(          debugPrintProperties)  DEBUG ex.CXProperties - Done printing configured properties
+
+2016-06-20 10:48:27,603 [read-7] Properties.java:  31(          debugPrintProperties)  DEBUG ex.CXProperties - Printing system properties...
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.runtime.name = Java(TM) SE Runtime Environment
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.boot.library.path = C:\mediatrix_tools\Java\jdk7\jre\bin
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.version = 24.80-b11
+2016-06-20 10:48:27,603 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.vendor = Oracle Corporation
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vendor.url = http://java.oracle.com/
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - path.separator = ;
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.security.krb5.realm = PFAD.BIZ
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - file.encoding.pkg = sun.io
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.script = 
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.country = GB
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.java.launcher = SUN_STANDARD
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.os.patch.level = 
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - program.name = 
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.specification.name = Java Virtual Machine Specification
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.dir = C:\mediatrix_tools\groovy\bin
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.runtime.version = 1.7.0_80-b15
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.awt.graphicsenv = sun.awt.Win32GraphicsEnvironment
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.endorsed.dirs = C:\mediatrix_tools\Java\jdk7\jre\lib\endorsed
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - os.arch = amd64
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.security.krb5.kdc = s-ng-addc1.pfad.biz
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.io.tmpdir = C:\tmp
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - line.separator = 
+
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.specification.vendor = Oracle Corporation
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.variant = 
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - os.name = Windows Server 2012 R2
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - tools.jar = C:\mediatrix_tools\Java\jdk7\lib\tools.jar
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.jnu.encoding = Cp1252
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - script.name = 
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.library.path = C:\mediatrix_tools\Java\jdk7\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\mediatrix\ocr\tesseract3;C:\mediatrix_tools\CommandLineTools;C:\mediatrix_tools\GnuWin32\bin;C:\mediatrix_tools\groovy\bin;C:\mediatrix_tools\ImageMagick;C:\mediatrix_tools\Java\jdk7\bin;C:\mediatrix_tools\OracleClient;C:\mediatrix_tools\curl-7.49.0-win64-mingw\bin;.
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.awt.enableExtraMouseButtons = true
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.specification.name = Java Platform API Specification
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.class.version = 51.0
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - os.version = 6.3
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.home = C:\mediatrix\conf
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.timezone = Europe/London
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.awt.printerjob = sun.awt.windows.WPrinterJob
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.specification.version = 1.7
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - file.encoding = Cp1252
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.name = admdhif01
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.class.path = C:\mediatrix_tools\groovy\bin\..\lib\groovy-2.4.6.jar
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.security.krb5.debug = false
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - ityx.home = C:\mediatrix\conf/mediatrix
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.specification.version = 1.7
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.arch.data.model = 64
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.home = C:\mediatrix_tools\Java\jdk7\jre
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.java.command = org.codehaus.groovy.tools.GroovyStarter --main groovy.ui.Console --conf C:\mediatrix_tools\groovy\bin\..\conf\groovy-starter.conf --classpath .
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - scout.bestsella.com.WorkflowWebserviceServiceLocator = 
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.specification.vendor = Oracle Corporation
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.language = en
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - awt.toolkit = sun.awt.windows.WToolkit
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.info = mixed mode
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.version = 1.7.0_80
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.ext.dirs = C:\mediatrix_tools\Java\jdk7\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.boot.class.path = C:\mediatrix_tools\Java\jdk7\jre\lib\resources.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\rt.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\sunrsasign.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\jsse.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\jce.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\charsets.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\jfr.jar;C:\mediatrix_tools\Java\jdk7\jre\classes
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vendor = Oracle Corporation
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.security.auth.login.config = login.conf
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - file.separator = \
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ntt.sky.servicename = MXClientadmdhif01
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.cpu.endian = little
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.io.unicode.encoding = UnicodeLittle
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.full.stacktrace = false
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.sanitized.stacktraces = org.codehaus.groovy.runtime.
+                org.codehaus.groovy.
+                groovy.lang.
+                gjdk.groovy.lang.
+                sun.
+                java.lang.reflect.
+                java.lang.Thread
+                groovy.ui.Console
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.starter.conf = C:\mediatrix_tools\groovy\bin\..\conf\groovy-starter.conf
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.desktop = windows
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.cpu.isalist = amd64
+2016-06-20 10:48:27,619 [read-7] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.home = C:\mediatrix_tools\groovy\bin\..
+2016-06-20 10:48:27,619 [read-7] Properties.java:  33(          debugPrintProperties)  DEBUG ex.CXProperties - Done printing system properties
+
+2016-06-20 12:34:22,851 [read-5] Properties.java:  50(                 getProperties)  WARN  ex.CXProperties - CXProperties not initialized! You should always initialize CXProperties eagerly.
+2016-06-20 12:34:22,976 [read-5] Properties.java:  81(                 getProperties)  INFO  ex.CXProperties - Loading default property configuration
+2016-06-20 12:34:23,491 [read-5] rtyBuilder.java: 107(        initializeCXProperties)  INFO  PropertyBuilder - Initializing CXProperties...
+2016-06-20 12:34:23,491 [read-5] nfigurator.java:  19(           configureProperties)  INFO  rtyConfigurator - Reading local properties
+2016-06-20 12:34:23,491 [read-5] derSupport.java: 172(                loadProperties)  INFO  rtyConfigurator - Loading properties file from URL [file:C:/mediatrix/conf/mediatrix/conf/contex.properties]
+2016-06-20 12:34:23,491 [read-5] derSupport.java: 181(                loadProperties)  WARN  rtyConfigurator - Could not load properties from URL [file:C:/mediatrix/conf/mediatrix/conf/contex.properties]: C:\mediatrix\conf\mediatrix\conf\contex.properties (The system cannot find the path specified)
+2016-06-20 12:34:23,491 [read-5] nfigurator.java:  19(           configureProperties)  INFO  rtyConfigurator - Reading local properties
+2016-06-20 12:34:23,491 [read-5] derSupport.java: 172(                loadProperties)  INFO  rtyConfigurator - Loading properties file from URL [file:C:/mediatrix/conf/contex.properties]
+2016-06-20 12:34:23,491 [read-5] nfigurator.java:  19(           configureProperties)  INFO  rtyConfigurator - Reading local properties
+2016-06-20 12:34:23,491 [read-5] derSupport.java: 172(                loadProperties)  INFO  rtyConfigurator - Loading properties file from class path resource [META-INF/product.properties]
+2016-06-20 12:34:23,507 [read-5] derSupport.java: 181(                loadProperties)  WARN  rtyConfigurator - Could not load properties from class path resource [META-INF/product.properties]: class path resource [META-INF/product.properties] cannot be opened because it does not exist
+2016-06-20 12:34:23,507 [read-5] tProcessor.java:  21(             processProperties)  DEBUG tyPostProcessor - Replacing property [hibernate.connection.password]
+2016-06-20 12:34:23,554 [read-5] tProcessor.java:  21(             processProperties)  DEBUG tyPostProcessor - Replacing property [password]
+2016-06-20 12:34:23,554 [read-5] rtyBuilder.java: 109(        initializeCXProperties)  INFO  PropertyBuilder - ...done initializing CXProperties
+
+2016-06-20 12:34:23,554 [read-5] Properties.java:  27(          debugPrintProperties)  DEBUG ex.CXProperties - Printing all configured properties...
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - document.email.preferredContentType = text/plain
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.insight.es.cluster.name = idigindexclusterint
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.password = *******
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - bean.syncfactory = com.nttdata.de.sky.ityx.common.DocumentIDSyncFactory
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.username = ITYX_CX
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - host = mecondbi01.premiere.de
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - matcher.initOnQuery = true
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - exceptionhandler.properties = C:\mediatrix\conf\conf\exceptions.properties
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - document.viewer.thumbnails.smooth = true
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - tesseract.datadir = C:\mediatrix\ocr\tesseract3/
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - br.props = C:\mediatrix\conf\br.properties
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - datadir = C:/mediatrix_data/CX_Fuzzy
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - idig_clauses = 50000
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - designer.service.host = wd008958.pfad.biz
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate_connections = 300
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.idle_test_period = 840
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - admin.sqlbrowser = true
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.timeout = 300
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.maxIdleTime = 180
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - image.mono.compression = CCITT T.6
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - mail.mime.ignoreunknownencoding = true
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - oracle.usesequence = 1
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - ityx.logger = C:\mediatrix\conf\contex.log4j.properties
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - dbappendix = oracle10
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.min_size = 5
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.driver_class = oracle.jdbc.driver.OracleDriver
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - password = *******
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.activemq.brokerUrl = tcp://wd008958.pfad.biz:61616
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - login = ITYX_CX
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - port = 1525
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.url = jdbc:oracle:thin:@mecondbi01.premiere.de:1525:CONTST02
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.dialect = de.ityx.contex.dba.dialects.Oracle10Dialect
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.scheduler.maxThreadCount = 128
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - image.color.compression = LZW
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - abbyy.version = 10
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.max_size = 300
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - database = CONTST02
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.checkoutTime = 180
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - contex.ocr.abbyy.maxthreads = 12
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.scheduler.minThreadCount = 64
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.maxPoolSize = 300
+2016-06-20 12:34:23,554 [read-5] Properties.java:  29(          debugPrintProperties)  DEBUG ex.CXProperties - Done printing configured properties
+
+2016-06-20 12:34:23,554 [read-5] Properties.java:  31(          debugPrintProperties)  DEBUG ex.CXProperties - Printing system properties...
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.runtime.name = Java(TM) SE Runtime Environment
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.boot.library.path = C:\mediatrix_tools\Java\jdk7\jre\bin
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.version = 24.80-b11
+2016-06-20 12:34:23,554 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.vendor = Oracle Corporation
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vendor.url = http://java.oracle.com/
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - path.separator = ;
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.security.krb5.realm = PFAD.BIZ
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - file.encoding.pkg = sun.io
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.script = 
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.country = GB
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.java.launcher = SUN_STANDARD
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.os.patch.level = 
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - program.name = 
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.specification.name = Java Virtual Machine Specification
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.dir = C:\mediatrix_tools\groovy\bin
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.runtime.version = 1.7.0_80-b15
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.awt.graphicsenv = sun.awt.Win32GraphicsEnvironment
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.endorsed.dirs = C:\mediatrix_tools\Java\jdk7\jre\lib\endorsed
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - os.arch = amd64
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.security.krb5.kdc = s-ng-addc1.pfad.biz
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.io.tmpdir = C:\tmp
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - line.separator = 
+
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.specification.vendor = Oracle Corporation
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.variant = 
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - os.name = Windows Server 2012 R2
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - tools.jar = C:\mediatrix_tools\Java\jdk7\lib\tools.jar
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.jnu.encoding = Cp1252
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - script.name = 
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.library.path = C:\mediatrix_tools\Java\jdk7\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\mediatrix\ocr\tesseract3;C:\mediatrix_tools\CommandLineTools;C:\mediatrix_tools\GnuWin32\bin;C:\mediatrix_tools\groovy\bin;C:\mediatrix_tools\ImageMagick;C:\mediatrix_tools\Java\jdk7\bin;C:\mediatrix_tools\OracleClient;C:\mediatrix_tools\curl-7.49.0-win64-mingw\bin;.
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.awt.enableExtraMouseButtons = true
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.specification.name = Java Platform API Specification
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.class.version = 51.0
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - os.version = 6.3
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.home = C:\mediatrix\conf
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.timezone = Europe/London
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.awt.printerjob = sun.awt.windows.WPrinterJob
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.specification.version = 1.7
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - file.encoding = Cp1252
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.name = admdhif01
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.class.path = C:\mediatrix_tools\groovy\bin\..\lib\groovy-2.4.6.jar
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.security.krb5.debug = false
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - ityx.home = C:\mediatrix\conf/mediatrix
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.specification.version = 1.7
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.arch.data.model = 64
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.home = C:\mediatrix_tools\Java\jdk7\jre
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.java.command = org.codehaus.groovy.tools.GroovyStarter --main groovy.ui.Console --conf C:\mediatrix_tools\groovy\bin\..\conf\groovy-starter.conf --classpath .
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - scout.bestsella.com.WorkflowWebserviceServiceLocator = 
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.specification.vendor = Oracle Corporation
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.language = en
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - awt.toolkit = sun.awt.windows.WToolkit
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.info = mixed mode
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.version = 1.7.0_80
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.ext.dirs = C:\mediatrix_tools\Java\jdk7\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.boot.class.path = C:\mediatrix_tools\Java\jdk7\jre\lib\resources.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\rt.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\sunrsasign.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\jsse.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\jce.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\charsets.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\jfr.jar;C:\mediatrix_tools\Java\jdk7\jre\classes
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vendor = Oracle Corporation
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.security.auth.login.config = login.conf
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - file.separator = \
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ntt.sky.servicename = MXClientadmdhif01
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.cpu.endian = little
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.io.unicode.encoding = UnicodeLittle
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.full.stacktrace = false
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.sanitized.stacktraces = org.codehaus.groovy.runtime.
+                org.codehaus.groovy.
+                groovy.lang.
+                gjdk.groovy.lang.
+                sun.
+                java.lang.reflect.
+                java.lang.Thread
+                groovy.ui.Console
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.starter.conf = C:\mediatrix_tools\groovy\bin\..\conf\groovy-starter.conf
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.desktop = windows
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.cpu.isalist = amd64
+2016-06-20 12:34:23,569 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.home = C:\mediatrix_tools\groovy\bin\..
+2016-06-20 12:34:23,569 [read-5] Properties.java:  33(          debugPrintProperties)  DEBUG ex.CXProperties - Done printing system properties
+
+2016-06-20 12:37:56,208 [ead-17] curityTool.java:  63(         getSystemUserPassword)  WARN  texSecurityTool - You are using default system user password! Change it via 'de.ityx.system.user.password' system property.
+2016-06-20 12:42:46,577 [read-5] curityTool.java:  63(         getSystemUserPassword)  WARN  texSecurityTool - You are using default system user password! Change it via 'de.ityx.system.user.password' system property.
+2016-06-20 12:42:48,827 [read-5] Properties.java:  50(                 getProperties)  WARN  ex.CXProperties - CXProperties not initialized! You should always initialize CXProperties eagerly.
+2016-06-20 12:42:48,968 [read-5] Properties.java:  81(                 getProperties)  INFO  ex.CXProperties - Loading default property configuration
+2016-06-20 12:42:49,468 [read-5] rtyBuilder.java: 107(        initializeCXProperties)  INFO  PropertyBuilder - Initializing CXProperties...
+2016-06-20 12:42:49,468 [read-5] nfigurator.java:  19(           configureProperties)  INFO  rtyConfigurator - Reading local properties
+2016-06-20 12:42:49,468 [read-5] derSupport.java: 172(                loadProperties)  INFO  rtyConfigurator - Loading properties file from URL [file:C:/mediatrix/conf/mediatrix/conf/contex.properties]
+2016-06-20 12:42:49,468 [read-5] derSupport.java: 181(                loadProperties)  WARN  rtyConfigurator - Could not load properties from URL [file:C:/mediatrix/conf/mediatrix/conf/contex.properties]: C:\mediatrix\conf\mediatrix\conf\contex.properties (The system cannot find the path specified)
+2016-06-20 12:42:49,468 [read-5] nfigurator.java:  19(           configureProperties)  INFO  rtyConfigurator - Reading local properties
+2016-06-20 12:42:49,468 [read-5] derSupport.java: 172(                loadProperties)  INFO  rtyConfigurator - Loading properties file from URL [file:C:/mediatrix/conf/contex.properties]
+2016-06-20 12:42:49,468 [read-5] nfigurator.java:  19(           configureProperties)  INFO  rtyConfigurator - Reading local properties
+2016-06-20 12:42:49,468 [read-5] derSupport.java: 172(                loadProperties)  INFO  rtyConfigurator - Loading properties file from class path resource [META-INF/product.properties]
+2016-06-20 12:42:49,468 [read-5] derSupport.java: 181(                loadProperties)  WARN  rtyConfigurator - Could not load properties from class path resource [META-INF/product.properties]: class path resource [META-INF/product.properties] cannot be opened because it does not exist
+2016-06-20 12:42:49,468 [read-5] tProcessor.java:  21(             processProperties)  DEBUG tyPostProcessor - Replacing property [hibernate.connection.password]
+2016-06-20 12:42:49,515 [read-5] tProcessor.java:  21(             processProperties)  DEBUG tyPostProcessor - Replacing property [password]
+2016-06-20 12:42:49,515 [read-5] rtyBuilder.java: 109(        initializeCXProperties)  INFO  PropertyBuilder - ...done initializing CXProperties
+
+2016-06-20 12:42:49,515 [read-5] Properties.java:  27(          debugPrintProperties)  DEBUG ex.CXProperties - Printing all configured properties...
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - document.email.preferredContentType = text/plain
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.insight.es.cluster.name = idigindexclusterint
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.password = *******
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - bean.syncfactory = com.nttdata.de.sky.ityx.common.DocumentIDSyncFactory
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.username = ITYX_CX
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - host = mecondbi01.premiere.de
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - matcher.initOnQuery = true
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - exceptionhandler.properties = C:\mediatrix\conf\conf\exceptions.properties
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - document.viewer.thumbnails.smooth = true
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - tesseract.datadir = C:\mediatrix\ocr\tesseract3/
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - br.props = C:\mediatrix\conf\br.properties
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - datadir = C:/mediatrix_data/CX_Fuzzy
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - idig_clauses = 50000
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - designer.service.host = wd008958.pfad.biz
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate_connections = 300
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.idle_test_period = 840
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - admin.sqlbrowser = true
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.timeout = 300
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.maxIdleTime = 180
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - image.mono.compression = CCITT T.6
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - mail.mime.ignoreunknownencoding = true
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - oracle.usesequence = 1
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - ityx.logger = C:\mediatrix\conf\contex.log4j.properties
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - dbappendix = oracle10
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.min_size = 5
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.driver_class = oracle.jdbc.driver.OracleDriver
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - password = *******
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.activemq.brokerUrl = tcp://wd008958.pfad.biz:61616
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - login = ITYX_CX
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - port = 1525
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.connection.url = jdbc:oracle:thin:@mecondbi01.premiere.de:1525:CONTST02
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.dialect = de.ityx.contex.dba.dialects.Oracle10Dialect
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.scheduler.maxThreadCount = 128
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - image.color.compression = LZW
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - abbyy.version = 10
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.max_size = 300
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - database = CONTST02
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.checkoutTime = 180
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - contex.ocr.abbyy.maxthreads = 12
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ityx.scheduler.minThreadCount = 64
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - hibernate.c3p0.maxPoolSize = 300
+2016-06-20 12:42:49,515 [read-5] Properties.java:  29(          debugPrintProperties)  DEBUG ex.CXProperties - Done printing configured properties
+
+2016-06-20 12:42:49,515 [read-5] Properties.java:  31(          debugPrintProperties)  DEBUG ex.CXProperties - Printing system properties...
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.runtime.name = Java(TM) SE Runtime Environment
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.boot.library.path = C:\mediatrix_tools\Java\jdk7\jre\bin
+2016-06-20 12:42:49,515 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.version = 24.80-b11
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.vendor = Oracle Corporation
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vendor.url = http://java.oracle.com/
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - path.separator = ;
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.security.krb5.realm = PFAD.BIZ
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - file.encoding.pkg = sun.io
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.script = 
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.country = GB
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.java.launcher = SUN_STANDARD
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.os.patch.level = 
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - program.name = 
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.specification.name = Java Virtual Machine Specification
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.dir = C:\mediatrix_tools\groovy\bin
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.runtime.version = 1.7.0_80-b15
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.awt.graphicsenv = sun.awt.Win32GraphicsEnvironment
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.endorsed.dirs = C:\mediatrix_tools\Java\jdk7\jre\lib\endorsed
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - os.arch = amd64
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.security.krb5.kdc = s-ng-addc1.pfad.biz
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.io.tmpdir = C:\tmp
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - line.separator = 
+
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.specification.vendor = Oracle Corporation
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.variant = 
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - os.name = Windows Server 2012 R2
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - tools.jar = C:\mediatrix_tools\Java\jdk7\lib\tools.jar
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.jnu.encoding = Cp1252
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - script.name = 
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.library.path = C:\mediatrix_tools\Java\jdk7\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\mediatrix\ocr\tesseract3;C:\mediatrix_tools\CommandLineTools;C:\mediatrix_tools\GnuWin32\bin;C:\mediatrix_tools\groovy\bin;C:\mediatrix_tools\ImageMagick;C:\mediatrix_tools\Java\jdk7\bin;C:\mediatrix_tools\OracleClient;C:\mediatrix_tools\curl-7.49.0-win64-mingw\bin;.
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.awt.enableExtraMouseButtons = true
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.specification.name = Java Platform API Specification
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.class.version = 51.0
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - os.version = 6.3
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.home = C:\mediatrix\conf
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.timezone = Europe/London
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.awt.printerjob = sun.awt.windows.WPrinterJob
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.specification.version = 1.7
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - file.encoding = Cp1252
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.name = admdhif01
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.class.path = C:\mediatrix_tools\groovy\bin\..\lib\groovy-2.4.6.jar
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.security.krb5.debug = false
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - ityx.home = C:\mediatrix\conf/mediatrix
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.specification.version = 1.7
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.arch.data.model = 64
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.home = C:\mediatrix_tools\Java\jdk7\jre
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.java.command = org.codehaus.groovy.tools.GroovyStarter --main groovy.ui.Console --conf C:\mediatrix_tools\groovy\bin\..\conf\groovy-starter.conf --classpath .
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - scout.bestsella.com.WorkflowWebserviceServiceLocator = 
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.specification.vendor = Oracle Corporation
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - user.language = en
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - awt.toolkit = sun.awt.windows.WToolkit
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vm.info = mixed mode
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.version = 1.7.0_80
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.ext.dirs = C:\mediatrix_tools\Java\jdk7\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.boot.class.path = C:\mediatrix_tools\Java\jdk7\jre\lib\resources.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\rt.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\sunrsasign.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\jsse.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\jce.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\charsets.jar;C:\mediatrix_tools\Java\jdk7\jre\lib\jfr.jar;C:\mediatrix_tools\Java\jdk7\jre\classes
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vendor = Oracle Corporation
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.security.auth.login.config = login.conf
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - file.separator = \
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - de.ntt.sky.servicename = MXClientadmdhif01
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.cpu.endian = little
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.io.unicode.encoding = UnicodeLittle
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.full.stacktrace = false
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.sanitized.stacktraces = org.codehaus.groovy.runtime.
+                org.codehaus.groovy.
+                groovy.lang.
+                gjdk.groovy.lang.
+                sun.
+                java.lang.reflect.
+                java.lang.Thread
+                groovy.ui.Console
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.starter.conf = C:\mediatrix_tools\groovy\bin\..\conf\groovy-starter.conf
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.desktop = windows
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - sun.cpu.isalist = amd64
+2016-06-20 12:42:49,530 [read-5] Properties.java:  42(               printProperties)  DEBUG ex.CXProperties - groovy.home = C:\mediatrix_tools\groovy\bin\..
+2016-06-20 12:42:49,530 [read-5] Properties.java:  33(          debugPrintProperties)  DEBUG ex.CXProperties - Done printing system properties
+

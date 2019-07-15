@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- <parent>
+         <groupId>com.nttdata.de.dmsityx</groupId>
+         <artifactId>ntt-sky</artifactId>
+         <version>2.0.3-SNAPSHOT</version>
+         <relativePath>..</relativePath>
+     </parent>
+     -->
+    <groupId>com.nttdata.de.dmsityx.mxclient</groupId>
+    <artifactId>mxclient</artifactId>
+    <version>2.0.3-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>common</module>
+        <module>mxbusinessrules-delegate</module>
+        <module>mxbusinessrules-client</module>
+        <module>languages</module>
+        <module>outbound</module>
+    <!--    <module>ityx-clientevents-extensions</module> -->
+        <module>extlibs</module>
+    </modules>
+    <properties>
+        <cxf.version>2.7.16</cxf.version>
+        <MX_CORE_VER>2.4.19</MX_CORE_VER>
+        <MX_CORE_KERNEL_VER>2.4.29</MX_CORE_KERNEL_VER>
+        <!--<MX_CORE_KERNEL_VER>2.4.16.1-SNAPSHOT</MX_CORE_KERNEL_VER>-->
+        <MX_CORE_CX_VER>2.4.22</MX_CORE_CX_VER>
+        <MX_EXTLIB_EXCEPTIONHANDLER_VER>1.2.6</MX_EXTLIB_EXCEPTIONHANDLER_VER>
+        <MX_EXTLIB_LAYOUTAPI_VER>1.1.3</MX_EXTLIB_LAYOUTAPI_VER>
+        <MX_EXTLIB_TEAMMGMT_VER>2.0.1</MX_EXTLIB_TEAMMGMT_VER>
+        <MX_EXTLIB_DISCOVERY_VER>1.1.4</MX_EXTLIB_DISCOVERY_VER>
+        <MX_EXTLIB_ITEXTPDF_VER>5.5.4</MX_EXTLIB_ITEXTPDF_VER>
+       <!-- <MX_EXTLIB_CLIENTEVENTS_VER>2.4.7-SNAPSHOT</MX_EXTLIB_CLIENTEVENTS_VER> -->
+        <MX_EXTLIB_LAYOUTRES_VER>1.1.10</MX_EXTLIB_LAYOUTRES_VER>
+        <EXTLIB_SERVLETAPI_VER>3.1.0</EXTLIB_SERVLETAPI_VER>
+        <EXTLIB_SWINGX_VER>1.6.1</EXTLIB_SWINGX_VER>
+        <EXTLIB_SLF4J>1.7.10</EXTLIB_SLF4J>
+        <MX_EXTLIB_INBOXSORT_VER>1.0.1</MX_EXTLIB_INBOXSORT_VER>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.7</java.version>
+    </properties>
+     <build>
+        <finalName>ntt-skydms-${project.parent.artifactId}-${project.artifactId}-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.18.1</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jarsigner-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <id>sign</id>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <keystore>${env.KEYSTORE_PATH}/${env.KEYSTORE_NAME}</keystore>
+                    <alias>${env.KEYSTORE_ALIAS}</alias>
+                    <storepass>${env.KEYSTORE_PASSWORD}</storepass>
+                    <keypass>${env.KEYSTORE_KEYPASSWORD}</keypass>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+    <dependencies>
+        <!-- ITyX dependencies -->
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>contexplain</artifactId>
+            <version>${MX_CORE_CX_VER}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>contex-proguard</artifactId>
+            <version>${MX_CORE_CX_VER}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>contexcore</artifactId>
+                    <groupId>de.ityx</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>contexpd</artifactId>
+                    <groupId>de.ityx</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>contex-security-core</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>exceptionhandler</artifactId>
+            <version>${MX_EXTLIB_EXCEPTIONHANDLER_VER}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>mediatrix-kernel</artifactId>
+            <version>${MX_CORE_KERNEL_VER}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>layout-api</artifactId>
+            <version>${MX_EXTLIB_LAYOUTAPI_VER}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>mediatrix-agentursteuerung</artifactId>
+            <version>${MX_EXTLIB_TEAMMGMT_VER}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.ityx.discover</groupId>
+            <artifactId>discover-erms-messages</artifactId>
+            <version>${MX_EXTLIB_DISCOVERY_VER}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.ityx.discover</groupId>
+            <artifactId>discover-erms-processors</artifactId>
+            <version>${MX_EXTLIB_DISCOVERY_VER}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.ityx.discover</groupId>
+            <artifactId>discover-server</artifactId>
+            <version>${MX_EXTLIB_DISCOVERY_VER}</version>
+        </dependency>
+
+        <!-- common -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jacob</groupId>
+            <artifactId>jacob</artifactId>
+            <version>1.12</version>
+        </dependency>
+        <!-- richtiges dependency funktioniert nicht bei ITyX -->
+        <!--<dependency>
+         <groupId>com.jacob</groupId>
+         <artifactId>jacob</artifactId>
+         <version>1.14.3</version>
+     </dependency>
+-->
+
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxws</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+        <!-- Jetty is needed if you're are not using the CXFServlet -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http-jetty</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>ityx.release.repository</id>
+            <name>Nexus Managed ITyX Release Repository</name>
+            <url>http://hephaistos:8081/nexus/content/repositories/partner.releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>ityx.snapshot.repository</id>
+            <name>Nexus Managed ITyX Snapshot Repository</name>
+            <url>http://hephaistos:8081/nexus/content/repositories/partner.snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StateGraph version="1.0" start="2">
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="13" type="Java" x="660.0" y="10.0">
+    <Next id="11" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="Text" name="sourcecode" value="public boolean execute(IFlowObject flowObject)  {\n\t\tSkyLogger.getItyxLogger().debug(\n\t\t\t\t\&quot;Mx2CxSaveStatusBean.execute() started...\&quot;);\n\t\tClass clazz = getClass();\n\t\tString name = new Object() {\n\t\t}.getClass().getEnclosingMethod().getName();\n\t\tString logPrefix = clazz.getName() + \&quot;#\&quot; + name + \&quot;:\&quot;;\n\t\tSkyLogger.getItyxLogger().debug(logPrefix + \&quot;enter\&quot;);\n\t\tMap&lt;String, String&gt; mx2cxStatuses = (Map&lt;String, String&gt;) flowObject\n\t\t\t\t.get(\&quot;mx2cxStatuses\&quot;);\n\t\tString currentStatusId = (String) flowObject.get(\&quot;mx2cxId\&quot;);\n\t\tString errorStatus = (String) flowObject.get(MX2CX_ERROR);\n\t\tint intErrorStatus = STATUS_OK;\n\t\tif (errorStatus.equals(\&quot;1\&quot;)) {\n\t\t\tintErrorStatus = STATUS_ERROR;\n\t\t}\n                Connection conn=null;\n\t\ttry {\n\t\t\t conn = getConnection(getDBUrlString(flowObject));\n\t\t\tsaveStatus2Mx(conn, currentStatusId, intErrorStatus);\n\t\t\tconn.commit();\n\t\t} catch (Exception e) {\n\t\t\tSkyLogger.getItyxLogger().error(\&quot;MX2CXSaveStatuses SQL; \&quot; + e, e);\n\t\t}finally{\n                    try{\n                        if (conn!=null){\n                            conn.close();\n                        }\n                    }catch(SQLException e){\n                        SkyLogger.getItyxLogger().error(\&quot;Problem during closing connection; \&quot; + e, e);\n                    }\n                }\nreturn true;\n\t}\n    \n    \n    \n       \n\t@Override\n\tpublic String[] getKeys() {\n\t\t// TODO Auto-generated method stub\n\t\treturn null;\n\t}\n\n    \n    \n    \n        \tprotected final String\t\tlogPreafix\t\t\t\t\t\t\t= getClass().getName();\n\t// protected Logger log=SkyLogger.getItyxLogger();\n\tprivate Map&lt;Long, String&gt;\tparameterMap\t\t\t\t\t\t= new ConcurrentHashMap&lt;Long, String&gt;();\n        private final String MX_DBURL = \&quot;mx_dburl\&quot;;\n        private final String MX_DBHOST = \&quot;mx_dbhost\&quot;;\n\tprivate final String MX_DBPORT = \&quot;mx_dbport\&quot;;\n\tprivate final String MX_DBNAME = \&quot;mx_dbname\&quot;;\n\tprivate final String MX_DBUSER = \&quot;mx_dbuser\&quot;;\n\tprivate final String MX_DBPASS = \&quot;mx_dbpass\&quot;;\n        \n    \tprotected static final int STATUS_NEW = 10;\n\tprotected static final int STATUS_WORK = 20;\n\tprotected static final int STATUS_ERROR = 50;\n\tprotected static final int STATUS_OK = 30;\n\tprotected static final int DIR_IN = 10;\n\tprotected static final int DIR_OUT = 20;\n        \n        \n        private final String MX2CX_MAXCOUNT = \&quot;mx2cx_maxcount\&quot;;\n\tprotected final String MODEL_MAP = \&quot;modelMap\&quot;;\n\tprotected final String REQ_DOCS = \&quot;reqDocs\&quot;;\n\tprotected final String DOCUMENTS_COUNT = \&quot;DocumentCount\&quot;;\n\tprotected final String OUTPUT = \&quot;output\&quot;;\n\tprotected final String MX2CX_ERROR = \&quot;Error\&quot;;\n        \n    \n        \n          public String getDBUrlString(IFlowObject flowObject){\n                String  dburl = (String) flowObject.get(MX_DBURL);\n\t\tif (dburl!=null &amp;&amp;  dburl.isEmpty()){\n                     return dburl;\n                }\n                String  dbhost = (String) flowObject.get(MX_DBHOST);\n\t\tString dbport = \&quot;\&quot; + (Integer) flowObject.get(MX_DBPORT);\n\t\tString dbname = (String) flowObject.get(MX_DBNAME);\n\t\tString dbuser = (String) flowObject.get(MX_DBUSER);\n\t\tString dbpass = (String) flowObject.get(MX_DBPASS);\n              // jdbc:oracle:thin:[USER/PASSWORD]@[HOST][:PORT]:SID\n              // jdbc:oracle:thin:[USER/PASSWORD]@//[HOST][:PORT]/SERVICE\n\t\treturn \&quot;jdbc:oracle:thin:\&quot;+dbuser+\&quot;/\&quot;+dbpass+\&quot;@\&quot; + dbhost + \&quot;:\&quot; + dbport + \&quot;/\&quot; + dbname;\n\t\n    }\n    \n          \n    public  Connection getConnection(String urlString) {\n        Connection con=null;\n        SkyLogger.getItyxLogger().debug(\&quot;try to connect to MX DB...\&quot;);\n                OracleConnectionPoolDataSource ds = null;\n                try {\n                    ds = new OracleConnectionPoolDataSource();\n                    ds.setURL(urlString);\n                    SkyLogger.getItyxLogger().debug(\&quot;try to connect with DB: \&quot; + urlString);\n                    con = ds.getConnection();\n                } catch (SQLException e) {\n                    SkyLogger.getItyxLogger().error(\&quot;MxDbSingleton.connect(): \&quot; + e, e);\n                }            \n        return con;\n    }\n          \n    \n    \n    \n    \n        \n        protected int mx2cxMaxCount(IFlowObject flowObject) {\n\t\treturn (Integer) flowObject.get(MX2CX_MAXCOUNT);\n\t}\n\n\tprotected void saveStatus2Mx(Connection con, String id, int status)\n\t\t\tthrows Exception {\n\t\tSkyLogger.getItyxLogger().debug(\&quot;saveStatus2MX() started...\&quot;);\n\t\tString updateMX2CXSQL = \&quot;UPDATE NTT_MX_OUTBOUND set STATUS = '\&quot; + status\n\t\t\t\t+ \&quot;', PROCESSED = SYSDATE where ID = \&quot; + id;\n\t\tSkyLogger.getItyxLogger().debug(\&quot;SQL: \&quot; + updateMX2CXSQL);\n\t\tStatement statement = null;\n\n\t\ttry {\n\t\t\tstatement = con.createStatement();\n\t\t\tstatement.execute(updateMX2CXSQL);\n\t\t\tSkyLogger.getItyxLogger().debug(\n\t\t\t\t\t\&quot;status changed: \&quot; + id + \&quot;, \&quot; + status);\n\t\t} catch (SQLException e) {\n\t\t\tSkyLogger.getItyxLogger().error(e.getMessage());\n\t\t\tthrow e;\n\t\t} finally {\n\t\t\tif (statement != null) {\n\t\t\t\tstatement.close();\n\t\t\t}\n\t\t}\n\n\t}\n        \n        \n        \n        /**\n         * Base class Methods\n         */\n        \n        \n     \n\tpublic StateResult pexecute(int arg0, IFlowObject flowObject, IExflowState arg2) throws Exception {\n\t\tString docid = getDocID(flowObject);\n\t\tString processname = getProcessname(arg2);\n\t\ttry {\n\t\t\tif (docid != null) {\n\t\t\t\tparameterMap.put(Thread.currentThread().getId(), processname + \&quot;: \&quot; + docid);\n\t\t\t}\n\t\t\texecute(flowObject);\n\t\t} catch (Exception e) {\n\t\t\te.printStackTrace();\n\t\t\tSkyLogger.getItyxLogger().error(logPreafix + \&quot;:ERROR: \&quot; + processname + \&quot;: \&quot; + docid + \&quot; Message:\&quot; + e.getMessage(), e);\n\t\t\treturn StateResult.exception(e.getMessage());\n\t\t}\n\t\treturn StateResult.STATEOK;\n\t}\n\n        \n        \n\t@Override\n\tpublic void abortExecute() {\n\t\tlong tid = Thread.currentThread().getId();\n\t\tString docid = parameterMap.get(tid);\n\t\tLogger log = SkyLogger.getItyxLogger();\n\t\tlog.error(logPreafix + \&quot; ABORT EXECUTE for:\&quot; + docid + \&quot; threadID:\&quot; + tid);\n\t}\n\n\t@Override\n\tpublic void rollbackExecute() {\n\t\tlong tid = Thread.currentThread().getId();\n\t\tString docid = parameterMap.get(tid);\n\t\tLogger log = SkyLogger.getItyxLogger();\n\t\tlog.error(logPreafix + \&quot; ROLLBACK EXECUTE for:\&quot; + docid + \&quot; threadID:\&quot; + tid);\n\n\t}\n\n    \n    @Override\n    public void cleanState() {\n        throw new UnsupportedOperationException(\&quot;Not supported yet.\&quot;); //To change body of generated methods, choose Tools | Templates.\n    }\n\n    @Override\n    public void prepareForCluster(String string) {\n        throw new UnsupportedOperationException(\&quot;Not supported yet.\&quot;); //To change body of generated methods, choose Tools | Templates.\n    }\n\n    @Override\n    public void prepareForResumeFromCluster() {\n        throw new UnsupportedOperationException(\&quot;Not supported yet.\&quot;); //To change body of generated methods, choose Tools | Templates.\n    }\n    \n    public String getDocID(IFlowObject flowObject) {\n\t\tString ctx_documentid = \&quot;DocID not found\&quot;;\n\t\tCDocument cdoc = getDoc(flowObject);\n\t\tif (cdoc != null) {\n\t\t\tctx_documentid = (String) cdoc.getNote(TagMatchDefinitions.DOCUMENT_ID);\n\t\t}\n\t\treturn ctx_documentid;\n\t}\n    public CDocument getDoc(IFlowObject flow, String flowObjectname) {\n\t\treturn getDoc(flow, getDocContainer(flow, flowObjectname));\n\t}\n\n\tpublic CDocument getDoc(IFlowObject flow) {\n\t\treturn getDoc(flow, getDocContainer(flow));\n\t}\n\n\tpublic CDocument getDoc(IFlowObject flow, CDocumentContainer cont) {\n\t\tif (cont != null) {\n\t\t\tfor (int i = 0; i &lt; cont.getDocuments().size(); i++) {\n\t\t\t\tif (cont.getDocument(i) != null) {\n\t\t\t\t\treturn cont.getDocument(i);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\treturn null;\n\t}\n\n\tpublic CDocumentContainer getDocContainer(IFlowObject flow) {\n\t\treturn getDocContainer(flow, AbstractWflBean.DOC);\n\t}\n\n\tpublic CDocumentContainer getDocContainer(IFlowObject flow, String flowObjectname) {\n\t\tCDocumentContainer result = null;\n\t\tObject object = flow.get(flowObjectname);\n\t\tif (object != null &amp;&amp; object instanceof CDocumentContainer) {\n\t\t\tresult = (CDocumentContainer) object;\n\t\t}\n\t\treturn result;\n\t}\n\n\tpublic String getProcessname(IExflowState exflowstate) {\n\t\tif (exflowstate != null &amp;&amp; exflowstate.getProcessInfo() != null &amp;&amp; exflowstate.getProcessInfo().getProcessTyp() != null) {\n\t\t\treturn exflowstate.getProcessInfo().getProcessTyp();\n\t\t}\n\t\treturn null;\n\t}" />
+      <param type="String" name="classname" value="JavaState1393587148747" />
+      <param type="Text" name="imports" value="import com.nttdata.de.lib.logging.SkyLogger;\nimport com.nttdata.de.sky.ityx.common.TagMatchDefinitions;\nimport com.nttdata.de.ityx.cx.workflow.base.AbstractWflBean;\n\nimport de.ityx.contex.impl.designer.state.StateResult;\nimport de.ityx.contex.impl.document.CDocumentContainer;\nimport de.ityx.contex.interfaces.designer.IBeanState;\nimport de.ityx.contex.interfaces.designer.IExflowState;\nimport de.ityx.contex.interfaces.designer.IFlowObject;\nimport de.ityx.contex.interfaces.document.CDocument;\nimport java.sql.Connection;\nimport java.sql.SQLException;\nimport java.sql.Statement;\nimport java.util.Map;\nimport java.util.concurrent.ConcurrentHashMap;\nimport oracle.jdbc.pool.OracleConnectionPoolDataSource;\nimport org.apache.log4j.Logger;" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="12" type="FOR Start" x="150.0" y="20.0">
+    <Next id="5" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="key" value="session.Iterator" />
+      <param type="String" name="inKey" value="session.DocumentCount" />
+      <param type="String" name="indexKey" value="session.docIndexKey" />
+      <param type="int" name="iteration" value="0" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="11" type="Bean" x="820.0" y="10.0">
+    <Next id="7" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="EndReport" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="beanClasse" value="com.nttdata.de.ityx.cx.sky.reporting.WorkflowEndReportingBean" />
+      <param type="Map" name="beanProperties" value="&lt;tree-map&gt;&#xA;  &lt;no-comparator/&gt;&#xA;&lt;/tree-map&gt;" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="10" type="Condition" x="340.0" y="60.0">
+    <Next id="8" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="composition" value="AND" />
+      <param type="boolean" name="forward" value="true" />
+      <param type="Vector" name="conditions">
+        <param type="ConditionData" key="session.Error" key2="" operator="==" value="0" comparetype="STRING" />
+      </param>
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="8" type="Bean" x="340.0" y="110.0">
+    <Next id="4" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="StartReport" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="beanClasse" value="com.nttdata.de.ityx.cx.sky.reporting.WorkflowReportingBean" />
+      <param type="Map" name="beanProperties" value="&lt;tree-map&gt;&#xA;  &lt;no-comparator/&gt;&#xA;&lt;/tree-map&gt;" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="7" type="FOR End" x="960.0" y="100.0">
+    <Next id="3" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="inKey" value="session.Iterator" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="6" type="Java" x="150.0" y="80.0">
+    <Next id="12" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="Text" name="sourcecode" value="protected final String\t\tlogPreafix\t\t\t\t\t\t\t= getClass().getName();\n\t// protected Logger log=SkyLogger.getItyxLogger();\n\tprivate Map&lt;Long, String&gt;\tparameterMap\t\t\t\t\t\t= new ConcurrentHashMap&lt;Long, String&gt;();\n        private final String MX_DBURL = \&quot;mx_dburl\&quot;;\n        private final String MX_DBHOST = \&quot;mx_dbhost\&quot;;\n\tprivate final String MX_DBPORT = \&quot;mx_dbport\&quot;;\n\tprivate final String MX_DBNAME = \&quot;mx_dbname\&quot;;\n\tprivate final String MX_DBUSER = \&quot;mx_dbuser\&quot;;\n\tprivate final String MX_DBPASS = \&quot;mx_dbpass\&quot;;\n\tprivate final String MX2CX_MAXCOUNT = \&quot;mx2cx_maxcount\&quot;;\n\tprotected final String MODEL_MAP = \&quot;modelMap\&quot;;\n\tprotected final String REQ_DOCS = \&quot;reqDocs\&quot;;\n\tprotected final String DOCUMENTS_COUNT = \&quot;DocumentCount\&quot;;\n\tprotected final String OUTPUT = \&quot;output\&quot;;\n\tprotected final String MX2CX_ERROR = \&quot;Error\&quot;;\n\tprotected static final int STATUS_NEW = 10;\n\tprotected static final int STATUS_WORK = 20;\n\tprotected static final int STATUS_ERROR = 50;\n\tprotected static final int STATUS_OK = 30;\n\tprotected static final int DIR_IN = 10;\n\tprotected static final int DIR_OUT = 20;\n\tprotected String mxDbhost;\n\tprotected String mxDbport;\n\tprotected String mxDbname;\n\tprotected String mxDbuser;\n\tprotected String mxDbpass;\n\n\n\tprotected static final String ACTIVITY_ID = \&quot;ActivityID\&quot;;\n\tprotected static final String ANSWER_ID = \&quot;ANSWERID\&quot;;\n\tprotected static final String CHANNEL = \&quot;Channel\&quot;;\n\tprotected static final String CONTACT_ID = \&quot;ContactID\&quot;;\n\tprotected static final String CONTRACT_NUMBER = \&quot;ContractNumber\&quot;;\n\tprotected static final String CUSTOMER_ID = \&quot;CustomerID\&quot;;\n\tprotected static final String DIRECTION = \&quot;Direction\&quot;;\n\tprotected static final String DOCUMENT_ID = \&quot;DocumentID\&quot;;\n\tprotected static final String EMAIL_ID = \&quot;EMAILID\&quot;;\n\tprotected static final String QUESTION_ID = \&quot;QUESTIONID\&quot;;\n\tprotected static final String TP_NAME = \&quot;TP_NAME\&quot;;\n\tprotected static final String MASTER_NAME = \&quot;MASTER_NAME\&quot;;\n\n\n\tpublic boolean execute(IFlowObject flowObject) {\n        \n            Connection conn = null;\n\t\tClass classe = getClass();\n\t\tString name = new Object() {\n\t\t}.getClass().getEnclosingMethod().getName();\n\t\tString logPrefix = classe.getName() + \&quot;#\&quot; + name + \&quot;:\&quot;;\n\t\t// Reads process input.\n\t\tIParameterMap inputMap = flowObject.getInputMap(MODEL_MAP);\n\t\tString inputValues = \&quot;\&quot;;\n\t\tfor (Iterator it = inputMap.names(); it.hasNext();) {\n\t\t\tinputValues += it.next().toString() + \&quot;; \&quot;;\n\t\t}\n\t\tSkyLogger.getItyxLogger().debug(logPrefix + \&quot;: \&quot; + inputValues);\n\t\t\n\t\ttry {\n\t\t\t//conn = MxDbSingleton.getInstance(mxDbhost, mxDbport, mxDbname, mxDbuser, mxDbpass).getConnection();\n\t\t\tconn=getConnection(getDBUrlString(flowObject));\n                        List&lt;CDocumentContainer&gt; reqDocs = new LinkedList&lt;CDocumentContainer&gt;();\n\t\t\tSkyLogger.getItyxLogger().debug(\&quot;try to get the MX requests\&quot;);\n\n\t\t\tList&lt;Map&lt;String, String&gt;&gt; docs = getMX2CXRequest(conn, getMaxCount(flowObject));\n\t\t\tfor (Map&lt;String, String&gt; n : docs) {\n\t\t\t\tString metadataoutput = \&quot;\&quot;;\n\t\t\t\tCDocument doc = new StringDocument(n.get(\n\t\t\t\t\t\tTagMatchDefinitions.DOCUMENT_ID));\n\t\t\t\tIterator&lt;String&gt; fields = n.keySet().iterator();\n\t\t\t\twhile (fields.hasNext()) {\n\t\t\t\t\tString nextField = fields.next();\n\t\t\t\t\tdoc.setNote(nextField, n.get(nextField));\n\t\t\t\t\tmetadataoutput += nextField + \&quot;: \&quot;\n\t\t\t\t\t\t\t+ n.get(nextField) + \&quot;; \&quot;;\n\t\t\t\t}\n\t\t\t\tSkyLogger.getItyxLogger().debug(\n\t\t\t\t\t\t\&quot;next document: \&quot; + metadataoutput);\n\t\t\t\tCDocumentContainer&lt;CDocument&gt; docCon = new CDocumentContainer&lt;CDocument&gt;(\n\t\t\t\t\t\tdoc);\n\t\t\t\treqDocs.add(docCon);\n\t\t\t}\n\t\t\tflowObject.put(REQ_DOCS, reqDocs);\n\t\t\tflowObject.put(DOCUMENTS_COUNT, docs.size());\n\t\t\tSkyLogger.getItyxLogger().debug(\&quot;DocumentCount: \&quot; + docs.size());\n\n\t\t} catch (Exception e) {\n\t\t\tSkyLogger.getItyxLogger().error(\&quot;getMX2CXRequest SQL; \&quot; + e, e);\n\t\t}finally{\n                    try{\n                        if (conn!=null){\n                            conn.close();\n                        }\n                    }catch(SQLException e){\n                        SkyLogger.getItyxLogger().error(\&quot;Problem during closing connection; \&quot; + e, e);\n                    }\n                }\n                \n           return true;\n        };\n\n        \n\n\tpublic String[] getKeys() {\n\t\treturn new String[] { REQ_DOCS, DOCUMENTS_COUNT };\n\t}\n\n\tprivate static final String SELECT_FROM_MX2CX_REQ = \&quot;SELECT ID, DOCUMENT_ID, QUESTION_ID, ANSWER_ID, EMAIL_ID, \&quot;\n\t\t\t+ \&quot;ACTIVITY_ID, CONTACT_ID, CUSTOMER_ID, CONTRACT_NUMBER, CHANNEL, DIRECTION, TP_NAME, \&quot;\n\t\t\t+ \&quot;PROCESS, MASTER from NTT_MX_OUTBOUND where STATUS = \&quot;\n\t\t\t+ STATUS_NEW;\n\n\tprivate List&lt;Map&lt;String, String&gt;&gt; getMX2CXRequest(Connection con, Integer maxCount)\n\t\t\tthrows Exception {\n\t\tSkyLogger.getItyxLogger().debug(\n\t\t\t\t\&quot;MxDbRequestBean.getMX2CXRequest() started...\&quot;);\n\t\tSkyLogger.getItyxLogger().debug(\&quot;SQL: \&quot; + SELECT_FROM_MX2CX_REQ);\n\t\tList&lt;Map&lt;String, String&gt;&gt; liste = new LinkedList&lt;Map&lt;String, String&gt;&gt;();\n\t\tPreparedStatement getStmt = null;\n\t\tResultSet rs = null;\n\t\ttry {\n\t\t\tif (con != null &amp;&amp; con.isValid(120)) {\n\t\t\t\tgetStmt = con.prepareStatement(SELECT_FROM_MX2CX_REQ);\n\t\t\t\trs = getStmt.executeQuery();\n\t\t\t\tint i = 0;\n\t\t\t\twhile (rs.next() &amp;&amp; i &lt; maxCount) {\n\t\t\t\t\t\n                                        Map&lt;String, String&gt; row =new HashMap&lt;String, String&gt;();;\n\t\t\t\t\t// ID,\n\t\t\t\t\trow.put(\&quot;mx2cxId\&quot;, \&quot;\&quot; + rs.getLong(1));\n\t\t\t\t\t// DOCUMENT_ID,\n\t\t\t\t\trow.put(DOCUMENT_ID, \&quot;\&quot; + rs.getString(2));\n\t\t\t\t\t// QUESTION_ID,\n\t\t\t\t\trow.put(QUESTION_ID, \&quot;\&quot; + rs.getLong(3));\n\t\t\t\t\t// ANSWER_ID,\n\t\t\t\t\trow.put(ANSWER_ID, \&quot;\&quot; + rs.getLong(4));\n\t\t\t\t\t// EMAIL_ID,\n\t\t\t\t\trow.put(EMAIL_ID, \&quot;\&quot; + rs.getLong(5));\n\t\t\t\t\t// ACTIVITY_ID,\n\t\t\t\t\trow.put(ACTIVITY_ID, rs.getString(6));\n\t\t\t\t\t// CONTACT_ID,\n\t\t\t\t\trow.put(CONTACT_ID, rs.getString(7));\n\t\t\t\t\t// CUSTOMER_ID,\n\t\t\t\t\trow.put(CUSTOMER_ID, rs.getString(8));\n\t\t\t\t\t// CONTRACT_NUMER,\n\t\t\t\t\trow.put(CONTRACT_NUMBER, \&quot;\&quot; + rs.getLong(9));\n\t\t\t\t\t// CHANNEL,\n\t\t\t\t\trow.put(CHANNEL, rs.getString(10));\n\t\t\t\t\t// DIRECTION,\n\t\t\t\t\tint intDir = rs.getInt(11);\n\t\t\t\t\tif (intDir == DIR_IN) {\n\t\t\t\t\t\trow.put(DIRECTION, \&quot;INBOUND\&quot;);\n\t\t\t\t\t} else if (intDir == DIR_OUT) {\n\t\t\t\t\t\trow.put(DIRECTION, \&quot;OUTBOUND\&quot;);\n\t\t\t\t\t}\n\t\t\t\t\t// TP_NAME,\n\t\t\t\t\trow.put(TP_NAME, rs.getString(12));\n\t\t\t\t\t// PROCESS,\n\t\t\t\t\trow.put(OUTPUT, rs.getString(13));\n\t\t\t\t\t// MASTER\n\t\t\t\t\trow.put(MASTER_NAME, rs.getString(14));\n\t\t\t\t\tSkyLogger.getItyxLogger().info(\n\t\t\t\t\t\t\t\&quot;documentId: \&quot; + rs.getLong(1));\n\t\t\t\t\tliste.add(row);\n\t\t\t\t\ti++;\n\t\t\t\t}\n\t\t\t}\n\t\t} catch (SQLException e) {\n\t\t\tSkyLogger.getItyxLogger().error(\&quot;getMX2CXRequest SQL; \&quot; + e, e);\n\t\t} finally {\n\t\t\ttry {\n\t\t\t\tif (rs != null &amp;&amp; !rs.isClosed()) {\n\t\t\t\t\trs.close();\n\t\t\t\t}\n\t\t\t\tif (getStmt != null &amp;&amp; !getStmt.isClosed()) {\n\t\t\t\t\tgetStmt.close();\n\t\t\t\t}\n\t\t\t} catch (SQLException e) {\n\t\t\t\tSkyLogger.getItyxLogger().error(\&quot;getMX2CXRequest SQL; \&quot; + e, e);\n\t\t\t}\n\t\t}\n\t\treturn liste;\n\t}\n\n        \n          public String getDBUrlString(IFlowObject flowObject){\n                String  dburl = (String) flowObject.get(MX_DBURL);\n\t\tif (dburl!=null &amp;&amp;  dburl.isEmpty()){\n                     return dburl;\n                }\n                String  dbhost = (String) flowObject.get(MX_DBHOST);\n\t\tString dbport = \&quot;\&quot; + (Integer) flowObject.get(MX_DBPORT);\n\t\tString dbname = (String) flowObject.get(MX_DBNAME);\n\t\tString dbuser = (String) flowObject.get(MX_DBUSER);\n\t\tString dbpass = (String) flowObject.get(MX_DBPASS);\n              // jdbc:oracle:thin:[USER/PASSWORD]@[HOST][:PORT]:SID\n              // jdbc:oracle:thin:[USER/PASSWORD]@//[HOST][:PORT]/SERVICE\n\t\treturn \&quot;jdbc:oracle:thin:\&quot;+dbuser+\&quot;/\&quot;+dbpass+\&quot;@\&quot; + dbhost + \&quot;:\&quot; + dbport + \&quot;/\&quot; + dbname;\n\t\n    }\n    \n          \n    public  Connection getConnection(String urlString) {\n        Connection con=null;\n        SkyLogger.getItyxLogger().debug(\&quot;try to connect to MX DB...\&quot;);\n                OracleConnectionPoolDataSource ds = null;\n                try {\n                    ds = new OracleConnectionPoolDataSource();\n                    ds.setURL(urlString);\n                    SkyLogger.getItyxLogger().debug(\&quot;try to connect with DB: \&quot; + urlString);\n                    con = ds.getConnection();\n                } catch (SQLException e) {\n                    SkyLogger.getItyxLogger().error(\&quot;MxDbSingleton.connect(): \&quot; + e, e);\n                }            \n        return con;\n    }\n          \n    \n    \n    \n    \n        \n        protected int getMaxCount(IFlowObject flowObject) {\n\t\treturn (Integer) flowObject.get(MX2CX_MAXCOUNT);\n\t}\n\n\tprotected void saveStatus2Mx(Connection con, String id, int status)\n\t\t\tthrows Exception {\n\t\tSkyLogger.getItyxLogger().debug(\&quot;saveStatus2MX() started...\&quot;);\n\t\tString updateMX2CXSQL = \&quot;UPDATE NTT_MX_OUTBOUND set STATUS = '\&quot; + status\n\t\t\t\t+ \&quot;', PROCESSED = SYSDATE where ID = \&quot; + id;\n\t\tSkyLogger.getItyxLogger().debug(\&quot;SQL: \&quot; + updateMX2CXSQL);\n\t\tStatement statement = null;\n\n\t\ttry {\n\t\t\tstatement = con.createStatement();\n\t\t\tstatement.execute(updateMX2CXSQL);\n\t\t\tSkyLogger.getItyxLogger().debug(\n\t\t\t\t\t\&quot;status changed: \&quot; + id + \&quot;, \&quot; + status);\n\t\t} catch (SQLException e) {\n\t\t\tSkyLogger.getItyxLogger().error(e.getMessage());\n\t\t\tthrow e;\n\t\t} finally {\n\t\t\tif (statement != null) {\n\t\t\t\tstatement.close();\n\t\t\t}\n\t\t}\n\n\t}\n        \n        \n        \n        /**\n         * Base class Methods\n         */\n        \n        \n        \n\tpublic StateResult pexecute(int arg0, IFlowObject flowObject, IExflowState arg2) throws Exception {\n\t\tString docid = getDocID(flowObject);\n\t\tString processname = getProcessname(arg2);\n\t\ttry {\n\t\t\tif (docid != null) {\n\t\t\t\tparameterMap.put(Thread.currentThread().getId(), processname + \&quot;: \&quot; + docid);\n\t\t\t}\n\t\t\texecute(flowObject);\n\t\t} catch (Exception e) {\n\t\t\te.printStackTrace();\n\t\t\tSkyLogger.getItyxLogger().error(logPreafix + \&quot;:ERROR: \&quot; + processname + \&quot;: \&quot; + docid + \&quot; Message:\&quot; + e.getMessage(), e);\n\t\t\treturn StateResult.exception(e.getMessage());\n\t\t}\n\t\treturn StateResult.STATEOK;\n\t}\n\n        \n        \n\t@Override\n\tpublic void abortExecute() {\n\t\tlong tid = Thread.currentThread().getId();\n\t\tString docid = parameterMap.get(tid);\n\t\tLogger log = SkyLogger.getItyxLogger();\n\t\tlog.error(logPreafix + \&quot; ABORT EXECUTE for:\&quot; + docid + \&quot; threadID:\&quot; + tid);\n\t}\n\n\t@Override\n\tpublic void rollbackExecute() {\n\t\tlong tid = Thread.currentThread().getId();\n\t\tString docid = parameterMap.get(tid);\n\t\tLogger log = SkyLogger.getItyxLogger();\n\t\tlog.error(logPreafix + \&quot; ROLLBACK EXECUTE for:\&quot; + docid + \&quot; threadID:\&quot; + tid);\n\n\t}\n\n    \n    @Override\n    public void cleanState() {\n        throw new UnsupportedOperationException(\&quot;Not supported yet.\&quot;); //To change body of generated methods, choose Tools | Templates.\n    }\n\n    @Override\n    public void prepareForCluster(String string) {\n        throw new UnsupportedOperationException(\&quot;Not supported yet.\&quot;); //To change body of generated methods, choose Tools | Templates.\n    }\n\n    @Override\n    public void prepareForResumeFromCluster() {\n        throw new UnsupportedOperationException(\&quot;Not supported yet.\&quot;); //To change body of generated methods, choose Tools | Templates.\n    }\n    \n    public String getDocID(IFlowObject flowObject) {\n\t\tString ctx_documentid = \&quot;DocID not found\&quot;;\n\t\tCDocument cdoc = getDoc(flowObject);\n\t\tif (cdoc != null) {\n\t\t\tctx_documentid = (String) cdoc.getNote(TagMatchDefinitions.DOCUMENT_ID);\n\t\t}\n\t\treturn ctx_documentid;\n\t}\n    public CDocument getDoc(IFlowObject flow, String flowObjectname) {\n\t\treturn getDoc(flow, getDocContainer(flow, flowObjectname));\n\t}\n\n\tpublic CDocument getDoc(IFlowObject flow) {\n\t\treturn getDoc(flow, getDocContainer(flow));\n\t}\n\n\tpublic CDocument getDoc(IFlowObject flow, CDocumentContainer cont) {\n\t\tif (cont != null) {\n\t\t\tfor (int i = 0; i &lt; cont.getDocuments().size(); i++) {\n\t\t\t\tif (cont.getDocument(i) != null) {\n\t\t\t\t\treturn cont.getDocument(i);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\treturn null;\n\t}\n\n\tpublic CDocumentContainer getDocContainer(IFlowObject flow) {\n\t\treturn getDocContainer(flow, AbstractWflBean.DOC);\n\t}\n\n\tpublic CDocumentContainer getDocContainer(IFlowObject flow, String flowObjectname) {\n\t\tCDocumentContainer result = null;\n\t\tObject object = flow.get(flowObjectname);\n\t\tif (object != null &amp;&amp; object instanceof CDocumentContainer) {\n\t\t\tresult = (CDocumentContainer) object;\n\t\t}\n\t\treturn result;\n\t}\n\n\tpublic String getProcessname(IExflowState exflowstate) {\n\t\tif (exflowstate != null &amp;&amp; exflowstate.getProcessInfo() != null &amp;&amp; exflowstate.getProcessInfo().getProcessTyp() != null) {\n\t\t\treturn exflowstate.getProcessInfo().getProcessTyp();\n\t\t}\n\t\treturn null;\n\t}" />
+      <param type="String" name="classname" value="JavaState1393585552945" />
+      <param type="Text" name="imports" value="import com.nttdata.de.lib.logging.SkyLogger;\nimport com.nttdata.de.sky.ityx.common.TagMatchDefinitions;\nimport com.nttdata.de.ityx.cx.workflow.base.AbstractWflBean;\nimport de.ityx.contex.impl.designer.state.StateResult;\nimport de.ityx.contex.impl.document.CDocumentContainer;\nimport de.ityx.contex.impl.document.text.string.StringDocument;\nimport de.ityx.contex.interfaces.designer.IBeanState;\nimport de.ityx.contex.interfaces.designer.IExflowState;\nimport de.ityx.contex.interfaces.designer.IFlowObject;\nimport de.ityx.contex.interfaces.designer.IParameterMap;\nimport de.ityx.contex.interfaces.document.CDocument;\nimport java.sql.Clob;\nimport java.sql.Connection;\nimport java.sql.PreparedStatement;\nimport java.sql.ResultSet;\nimport java.sql.SQLException;\nimport java.sql.Statement;\nimport java.util.HashMap;\nimport java.util.Iterator;\nimport java.util.LinkedList;\nimport java.util.List;\nimport java.util.Map;\nimport java.util.concurrent.ConcurrentHashMap;\nimport oracle.jdbc.pool.OracleConnectionPoolDataSource;\nimport org.apache.log4j.Logger;" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="5" type="Java" x="340.0" y="10.0">
+    <Next id="10" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="Text" name="sourcecode" value="public boolean execute(IFlowObject flowObject) {\n                String mx2cxId=null;\n                try {\n\t\t\n                 \n                SkyLogger.getItyxLogger().debug(\n\t\t\t\t\&quot;Mx2CxGetChildBean.execute() started...\&quot;);\n\t\tClass clazz = getClass();\n\t\tString name = new Object() {\n\t\t}.getClass().getEnclosingMethod().getName();\n\t\tString logPrefix = clazz.getName() + \&quot;#\&quot; + name + \&quot;:\&quot;;\n\t\tSkyLogger.getItyxLogger().debug(logPrefix + \&quot;enter\&quot;);\n\t\t// Reads process input.\n\t\tIParameterMap inputMap = flowObject.getInputMap(MODEL_MAP);\n\t\tString inputValues = \&quot;\&quot;;\n\t\tfor (Iterator it = inputMap.names(); it.hasNext();) {\n\t\t\tinputValues += it.next().toString() + \&quot;; \&quot;;\n\t\t}\n\t\tSkyLogger.getItyxLogger().debug(logPrefix + \&quot;: \&quot; + inputValues);\n\t\tList&lt;CDocumentContainer&gt; docs = (List&lt;CDocumentContainer&gt;) flowObject\n\t\t\t\t.get(REQ_DOCS);\n\t\tInteger docsCountInfo = (Integer) flowObject.get(DOCUMENTS_COUNT);\n\t\tInteger docIndexKey = (Integer) flowObject.get(\&quot;docIndexKey\&quot;);\n\t\tSkyLogger.getItyxLogger().debug(\&quot;docs.size(): \&quot; + docs.size());\n\t\tSkyLogger.getItyxLogger().debug(\&quot;docsCount * INFO: \&quot; + docsCountInfo);\n\t\tSkyLogger.getItyxLogger().debug(\&quot;docIndexKey: \&quot; + docIndexKey);\n\t\tif (docs.size() &gt; 0) {\n\t\t\tCDocumentContainer&lt;CDocument&gt; inDocContainer = docs\n\t\t\t\t\t.get(docIndexKey);\n\t\t\tSkyLogger.getItyxLogger()\n\t\t\t\t\t.debug(\&quot;inDocContainer: \&quot; + inDocContainer);\n\t\t\tCDocument doc = inDocContainer.getDocument(0);\n\t\t\tString docId = (String) doc\n\t\t\t\t\t.getNote(TagMatchDefinitions.DOCUMENT_ID);\n\t\t\tSkyLogger.getItyxLogger().info(\&quot;MX2CXGetChild get doc: \&quot; + docId);\n\t\t\tmx2cxId = (String) doc.getNote(\&quot;mx2cxId\&quot;);\n\t\t\tSkyLogger.getItyxLogger().debug(\&quot;mx2cxId: \&quot; + mx2cxId);\n\t\t\tsetSiebelMetaData(flowObject, doc);\n\t\t\tflowObject.put(AbstractWflBean.DOC, inDocContainer);\n\t\t\tsaveStatus(flowObject, mx2cxId, STATUS_WORK);\n\t\t\tString output = (String) doc.getNote(OUTPUT);\n\t\t\tSkyLogger.getItyxLogger().debug(logPrefix + \&quot;output: \&quot; + output);\n\t\t\tflowObject.put(OUTPUT, output);\n\t\t\tflowObject.put(MX2CX_ERROR, \&quot;0\&quot;);\n\t\t} else {\n\t\t\tflowObject.put(MX2CX_ERROR, \&quot;1\&quot;);\n\t\t}\n\n                    \n                    \n                    \n\t\t} catch (Exception e) {\n\t\t\t// TODO set status = error\n\t\t\tif (mx2cxId != null) {\n\t\t\t\tsaveStatus(flowObject, mx2cxId, STATUS_ERROR);\n\t\t\t}\n\t\t\te.printStackTrace();\n\t\t\tSkyLogger.getItyxLogger().error(e, e);\n\t\t}\n\t\treturn true;\n    }\n    \n    \n    \tprivate void saveStatus(IFlowObject flowObject, String mx2cxId, int status) {\n\t\tConnection conn=null;\n\t\ttry {\n\t\t\tconn = getConnection(getDBUrlString(flowObject));\n\t\t\tsaveStatus2Mx(conn, mx2cxId, status);\n\t\t\tconn.commit();\n\t\t} catch (Exception e) {\n\t\t\tSkyLogger.getItyxLogger().error(\&quot;MX2CXSaveStatuses SQL; \&quot; + e, e);\n\t\t}finally{\n                    try{\n                        if (conn!=null){\n                            conn.close();\n                        }\n                    }catch(SQLException e){\n                        SkyLogger.getItyxLogger().error(\&quot;Problem during closing connection; \&quot; + e, e);\n                    }\n                }\n\t}\n\n\t/**\n\t * @param flowObject\n\t * @param inputMap\n\t */\n\tprotected void setSiebelMetaData(IFlowObject flowObject, CDocument doc) {\n\t\tSkyLogger.getItyxLogger().debug(\&quot;setSiebelMetaData() started...\&quot;);\n\t\tString docId = (String) doc.getNote(TagMatchDefinitions.DOCUMENT_ID);\n\t\tString metadataoutput = \&quot;\&quot;;\n\t\tMap&lt;String, Object&gt; notes = doc.getNotes();\n\t\tIterator it = notes.entrySet().iterator();\n\t\tSkyLogger.getItyxLogger().debug(\&quot;notes count: \&quot; + notes.size());\n\t\twhile (it.hasNext()) {\n\t\t\tMap.Entry&lt;String, Object&gt; item = (Map.Entry&lt;String, Object&gt;) it\n\t\t\t\t\t.next();\n\t\t\tSkyLogger.getItyxLogger().debug(\n\t\t\t\t\t\&quot;note: \&quot; + item.getKey() + \&quot; = \&quot; + item.getValue());\n\t\t\t\t\tif (item.getValue() != null){\n\t\t\t\t\t\tflowObject.put(item.getKey(), item.getValue());\n\t\t\t\t\t\t}\t\t\t\n\t\t\tmetadataoutput += item.getKey() + \&quot;: \&quot; + item.getValue() + \&quot;; \&quot;;\n\t\t}\n\t\tSkyLogger.getItyxLogger().debug(\n\t\t\t\tdocId + \&quot;: SetSiebelMetadata: \&quot; + metadataoutput);\n\t}\n\n\t@Override\n\tpublic String[] getKeys() {\n\t\treturn new String[] { AbstractWflBean.DOC, TagMatchDefinitions.CHANNEL,\n\t\t\t\tTagMatchDefinitions.CONTACT_ID,\n\t\t\t\tTagMatchDefinitions.CUSTOMER_ID,\n\t\t\t\tTagMatchDefinitions.DOCUMENT_ID, OUTPUT, MX2CX_ERROR,\n\t\t\t\tDOCUMENTS_COUNT };\n\t}\n    \n    \n    \n    \n    \n    \n        \tprotected final String\t\tlogPreafix\t\t\t\t\t\t\t= getClass().getName();\n\t// protected Logger log=SkyLogger.getItyxLogger();\n\tprivate Map&lt;Long, String&gt;\tparameterMap\t\t\t\t\t\t= new ConcurrentHashMap&lt;Long, String&gt;();\n        private final String MX_DBURL = \&quot;mx_dburl\&quot;;\n        private final String MX_DBHOST = \&quot;mx_dbhost\&quot;;\n\tprivate final String MX_DBPORT = \&quot;mx_dbport\&quot;;\n\tprivate final String MX_DBNAME = \&quot;mx_dbname\&quot;;\n\tprivate final String MX_DBUSER = \&quot;mx_dbuser\&quot;;\n\tprivate final String MX_DBPASS = \&quot;mx_dbpass\&quot;;\n        \n    \tprotected static final int STATUS_NEW = 10;\n\tprotected static final int STATUS_WORK = 20;\n\tprotected static final int STATUS_ERROR = 50;\n\tprotected static final int STATUS_OK = 30;\n\tprotected static final int DIR_IN = 10;\n\tprotected static final int DIR_OUT = 20;\n        \n        \n        private final String MX2CX_MAXCOUNT = \&quot;mx2cx_maxcount\&quot;;\n\tprotected final String MODEL_MAP = \&quot;modelMap\&quot;;\n\tprotected final String REQ_DOCS = \&quot;reqDocs\&quot;;\n\tprotected final String DOCUMENTS_COUNT = \&quot;DocumentCount\&quot;;\n\tprotected final String OUTPUT = \&quot;output\&quot;;\n\tprotected final String MX2CX_ERROR = \&quot;Error\&quot;;\n        \n    \n        \n          public String getDBUrlString(IFlowObject flowObject){\n                String  dburl = (String) flowObject.get(MX_DBURL);\n\t\tif (dburl!=null &amp;&amp;  dburl.isEmpty()){\n                     return dburl;\n                }\n                String  dbhost = (String) flowObject.get(MX_DBHOST);\n\t\tString dbport = \&quot;\&quot; + (Integer) flowObject.get(MX_DBPORT);\n\t\tString dbname = (String) flowObject.get(MX_DBNAME);\n\t\tString dbuser = (String) flowObject.get(MX_DBUSER);\n\t\tString dbpass = (String) flowObject.get(MX_DBPASS);\n              // jdbc:oracle:thin:[USER/PASSWORD]@[HOST][:PORT]:SID\n              // jdbc:oracle:thin:[USER/PASSWORD]@//[HOST][:PORT]/SERVICE\n\t\treturn \&quot;jdbc:oracle:thin:\&quot;+dbuser+\&quot;/\&quot;+dbpass+\&quot;@\&quot; + dbhost + \&quot;:\&quot; + dbport + \&quot;/\&quot; + dbname;\n\t\n    }\n    \n          \n    public  Connection getConnection(String urlString) {\n        Connection con=null;\n        SkyLogger.getItyxLogger().debug(\&quot;try to connect to MX DB...\&quot;);\n                OracleConnectionPoolDataSource ds = null;\n                try {\n                    ds = new OracleConnectionPoolDataSource();\n                    ds.setURL(urlString);\n                    SkyLogger.getItyxLogger().debug(\&quot;try to connect with DB: \&quot; + urlString);\n                    con = ds.getConnection();\n                } catch (SQLException e) {\n                    SkyLogger.getItyxLogger().error(\&quot;MxDbSingleton.connect(): \&quot; + e, e);\n                }            \n        return con;\n    }\n          \n    \n    \n    \n    \n        \n        protected int mx2cxMaxCount(IFlowObject flowObject) {\n\t\treturn (Integer) flowObject.get(MX2CX_MAXCOUNT);\n\t}\n\n\tprotected void saveStatus2Mx(Connection con, String id, int status)\n\t\t\tthrows Exception {\n\t\tSkyLogger.getItyxLogger().debug(\&quot;saveStatus2MX() started...\&quot;);\n\t\tString updateMX2CXSQL = \&quot;UPDATE NTT_MX_OUTBOUND set STATUS = '\&quot; + status\n\t\t\t\t+ \&quot;', PROCESSED = SYSDATE where ID = \&quot; + id;\n\t\tSkyLogger.getItyxLogger().debug(\&quot;SQL: \&quot; + updateMX2CXSQL);\n\t\tStatement statement = null;\n\n\t\ttry {\n\t\t\tstatement = con.createStatement();\n\t\t\tstatement.execute(updateMX2CXSQL);\n\t\t\tSkyLogger.getItyxLogger().debug(\n\t\t\t\t\t\&quot;status changed: \&quot; + id + \&quot;, \&quot; + status);\n\t\t} catch (SQLException e) {\n\t\t\tSkyLogger.getItyxLogger().error(e.getMessage());\n\t\t\tthrow e;\n\t\t} finally {\n\t\t\tif (statement != null) {\n\t\t\t\tstatement.close();\n\t\t\t}\n\t\t}\n\n\t}\n        \n        \n        \n        /**\n         * Base class Methods\n         */\n        \n        \n\n\tpublic StateResult pexecute(int arg0, IFlowObject flowObject, IExflowState arg2) throws Exception {\n\t\tString docid = getDocID(flowObject);\n\t\tString processname = getProcessname(arg2);\n\t\ttry {\n\t\t\tif (docid != null) {\n\t\t\t\tparameterMap.put(Thread.currentThread().getId(), processname + \&quot;: \&quot; + docid);\n\t\t\t}\n\t\t\texecute(flowObject);\n\t\t} catch (Exception e) {\n\t\t\te.printStackTrace();\n\t\t\tSkyLogger.getItyxLogger().error(logPreafix + \&quot;:ERROR: \&quot; + processname + \&quot;: \&quot; + docid + \&quot; Message:\&quot; + e.getMessage(), e);\n\t\t\treturn StateResult.exception(e.getMessage());\n\t\t}\n\t\treturn StateResult.STATEOK;\n\t}\n\n        \n        \n\t@Override\n\tpublic void abortExecute() {\n\t\tlong tid = Thread.currentThread().getId();\n\t\tString docid = parameterMap.get(tid);\n\t\tLogger log = SkyLogger.getItyxLogger();\n\t\tlog.error(logPreafix + \&quot; ABORT EXECUTE for:\&quot; + docid + \&quot; threadID:\&quot; + tid);\n\t}\n\n\t@Override\n\tpublic void rollbackExecute() {\n\t\tlong tid = Thread.currentThread().getId();\n\t\tString docid = parameterMap.get(tid);\n\t\tLogger log = SkyLogger.getItyxLogger();\n\t\tlog.error(logPreafix + \&quot; ROLLBACK EXECUTE for:\&quot; + docid + \&quot; threadID:\&quot; + tid);\n\n\t}\n\n    \n    @Override\n    public void cleanState() {\n        throw new UnsupportedOperationException(\&quot;Not supported yet.\&quot;); //To change body of generated methods, choose Tools | Templates.\n    }\n\n    @Override\n    public void prepareForCluster(String string) {\n        throw new UnsupportedOperationException(\&quot;Not supported yet.\&quot;); //To change body of generated methods, choose Tools | Templates.\n    }\n\n    @Override\n    public void prepareForResumeFromCluster() {\n        throw new UnsupportedOperationException(\&quot;Not supported yet.\&quot;); //To change body of generated methods, choose Tools | Templates.\n    }\n    \n    public String getDocID(IFlowObject flowObject) {\n\t\tString ctx_documentid = \&quot;DocID not found\&quot;;\n\t\tCDocument cdoc = getDoc(flowObject);\n\t\tif (cdoc != null) {\n\t\t\tctx_documentid = (String) cdoc.getNote(TagMatchDefinitions.DOCUMENT_ID);\n\t\t}\n\t\treturn ctx_documentid;\n\t}\n    public CDocument getDoc(IFlowObject flow, String flowObjectname) {\n\t\treturn getDoc(flow, getDocContainer(flow, flowObjectname));\n\t}\n\n\tpublic CDocument getDoc(IFlowObject flow) {\n\t\treturn getDoc(flow, getDocContainer(flow));\n\t}\n\n\tpublic CDocument getDoc(IFlowObject flow, CDocumentContainer cont) {\n\t\tif (cont != null) {\n\t\t\tfor (int i = 0; i &lt; cont.getDocuments().size(); i++) {\n\t\t\t\tif (cont.getDocument(i) != null) {\n\t\t\t\t\treturn cont.getDocument(i);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\treturn null;\n\t}\n\n\tpublic CDocumentContainer getDocContainer(IFlowObject flow) {\n\t\treturn getDocContainer(flow, AbstractWflBean.DOC);\n\t}\n\n\tpublic CDocumentContainer getDocContainer(IFlowObject flow, String flowObjectname) {\n\t\tCDocumentContainer result = null;\n\t\tObject object = flow.get(flowObjectname);\n\t\tif (object != null &amp;&amp; object instanceof CDocumentContainer) {\n\t\t\tresult = (CDocumentContainer) object;\n\t\t}\n\t\treturn result;\n\t}\n\n\tpublic String getProcessname(IExflowState exflowstate) {\n\t\tif (exflowstate != null &amp;&amp; exflowstate.getProcessInfo() != null &amp;&amp; exflowstate.getProcessInfo().getProcessTyp() != null) {\n\t\t\treturn exflowstate.getProcessInfo().getProcessTyp();\n\t\t}\n\t\treturn null;\n\t}" />
+      <param type="String" name="classname" value="JavaState1393588916335" />
+      <param type="Text" name="imports" value="import com.nttdata.de.lib.logging.SkyLogger;\nimport com.nttdata.de.sky.ityx.common.TagMatchDefinitions;\nimport com.nttdata.de.ityx.cx.workflow.base.AbstractWflBean;\nimport de.ityx.contex.impl.designer.state.StateResult;\nimport de.ityx.contex.impl.document.CDocumentContainer;\nimport de.ityx.contex.interfaces.designer.IBeanState;\nimport de.ityx.contex.interfaces.designer.IExflowState;\nimport de.ityx.contex.interfaces.designer.IFlowObject;\nimport de.ityx.contex.interfaces.designer.IParameterMap;\nimport de.ityx.contex.interfaces.document.CDocument;\nimport java.sql.Connection;\nimport java.sql.SQLException;\nimport java.sql.Statement;\nimport java.util.Iterator;\nimport java.util.List;\nimport java.util.Map;\nimport java.util.concurrent.ConcurrentHashMap;\nimport oracle.jdbc.pool.OracleConnectionPoolDataSource;\nimport org.apache.log4j.Logger;" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="4" type="Document Pool" x="510.0" y="10.0">
+    <Next id="13" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="writw" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="imageInKey" value="session.doc" />
+      <param type="String" name="imageOutKey" value="" />
+      <param type="String" name="parameterKey" value="session.DocumentCount" />
+      <param type="String" name="master" value="sky" />
+      <param type="String" name="parameter" value="##output##" />
+      <param type="int" name="prio" value="1" />
+      <param type="int" name="type" value="0" />
+      <param type="boolean" name="insert" value="true" />
+      <param type="boolean" name="read" value="false" />
+      <param type="String" name="bean" value="" />
+      <param type="boolean" name="delete" value="true" />
+      <param type="long" name="poolServiceLevel" value="0" />
+      <param type="boolean" name="waitUntil" value="false" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="delayTimeUnit" value="MS" />
+      <param type="boolean" name="realIdle" value="false" />
+      <param type="String" name="timeUnit" value="MS" />
+      <param type="long" name="idleTime" value="0" />
+      <param type="boolean" name="saveDocAttributes" value="false" />
+      <param type="int" name="unlockCond" value="2" />
+      <param type="boolean" name="usePrioFromFlow" value="false" />
+      <param type="array" name="whiteList" value="&lt;object-array/&gt;" />
+      <param type="array" name="blackList" value="&lt;object-array/&gt;" />
+      <param type="long" name="maxCollectionWaitTime" value="0" />
+      <param type="String" name="externalId" value="" />
+      <param type="String" name="collectionSize" value="" />
+      <param type="int" name="errorCount" value="3" />
+      <param type="boolean" name="sendErrorEmail" value="false" />
+      <param type="EmailData" name="emailData" value="&lt;de.ityx.contex.impl.common.EmailData&gt;&#xA;  &lt;auth&gt;true&lt;/auth&gt;&#xA;  &lt;host&gt;&lt;/host&gt;&#xA;  &lt;user&gt;&lt;/user&gt;&#xA;  &lt;password&gt;&lt;/password&gt;&#xA;  &lt;from&gt;&lt;/from&gt;&#xA;  &lt;realname&gt;&lt;/realname&gt;&#xA;  &lt;to&gt;&lt;/to&gt;&#xA;  &lt;cc&gt;&lt;/cc&gt;&#xA;  &lt;bcc&gt;&lt;/bcc&gt;&#xA;  &lt;subject&gt;&lt;/subject&gt;&#xA;  &lt;message&gt;&lt;/message&gt;&#xA;&lt;/de.ityx.contex.impl.common.EmailData&gt;" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="3" type="End" x="1130.0" y="60.0">
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="2" type="Bean" x="10.0" y="20.0">
+    <Next id="1" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="Wfl_000_Configuration" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="String" name="beanClasse" value="com.nttdata.de.ityx.cx.workflow.Wfl_000_Configuration" />
+      <param type="Map" name="beanProperties" value="&lt;tree-map&gt;&#xA;  &lt;no-comparator/&gt;&#xA;&lt;/tree-map&gt;" />
+    </values>
+  </State>
+  <State class="de.ityx.contexdesigner.exflow.states.State" id="1" type="Wait" x="10.0" y="80.0">
+    <Next id="6" />
+    <values>
+      <param type="boolean" name="clusterable" value="false" />
+      <param type="boolean" name="ignoreException" value="false" />
+      <param type="boolean" name="suspendException" value="false" />
+      <param type="boolean" name="ignoreChildException" value="false" />
+      <param type="String" name="profile" value="" />
+      <param type="String" name="stateListenerBeanName" value="" />
+      <param type="String" name="name" value="" />
+      <param type="String" name="comment" value="" />
+      <param type="String" name="email" value="" />
+      <param type="long" name="serviceLevel" value="0" />
+      <param type="long" name="delay" value="0" />
+      <param type="int" name="time" value="10000" />
+    </values>
+  </State>
+  <edge source="7" target="3" text="">
+    <point x="960" y="100" />
+    <point x="1130" y="60" />
+  </edge>
+  <edge source="11" target="7" text="">
+    <point x="820" y="10" />
+    <point x="960" y="100" />
+  </edge>
+  <edge source="13" target="11" text="">
+    <point x="660" y="10" />
+    <point x="820" y="10" />
+  </edge>
+  <edge source="4" target="13" text="">
+    <point x="510" y="10" />
+    <point x="660" y="10" />
+  </edge>
+  <edge source="8" target="4" text="">
+    <point x="340" y="110" />
+    <point x="510" y="10" />
+  </edge>
+  <edge source="10" target="8" text="">
+    <point x="340" y="60" />
+    <point x="340" y="110" />
+  </edge>
+  <edge source="5" target="10" text="">
+    <point x="340" y="10" />
+    <point x="340" y="60" />
+  </edge>
+  <edge source="12" target="5" text="">
+    <point x="150" y="20" />
+    <point x="340" y="10" />
+  </edge>
+  <edge source="6" target="12" text="">
+    <point x="150" y="80" />
+    <point x="150" y="20" />
+  </edge>
+  <edge source="1" target="6" text="">
+    <point x="10" y="80" />
+    <point x="150" y="80" />
+  </edge>
+  <edge source="2" target="1" text="">
+    <point x="10" y="20" />
+    <point x="10" y="80" />
+  </edge>
+  <InputMaps>
+    <Key Name="modelMap">
+      <ParameterMap class="de.ityx.contex.impl.designer.exflow.maps.ParameterMap">
+        <Parameter Name="DocumentID" Type="10" Default="0" />
+        <Parameter Name="CustomerID" Type="10" Default="0" />
+        <Parameter Name="output" Type="10" Default="test" />
+        <Parameter Name="Channel" Type="10" Default="email" />
+        <Parameter Name="ContactID" Type="10" Default="0" />
+        <Parameter Name="Direction" Type="10" Default="INBOUND" />
+        <Parameter Name="ActivitiyID" Type="10" Default="0" />
+      </ParameterMap>
+    </Key>
+  </InputMaps>
+  <OutputMaps>
+    <Key Name="outputMap">
+      <ParameterMap class="de.ityx.contex.impl.designer.exflow.maps.ParameterMap" />
+    </Key>
+  </OutputMaps>
+</StateGraph>
+

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp codebase="http://localhost:8080/mediatrix">
+<information>
+ <title>Mediatrix</title>
+  <vendor>ITyX Solutions AG</vendor>
+   <homepage href="http://www.ityx-solutions.de"/>
+   <description>ITyX Solutions AG - Mediatrix</description>
+    <icon href="mediatrix.jpg"/>
+   <offline-allowed/>
+ </information>
+  <security>
+   <all-permissions/>
+  </security>
+  <!--
+   update  The update element is used to indicate the preferences for how application updates should be handled by the JNLP Client.
+   check   Indicates the preference for when the JNLP Client should check for updates. It can be always, timeout, or background.
+   policy  Indicates the preference for how the JNLP Client should handle an application update
+           when it is known an update is available before the application is launched. It can be always, prompt-update, or prompt-run. -->
+  <update check="always" policy="always"/>
+
+  <resources>
+   <j2se version="1.4+" initial-heap-size="64m" max-heap-size="720m"/>
+   <jar href="./jars/mediatrix.jar"/>
+   <jar href="./jars/bestScoutAgent.jar"/>
+   <jar href="./jars/jfreechart-1.0.13.jar"/>
+   <jar href="./jars/jdom-0.7.jar"/>
+   <jar href="./jars/jcommon-1.0.16.jar"/>
+   <jar href="./jars/activation-1.1.jar"/>
+   <jar href="./jars/xpp3-1.1.4c.jar"/>
+   <jar href="./jars/fontbox-1.3.1.jar"/>
+   <jar href="./jars/vjdbc.jar"/>
+   <jar href="./jars/itext-2.1.7.jar"/>
+   <jar href="./jars/jai_imageio-1.1.jar"/>
+   <jar href="./jars/lang-2.1.0.jar"/>
+   <jar href="./jars/commons-digester-1.7.jar"/>
+   <jar href="./jars/dom4j-1.6.1.jar"/>
+   <jar href="./jars/bridge2java-1.0.jar"/>
+   <jar href="./jars/mail-1.4.1.jar"/>
+   <jar href="./jars/mediatrix.jar"/>
+   <jar href="./jars/commons-beanutils-1.8.3.jar"/>
+   <jar href="./jars/commons-dbcp-1.4.jar"/>
+   <jar href="./jars/commons-logging-1.1.1.jar"/>
+   <jar href="./jars/contex.jar"/>
+   <jar href="./jars/commons-collections-3.2.1.jar"/>
+   <jar href="./jars/wrapper-1.0.jar"/>
+   <jar href="./jars/languages.jar"/>
+   <jar href="./jars/commons-lang-2.1.jar"/>
+   <jar href="./jars/javassist-3.8.0.GA.jar"/>
+   <jar href="./jars/vagentrdp.jar"/>
+   <jar href="./jars/pdfbox-1.3.1.jar"/>
+   <jar href="./jars/barbecue-1.5-beta1.jar"/>
+   <jar href="./jars/pdfrenderer-1.0.jar"/>
+   <jar href="./jars/hibernate-jpa-2.0-api-1.0.0.Final.jar"/>
+   <jar href="./jars/jvftp-1.0.jar"/>
+   <jar href="./jars/RapidSpellMDict-1.0.jar"/>
+   <jar href="./jars/formsrt-1.0.jar"/>
+   <jar href="./jars/log4j-1.2.15.jar"/>
+   <jar href="./jars/slf4j-jdk14-1.5.8.jar"/>
+   <jar href="./jars/jta-1.1.jar"/>
+   <jar href="./jars/jsch-0.1.42.jar"/>
+   <jar href="./jars/commons-codec-1.4.jar"/>
+   <jar href="./jars/RapidSpell-1.0.jar"/>
+   <jar href="./jars/tools-1.0.jar"/>
+   <jar href="./jars/commons-io-2.0.jar"/>
+   <jar href="./jars/antlr-2.7.6.jar"/>
+   <jar href="./jars/languages.jar"/>
+   <jar href="./jars/c3p0-0.9.1.jar"/>
+   <jar href="./jars/jai_codec-1.1.2_01.jar"/>
+   <jar href="./jars/xstream-1.1.3.jar"/>
+   <jar href="./jars/commons-httpclient-3.1.jar"/>
+   <jar href="./jars/mediatrix-editor.jar"/>
+   <jar href="./jars/jai_core-1.1.3.jar"/>
+   <jar href="./jars/slf4j-api-1.5.8.jar"/>
+   <jar href="./jars/commons-pool-1.5.5.jar"/>
+   <jar href="./jars/jgraph-5.13.0.0.jar"/>
+   <jar href="./jars/vagentbase.jar"/>
+   <jar href="./jars/swingx-1.6.1.jar"/>
+   <jar href="./jars/JWebEngine.jar"/>
+   <jar href="./jars/contexplain.jar"/>
+  <property name="logprefix" value="logs" />
+  <property name="de.ityx.select.language" value="true" />
+  <property name="designer.service.host" value="127.0.0.1" />
+  <property name="designer.service.port" value="6666" />
+  <property name="java.rmi.server.hostname" value="127.0.0.1" />
+ </resources>
+ <application-desc main-class="de.ityx.MediatrixClient">
+   <argument>http://localhost:8080/mediatrix/mediatrix</argument>
+ </application-desc>
+  </jnlp>
+

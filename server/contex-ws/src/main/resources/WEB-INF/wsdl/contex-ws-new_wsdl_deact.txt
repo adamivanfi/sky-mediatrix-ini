@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions targetNamespace="http://webservice.contex.ityx.de/service" name="ContexWs"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://webservice.contex.ityx.de/service"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:schema="http://webservice.contex.ityx.de/schema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types>
+        <xs:schema xmlns:ns1="http://webservice.contex.ityx.de/schema" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   targetNamespace="http://webservice.contex.ityx.de/schema" elementFormDefault="qualified"
+                   attributeFormDefault="unqualified">
+
+            <xs:complexType name="Entry">
+                <xs:sequence>
+                    <xs:element name="key" type="xs:string" minOccurs="0"/>
+                    <xs:element name="value" type="xs:string" minOccurs="0"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:element name="ContexError" >
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="message" type="xs:string" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="ContexRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="master" type="xs:string" minOccurs="0"/>
+                        <xs:element name="processName" type="xs:string" minOccurs="0"/>
+                        <xs:element name="entries" type="ns1:Entry" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="ContexResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="ns1:Entry" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </types>
+
+    <message name="ContexRequestMessage">
+        <part name="request" element="schema:ContexRequest"/>
+    </message>
+    <message name="ContexResponseMessage">
+        <part name="response" element="schema:ContexResponse"/>
+    </message>
+    <message name="ContexErrorMessage">
+        <part name="fault" element="schema:ContexError"/>
+    </message>
+
+    <portType name="ContexWs">
+        <operation name="runProcess">
+            <input message="tns:ContexRequestMessage"/>
+            <output message="tns:ContexResponseMessage"/>
+            <fault message="tns:ContexErrorMessage" name="ContexError"/>
+        </operation>
+    </portType>
+
+    <binding name="ContexWsBinding" type="tns:ContexWs">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="runProcess">
+            <soap:operation soapAction="urn:runProcess" style="document"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="ContexError">
+                <soap:fault name="ContexError" use="literal"/>
+            </fault>
+        </operation>
+    </binding>
+
+    <service name="ContexWsService">
+        <port name="ContexWsPort" binding="tns:ContexWsBinding">
+            <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+        </port>
+    </service>
+</definitions>
+

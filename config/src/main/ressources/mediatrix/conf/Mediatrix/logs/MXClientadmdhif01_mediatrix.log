@@ -1,0 +1,238 @@
+2016-06-15 11:10:48,262 [  main]  SkyLogger.java: 102(                      <clinit>)  INFO  MediatrixLogger - Configured custom logging from file:/C:/mediatrix/conf/log4j_sky.xml MXLoggerLevel:DEBUG
+2016-06-15 11:12:34,368 [ead-11]  SkyLogger.java: 102(                      <clinit>)  INFO  MediatrixLogger - Configured custom logging from file:/C:/mediatrix/conf/log4j_sky.xml MXLoggerLevel:DEBUG
+2016-06-17 09:24:07,576 [read-9]  SkyLogger.java: 102(                      <clinit>)  INFO  MediatrixLogger - Configured custom logging from file:/C:/mediatrix/conf/log4j_sky.xml MXLoggerLevel:DEBUG
+2016-06-17 11:01:20,622 [ead-10]  SkyLogger.java: 102(                      <clinit>)  INFO  MediatrixLogger - Configured custom logging from file:/C:/mediatrix/conf/log4j_sky.xml MXLoggerLevel:DEBUG
+2016-06-17 13:03:55,921 [read-5]  SkyLogger.java: 102(                      <clinit>)  INFO  MediatrixLogger - Configured custom logging from file:/C:/mediatrix/conf/log4j_sky.xml MXLoggerLevel:DEBUG
+2016-06-17 13:03:55,921 [read-5] ataFactory.java:  26(                   getInstance)  ERROR MediatrixLogger - com.nttdata.de.sky.archive.AbstractArchiveMetaData#getInstanceArchiveMetaDataFactory cannot instantiate:com.nttdata.de.sky.ityx.mediatrix.businessrules.archiving.MDocumentArchiveMetaData
+2016-06-17 13:03:55,936 [read-5] ataFactory.java:  37(                   getInstance)  ERROR MediatrixLogger - com.nttdata.de.sky.archive.AbstractArchiveMetaData#getInstanceArchiveMetaDataFactory cannot create AnonymousClass after instantiate of:com.nttdata.de.sky.ityx.mediatrix.businessrules.archiving.MDocumentArchiveMetaData
+javax.xml.bind.JAXBException: Provider com.sun.xml.bind.v2.ContextFactory could not be instantiated: javax.xml.bind.JAXBException: Provider class com.sun.xml.bind.v2.ContextFactory could not be instantiated: javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    	
+ - with linked exception:
+[javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    ]	
+ - with linked exception:
+[javax.xml.bind.JAXBException: Provider class com.sun.xml.bind.v2.ContextFactory could not be instantiated: javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    	
+ - with linked exception:
+[javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    ]]
+	at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:160)
+	at javax.xml.bind.ContextFinder.find(ContextFinder.java:348)
+	at javax.xml.bind.JAXBContext.newInstance(JAXBContext.java:446)
+	at javax.xml.bind.JAXBContext.newInstance(JAXBContext.java:409)
+	at javax.xml.bind.JAXBContext.newInstance(JAXBContext.java:313)
+	at com.nttdata.de.sky.archive.AbstractArchiveMetaData.<init>(AbstractArchiveMetaData.java:76)
+	at com.nttdata.de.sky.archive.ArchiveMetaDataFactory$2.<init>(ArchiveMetaDataFactory.java:30)
+	at com.nttdata.de.sky.archive.ArchiveMetaDataFactory.getInstance(ArchiveMetaDataFactory.java:30)
+	at com.nttdata.de.ityx.sharedservices.archiveMetadata.ArchiveMetaDataUtils.getArchiveMetaData(ArchiveMetaDataUtils.java:34)
+	at com.nttdata.de.ityx.sharedservices.archiveMetadata.ArchiveMetaDataUtils.getArchiveMetaData(ArchiveMetaDataUtils.java:26)
+	at com.nttdata.de.sky.ityx.mediatrix.businessrules.server.sky.OutboundRule.archiveQuestionWithAnswers(OutboundRule.java:210)
+	at com.nttdata.de.sky.ityx.mediatrix.businessrules.server.sky.OutboundRule$archiveQuestionWithAnswers.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:133)
+	at SBS_Arcivecheck_repairAttachments$_run_closure1.doCall(SBS_Arcivecheck_repairAttachments.groovy:59)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:93)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:325)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:294)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1021)
+	at groovy.lang.Closure.call(Closure.java:426)
+	at groovy.lang.Closure.call(Closure.java:442)
+	at org.codehaus.groovy.runtime.IOGroovyMethods.withReader(IOGroovyMethods.java:1183)
+	at org.codehaus.groovy.runtime.ResourceGroovyMethods.withReader(ResourceGroovyMethods.java:1604)
+	at org.codehaus.groovy.runtime.dgm$1027.invoke(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite$PojoMetaMethodSiteNoUnwrapNoCoerce.invoke(PojoMetaMethodSite.java:274)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:56)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at SBS_Arcivecheck_repairAttachments.run(SBS_Arcivecheck_repairAttachments.groovy:38)
+	at groovy.lang.GroovyShell.runScriptOrMainOrTestOrRunnable(GroovyShell.java:263)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:518)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:497)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:170)
+	at groovy.lang.GroovyShell$run$0.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:141)
+	at groovy.ui.Console$_runScriptImpl_closure16.doCall(Console.groovy:1005)
+	at groovy.ui.Console$_runScriptImpl_closure16.doCall(Console.groovy)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:93)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:325)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:294)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1021)
+	at groovy.lang.Closure.call(Closure.java:426)
+	at groovy.lang.Closure.call(Closure.java:420)
+	at groovy.lang.Closure.run(Closure.java:507)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: javax.xml.bind.JAXBException: Provider class com.sun.xml.bind.v2.ContextFactory could not be instantiated: javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    	
+ - with linked exception:
+[javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    ]
+	at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:222)
+	at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:146)
+	... 56 more
+Caused by: javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    
+	at javax.xml.bind.ContextFinder.handleClassCastException(ContextFinder.java:129)
+	at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:201)
+	... 57 more
+2016-06-20 10:48:26,244 [read-7]  SkyLogger.java: 102(                      <clinit>)  INFO  MediatrixLogger - Configured custom logging from file:/C:/mediatrix/conf/log4j_sky.xml MXLoggerLevel:DEBUG
+2016-06-20 11:32:51,448 [read-5]  SkyLogger.java: 102(                      <clinit>)  INFO  MediatrixLogger - Configured custom logging from file:/C:/mediatrix/conf/log4j_sky.xml MXLoggerLevel:DEBUG
+2016-06-20 11:32:51,448 [read-5] ataFactory.java:  26(                   getInstance)  ERROR MediatrixLogger - com.nttdata.de.sky.archive.AbstractArchiveMetaData#getInstanceArchiveMetaDataFactory cannot instantiate:com.nttdata.de.sky.ityx.mediatrix.businessrules.archiving.MDocumentArchiveMetaData
+2016-06-20 11:32:51,480 [read-5] ataFactory.java:  37(                   getInstance)  ERROR MediatrixLogger - com.nttdata.de.sky.archive.AbstractArchiveMetaData#getInstanceArchiveMetaDataFactory cannot create AnonymousClass after instantiate of:com.nttdata.de.sky.ityx.mediatrix.businessrules.archiving.MDocumentArchiveMetaData
+javax.xml.bind.JAXBException: Provider com.sun.xml.bind.v2.ContextFactory could not be instantiated: javax.xml.bind.JAXBException: Provider class com.sun.xml.bind.v2.ContextFactory could not be instantiated: javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    	
+ - with linked exception:
+[javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    ]	
+ - with linked exception:
+[javax.xml.bind.JAXBException: Provider class com.sun.xml.bind.v2.ContextFactory could not be instantiated: javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    	
+ - with linked exception:
+[javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    ]]
+	at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:160)
+	at javax.xml.bind.ContextFinder.find(ContextFinder.java:348)
+	at javax.xml.bind.JAXBContext.newInstance(JAXBContext.java:446)
+	at javax.xml.bind.JAXBContext.newInstance(JAXBContext.java:409)
+	at javax.xml.bind.JAXBContext.newInstance(JAXBContext.java:313)
+	at com.nttdata.de.sky.archive.AbstractArchiveMetaData.<init>(AbstractArchiveMetaData.java:76)
+	at com.nttdata.de.sky.archive.ArchiveMetaDataFactory$2.<init>(ArchiveMetaDataFactory.java:30)
+	at com.nttdata.de.sky.archive.ArchiveMetaDataFactory.getInstance(ArchiveMetaDataFactory.java:30)
+	at com.nttdata.de.ityx.sharedservices.archiveMetadata.ArchiveMetaDataUtils.getArchiveMetaData(ArchiveMetaDataUtils.java:34)
+	at com.nttdata.de.ityx.sharedservices.archiveMetadata.ArchiveMetaDataUtils.getArchiveMetaData(ArchiveMetaDataUtils.java:26)
+	at com.nttdata.de.sky.ityx.mediatrix.businessrules.server.sky.OutboundRule.archiveQuestionWithAnswers(OutboundRule.java:210)
+	at com.nttdata.de.sky.ityx.mediatrix.businessrules.server.sky.OutboundRule$archiveQuestionWithAnswers.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:133)
+	at SBS_Arcivecheck_repairAttachments$_run_closure1.doCall(SBS_Arcivecheck_repairAttachments.groovy:66)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:93)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:325)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:294)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1021)
+	at groovy.lang.Closure.call(Closure.java:426)
+	at groovy.lang.Closure.call(Closure.java:442)
+	at org.codehaus.groovy.runtime.IOGroovyMethods.withReader(IOGroovyMethods.java:1183)
+	at org.codehaus.groovy.runtime.ResourceGroovyMethods.withReader(ResourceGroovyMethods.java:1604)
+	at org.codehaus.groovy.runtime.dgm$1027.invoke(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite$PojoMetaMethodSiteNoUnwrapNoCoerce.invoke(PojoMetaMethodSite.java:274)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:56)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at SBS_Arcivecheck_repairAttachments.run(SBS_Arcivecheck_repairAttachments.groovy:37)
+	at groovy.lang.GroovyShell.runScriptOrMainOrTestOrRunnable(GroovyShell.java:263)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:518)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:497)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:170)
+	at groovy.lang.GroovyShell$run$0.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:141)
+	at groovy.ui.Console$_runScriptImpl_closure16.doCall(Console.groovy:1005)
+	at groovy.ui.Console$_runScriptImpl_closure16.doCall(Console.groovy)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:93)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:325)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:294)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1021)
+	at groovy.lang.Closure.call(Closure.java:426)
+	at groovy.lang.Closure.call(Closure.java:420)
+	at groovy.lang.Closure.run(Closure.java:507)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: javax.xml.bind.JAXBException: Provider class com.sun.xml.bind.v2.ContextFactory could not be instantiated: javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    	
+ - with linked exception:
+[javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    ]
+	at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:222)
+	at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:146)
+	... 56 more
+Caused by: javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/javaee-api-7.0.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    
+	at javax.xml.bind.ContextFinder.handleClassCastException(ContextFinder.java:129)
+	at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:201)
+	... 57 more
+2016-06-20 12:32:40,083 [read-5]  SkyLogger.java: 102(                      <clinit>)  INFO  MediatrixLogger - Configured custom logging from file:/C:/mediatrix/conf/log4j_sky.xml MXLoggerLevel:DEBUG
+2016-06-20 12:32:40,098 [read-5] ataFactory.java:  26(                   getInstance)  ERROR MediatrixLogger - com.nttdata.de.sky.archive.AbstractArchiveMetaData#getInstanceArchiveMetaDataFactory cannot instantiate:com.nttdata.de.sky.ityx.mediatrix.businessrules.archiving.MDocumentArchiveMetaData
+2016-06-20 12:32:40,130 [read-5] ataFactory.java:  37(                   getInstance)  ERROR MediatrixLogger - com.nttdata.de.sky.archive.AbstractArchiveMetaData#getInstanceArchiveMetaDataFactory cannot create AnonymousClass after instantiate of:com.nttdata.de.sky.ityx.mediatrix.businessrules.archiving.MDocumentArchiveMetaData
+javax.xml.bind.JAXBException: Provider com.sun.xml.bind.v2.ContextFactory could not be instantiated: javax.xml.bind.JAXBException: Provider class com.sun.xml.bind.v2.ContextFactory could not be instantiated: javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/jaxb-api-2.2.12-b140109.1041.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/jaxb-api-2.2.12-b140109.1041.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    	
+ - with linked exception:
+[javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/jaxb-api-2.2.12-b140109.1041.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/jaxb-api-2.2.12-b140109.1041.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    ]	
+ - with linked exception:
+[javax.xml.bind.JAXBException: Provider class com.sun.xml.bind.v2.ContextFactory could not be instantiated: javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/jaxb-api-2.2.12-b140109.1041.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/jaxb-api-2.2.12-b140109.1041.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    	
+ - with linked exception:
+[javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/jaxb-api-2.2.12-b140109.1041.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/jaxb-api-2.2.12-b140109.1041.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    ]]
+	at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:160)
+	at javax.xml.bind.ContextFinder.find(ContextFinder.java:350)
+	at javax.xml.bind.JAXBContext.newInstance(JAXBContext.java:446)
+	at javax.xml.bind.JAXBContext.newInstance(JAXBContext.java:409)
+	at javax.xml.bind.JAXBContext.newInstance(JAXBContext.java:313)
+	at com.nttdata.de.sky.archive.AbstractArchiveMetaData.<init>(AbstractArchiveMetaData.java:76)
+	at com.nttdata.de.sky.archive.ArchiveMetaDataFactory$2.<init>(ArchiveMetaDataFactory.java:30)
+	at com.nttdata.de.sky.archive.ArchiveMetaDataFactory.getInstance(ArchiveMetaDataFactory.java:30)
+	at com.nttdata.de.ityx.sharedservices.archiveMetadata.ArchiveMetaDataUtils.getArchiveMetaData(ArchiveMetaDataUtils.java:34)
+	at com.nttdata.de.ityx.sharedservices.archiveMetadata.ArchiveMetaDataUtils.getArchiveMetaData(ArchiveMetaDataUtils.java:26)
+	at com.nttdata.de.sky.ityx.mediatrix.businessrules.server.sky.OutboundRule.archiveQuestionWithAnswers(OutboundRule.java:210)
+	at com.nttdata.de.sky.ityx.mediatrix.businessrules.server.sky.OutboundRule$archiveQuestionWithAnswers.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:133)
+	at SBS_Arcivecheck_repairAttachments$_run_closure1.doCall(SBS_Arcivecheck_repairAttachments.groovy:64)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:93)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:325)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:294)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1021)
+	at groovy.lang.Closure.call(Closure.java:426)
+	at groovy.lang.Closure.call(Closure.java:442)
+	at org.codehaus.groovy.runtime.IOGroovyMethods.withReader(IOGroovyMethods.java:1183)
+	at org.codehaus.groovy.runtime.ResourceGroovyMethods.withReader(ResourceGroovyMethods.java:1604)
+	at org.codehaus.groovy.runtime.dgm$1027.invoke(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite$PojoMetaMethodSiteNoUnwrapNoCoerce.invoke(PojoMetaMethodSite.java:274)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:56)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at SBS_Arcivecheck_repairAttachments.run(SBS_Arcivecheck_repairAttachments.groovy:36)
+	at groovy.lang.GroovyShell.runScriptOrMainOrTestOrRunnable(GroovyShell.java:263)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:518)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:497)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:170)
+	at groovy.lang.GroovyShell$run$0.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:141)
+	at groovy.ui.Console$_runScriptImpl_closure16.doCall(Console.groovy:1005)
+	at groovy.ui.Console$_runScriptImpl_closure16.doCall(Console.groovy)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:93)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:325)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:294)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1021)
+	at groovy.lang.Closure.call(Closure.java:426)
+	at groovy.lang.Closure.call(Closure.java:420)
+	at groovy.lang.Closure.run(Closure.java:507)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: javax.xml.bind.JAXBException: Provider class com.sun.xml.bind.v2.ContextFactory could not be instantiated: javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/jaxb-api-2.2.12-b140109.1041.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/jaxb-api-2.2.12-b140109.1041.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    	
+ - with linked exception:
+[javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/jaxb-api-2.2.12-b140109.1041.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/jaxb-api-2.2.12-b140109.1041.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    ]
+	at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:222)
+	at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:146)
+	... 56 more
+Caused by: javax.xml.bind.JAXBException: ClassCastException: attempting to cast jar:file:/C:/mediatrix_tools/mx_libs/customlibs/jaxb-api-2.2.12-b140109.1041.jar!/javax/xml/bind/JAXBContext.class to jar:file:/C:/mediatrix_tools/mx_libs/customlibs/jaxb-api-2.2.12-b140109.1041.jar!/javax/xml/bind/JAXBContext.class.  Please make sure that you are specifying the proper ClassLoader.    
+	at javax.xml.bind.ContextFinder.handleClassCastException(ContextFinder.java:129)
+	at javax.xml.bind.ContextFinder.newInstance(ContextFinder.java:201)
+	... 57 more
+2016-06-20 12:34:22,601 [read-5]  SkyLogger.java: 102(                      <clinit>)  INFO  MediatrixLogger - Configured custom logging from file:/C:/mediatrix/conf/log4j_sky.xml MXLoggerLevel:DEBUG
+2016-06-20 12:42:46,546 [read-5]  SkyLogger.java: 102(                      <clinit>)  INFO  MediatrixLogger - Configured custom logging from file:/C:/mediatrix/conf/log4j_sky.xml MXLoggerLevel:DEBUG

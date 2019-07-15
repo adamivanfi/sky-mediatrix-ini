@@ -1,0 +1,25 @@
+
+--- Prefered method:
+SELECT (select id from frage where emailid=e.id) frageid , id emailid,
+NVL((REGEXP_SUBSTR((NVL(TO_CHAR(SUBSTR(REGEXP_SUBSTR (headers, '^X\-Tagmatch:Channel=.*', 1, 1, 'm'), 20)), '0')), '([[:alpha:]]*)')), decode(typ, 0, 'EMAIL', 1, 'FAX', 6, 'BRIEF', 7, 'DOCUMENT', typ)) channel,
+'update email set typ='||
+DECODE(
+  NVL((REGEXP_SUBSTR((NVL(TO_CHAR(SUBSTR(REGEXP_SUBSTR (headers, '^X\-Tagmatch:Channel=.*', 1, 1, 'm'), 20)), '0')), '([[:alpha:]]*)')), decode(typ, 0, 'EMAIL', 1, 'FAX', 6, 'BRIEF', 7, 'DOCUMENT', typ))
+,'FAX',6,'BRIEF',7,'EMAIL',0)
+||' where id='||id||';' updatesql
+from email e where typ not in (0,2,6,7)
+and emaildate > datetoityxtime(sysdate-1);
+
+-- execute the SQL from column updatesql manually
+
+
+
+--- Alternative-Method: Direct update
+/*
+UPDATE email set typ=DECODE(
+  NVL((REGEXP_SUBSTR((NVL(TO_CHAR(SUBSTR(REGEXP_SUBSTR (headers, '^X\-Tagmatch:Channel=.*', 1, 1, 'm'), 20)), '0')), '([[:alpha:]]*)')), decode(typ, 0, 'EMAIL', 1, 'FAX', 6, 'BRIEF', 7, 'DOCUMENT', typ))
+,'FAX',6,'BRIEF',7,'EMAIL',0, typ)
+where typ not in (0,2,6,7)
+and emaildate > datetoityxtime(sysdate-1);
+commit;
+*/

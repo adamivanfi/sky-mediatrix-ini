@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ServerContexWebserviceService WSDL service -->
+
+  <service name="ServerContexWebservice" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://contexwebservice.modules.mediatrix.ityx.de"/>
+      <parameter name="wsdlServiceElement" value="ServerContexWebserviceService"/>
+      <parameter name="schemaQualified" value="http://contexwebservice.modules.mediatrix.ityx.de"/>
+      <parameter name="wsdlServicePort" value="ServerContexWebservice"/>
+      <parameter name="className" value="de.ityx.mediatrix.modules.contexwebservice.ServerContexWebservice"/>
+      <parameter name="wsdlPortType" value="ServerContexWebservice"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:retNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="store" qname="operNS:store" returnQName="retNS:storeReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:mxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:user" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:password" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:projectname" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:subprojectname" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:title" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:body" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tagMatchBuffer" type="tns:base64Binary"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:docType" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:customerId" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:param" type="tns:int"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:xml" type="tns:base64Binary"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:keywordBuffer" type="tns:base64Binary"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:bracket" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tempHeader" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:docContainerBuffer" type="tns:base64Binary"/>
+      </operation>
+      <operation xmlns:operNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:retNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="deleteByProcessId" qname="operNS:deleteByProcessId" returnQName="retNS:deleteByProcessIdReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:mxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:user" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:password" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:processId" type="tns:long"/>
+      </operation>
+      <operation xmlns:operNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:retNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getEmailIdByProcessId" qname="operNS:getEmailIdByProcessId" returnQName="retNS:getEmailIdByProcessIdReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:mxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:user" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:password" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:processId" type="tns:long"/>
+      </operation>
+      <operation xmlns:operNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:retNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="holdByProcessId" qname="operNS:holdByProcessId" returnQName="retNS:holdByProcessIdReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:mxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:user" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:password" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:processId" type="tns:long"/>
+      </operation>
+      <operation xmlns:operNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:retNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="unholdByProcessId" qname="operNS:unholdByProcessId" returnQName="retNS:unholdByProcessIdReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:mxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:user" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:password" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:processId" type="tns:long"/>
+      </operation>
+      <operation xmlns:operNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:retNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="storeForException" qname="operNS:storeForException" returnQName="retNS:storeForExceptionReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:mxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:user" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:password" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:projectname" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:subprojectname" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:title" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:body" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tagMatchBuffer" type="tns:base64Binary"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:customerId" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:stateId" type="tns:int"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:xml" type="tns:base64Binary"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:keywordBuffer" type="tns:base64Binary"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:bracket" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tempHeader" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:docContainerBuffer" type="tns:base64Binary"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:clusterHandler" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:profileId" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:initParameter" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:exceptionType" type="tns:string"/>
+      </operation>
+	    <operation xmlns:operNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:retNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="storeInValidation" qname="operNS:storeInValidation" returnQName="retNS:storeInValidationReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:mxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:user" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:password" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:projectname" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:subprojectname" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:title" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:documentPoolId" type="tns:int"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:orderId" type="tns:long"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:initParameter" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:exceptionType" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:retNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="storeMail" qname="operNS:storeMail" returnQName="retNS:storeMailReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:mxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:user" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:password" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:projectname" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:subprojectname" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:bodytext" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:customerId" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ref" type="tns:int"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:title" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:keywordBuffer" type="tns:base64Binary"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:imagename" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:imagebytes" type="tns:base64Binary"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:type" type="tns:int"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tagMatchBuffer" type="tns:base64Binary"/>
+      </operation>
+      <operation xmlns:operNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:retNS="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="loadFromException" qname="operNS:loadFromException" returnQName="retNS:loadFromExceptionReturn" returnType="rtns:base64Binary" soapAction="">
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:mxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:user" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:cxunit" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:password" type="tns:string"/>
+        <parameter xmlns:pns="http://contexwebservice.modules.mediatrix.ityx.de" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:questionId" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="deleteByProcessId store storeMail getEmailIdByProcessId holdByProcessId loadFromException storeForException unholdByProcessId"/>
+
+  </service>
+</deployment>

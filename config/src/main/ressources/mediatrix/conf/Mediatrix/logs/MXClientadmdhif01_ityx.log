@@ -1,0 +1,9 @@
+2016-06-20 10:48:26,259 [read-7] BeanConfig.java:  28(                 getBeanConfig)  DEBUG NTTItyxLogger   - Loading WflBeanConfig.properties c:/mediatrix/conf/WflBeanConfig.properties
+2016-06-20 10:48:26,259 [read-7] BeanConfig.java:  30(                 getBeanConfig)  DEBUG NTTItyxLogger   - Loaded WflBeanConfig.properties IS
+2016-06-20 10:48:26,259 [read-7] BeanConfig.java:  32(                 getBeanConfig)  INFO  NTTItyxLogger   - Loaded WflBeanConfig.properties
+2016-06-20 12:37:56,177 [ead-17] BeanConfig.java:  28(                 getBeanConfig)  DEBUG NTTItyxLogger   - Loading WflBeanConfig.properties c:/mediatrix/conf/WflBeanConfig.properties
+2016-06-20 12:37:56,177 [ead-17] BeanConfig.java:  30(                 getBeanConfig)  DEBUG NTTItyxLogger   - Loaded WflBeanConfig.properties IS
+2016-06-20 12:37:56,177 [ead-17] BeanConfig.java:  32(                 getBeanConfig)  INFO  NTTItyxLogger   - Loaded WflBeanConfig.properties
+2016-06-20 12:42:46,546 [read-5] BeanConfig.java:  28(                 getBeanConfig)  DEBUG NTTItyxLogger   - Loading WflBeanConfig.properties c:/mediatrix/conf/WflBeanConfig.properties
+2016-06-20 12:42:46,561 [read-5] BeanConfig.java:  30(                 getBeanConfig)  DEBUG NTTItyxLogger   - Loaded WflBeanConfig.properties IS
+2016-06-20 12:42:46,561 [read-5] BeanConfig.java:  32(                 getBeanConfig)  INFO  NTTItyxLogger   - Loaded WflBeanConfig.properties

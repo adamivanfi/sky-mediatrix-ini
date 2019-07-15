@@ -1,0 +1,15 @@
+Welcome to JCommon!
+
+JCommon is a Java class library that is used by JFreeChart, Pentaho Reporting and a few other projects. The library contains miscellaneous classes that support:
+
+    configuration and dependency management code
+    a general logging framework
+    text utilities
+    user interface classes for displaying information about applications
+    custom layout managers
+    a date chooser panel
+    serialization utilities
+
+JCommon is licensed under the terms of the GNU Lesser General Public Licence (LGPL) version 2.1 or later.
+
+Note that JCommon is being maintained but not actively developed and in the future will be dropped as a dependency for both JFreeChart and Pentaho Reporting.

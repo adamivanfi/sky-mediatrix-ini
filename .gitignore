@@ -1,0 +1,14 @@
+/target
+target
+.idea
+*.iml
+*.launch
+.DS_Store
+.project
+.settings
+.classpath
+/.project
+/.classpath
+/.settings
+bin
+.env.sh

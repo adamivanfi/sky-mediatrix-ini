@@ -1,0 +1,345 @@
+@media screen {
+    /**
+     * Global
+     */
+    body {
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        color: #003b62;
+        font: 12px/1.5em "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, sans-serif;
+    }
+
+    a {
+        text-decoration: none;
+        color: #003b62;
+    }
+
+    p {
+        margin: 1em 0;
+    }
+
+    h1 {
+        margin: 0;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    h2,
+    h3 {
+        margin: 0;
+        font-weight: normal;
+        font-size: 14px;
+    }
+
+    img {
+        border: 0;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    table {
+        border-spacing: 0;
+    }
+
+    td {
+        padding: 0 7px;
+        vertical-align: middle;
+        font: 12px/1.5em "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, sans-serif;
+    }
+
+    form,
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+
+    legend {
+        display: none;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    .form-text {
+        width: 100%;
+        padding: 3px;
+        font-size: 14px;
+        color: #003b62;
+        background: #fff;
+        border: 1px solid #fff;
+    }
+
+    input.form-error {
+        border-color: #cc071e;
+        color: #cc071e;
+    }
+
+    .button1,
+    .button2 {
+        display: block;
+        height: 30px;
+        padding-left: 39px;
+        font-size: 13px;
+        line-height: 30px;
+        color: #fff;
+        outline: none;
+    }
+
+    .button1 {
+        width: 135px;
+        background: url("../img/bullet/button1.png") 0 0 no-repeat;
+    }
+
+    .button2 {
+        width: 85px;
+        background: url("../img/bullet/button2.png") 0 0 no-repeat;
+    }
+
+    .bullet1 {
+        display: inline-block;
+        height: 25px;
+        padding-left: 38px;
+        font-size: 14px;
+        line-height: 25px;
+        background: url("../img/bullet/bullet1.png") 0 0 no-repeat;
+    }
+
+
+    /**
+     * Page Blocks
+     */
+    #page {
+        width: 1080px;
+        margin: 0 auto;
+    }
+
+    #head {
+        position: relative;
+        height: 100px;
+        background: url("../img/main/logo-mediatrix.png") 802px 50px no-repeat;
+    }
+
+    #content {
+        position: relative;
+        min-height: 653px;
+        background: url("../img/main/content.jpg") 0 0 no-repeat;
+    }
+
+
+    /**
+     * Head
+     */
+    #logo-ityx {
+        position: absolute;
+        top: 0;
+        left: 936px;
+        display: block;
+        width: 144px;
+        height: 100px;
+        background: url("../img/main/logo-ityx.png") 0 0 no-repeat;
+        outline: none;
+    }
+
+    #head h1 {
+        margin: 0;
+        padding: 48px 0 0 82px;
+    }
+    
+    #lang-select {
+        position: absolute;
+        top: 3px;
+        right: 187px;
+        font: 10px/11px Arial, Helvetica, sans-serif;
+        color: #888;
+    }
+
+    #lang-select li {
+        float: left;
+        margin-left: 10px;
+    }
+
+    #lang-select a {
+        display: block;
+        width: 17px;
+        height: 11px;
+    }
+
+    #lang-select .lang-de {
+        background: url("../img/main/flag-de.png") 0 0 no-repeat;
+    }
+
+    #lang-select .lang-en {
+        background: url("../img/main/flag-en.png") 0 0 no-repeat;
+    }
+
+    #lang-select a:hover,
+    #lang-select a:active,
+    #lang-select .lang-current a {
+        background-position: 0 -20px;
+    }
+
+
+    /**
+     * Content
+     */
+    #content .start {
+        padding: 36px 554px 0 82px;
+        background: url("../img/main/bg-start.png") 582px 138px no-repeat;
+        min-height: 245px;
+    }
+
+
+    #start-client {
+        position: absolute;
+        left: 80px;
+        top: 155px;
+    }
+    
+        #start-login {
+        position: absolute;
+        left: 80px;
+        top: 220px;
+    }
+
+
+    #content .login {
+        padding: 36px 554px 0 82px;
+        background: url("../img/main/bg-login.png") 602px 128px no-repeat;
+        min-height: 245px;
+    }
+
+    #form-login table {
+        margin-top: 5px;
+        width: 100%;
+    }
+
+    #form-login td {
+        padding: 4px 0;
+    }
+
+    #form-login td.form-error-message {
+        padding-left: 28px;
+        background: url("../img/bullet/icon-error.png") 1px 0 no-repeat;
+        color: #cc071e;
+    }
+
+    #form-login td.submit {
+        padding: 1px 0;
+    }
+
+    #form-login td.register {
+        padding: 1px 0;
+        text-align: right;
+    }
+
+    #form-login .label {
+        width: 135px;
+    }
+
+
+    #server-info {
+        position: absolute;
+        top: 156px;
+        left: 312px;
+        width: 232px;
+    }
+
+    #server-info .row1 {
+        background: #e1e3e3;
+    }
+
+
+    #modules-help {
+        position: absolute;
+        left: 81px;
+        top: 302px;
+        width: 715px;
+        height: 158px;
+        background: url("../img/main/modules-help.jpg") 0 0 no-repeat;
+    }
+
+    #modules-help h2 {
+        height: 28px;
+        padding-left: 17px;
+        line-height: 28px;
+        background: url("../img/main/modules-help-tab.png") 0 0 no-repeat;
+        color: #fff;
+    }
+
+    #modules-help li {
+        float: left;
+        width: 234px;
+    }
+
+    #modules-help li:first-child {
+        width: 231px;
+    }
+
+    #modules-help h3 {
+        margin: 9px 9px 14px 9px;
+        padding: 0 9px;
+        line-height: 25px;
+        background: #e1e3e3;
+    }
+
+    #modules-help a {
+        margin-left: 11px;
+    }
+
+
+    #product-info {
+        position: absolute;
+        left: 0;
+        top: 465px;
+        width: 1080px;
+        height: 149px;
+        background: url("../img/main/product-info.png") 0 38px repeat-x;
+    }
+
+    #product-info h2 {
+        height: 38px;
+        padding-left: 28px;
+        line-height: 38px;
+        background: url("../img/main/product-info-tab.png") 0 0 no-repeat;
+        color: #fff;
+    }
+
+    #product-info ul {
+        margin-top: 3px;
+    }
+
+    #product-info li {
+        float: left;
+    }
+
+
+    #documentation {
+        position: absolute;
+        left: 743px;
+        top: 0;
+        width: 193px;
+    }
+
+    #documentation li a {
+        display: block;
+        height: 37px;
+        padding-left: 48px;
+        font-size: 14px;
+        line-height: 39px;
+        background: url("../img/bullet/documentation-2.png") 0 0 no-repeat;
+    }
+
+    #documentation li:first-child a {
+        height: 41px;
+        line-height: 47px;
+        background: url("../img/bullet/documentation-1.png") 0 0 no-repeat;
+    }
+
+}

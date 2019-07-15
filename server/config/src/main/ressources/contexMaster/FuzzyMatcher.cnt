@@ -1,0 +1,143 @@
+<list>
+<de.ityx.contex.dbo.match.Match_data>
+  <tableName>m1_newdb_small_A</tableName>
+  <columnNames>
+    <string>CUSTOMER_ID</string>
+    <string>CONTRACT_ID</string>
+    <string>CITY</string>
+    <string>LAST_NAME</string>
+    <string>SERIAL_NUMBER</string>
+  </columnNames>
+  <rowCount>0</rowCount>
+  <config>
+    <id>200</id>
+    <sourceType>1</sourceType>
+    <driver>oracle.jdbc.driver.OracleDriver</driver>
+    <url>jdbc:oracle:thin:@s-ng-ddmsx1.premiere.de:1521:CONDEV01</url>
+    <login>ITYX_CX_DEV</login>
+    <password>dms</password>
+    <selection>select b.CUSTOMER_ID, b.CONTRACT_ID, b.CITY, a.LAST_NAME, c.SERIAL_NUMBER from NEWDB_CUSTOMER a, NEWDB_CONTRACT b, NEWDB_ASSET c where b.CUSTOMER_ID=a.CUSTOMER_ID and b.CONTRACT_ID=c.CONTRACT_ID and (a.OPERATION=&apos;I&apos; or b.operation=&apos;I&apos; or c.operation=&apos;I&apos;)</selection>
+    <master>0</master>
+    <deleteQuery>select b.CUSTOMER_ID, b.CONTRACT_ID, c.SERIAL_NUMBER from NEWDB_CUSTOMER a, NEWDB_CONTRACT b, NEWDB_ASSET c where b.CUSTOMER_ID=a.CUSTOMER_ID and b.CONTRACT_ID=c.CONTRACT_ID and (c.operation=&apos;D&apos;)</deleteQuery>
+    <updateQuery>select b.CUSTOMER_ID, b.CONTRACT_ID, b.CITY, a.LAST_NAME, c.SERIAL_NUMBER from NEWDB_CUSTOMER a, NEWDB_CONTRACT b, NEWDB_ASSET c where b.CUSTOMER_ID=a.CUSTOMER_ID and b.CONTRACT_ID=c.CONTRACT_ID and (a.OPERATION=&apos;U&apos; or b.operation=&apos;U&apos; or c.operation=&apos;U&apos;)</updateQuery>
+    <appendQuery>select b.CUSTOMER_ID, b.CONTRACT_ID, b.CITY, a.LAST_NAME, c.SERIAL_NUMBER from NEWDB_CUSTOMER a, NEWDB_CONTRACT b, NEWDB_ASSET c where b.CUSTOMER_ID=a.CUSTOMER_ID and b.CONTRACT_ID=c.CONTRACT_ID and (a.OPERATION=&apos;I&apos; or b.operation=&apos;I&apos; or c.operation=&apos;I&apos;)</appendQuery>
+    <updateKeys>CUSTOMER_ID,CONTRACT_ID,SERIAL_NUMBER</updateKeys>
+    <postAction>select CUSTOMER_ID from NEWDB_CUSTOMER WHERE CUSTOMER_ID = -1</postAction>
+    <columnNames>
+      <string>CUSTOMER_ID</string>
+      <string>CONTRACT_ID</string>
+      <string>CITY</string>
+      <string>LAST_NAME</string>
+      <string>SERIAL_NUMBER</string>
+    </columnNames>
+    <tableNames/>
+  </config>
+  <useIndexFile>true</useIndexFile>
+  <useInternalDB>false</useInternalDB>
+  <validationType>3</validationType>
+  <useFileValidation>true</useFileValidation>
+  <indexTypes>
+    <int>0</int>
+    <int>0</int>
+    <int>0</int>
+    <int>0</int>
+    <int>0</int>
+  </indexTypes>
+  <sigmas/>
+  <lastImport>1320760179812</lastImport>
+  <useGrid>false</useGrid>
+  <maxQueryTime>0</maxQueryTime>
+  <minRowCount>0</minRowCount>
+  <optimizedQuery>false</optimizedQuery>
+  <optimizedMinCandidates>0</optimizedMinCandidates>
+  <optimizedMaxCandidates>0</optimizedMaxCandidates>
+  <id>200</id>
+  <master>1</master>
+  <namespace>newdb_small</namespace>
+</de.ityx.contex.dbo.match.Match_data><de.ityx.contex.dbo.match.Match_data>
+  <tableName>m1_newdb_sky_A</tableName>
+  <columnNames>
+    <string>CUSTOMER_ID</string>
+    <string>CONTRACT_ID</string>
+    <string>HOUSE_NUMBER</string>
+    <string>STREET</string>
+    <string>ZIPCODE</string>
+    <string>CITY</string>
+    <string>ACCOUNT_NUMBER</string>
+    <string>BANK_CODE</string>
+    <string>BANK_ACCOUNT_HOLDER</string>
+    <string>MOBILE_NUMBER</string>
+    <string>EMAIL_ADDRESS</string>
+    <string>FIRST_NAME</string>
+    <string>LAST_NAME</string>
+    <string>TELEPHONE_NUMBER</string>
+    <string>SERIAL_NUMBER</string>
+  </columnNames>
+  <rowCount>2</rowCount>
+  <config>
+    <id>150</id>
+    <sourceType>1</sourceType>
+    <driver>oracle.jdbc.driver.OracleDriver</driver>
+    <url>jdbc:oracle:thin:@s-ng-ddmsx1.premiere.de:1521:CONDEV01</url>
+    <login>ITYX_CX_DEV</login>
+    <password>dms</password>
+    <selection>SELECT * FROM NEWDB_FLAT</selection>
+    <master>0</master>
+    <deleteQuery>SELECT * FROM NEWDB_FLAT WHERE CUSTOMER_ID = -1</deleteQuery>
+    <updateQuery>SELECT * FROM NEWDB_FLAT WHERE CUSTOMER_ID = -1</updateQuery>
+    <appendQuery>SELECT * FROM NEWDB_FLAT WHERE CUSTOMER_ID = -1</appendQuery>
+    <updateKeys>CUSTOMER_ID</updateKeys>
+    <postAction>SELECT * FROM NEWDB_FLAT WHERE CUSTOMER_ID = -1</postAction>
+    <columnNames>
+      <string>CUSTOMER_ID</string>
+      <string>CONTRACT_ID</string>
+      <string>HOUSE_NUMBER</string>
+      <string>STREET</string>
+      <string>ZIPCODE</string>
+      <string>CITY</string>
+      <string>ACCOUNT_NUMBER</string>
+      <string>BANK_CODE</string>
+      <string>BANK_ACCOUNT_HOLDER</string>
+      <string>MOBILE_NUMBER</string>
+      <string>EMAIL_ADDRESS</string>
+      <string>FIRST_NAME</string>
+      <string>LAST_NAME</string>
+      <string>TELEPHONE_NUMBER</string>
+      <string>SERIAL_NUMBER</string>
+    </columnNames>
+    <tableNames/>
+  </config>
+  <useIndexFile>true</useIndexFile>
+  <useInternalDB>false</useInternalDB>
+  <validationType>3</validationType>
+  <useFileValidation>true</useFileValidation>
+  <indexTypes>
+    <int>0</int>
+    <int>0</int>
+    <int>0</int>
+    <int>0</int>
+    <int>0</int>
+    <int>0</int>
+    <int>0</int>
+    <int>0</int>
+    <int>0</int>
+    <int>0</int>
+    <int>0</int>
+    <int>0</int>
+    <int>0</int>
+    <int>0</int>
+    <int>0</int>
+  </indexTypes>
+  <sigmas/>
+  <lastImport>1320760615156</lastImport>
+  <useGrid>false</useGrid>
+  <maxQueryTime>0</maxQueryTime>
+  <minRowCount>0</minRowCount>
+  <optimizedQuery>false</optimizedQuery>
+  <optimizedMinCandidates>0</optimizedMinCandidates>
+  <optimizedMaxCandidates>0</optimizedMaxCandidates>
+  <id>150</id>
+  <master>1</master>
+  <namespace>newdb_sky</namespace>
+</de.ityx.contex.dbo.match.Match_data>
+</list>

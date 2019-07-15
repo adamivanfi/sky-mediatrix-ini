@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="pushClient" resourceRoot="" soapui-version="5.0.0" abortOnError="false" runType="SEQUENTIAL" activeEnvironment="Default" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="clientEventSoapBinding" type="wsdl" bindingName="{http://wss.clientevents.ityx.de/}clientEventSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/ADMHUBE58/Desktop/pushClient.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\ADMHUBE58\Desktop\pushClient.wsdl"><con:part><con:url>file:\C:\Users\ADMHUBE58\Desktop\pushClient.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="clientEvent" targetNamespace="http://wss.clientevents.ityx.de/" xmlns:ns1="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://wss.clientevents.ityx.de/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://wss.clientevents.ityx.de/" xmlns="http://wss.clientevents.ityx.de/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="mediatrixRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="master" type="xs:string"/>
+          <xs:element minOccurs="0" name="user" type="xs:string"/>
+          <xs:element name="entries">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element minOccurs="0" name="key" type="xs:string"/>
+                      <xs:element minOccurs="0" name="value" type="xs:string"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="mediatrixResponse">
+        <xs:sequence>
+          <xs:element name="entries">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element minOccurs="0" name="key" type="xs:string"/>
+                      <xs:element minOccurs="0" name="value" type="xs:string"/>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="pushClient" type="pushClient"/>
+      <xs:complexType name="pushClient">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="mediatrixRequest"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="pushClientResponse" type="pushClientResponse"/>
+      <xs:complexType name="pushClientResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="mediatrixResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="pushClientResponse">
+    <wsdl:part element="tns:pushClientResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pushClient">
+    <wsdl:part element="tns:pushClient" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ClientEventService">
+    <wsdl:operation name="pushClient">
+      <wsdl:input message="tns:pushClient" name="pushClient"></wsdl:input>
+      <wsdl:output message="tns:pushClientResponse" name="pushClientResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="clientEventSoapBinding" type="tns:ClientEventService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="pushClient">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="pushClient">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pushClientResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="clientEvent">
+    <wsdl:port binding="tns:clientEventSoapBinding" name="ClientEventServiceImplPort">
+      <soap:address location="http://localhost:8080/mediatrix/webservices/clientEvent"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://S-NG-MTRIX1-B:8080/mediatrix/webservices/clientEvent</con:endpoint><con:endpoint>http://s-ng-ddms1:8080/mediatrix/webservices/clientEvent</con:endpoint><con:endpoint>http://s-ng-tdms1:8080/mediatrix/webservices/clientEvent</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="pushClient" bindingOperationName="pushClient" type="Request-Response" outputName="pushClientResponse" inputName="pushClient" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://S-NG-MTRIX1-B:8080/mediatrix/webservices/clientEvent</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.sky.ityx.de">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ws:pushClient>
+         <arg0>
+            <master>sky</master>
+            <user>mein49</user>
+            <entries>
+        	<entry>
+       		   <key>customerid</key>
+                   <value>12345</value>
+		</entry>
+		<entry>
+	          <key>activityid</key>
+                  <value>1-12345</value>
+		</entry>
+		<entry>
+                  <key>contactid</key>
+                  <value>1-12345</value>
+               </entry>
+            </entries>
+         </arg0>
+      </ws:pushClient>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://wss.clientevents.ityx.de/ClientEventService/pushClient"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

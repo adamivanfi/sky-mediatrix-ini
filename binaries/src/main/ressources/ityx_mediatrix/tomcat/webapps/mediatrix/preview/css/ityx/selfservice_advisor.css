@@ -1,0 +1,307 @@
+/* Start-Background */
+#start_bg {
+	z-index: 2;
+	position: absolute;
+	top:0;
+	left:0;
+	width: 996px;
+	height: 141px;	
+	background: #ffffff url('../../img/ityx/top.jpg') no-repeat; 
+}
+
+/* Query-Background */
+#query_bg {
+	z-index: 2;
+	position: absolute;
+	top:0;
+	left:0;
+	width: 996px;
+	height: 141px;	
+	background: #ffffff url('../../img/ityx/top.jpg') no-repeat; 
+}
+
+/* Start-Search Form*/
+#startsearchForm {
+	z-index: 3;
+	position: absolute;
+	top: 160px;
+	left: 20px;
+	width: 450px;
+	height: 170px;
+	padding-top: 25px;
+	padding-left: 25px;
+	padding-bottom: 5px;
+	color: black;
+	background: url('../../img/ityx/advisorstartsfbg.gif') no-repeat;
+}
+
+/* Query-Search Form*/
+#querysearchForm {
+	z-index: 3;
+	position: absolute;
+	top: 160px;
+	left: 20px;
+	width: 450px;
+	height: 170px;
+	padding-top: 25px;
+	padding-left: 25px;
+	padding-bottom: 5px;
+	color: black;
+	background: url('../../img/ityx/advisorstartsfbg.gif') no-repeat;
+}
+
+/* Start-Results */
+#startresult {
+	z-index: 3;
+	position: absolute;
+  top: 350px;
+	padding-left: 0;
+	padding-right: 60px;
+	width: 100%;	
+	color: white;
+	background-color: #FFFFFF;
+}
+
+/* Query-Results */
+#queryresult {
+	z-index: 3;
+	position: absolute;
+  top: 350px;
+	padding-left: 0;
+	padding-right: 60px;
+	width: 100%;	
+	color: white;
+	background-color: #FFFFFF;
+}
+
+/* Suggested Queries */
+#ityxss_suggested_queries {
+	z-index: 4;
+  position: absolute;
+  top: 320px;
+  left: 0;
+  width: 996px;
+  color: red;
+  padding: 0;
+  background: #FFFFFF /*url('../../img/ityx/rot.png');*/
+}
+#ityxss_suggested_queries a {
+  color: blue;
+  font-style: italic; 
+  font-weight: bold;
+}
+
+#ityxss_document_bg {
+	z-index: 2;
+	position: relative;
+	text-align: left;
+	top: 105px;
+	width: 100%;
+	background: url('../../img/ityx/back_pix_balken.gif') repeat-x;
+}
+#ityxss_repeat_bg {
+	z-index: 2;
+	position: relative;
+	text-align: left;
+	top: 0px;
+	width: 100%;
+	background: url('../../img/ityx/back_pix_balken.gif') repeat-x;
+}
+/************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
+/************************************************************************************/
+
+
+#ityxss_searchresulthead_bg {
+	z-index: 2;
+	position: relative;
+	text-align: left;
+	top: 0px;
+	width: 100%;	
+}
+
+#ityxss_a_rateFormdata {
+
+}
+
+h3 {
+	padding-left: 15px;
+	padding-right: 15px:
+	}
+	
+	
+#ityxss_a_doc {
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;	
+	border: 10px solid #dddddd;
+	font-family: Arial, Verdana, Sans-Serif;
+	font-size: 12px;
+	}
+
+#ityxss_searchresult {
+		width: 100%;
+		height: 100%;
+	}
+
+#ityxss_resulttable {
+  z-index: 3;
+  margin-top:20px;
+	width: 100%;
+	height: 400px;	
+}
+
+
+
+.ityxss_summary {
+	  font-size: 12px;
+	  color: #666666;
+	}
+
+
+
+#ityxss_contactForm {
+	z-index:15; 
+	position: absolute; 
+	top:0px; 
+	width: 100%;
+	height: 50px; 
+	font-family: Arial; font-size: 13px; color: #003E7E;	
+	}
+
+#ityxss_blaettern {
+	text-align: right;
+	}
+	
+	.none {
+	margin: 0px; padding: 0px; line-height: 0px;
+	}
+
+#ityxss_searchinput {
+  width: 380px;
+  margin-top: 10px;
+  margin-bottom: 10px;  
+}
+#ityxss_category {
+	width: 385px;
+	margin-top: 10px;
+  margin-bottom: 10px; 
+	}
+	
+#ityxss_reldochead {
+	width: 580px;
+	background-color: #888888;
+	padding: 10px;
+}
+#ityxss_a_docqueryhead {
+	position: absolute;
+	width: 100%;
+	top: 90px;
+	background-color: #0098aa;
+	color: #ffffff;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 15px;
+}
+#ityxss_documentresult_0 {
+  background-color: #ffffff;
+  position: absolute;
+  top: 110px;
+  left: 0px;
+  width: 640px;
+  height: 410px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 0px;
+}
+#ityxss_documentresult_1 {
+  background-color: #ffffff;
+  position: absolute;
+  top: 110px;
+  left: 0;
+  width: 623px;
+  height: 370px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 40px;
+}
+#ityxss_documentresult_2 {
+  background-color: #ffffff;
+  position: absolute;
+  top: 110px;
+  left: 0;
+  width: 640px;
+  height: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 60px;
+}
+#ityxss_documentresult_3 {
+  background-color: #ffffff;
+  position: absolute;
+  top: 110px;
+  left: 0;
+  width: 640px;
+  height: 330px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 80px;
+}
+#ityxss_documentresult_4 {
+  background-color: #ffffff;
+  position: absolute;
+  top: 110px;
+  left: 0;
+  width: 640px;
+  height: 310px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 100px;
+}
+#ityxss_documentresult_5 {
+  background-color: #ffffff;
+  top: 110px;
+  position: absolute;
+  left: 0px;
+  width: 640px;
+  /*height: 290px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 120px;*/
+}
+
+#ityxss_related {
+	color: #ffffff;
+	padding-top: 5px;
+	padding-bottom: 0;
+	padding-left: 0px;
+}
+
+#ityxss_originalRequest {
+	color: #888888;
+  position: absolute;
+  top: 20px;
+  left: 720px;
+  width: 400px;
+}
+
+.ityxss_a_btnsubmit {
+	background-color: transparent; 
+	CURSOR: pointer;  
+	border: 0; 
+	height: 21px;
+	
+	font-family: Arial; 
+	font-size: 14px; 
+	font-weight: bold; 
+	color: #000000;
+	padding-left: 30px; 
+	margin-right: 10px;
+	background-image: url('../../img/ityx/btn_senden2.gif');
+}
+
+logo {
+left: 10%;
+top: 10%;
+}

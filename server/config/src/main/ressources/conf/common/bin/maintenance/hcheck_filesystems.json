@@ -1,0 +1,341 @@
+{ "checks": [ {
+     "id":"FS_S-NG-MTRIX1-B_FS_C",
+    "name": "s-ng-mtrix1-b  FileSystemCheck C", 
+    "type": "FSS",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Belegung der Festplatte C",
+	"thresholddimension":  "% der Belegung der Festplatte",
+    "threshold_info":80,
+    "threshold_warn":90,
+    "threshold_error":92,
+    "threshold_escal":95,
+    "directory":"//s-ng-mtrix1-b/monitoring_c$", 
+    "solutions": [{"problem":"Filesystem droht zu überlaufen", 
+                      "desc":"Bitte Speicherplatz freigeben"}
+		 ] 
+} , 
+{
+    "id":"FS_S-NG-MTRIX1-B_FS_D",
+    "name": "s-ng-mtrix1-b  FileSystemCheck D", 
+    "type": "FSS",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Belegung der Festplatte C",
+	"thresholddimension":  "% der Belegung der Festplatte",
+    "threshold_info":80,
+    "threshold_warn":90,
+    "threshold_error":92,
+    "threshold_escal":95,
+    "directory":"//s-ng-mtrix1-b/monitoring_d$", 
+    "solutions": [{"problem":"Filesystem droht zu überlaufen", 
+                      "desc":"Bitte Speicherplatz freigeben"}
+		 ] 
+} ,
+{
+     "id":"FS_S-NG-MTRIX2-B_FS_C",
+    "name": "s-ng-mtrix2-b FileSystemCheck C", 
+    "type": "FSS",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Belegung der Festplatte C",
+	"thresholddimension":  "% der Belegung der Festplatte",
+    "threshold_info":80,
+    "threshold_warn":90,
+    "threshold_error":92,
+    "threshold_escal":95,
+    "directory":"//s-ng-mtrix2-b/monitoring_c$", 
+    "solutions": [{"problem":"Filesystem droht zu überlaufen", 
+                      "desc":"Bitte Speicherplatz freigeben"}
+		 ] 
+} , 
+{
+    "id":"FS_S-NG-MTRIX2-B_FS_D",
+    "name": "s-ng-mtrix2-b  FileSystemCheck D", 
+    "type": "FSS",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Belegung der Festplatte C",
+	"thresholddimension":  "% der Belegung der Festplatte",
+    "threshold_info":80,
+    "threshold_warn":90,
+    "threshold_error":92,
+    "threshold_escal":95,
+    "directory":"//s-ng-mtrix2-b/monitoring_d$", 
+    "solutions": [{"problem":"Filesystem droht zu überlaufen", 
+                      "desc":"Bitte Speicherplatz freigeben"}
+		 ] 
+} 
+,
+{
+     "id":"FS_S-NG-MTRIX3-B_FS_C",
+    "name": "s-ng-mtrix3-b FileSystemCheck C", 
+    "type": "FSS",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Belegung der Festplatte C",
+	"thresholddimension":  "% der Belegung der Festplatte",
+    "threshold_info":80,
+    "threshold_warn":90,
+    "threshold_error":92,
+    "threshold_escal":95,
+    "directory":"//s-ng-mtrix3-b/monitoring_c$", 
+    "solutions": [{"problem":"Filesystem droht zu überlaufen", 
+                      "desc":"Bitte Speicherplatz freigeben"}
+		 ] 
+} , 
+{
+    "id":"FS_S-NG-MTRIX3-B_FS_D",
+    "name": "s-ng-mtrix3-b  FileSystemCheck D", 
+    "type": "FSS",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Belegung der Festplatte D",
+	"thresholddimension":  "% der Belegung der Festplatte",
+    "threshold_info":80,
+    "threshold_warn":90,
+    "threshold_error":92,
+    "threshold_escal":95,
+    "directory":"//s-ng-mtrix3-b/monitoring_d$", 
+    "solutions": [{"problem":"Filesystem droht zu überlaufen", 
+                      "desc":"Bitte Speicherplatz freigeben"}
+		 ] 
+} ,
+{
+     "id":"FS_S-NG-MTRIX4-B_FS_C",
+    "name": "s-ng-mtrix4-b FileSystemCheck C", 
+    "type": "FSS",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Belegung der Festplatte C",
+	"thresholddimension":  "% der Belegung der Festplatte",
+    "threshold_info":80,
+    "threshold_warn":90,
+    "threshold_error":92,
+    "threshold_escal":95,
+    "directory":"//s-ng-mtrix4-b/monitoring_c$", 
+    "solutions": [{"problem":"Filesystem droht zu überlaufen", 
+                      "desc":"Bitte Speicherplatz freigeben"}
+		 ] 
+} , 
+{
+    "id":"FS_S-NG-MTRIX4-B_FS_D",
+    "name": "s-ng-mtrix4-b  FileSystemCheck D", 
+    "type": "FSS",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Belegung der Festplatte D",
+	"thresholddimension":  "% der Belegung der Festplatte",
+    "threshold_info":80,
+    "threshold_warn":90,
+    "threshold_error":92,
+    "threshold_escal":95,
+    "directory":"//s-ng-mtrix4-b/monitoring_d$", 
+    "solutions": [{"problem":"Filesystem droht zu überlaufen", 
+                      "desc":"Bitte Speicherplatz freigeben"}
+		 ] 
+} 
+,
+{
+     "id":"FS_S-NG-OCR1-B_FS_C",
+    "name": "s-ng-ocr1-b FileSystemCheck C", 
+    "type": "FSS",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Belegung der Festplatte C",
+	"thresholddimension":  "% der Belegung der Festplatte",
+    "threshold_info":80,
+    "threshold_warn":90,
+    "threshold_error":92,
+    "threshold_escal":95,
+    "directory":"//s-ng-ocr1-b/monitoring_c$", 
+    "solutions": [{"problem":"Filesystem droht zu überlaufen", 
+                      "desc":"Bitte Speicherplatz freigeben"}
+		 ] 
+} , 
+{
+    "id":"FS_S-NG-OCR1-B_FS_D",
+    "name": "s-ng-ocr1-b  FileSystemCheck D", 
+    "type": "FSS",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Belegung der Festplatte C",
+	"thresholddimension":  "% der Belegung der Festplatte",
+    "threshold_info":80,
+    "threshold_warn":90,
+    "threshold_error":92,
+    "threshold_escal":95,
+    "directory":"//s-ng-ocr1-b/monitoring_d$", 
+    "solutions": [{"problem":"Filesystem droht zu überlaufen", 
+                      "desc":"Bitte Speicherplatz freigeben"}
+		 ] 
+} 
+,
+{
+     "id":"FS_S-NG-OCR2-B_FS_C",
+    "name": "s-ng-ocr2-b FileSystemCheck C", 
+    "type": "FSS",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Belegung der Festplatte C",
+	"thresholddimension":  "% der Belegung der Festplatte",
+    "threshold_info":80,
+    "threshold_warn":90,
+    "threshold_error":92,
+    "threshold_escal":95,
+    "directory":"//s-ng-ocr2-b/monitoring_c$", 
+    "solutions": [{"problem":"Filesystem droht zu überlaufen", 
+                      "desc":"Bitte Speicherplatz freigeben"}
+		 ] 
+} , 
+{
+    "id":"FS_S-NG-OCR2-B_FS_D",
+    "name": "s-ng-ocr2-b  FileSystemCheck D", 
+    "type": "FSS",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Belegung der Festplatte C",
+	"thresholddimension":  "% der Belegung der Festplatte",
+    "threshold_info":80,
+    "threshold_warn":90,
+    "threshold_error":92,
+    "threshold_escal":95,
+    "directory":"//s-ng-ocr2-b/monitoring_d$", 
+    "solutions": [{"problem":"Filesystem droht zu überlaufen", 
+                      "desc":"Bitte Speicherplatz freigeben"}
+		 ] 
+} 
+,
+{
+     "id":"FS_S-NG-CTEX1-B_FS_C",
+    "name": "s-ng-CTEX1-b FileSystemCheck C", 
+    "type": "FSS",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Belegung der Festplatte C",
+	"thresholddimension":  "% der Belegung der Festplatte",
+    "threshold_info":80,
+    "threshold_warn":92,
+    "threshold_error":94,
+    "threshold_escal":96,
+    "directory":"//s-ng-ctex1-b/monitoring_c$", 
+    "solutions": [{"problem":"Filesystem droht zu überlaufen", 
+                      "desc":"Bitte Speicherplatz freigeben"}
+		 ] 
+} , 
+{
+    "id":"FS_S-NG-CTEX1-B_FS_D",
+    "name": "s-ng-CTEX1-b  FileSystemCheck D", 
+    "type": "FSS",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Belegung der Festplatte C",
+	"thresholddimension":  "% der Belegung der Festplatte",
+    "threshold_info":80,
+    "threshold_warn":90,
+    "threshold_error":92,
+    "threshold_escal":95,
+    "directory":"//s-ng-ctex1-b/monitoring_d$", 
+    "solutions": [{"problem":"Filesystem droht zu überlaufen", 
+                      "desc":"Bitte Speicherplatz freigeben"}
+		 ] 
+} 
+,
+{
+     "id":"FS_S-NG-CTEX2-B_FS_C",
+    "name": "s-ng-CTEX2-b FileSystemCheck C", 
+    "type": "FSS",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Belegung der Festplatte C",
+	"thresholddimension":  "% der Belegung der Festplatte",
+    "threshold_info":80,
+    "threshold_warn":90,
+    "threshold_error":92,
+    "threshold_escal":95,
+    "directory":"//s-ng-ctex2-b/monitoring_c$", 
+    "solutions": [{"problem":"Filesystem droht zu überlaufen", 
+                      "desc":"Bitte Speicherplatz freigeben"}
+		 ] 
+} , 
+{
+    "id":"FS_S-NG-CTEX2-B_FS_D",
+    "name": "s-ng-CTEX2-b  FileSystemCheck D", 
+    "type": "FSS",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Belegung der Festplatte C",
+	"thresholddimension":  "% der Belegung der Festplatte",
+    "threshold_info":80,
+    "threshold_warn":90,
+    "threshold_error":92,
+    "threshold_escal":95,
+    "directory":"//s-ng-ctex2-b/monitoring_d$", 
+    "solutions": [{"problem":"Filesystem droht zu überlaufen", 
+                      "desc":"Bitte Speicherplatz freigeben"}
+		 ] 
+} 
+, 
+{
+    "id":"FS_InputLetter_Asterion",
+    "name": "FileSystemCheck Dokumentencontainer liegen zu lange im Import-Share", 
+    "type": "FSC",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Dokumentencontainer (Zip-Dateien) von Scandienstleister:Asterion liegen zu lange auf dem Import-Share",
+	"thresholddimension":  "Anzahl Container",
+    "threshold_info":1,
+    "threshold_warn":1,
+    "threshold_error":1,
+    "threshold_escal":3,
+    "directory":"//s-ng-ocr1-b/DMSftp/letters_scanner_pbms", 
+	"filter":"zip",
+	"delay":35,
+    "solutions": [{"problem":"Workfowservice scheint nicht zu arbeiten (Dokumenteneingang gestört) //s-ng-ocr1-b/DMSftp/letters_scanner_pbms", 
+                      "desc":"Logs von WflService überpruefen, ggf. Wfl-Service nach anleitung neustarten"}
+		 ] 
+} , 
+{
+    "id":"FS_InputLetterRetail_Asterion",
+    "name": "FileSystemCheck Dokumentencontainer (Fachhandelsverträge/Retail) liegen zu lange im Import-Share", 
+    "type": "FSC",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Dokumentencontainer (Zip-Dateien) von Scandienstleister:Asterion liegen zu lange auf dem Import-Share",
+	"thresholddimension":  "Anzahl Container",
+    "threshold_info":1,
+    "threshold_warn":200,
+    "threshold_error":400,
+    "threshold_escal":500,
+    "directory":"//s-ng-ocr1-b/DMSftp/retail_letters_scanner_pbms", 
+	"filter":"zip",
+	"delay":1440,
+    "solutions": [{"problem":"Workfowservice scheint nicht richtig zu arbeiten (Dokumenteneingang gestört) //s-ng-ocr1-b/DMSftp/retail_letters_scanner_pbms", 
+                      "desc":"Logs von WflService überpruefen, ggf. Wfl-Service nach anleitung neustarten"}
+		 ] 
+} 
+, 
+{
+    "id":"FS_InputFax_Server1",
+    "name": "FileSystemCheck Faxe liegen zu lange im Import-Share", 
+    "type": "FSC",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Faxe (Tif-Dateien) liegen zu lange auf dem Import-Share",
+	"thresholddimension":  "Anzahl Dateien",
+    "threshold_info":10,
+    "threshold_warn":20,
+    "threshold_error":50,
+    "threshold_escal":100,
+    "directory":"//KMS-HH-DMSFAX1.pfad.biz/Faxe/mtrix", 
+	"filter":"tif",
+	"delay":15,
+    "solutions": [{"problem":"Workfowservice scheint nicht zu arbeiten (Dokumenteneingang gestört) //KMS-HH-DMSFAX1.pfad.biz/Faxe/mtrix", 
+                      "desc":"Logs von WflService überpruefen, ggf. Wfl-Service nach anleitung neustarten"}
+		 ] 
+} 
+, 
+{
+    "id":"FS_InputFax_Server2",
+    "name": "FileSystemCheck Faxe liegen zu lange im Import-Share", 
+    "type": "FSC",
+    "res": "FileSystemChecks",
+    "description": "Filesystemcheck: Faxe (Tif-Dateien) liegen zu lange auf dem Import-Share",
+	"thresholddimension":  "Anzahl Dateien",
+    "threshold_info":10,
+    "threshold_warn":50,
+    "threshold_error":75,
+    "threshold_escal":100,
+    "directory":"//p-hh-mrs1.pfad.biz/Faxe/mtrix", 
+	"filter":"tif",
+	"delay":15,
+    "solutions": [{"problem":"der Fax-Server2 wird täglich gegen 6:30 automatisch neugestartet //p-hh-mrs1.pfad.biz/Faxe/mtrix", 
+                      "desc":"Neustart abwarten"},
+					{"problem":"Workfowservice scheint nicht zu arbeiten (Dokumenteneingang gestört) //p-hh-mrs1.pfad.biz/Faxe/mtrix", 
+                      "desc":"Logs von WflService überpruefen, ggf. Wfl-Service nach anleitung neustarten"}
+		 ] 
+} 
+
+
+]}

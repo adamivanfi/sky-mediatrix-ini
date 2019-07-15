@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.nttdata.de.dmsityx.mxclient</groupId>
+        <artifactId>mxclient</artifactId>
+        <version>2.0.3-SNAPSHOT</version><!--ntt-->
+        <relativePath>..</relativePath>
+    </parent>
+     <artifactId>outbound</artifactId>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+	<dependencies>
+        <dependency>
+            <groupId>com.nttdata.de.dmsityx.mxclient</groupId>
+            <artifactId>common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${EXTLIB_SERVLETAPI_VER}</version>
+        </dependency>
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>${MX_EXTLIB_ITEXTPDF_VER}</version>
+		</dependency>
+
+     <!--
+       <dependency>
+            <groupId>com.nttdata.de.dmsityx.mxclient</groupId>
+            <artifactId>ityx-clientevents-extensions</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.ityx</groupId>
+            <artifactId>customer-mx-extension-clientevents</artifactId>
+            <version>${MX_EXTLIB_CLIENTEVENTS_VER}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>de.ityx</groupId>
+                    <artifactId>mediatrix-kernel</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>de.ityx</groupId>
+                    <artifactId>mediatrix</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        -->
+        <dependency>
+        	<groupId>de.ityx</groupId>
+            <artifactId>layout-resources</artifactId>
+            <version>${MX_EXTLIB_LAYOUTRES_VER}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>3.2.5.RELEASE</version>
+        </dependency>
+      <!--  <dependency>
+        	<groupId>de.ityx</groupId>
+            <artifactId>mediatrix-agentursteuerung</artifactId>
+            <version>${MX_EXTLIB_TEAMMGMT_VER}</version>
+        </dependency>
+        -->
+        <!-- dependency>
+            <groupId>com.itextpdf.tool</groupId>
+            <artifactId>xmlworker</artifactId>
+            <version>5.5.4</version>
+        </dependency -->
+
+    </dependencies>
+</project>

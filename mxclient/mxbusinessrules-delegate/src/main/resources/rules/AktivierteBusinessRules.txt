@@ -1,0 +1,32 @@
+
+Prod, Stand 13.02.2015
+- ClientAnmeldungRule
+- ClientAnswerEditRuleSky
+- ClientAnswerViewRuleSky
+- ClientFrageAntwortAnzeigenRule
+- ClientFrageAnzeigenRule
+- CientMailInboxRule
+- ClientMXActonRule
+- ClientNewMailsRule
+- ClientSystemRule
+- IClientClassificationValidationRule
+- IClientForwardDialogRule
+- IClientObjectsControlRule
+- IEmailDemonRule
+- IServerContexDemonRule
+- IServerEventPerformerRule
+- IServerObjectsControlRule
+- IServerSystemRule
+- I? ServerMonitorRuleSky
+- I? ServerMultiChannelRuleSky
+
+
+Hier Fehlt:
+- ServerMultiChannelRule
+
+HierZuviel
+ClientKontrolleRule
+
+Info:
+- Auf Prod sind die Rules ohne I deployt. Der Grund ist nicht klaar für mich
+  ServerMonitorRuleSky   ServerMultiChannelRuleSky

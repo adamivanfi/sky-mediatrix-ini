@@ -1,0 +1,604 @@
+{ "checks": [ {
+     "id":"MX_001_DefaultTP",
+    "name": "MX:DefaultTP", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Anzahl der Fragen in TP Default",
+	"thresholddimension":  "Anzahl Dokumente",
+    "threshold_info":5,
+    "threshold_warn":10,
+    "threshold_error":300,
+    "threshold_escal":1000,
+    "sql":"  select ityxtimetodate(e.emaildate) timestamp,
+'Frage:' || f.id || ' Subject:' ||e.subject || ' Datum:' || to_char(ityxtimetodate(e.emaildate), 'YY.MM.DD HH24:MI')  msg,
+1 threshold
+from frage f, email e
+ where e.id=f.emailid 
+ and globalerstatus<>'Servicecenter'
+ and teilprojektid in (0,110) and geloeschtam=0 and gesperrtam=0 and status != 'erledigt'
+ and e.emaildate> datetoityxtime((sysdate - interval '1' hour ))
+", 
+    "solutions": [{"problem":"Kommunikationsprobleme zw. MX Emaildaemon und Contex", 
+                      "desc":"OpsCon bitten dass die Fragen aufgeräumt werden, vor dem neustart von CX Server immer Emaildaemon runterfahren"}
+		 ] 
+} ,{
+
+
+    "id":"MX_002_MX_ARMonitoring",
+    "name": "MX:AR_Monitoring", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Funktionsprüfung der Agenturmonitoringausgabe",
+    "thresholddimension":  "true - wenn kein Eintrag in letzten 15min",
+    "threshold_info":1,
+    "threshold_warn":1,
+    "threshold_error":2,
+    "threshold_escal":2,
+	"active": "false",
+   
+    "sql":"  select max(ityxtimetodate(datum))  timestamp, 
+    'Agenturmonitoring is Running in the past 15min, LastRun: '||  to_char( max(ityxtimetodate(datum)), 'YY.MM.DD HH24:MI')   msg,
+    CASE 
+      when count(*) < 1 
+      then 1 
+      else 0
+    END threshold 
+  from ar_monitoring 
+  where datum > datetoityxtime(sysdate - interval '22' minute)
+	", 
+    "solutions": [{"problem":"AgenturMonitoring läuft nicht", 
+                       "desc":"Agenturmonitoring Dienst neustarten"}
+		 ] 
+
+
+} ,{
+
+
+    "id":"MX_003_MX_Duplikate",
+    "name": "MX:MX_Duplikate", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Pruefung auf Duplikate in Mediatrix",
+    "thresholddimension":  "Anzahl Duplikate",
+    "threshold_info":4,
+    "threshold_warn":6,
+    "threshold_error":10,
+    "threshold_escal":50,
+    "sql":" 
+select ityxtimetodate(min(e.emaildate)) timestamp,
+'Subj:'||e.subject || ' Sender:'|| e.sender || ' Receiver:'|| e.receiver || ' Mindate:' ||  to_char( ityxtimetodate(min(e.emaildate)) , 'YY.MM.DD HH24:MI')  || ' MinFrage:' || min(f.id) || ' MaxFrage:'|| max(f.id) ||' e.id in (' ||
+(select LISTAGG(e1.id,  ', ') WITHIN GROUP (Order by e1.id desc)  from  frage f1, email e1 where e1.id=f1.emailid and e1.subject=e.subject and e1.receiver=e.receiver and e1.sender=e.sender and e1.emaildate>datetoityxtime(sysdate-1) and rownum<=10) ||')' msg,
+count(*) threshold
+from ityx_mx.frage f, ityx_mx.email e 
+where f.emailid = e.id 
+and f.globalerstatus<>'Servicecenter'
+and f.teilprojektid not in (5500)
+and e.emaildate>datetoityxtime(trunc(sysdate))
+and f.status not in ('erledigt','blockiert') and f.geloeschtam=0 
+and subject is not null 
+and sender not in ('postmaster@pfad.biz','service@sky.de', 'noreply@sky.at', 'daniel.smolik@pfad.biz' , 'skygo@skygo.sky.de', 'mailer-daemon@mail.sky.de', 'mailer-daemon@mmail.sky.de', 'mailer-daemon@smail.sky.de', 
+'zufriedenheit@sky.de', 'report@emarsys.com', 'onlinebestellung@bluemovie.cc', 'no-reply@sky.de', 'imailtest@asdirekt.de', 'noreply@sky.de', 'easi-feedback@sky.de', 
+'marion.wilhelmstoetter@gmail.com','mahmut54dinc@gmail.com','knut_hanke@yahoo.de','febin@aon.at','marcokroll@gmx.de','ra.mag.kras@rechtsanwalt-kras.at',
+'stefan.stahl@mittelbayerische.de','m.hastermann@web.de','arne.wegener@pfad.biz','ko-ka@muenchen-mail.de','infoservice@sky.at')
+and sender not like 'postmaster@%'
+and not (receiver in ('zufriedenheit@sky.de','kundenbuero@sky.de') and (subject like 'Expert Cloud: Concierge%' or subject like 'Concierge Service %' )  )
+group by e.subject, e.sender, e.receiver having count(*) > 8
+order by 3 desc
+
+	", 
+    "solutions": [{"problem":"Überprüfen mittels email-tabelle", 
+                       "desc":"die 10 neusten emailid's werden bereits in der Fehlermeldung vorbereitet. Dabei die messageid's aus der Spalte Headers vergleichen"},
+ 		   {"problem":"Spam-Attacke", 
+                       "desc":"An CSOpsCon kommunizieren, ggf. Filter erstellen"},
+		  {"problem":"Email-Daemon läuft Amok", 
+                       "desc":"Logs prüfen, Emaildaemon neustarten"},
+		  {"problem":"Eine Email kann nicht von Mail-Server abgeholt werden", 
+                       "desc":"An Mail-Server anmelden (Thunderbird), Mail als gelesen markieren, als Anhang an CS-OpsCon zur manuellen Nachbearbeitugn verschicken, Mail vom Server löschen, ggf. Dupletten aufräumen"},
+		  {"problem":"Ein neues Sky-Web-Formular wurde implementiert", 
+                       "desc":"Monitoring anpassen"}
+		 ] 	    
+
+
+} ,{
+     "id":"MX_004_MX_KPI_Scheduler",
+    "name": "MX:MX_KPI_Scheduler", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Funktionsprüfung des KPI Schedulers (15min)",
+    "thresholddimension":  "true - wenn kein Eintrag in letzten 15min",
+    "threshold_info":1,
+    "threshold_warn":1,
+    "threshold_error":2,
+		"active": "false",
+    "threshold_escal":2,
+    "sql":"  select max(ctimestamp) timestamp, 
+    'KPI-CTX-Scheduler is Running 15min, LastRun: '||  to_char( max(ctimestamp )  , 'YY.MM.DD HH24:MI')   msg,
+    CASE 
+      when count(*) < 1 
+      then 1 
+      else 0
+    END threshold 
+    from ntt_kpi_overview 
+    where ctimestamp >= (sysdate - interval '16' minute) 
+	", 
+    "solutions": [{"problem":"KPI Scheduler läuft nicht", 
+                       "desc":"Ist der PFAD/aosvcityx Benutzer aktiv? Läuft der sheduled Script?"}
+		 ] 
+
+} ,{
+     "id":"MX_005_MX_ProjectLock",
+    "name": "MX:MX_ProjectLock", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Sky-Projekt wurde gesperrt für mehr als 5 Minuten",
+    "thresholddimension":  "true - wenn projekt für mehr als 5 Minuten gesperrt wurde",
+    "threshold_info":1,
+    "threshold_warn":1,
+    "threshold_error":5,
+    "threshold_escal":15,
+    "sql":"  select ityxtimetodate(gesperrtam) timestamp, 
+    'Projekt gespert durch: '|| (select m.name from mitarbeiter m  where m.id=p.gesperrtvon) || ' seit:'||  to_char(ityxtimetodate(gesperrtam), 'YY.MM.DD HH24:MI') || ' => '||round(time_since(ityxtimetodate(gesperrtam))/60) ||' Min'   msg,
+    round(time_since(ityxtimetodate(gesperrtam))/60) threshold
+    from projekt p 
+    where (gesperrtvon != 0  or gesperrtam != 0) and gesperrtam<=datetoityxtime(sysdate - interval '10' second)
+ 
+	", 
+    "solutions": [{"problem":"Mediatrix-Projekt gesperrt. Mail-Empfang (MailServer-MXEmailDaemon) sowie EmailCXMXSchnittstelle (MXMailReturn-Context-Dokumente) angehalten.", 
+                       "desc":"Bei längeren Sperren bitte Benutzer anrufen und aufmerksam machen, dass Mailzugang und Mail-Verarbeitung in diesem Zeitraum angehalten wird. (Tests bitte auf Integration durchführen)"}
+		 ] 
+} ,{
+     "id":"MX_006_OutboundQueue",
+    "name": "MX:OutboundQueue", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Funktionsprüfung ob die Mediatrix Outbound-Queue (Tabelle mxdb.mxcx_outbound_queue) von Contex-Prozess 809 abgearbeitet wird ",
+    "thresholddimension":  "true - wenn kein Eintrag in letzten 15min",
+    "threshold_info":75,
+    "threshold_warn":1000000,
+    "threshold_error":2000000,
+    "threshold_escal":3000000,
+    "sql":"  select min(created) timestamp, 
+   	 'Documents waiting for processing by Contex 809-Process since: '|| to_char( min(created )   , 'YY.MM.DD HH24:MI')  msg,
+	    count(*) threshold 
+	    from ntt_mx_outbound_queue 
+	    where status in ('WAIT')
+	    and created < (sysdate - interval '16' minute)
+	", 
+    "solutions": [{"problem":"Hängt die DB-Verbinung Contexseitig: Gab es Contex-seitig einen DB-Aufhänger?", 
+                       "desc":"Neustart des WflServers"}, 
+		  {"problem":"Läuft der 809 Prozess Contex-Seitig?", 
+                       "desc":"(re-)start des 809-Prozesses"}
+
+		 ] 
+} ,{
+
+
+    "id":"MX_007_MX_DuplikateByDocID",
+    "name": "MX:MX_DuplikateByDocID", 
+    "type": "DB",
+    "res": "DmsMxDB",
+		"active": "false",
+    "description": "Pruefung auf Duplizierte Fragen in Mediatrix mit der gleichen DocID",
+    "thresholddimension":  "Anzahl duplizierten Fragen",
+    "threshold_info":1,
+    "threshold_warn":2,
+    "threshold_error":5,
+    "threshold_escal":50,
+    "sql":" 
+select  sysdate timestamp, 
+(f.DOCID || ' count:' || count(distinct(id)))  msg,
+(case when count(distinct(id)) >1 then 1 else 0 end) threshold
+from frage f
+where 
+    f.teilprojektid not in (1125, 16711)
+and f.DOCID is not null
+and id>13420606
+and f.email_date>datetoityxtime(sysdate-1)
+and gesperrtvon=0
+and geloeschtam=0
+group by DOCID
+having count(distinct(id)) >1
+	", 
+    "solutions": [{"problem":"In der Regel ein ContexProblem", 
+                       "desc":"Pruefe die Contex Warnungen und die ntt_cx_report -Tabelle nach mehrfachen Einträgen End-Stati in 600-Prozessen"}		 
+		 ] 	
+
+} ,{
+
+
+    "id":"MX_008_MX_MultiDocIDFrage",
+    "name": "MX:MX_MultiDocIDFrage", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Eine Frage hat mehrere Documentenid zugewiesen bekommen",
+    "thresholddimension":  "Anzahl Fragen",
+    "threshold_info":1,
+    "threshold_warn":2,
+    "threshold_error":5,
+    "threshold_escal":50,
+    "sql":" 
+select
+sysdate timestamp, 
+(r.frageid || ' count:' || count(distinct(DOCUMENTID)))  msg,
+(case when count(distinct(DOCUMENTID)) >1 then 1 else 0 end) threshold
+from MX_REPORTING r, frage f
+where f.id=r.frageid
+and f.teilprojektid not in (1125, 16711)
+and r.DOCUMENTID is not null
+and frageid>10531065
+and r.CREATED>sysdate-interval '3' hour
+group by frageid
+having count(distinct(DOCUMENTID)) >1
+	", 
+    "solutions": [{"problem":"KnownProblem: Reinidizieung", 
+                       "desc":"Im Moment ein bekanntes Problem bei bestimmten Reindizierungen"}		 
+		 ] 	      
+
+
+} ,{
+
+
+    "id":"MX_009_MX_MultiFilterDurchlauf",
+    "name": "MX:MX_MultiFilterDurchlauf", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Eine Frage ist mehrfach durch Mediatrix-Filter durchgegangen. Duplikatengefahr",
+    "thresholddimension":  "Anzahl Fragen",
+    "threshold_info":1,
+    "threshold_warn":2,
+    "threshold_error":5,
+    "threshold_escal":50,
+    "sql":" 
+select /*+ INDEX(mitarbeiterlog NTT_MITARBEITERLOG) */
+sysdate timestamp, 
+(frageid || ' count:' || count(*))  msg,
+(case when count(*) >1 then 1 else 0 end) threshold
+from mitarbeiterlog 
+where aktion=18
+and Zeit>datetoityxtime(sysdate-1)
+and Zeit>datetoityxtime(to_date('28.07.2015 07:00', 'dd.mm.yyyy hh24:mi'))
+and mitarbeiterid in (0,2)
+group by frageid
+having count(*)>2
+	", 
+    "solutions": [{"problem":"ContexProblem", 
+                       "desc":"Kann bei Emails auftreten, wenn auf Contex-Seite eine Email-Frage mehrfach ins Mediatrix geroutet wird. Bei WhitePaper-Dokumenten hohe Duplikatengefahr."}		 
+		 ] 	
+
+
+	} ,{
+
+
+    "id":"MX_010_MX_ConcurrentUsersCount",
+    "name": "MX:MX_ConcurrentUsersCount", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Statusmeldung wie viele Benutzer mit dem System arbeiten",
+    "thresholddimension":  "Anzahl Benutzer",
+    "threshold_info":300,
+    "threshold_warn":380,
+    "threshold_error":400,
+    "threshold_escal":450,
+    "sql":" 
+SELECT 
+  sysdate TIMESTAMP,
+  ('Count of users working with Mediatrix') msg,
+  count(*) threshold
+FROM sessions WHERE endtime=0
+	", 
+    "solutions": [{"problem":"Last auf dem System", 
+                       "desc":"Kann auswirkung haben auf die Performance. Bisherriger Rekord liegt bei: 401 concurrent users am 14.01.2014 13:40:37"}		 
+		 ] 		 
+		 
+		} ,{	
+
+    "id":"MX_011_MX_BacklogStatus",
+    "name": "MX:MX_BacklogCount", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Statusmeldung wie viele Fragen im System offen sind",
+    "thresholddimension":  "Anzahl offener Fragen",
+    "threshold_info":  15000,
+    "threshold_warn": 100000,
+    "threshold_error":125000,
+    "threshold_escal":150000,
+    "sql":" 
+ select sysdate TIMESTAMP,
+  ('Count of open questions within Mediatrix') msg,
+  count(*) threshold
+from frage 
+where 
+geloeschtam           = 0
+and status in ('neu', 'weitergeleitet', 'teilbeantwortet', 'extern-beantwortet')
+AND orgin                 = 0
+AND servicecenter         = 0
+AND globalerstatus              = 'in Bearbeitung'
+	", 
+    "solutions": [{"problem":"Anzahl offener Fragen auf dem System", 
+                       "desc":"Kann Auswirkung auf Performance haben. Ab 15K können Probleme beim Pushing vorkommen (bekannter Fehler dass Agentur-Filter auf dem Client und nicht auf MX-server greift)"}		 
+		 ] 		 
+		  
+		  	} ,{	
+
+    "id":"MX_012_MX_DB_maxCursorProDBSession",
+    "name": "MX:MX_012_MX_DB_maxCursorProDBSession", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Statusmeldung wie viele offene Cursoren eine DB-Session hat (Max für eine Session)",
+    "thresholddimension":  "Anzahl offener Cursoren auf der DB",
+    "threshold_info":5000,
+    "threshold_warn":8000,
+    "threshold_error":9000,
+    "threshold_escal":9999,
+    "sql":" 
+	select sysdate TIMESTAMP,
+  ('Count of open cursors within the DB') msg,
+  MAX(a.value) threshold
+  FROM v$sesstat a, v$statname b, v$session s
+  WHERE a.statistic# = b.statistic#  AND s.sid=a.sid AND b.name  = 'opened cursors current' AND username LIKE 'ITYX_MX'
+	", 
+    "solutions": [{"problem":"Anzahl offener Cursoren auf der Datenbank", 
+                       "desc":"Erhöhte Gefahr dass die DB den Dienst quitiert. Sollte danach Systemausfallmeldung kommen - den kompletten DMS-Cluster neustarten"}		 
+		 ] 		 
+		 
+} ,{	
+    "id":"MX_013_MX_DB_sumCursorsOverAllDBSessions",
+    "name": "MX:MX_013_MX_DB_sumCursorsOverAllDBSessions", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Statusmeldung wie viele offene Cursoren eine DB-Session hat (Summe über alle Sessions)",
+    "thresholddimension": "Anzahl offener Cursoren auf der DB",
+    "threshold_info":15000,
+    "threshold_warn":60000,
+    "threshold_error":90000,
+    "threshold_escal":120000,
+    "sql":" 
+	select sysdate TIMESTAMP,
+  ('Count of open cursors within the DB') msg,
+   SUM(a.value) threshold
+  FROM v$sesstat a, v$statname b, v$session s
+  WHERE a.statistic# = b.statistic#  AND s.sid=a.sid AND b.name  = 'opened cursors current' AND username LIKE 'ITYX_MX'
+	", 
+    "solutions": [{"problem":"Anzahl offener Cursoren auf der Datenbank", 
+                       "desc":"Erhöhte Gefahr dass die DB den Dienst quitiert. Sollte danach Systemausfallmeldung kommen - den kompletten DMS-Cluster neustarten"}		
+			    
+		 ]  
+} ,{	
+    "id":"MX_014_MX_DB_sumDBSessions",
+    "name": "MX:014_opencursor", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Statusmeldung wie viele offene Sessions auf der DB existieren",
+    "thresholddimension": "Anzahl offener Cursoren auf der DB",
+    "threshold_info":200,
+    "threshold_warn":1000,
+    "threshold_error":2000,
+    "threshold_escal":3000,
+    "sql":" 
+	select sysdate TIMESTAMP,
+  ('Count of open sessions within the DB') msg,
+     count(*) threshold
+    from v$session where osuser='SYSTEM'
+	", 
+    "solutions": [{"problem":"Anzahl offener Sessions auf der Datenbank", 
+                       "desc":"Erhöhte Gefahr dass die DB den Dienst quitiert. Sollte danach Systemausfallmeldung kommen - den kompletten DMS-Cluster neustarten"}		 
+		 ]  
+} ,{	
+    "id":"MX_015_MX_ChannelProblems",
+    "name": "MX:015_ChannelProblem", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Es werden Fragen mit unbekannten Dokumententyp in Mediatrix geoeffnet",
+    "thresholddimension": "Anzahl problematischer Fragen",
+    "threshold_info":1,
+    "threshold_warn":1,
+    "threshold_error":5,
+    "threshold_escal":50,
+	"sql":" 
+select sysdate TIMESTAMP,
+(count(*) ||' of Documents with unsupported Channel:'|| decode(typ, 8, 'Twitter', typ) || ' has been created in Mediatrix')  msg,
+count(*) threshold
+from email e where typ not in (0,2,6,7)
+and emaildate > datetoityxtime(sysdate-interval '3' hour)
+group by typ
+	", 
+    
+	"solutions": [{"problem":"Falsche Mediatrix-FilterEinstellung.", 
+                       "desc":"Filtereinträge aus der Mitarbeiterlog-Tabelle für die betroffenen Fragen durchgehen und betroffenen Filter überprüfen."},
+		  {"problem":"Korrektur-SQL.", 
+                       "desc":"c:/mediatrix/bin/maintenance/ServiceProcedures/Check_MX_015_ChannelProblem.sql"}		 
+		 ]  
+
+		 
+		 
+	} ,{	
+    "id":"MX_016_MX_FormtypeProblem",
+    "name": "MX:16_MX_FormtypeProblem", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "In Manueller indizierung werden Formtypes mit leerzeihen angezeigt",
+    "thresholddimension": "Anzahl problematischer Schalgwoerter",
+    "threshold_info":1,
+    "threshold_warn":1,
+    "threshold_error":5,
+    "threshold_escal":25,
+	"sql":" 
+select sysdate TIMESTAMP,
+'Unsupported Formtype:'|| name  msg,
+1 threshold
+from schlagwort
+where parentid=1100 and geloeschtam=0 and name like '%]% %'
+union 
+select sysdate TIMESTAMP,
+'Unsupported Formtype:'|| name  msg,
+1 threshold
+from schlagwort
+where parentid=1100 and geloeschtam=0 and name like '%]%-%'
+
+	", 
+    
+	"solutions": [{"problem":"Formtype passen nicht", 
+                       "desc":"Ursache nicht klaar bitte die falschen Schlagworte wie folgt wieder rausnehmen: >>update schlagwort set GELOESCHTAM=DATETOITYXTIME(sysdate) where  parentid=1100 and geloeschtam=0 and name like '%]% %';", }		 
+		 ]  
+
+		 } ,{	
+    "id":"MX_17_MX_OutboundLetterQueue",
+    "name": "MX:17_MX_OutboundLetterQueue", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Die ausgehenden Briefe werden nicht an Lettershop uebertragen",
+    "thresholddimension": "Anzahl nictht uebetragenener Briefe",
+    "threshold_info":30,
+    "threshold_warn":100,
+    "threshold_error":500,
+    "threshold_escal":1000,
+	"sql":" 
+select sysdate TIMESTAMP,
+'Probleme in Outbound-Queue Process:'|| process  msg,
+count(*) threshold
+from NTT_MX_OUTBOUND_QUEUE
+where process='820_Outbound' and status='WAIT' 
+group by process
+
+	", 
+    
+	"solutions": [{"problem":"Briefe werden nicht an lettershop übertragen", 
+                       "desc":"Scheduler-Job in Contex-Admin-Tool überprüfen", }		 
+		 ]  
+
+		 	 } ,{	
+    "id":"MX_18_MX_ExternalClassification",
+    "name": "MX:18_MX_ExternalClassification", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Dokumente verweilen zu lange in Contex",
+    "thresholddimension": "Anzahl nictht korrekt verarbeiteten Emails",
+    "threshold_info":30,
+    "threshold_warn":100,
+    "threshold_error":500,
+    "threshold_escal":1000,
+	"sql":" 
+select sysdate TIMESTAMP,
+'Probleme in ExternalClassification, Anzahl nicht verarbeiteten Fragen:'  msg,
+count(*) threshold
+from frage f, email e
+where status='blockiert' and teilprojektid<0  and geloeschtam=0
+and f.EMAILID=e.id
+and e.EMAILDATE<DATETOITYXTIME(sysdate-interval '20' minute)
+and e.EMAILDATE< (select min(email_date) from frage where TEILPROJEKTID=1125 and status='klassifikation')	", 
+    
+	"solutions": [{"problem":"Dokumente liegen zu lange in externen klassifizierung", 
+                       "desc":"Prozesse in Contex-Admin-Tool überprüfen", }		 
+		 ]  
+
+		 
+			 	 } ,{	
+    "id":"MX_19_MX_UserSperre",
+    "name": "MX:19_MX_UserSperre", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Dokumente sind zu lange gesperrt von einem Mitarbeiter",
+    "thresholddimension": "Anzahl gesperrter Emails",
+    "threshold_info":2,
+    "threshold_warn":10,
+    "threshold_error":50,
+    "threshold_escal":300,
+	"sql":" 
+select sysdate TIMESTAMP,
+'Probleme in Dokumentensperre, der user:' || (select max(name) from mitarbeiter m where m.id=f.GESPERRTVON ) ||'sperrt zu viele Fragen:'||count(*)  msg,
+count(*) threshold
+from frage f where GESPERRTVON=2 and gesperrtam< datetoityxtime(sysdate-interval '15' minute)
+group by gesperrtvon
+having count(*)>1
+	", 
+    
+	"solutions": [{"problem":"Zu viele gessperrte Dokumente", 
+                       "desc":"Prüfen was los ist, ggf. Email-Daemon neustarten und entsperren" }		 
+		 ]  	 
+	 
+		 } ,{	
+    "id":"MX_20_MX_CancellationQueue",
+    "name": "MX:20_MX_CancellationQueue", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Die Kündigungs-Prozesse werden von Contex nicht abgearbeitet",
+    "thresholddimension": "Anzahl nicht gestarteter 840 Cancellation Prozesse",
+    "threshold_info":0,
+    "threshold_warn":1,
+    "threshold_error":2,
+    "threshold_escal":10,
+	"sql":" 
+select min(created) timestamp, 
+   	 'Documents waiting to long for processing by Contex 840-Cancellation-Processes since: '|| to_char( min(created )   , 'YY.MM.DD HH24:MI')  msg,
+	    count(*) threshold 
+	    from ntt_mx_outbound_queue 
+	    where status in ('WAIT')
+      and process like '84%'
+	    and created < (sysdate - interval '21' minute)
+	", 
+    
+	"solutions": [{"problem":"Läuft der 840 - Scheduler in Contex?", 
+                       "desc":"Scheduler-Job in Contex-Admin-Tool überprüfen", }		 
+		 ]  
+			 } ,{	
+    "id":"MX_21_MX_CancellationCBErrors",
+    "name": "MX:21_MX_CancellationCBErrors", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Die Kündigungs-Prozesse werden von Tibco nicht korrekt verarbeitet",
+    "thresholddimension": "Anzahl nicht gestarteter 840 Cancellation Prozesse",
+    "threshold_info":0,
+    "threshold_warn":1,
+    "threshold_error":2,
+    "threshold_escal":10,
+	"sql":" 
+select min(created) timestamp, 
+   	 'Documents waiting to long for processing by Contex 840-Cancellation-Processes since: '|| to_char( min(created )   , 'YY.MM.DD HH24:MI')  msg,
+	    count(*) threshold 
+	    from ntt_mx_outbound_queue 
+	    where status in ('CBWAIT')
+      and process like '84%'
+	    and created < (sysdate - interval '21' minute)
+	", 
+    
+	"solutions": [ {"problem":"Prüfe ob Mediatrix-WebServices und ContexScheduler laufen", 
+                       "desc":"wenn unsere Callback schnittstelle nicht erreichbar ist - kriegen wir auch kein Callback", },
+					{"problem":"Prüfe connector.log", 
+                       "desc":"vorranging auf dem mtrix2-b server sowie mtrix3-b", },
+					{"problem":"Prüfe in Medatrix-DB die ITYX_MX.NTT_OUTBOUND_QUEUE", 
+                       "desc":"bei CBERROR - Callback Error, schaue in Mitarbeiterlog der fehlgeschlagener Fragen, wenn da ein TibcoSiebel Error übermittelt wurde, eröffne Ticket bei Tibco-Team mit der Fehlerbeschreibung, ITYX-DocumentID und angabe des Interfaces IF4.6", }
+					
+		 ]  
+		
+		
+		 } ,{	
+    "id":"MX_21_MX_CancellationQueueErrorsAndCallbacks",
+    "name": "MX:21_MX_CancellationQueue", 
+    "type": "DB",
+    "res": "DmsMxDB",
+    "description": "Die Kündigungs-Prozesse werden von Contex nicht abgearbeitet",
+    "thresholddimension": "Anzahl nicht abgearbeiteter 840 Cancellation Prozesse",
+    "threshold_info":0,
+    "threshold_warn":1,
+    "threshold_error":2000,
+    "threshold_escal":10000,
+	"sql":" 
+select min(created) timestamp, 
+   	 'Documents waiting to long for processing by Contex ' ||process|| '-Processes since: '|| to_char( min(created )   , 'YY.MM.DD HH24:MI')|| ' ' || status msg,
+	    count(*) threshold 
+	    from ntt_mx_outbound_queue 
+	    where status not in ('PROCESSED', 'CXPROCESSED')
+      and process like '84%'
+	    and created < (sysdate - interval '21' minute)
+      group by process, status
+	", 
+    
+	"solutions": [{"problem":"Läuft der 840 - Scheduler in Contex?", 
+                       "desc":"Scheduler-Job in Contex-Admin-Tool überprüfen", },
+				 {"problem":"Prüfe in Medatrix-DB die ITYX_MX.NTT_OUTBOUND_QUEUE", 
+                       "desc":"bei CBERROR - Callback Error, schaue in Mitarbeiterlog der fehlgeschlagener Fragen, wenn da ein TibcoSiebel Error übermittelt wurde, eröffne Ticket bei Tibco-Team mit der Fehlerbeschreibung, ITYX-DocumentID und angabe des Interfaces IF4.6", }					   
+		 ]  
+		
+		 
+		 
+}]}

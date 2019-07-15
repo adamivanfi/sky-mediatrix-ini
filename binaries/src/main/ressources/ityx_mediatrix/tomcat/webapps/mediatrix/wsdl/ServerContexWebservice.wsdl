@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://contexwebservice.modules.mediatrix.ityx.de"
+                  xmlns:impl="http://contexwebservice.modules.mediatrix.ityx.de"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://contexwebservice.modules.mediatrix.ityx.de" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="store">
+    <complexType>
+     <sequence>
+      <element name="mxunit" type="xsd:string"/>
+      <element name="user" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="cxunit" type="xsd:string"/>
+      <element name="projectname" type="xsd:string"/>
+      <element name="subprojectname" type="xsd:string"/>
+      <element name="title" type="xsd:string"/>
+      <element name="body" type="xsd:string"/>
+      <element name="tagMatchBuffer" type="xsd:base64Binary"/>
+      <element name="docType" type="xsd:string"/>
+      <element name="customerId" type="xsd:string"/>
+      <element name="param" type="xsd:int"/>
+      <element name="xml" type="xsd:base64Binary"/>
+      <element name="keywordBuffer" type="xsd:base64Binary"/>
+      <element name="bracket" type="xsd:string"/>
+      <element name="tempHeader" type="xsd:string"/>
+      <element name="docContainerBuffer" type="xsd:base64Binary"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="storeResponse">
+    <complexType>
+     <sequence>
+      <element name="storeReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteByProcessId">
+    <complexType>
+     <sequence>
+      <element name="mxunit" type="xsd:string"/>
+      <element name="user" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="cxunit" type="xsd:string"/>
+      <element name="processId" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteByProcessIdResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteByProcessIdReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getEmailIdByProcessId">
+    <complexType>
+     <sequence>
+      <element name="mxunit" type="xsd:string"/>
+      <element name="user" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="cxunit" type="xsd:string"/>
+      <element name="processId" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getEmailIdByProcessIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getEmailIdByProcessIdReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="holdByProcessId">
+    <complexType>
+     <sequence>
+      <element name="mxunit" type="xsd:string"/>
+      <element name="user" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="cxunit" type="xsd:string"/>
+      <element name="processId" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="holdByProcessIdResponse">
+    <complexType>
+     <sequence>
+      <element name="holdByProcessIdReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="unholdByProcessId">
+    <complexType>
+     <sequence>
+      <element name="mxunit" type="xsd:string"/>
+      <element name="user" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="cxunit" type="xsd:string"/>
+      <element name="processId" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="unholdByProcessIdResponse">
+    <complexType>
+     <sequence>
+      <element name="unholdByProcessIdReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="storeForException">
+    <complexType>
+     <sequence>
+     	<element name="mxunit" type="xsd:string" />
+     	<element name="user" type="xsd:string" />
+     	<element name="password" type="xsd:string" />
+     	<element name="cxunit" type="xsd:string" />
+     	<element name="projectname" type="xsd:string" />
+     	<element name="subprojectname" type="xsd:string" />
+     	<element name="title" type="xsd:string" />
+     	<element name="body" type="xsd:string" />
+     	<element name="tagMatchBuffer" type="xsd:base64Binary" />
+     	<element name="customerId" type="xsd:string" />
+     	<element name="stateId" type="xsd:int" />
+     	<element name="xml" type="xsd:base64Binary" />
+     	<element name="keywordBuffer" type="xsd:base64Binary" />
+     	<element name="bracket" type="xsd:string" />
+     	<element name="tempHeader" type="xsd:string" />
+     	<element name="docContainerBuffer" type="xsd:base64Binary" />
+     	<element name="clusterHandler" type="xsd:string" />
+     	<element name="profileId" type="xsd:string" />
+     	<element name="processOrderId" type="long"></element>
+     	<element name="initParameter" type="xsd:string" />
+     	<element name="exceptionType" type="xsd:string" />
+     </sequence>
+    </complexType>
+   </element>
+   <element name="storeForExceptionResponse">
+    <complexType>
+     <sequence>
+      <element name="storeForExceptionReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+ <element name="storeInValidation">
+    <complexType>
+     <sequence>
+     	<element name="mxunit" type="xsd:string" />
+     	<element name="user" type="xsd:string" />
+     	<element name="password" type="xsd:string" />
+     	<element name="cxunit" type="xsd:string" />
+     	<element name="projectname" type="xsd:string" />
+     	<element name="subprojectname" type="xsd:string" />
+     	<element name="title" type="xsd:string" />
+     	<element name="documentPoolId" type="xsd:long" />
+     	<element name="orderId" type="xsd:long"></element>
+     	<element name="initParameter" type="xsd:string" />
+     	<element name="exceptionType" type="xsd:string" />
+     </sequence>
+    </complexType>
+   </element>
+    <element name="storeInValidationResponse">
+    <complexType>
+     <sequence>
+      <element name="storeInValidationReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   
+   
+   <element name="storeMail">
+    <complexType>
+     <sequence>
+      <element name="mxunit" type="xsd:string"/>
+      <element name="user" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="cxunit" type="xsd:string"/>
+      <element name="projectname" type="xsd:string"/>
+      <element name="subprojectname" type="xsd:string"/>
+      <element name="bodytext" type="xsd:string"/>
+      <element name="customerId" type="xsd:string"/>
+      <element name="ref" type="xsd:int"/>
+      <element name="title" type="xsd:string"/>
+      <element name="keywordBuffer" type="xsd:base64Binary"/>
+      <element maxOccurs="unbounded" name="imagename" type="xsd:string"/>
+      <element maxOccurs="unbounded" name="imagebytes" type="xsd:base64Binary"/>
+      <element name="type" type="xsd:int"/>
+      <element name="tagMatchBuffer" type="xsd:base64Binary"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="storeMailResponse">
+    <complexType>
+     <sequence>
+      <element name="storeMailReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loadFromException">
+    <complexType>
+     <sequence>
+      <element name="mxunit" type="xsd:string"/>
+      <element name="user" type="xsd:string"/>
+      <element name="cxunit" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="questionId" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loadFromExceptionResponse">
+    <complexType>
+     <sequence>
+      <element name="loadFromExceptionReturn" type="xsd:base64Binary"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="storeMailResponse">
+
+      <wsdl:part element="impl:storeMailResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="unholdByProcessIdResponse">
+
+      <wsdl:part element="impl:unholdByProcessIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteByProcessIdRequest">
+
+      <wsdl:part element="impl:deleteByProcessId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="storeMailRequest">
+
+      <wsdl:part element="impl:storeMail" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="storeRequest">
+
+      <wsdl:part element="impl:store" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="holdByProcessIdRequest">
+
+      <wsdl:part element="impl:holdByProcessId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteByProcessIdResponse">
+
+      <wsdl:part element="impl:deleteByProcessIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="holdByProcessIdResponse">
+
+      <wsdl:part element="impl:holdByProcessIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loadFromExceptionRequest">
+
+      <wsdl:part element="impl:loadFromException" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="storeForExceptionRequest">
+
+      <wsdl:part element="impl:storeForException" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="storeResponse">
+
+      <wsdl:part element="impl:storeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getEmailIdByProcessIdRequest">
+
+      <wsdl:part element="impl:getEmailIdByProcessId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="storeForExceptionResponse">
+
+      <wsdl:part element="impl:storeForExceptionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getEmailIdByProcessIdResponse">
+
+      <wsdl:part element="impl:getEmailIdByProcessIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loadFromExceptionResponse">
+
+      <wsdl:part element="impl:loadFromExceptionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="unholdByProcessIdRequest">
+
+      <wsdl:part element="impl:unholdByProcessId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ServerContexWebservice">
+
+      <wsdl:operation name="store">
+
+         <wsdl:input message="impl:storeRequest" name="storeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:storeResponse" name="storeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteByProcessId">
+
+         <wsdl:input message="impl:deleteByProcessIdRequest" name="deleteByProcessIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteByProcessIdResponse" name="deleteByProcessIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getEmailIdByProcessId">
+
+         <wsdl:input message="impl:getEmailIdByProcessIdRequest" name="getEmailIdByProcessIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getEmailIdByProcessIdResponse" name="getEmailIdByProcessIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="holdByProcessId">
+
+         <wsdl:input message="impl:holdByProcessIdRequest" name="holdByProcessIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:holdByProcessIdResponse" name="holdByProcessIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="unholdByProcessId">
+
+         <wsdl:input message="impl:unholdByProcessIdRequest" name="unholdByProcessIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:unholdByProcessIdResponse" name="unholdByProcessIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="storeForException">
+
+         <wsdl:input message="impl:storeForExceptionRequest" name="storeForExceptionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:storeForExceptionResponse" name="storeForExceptionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="storeMail">
+
+         <wsdl:input message="impl:storeMailRequest" name="storeMailRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:storeMailResponse" name="storeMailResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="loadFromException">
+
+         <wsdl:input message="impl:loadFromExceptionRequest" name="loadFromExceptionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:loadFromExceptionResponse" name="loadFromExceptionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ServerContexWebserviceSoapBinding" type="impl:ServerContexWebservice">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="store">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="storeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="storeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteByProcessId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteByProcessIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteByProcessIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getEmailIdByProcessId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getEmailIdByProcessIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getEmailIdByProcessIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="holdByProcessId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="holdByProcessIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="holdByProcessIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="unholdByProcessId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="unholdByProcessIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="unholdByProcessIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="storeForException">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="storeForExceptionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="storeForExceptionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="storeMail">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="storeMailRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="storeMailResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="loadFromException">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="loadFromExceptionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="loadFromExceptionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ServerContexWebserviceService">
+
+      <wsdl:port binding="impl:ServerContexWebserviceSoapBinding" name="ServerContexWebservice">
+
+         <wsdlsoap:address location="http://localhost:7080/WebServiceProjectClient3/services/ServerContexWebservice"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

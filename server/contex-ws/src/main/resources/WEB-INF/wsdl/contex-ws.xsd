@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://webservice.contex.ityx.de/schema"
+           xmlns:tns="http://webservice.contex.ityx.de/schema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="ContexRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="master" type="xs:string" minOccurs="0" />
+                <xs:element name="processName" type="xs:string" minOccurs="0" />
+                <xs:element name="entries" type="tns:Entry" nillable="true"
+                            minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="ContexResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="return" type="tns:Entry" nillable="true"
+                            minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Entry">
+        <xs:sequence>
+            <xs:element name="key" type="xs:string" minOccurs="0" />
+            <xs:element name="value" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="ContexError">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="message" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
