@@ -57,7 +57,7 @@
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
-            <version>1.4.4</version>
+            <version>1.4.15</version>
         </dependency>
         <dependency>
             <!-- Jetty is needed if you're are not using the CXFServlet -->
